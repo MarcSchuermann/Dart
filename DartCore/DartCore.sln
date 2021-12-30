@@ -1,0 +1,73 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.28922.388
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Environment", "Environment\Environment.csproj", "{F92997EE-1DFB-47E3-BDAB-F7B817360EF2}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameLogic", "GameLogic\GameLogic.csproj", "{66A56490-EFE9-4D8D-92B7-E155DEF77072}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GameLogicTests", "GameLogic\Tests\GameLogicTests.csproj", "{A36F3E0A-094E-4E89-8716-D25D0778795C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A2BF478F-AEEB-4BFD-82C8-5BEBD50292A5}"
+	ProjectSection(SolutionItems) = preProject
+		Directory.Build.targets = Directory.Build.targets
+		StyleCop.ruleset = StyleCop.ruleset
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{55B77803-29BE-4480-9F2D-61A5F2C3BCD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gRPC", "gRPC\gRPC.csproj", "{9B674A08-CAFA-4032-8574-55B11E132A43}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F92997EE-1DFB-47E3-BDAB-F7B817360EF2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F92997EE-1DFB-47E3-BDAB-F7B817360EF2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F92997EE-1DFB-47E3-BDAB-F7B817360EF2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F92997EE-1DFB-47E3-BDAB-F7B817360EF2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66A56490-EFE9-4D8D-92B7-E155DEF77072}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66A56490-EFE9-4D8D-92B7-E155DEF77072}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66A56490-EFE9-4D8D-92B7-E155DEF77072}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66A56490-EFE9-4D8D-92B7-E155DEF77072}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A36F3E0A-094E-4E89-8716-D25D0778795C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A36F3E0A-094E-4E89-8716-D25D0778795C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A36F3E0A-094E-4E89-8716-D25D0778795C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A36F3E0A-094E-4E89-8716-D25D0778795C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9B674A08-CAFA-4032-8574-55B11E132A43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9B674A08-CAFA-4032-8574-55B11E132A43}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9B674A08-CAFA-4032-8574-55B11E132A43}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9B674A08-CAFA-4032-8574-55B11E132A43}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{A36F3E0A-094E-4E89-8716-D25D0778795C} = {55B77803-29BE-4480-9F2D-61A5F2C3BCD6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5B3F438C-4C66-49BF-BADC-CBB0B51F0DB7}
+	EndGlobalSection
+	GlobalSection(TeamFoundationVersionControl) = preSolution
+		SccNumberOfProjects = 5
+		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
+		SccTeamFoundationServer = https://marcschuermann.visualstudio.com/
+		SccLocalPath0 = .
+		SccProjectUniqueName1 = Environment\\Environment.csproj
+		SccProjectName1 = Environment
+		SccLocalPath1 = Environment
+		SccProjectUniqueName2 = GameLogic\\GameLogic.csproj
+		SccProjectName2 = GameLogic
+		SccLocalPath2 = GameLogic
+		SccProjectUniqueName3 = GameLogic\\Tests\\GameLogicTests.csproj
+		SccProjectTopLevelParentUniqueName3 = DartCore.sln
+		SccProjectName3 = GameLogic/Tests
+		SccLocalPath3 = GameLogic\\Tests
+		SccProjectUniqueName4 = gRPC\\gRPC.csproj
+		SccProjectName4 = gRPC
+		SccLocalPath4 = gRPC
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,338 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GameLogic</name>
+    </assembly>
+    <members>
+        <member name="T:GameLogic.DartThrow.DartBoardField">
+            <summary>The dart board fields.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardField.Zero">
+            <summary>The zero.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardField.One">
+            <summary>The one.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardField.Two">
+            <summary>The two.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardField.Three">
+            <summary>The three.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardField.Four">
+            <summary>The four.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardField.Five">
+            <summary>The five.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardField.Six">
+            <summary>The six.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardField.Seven">
+            <summary>The seven.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardField.Eight">
+            <summary>The eight.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardField.Nine">
+            <summary>The nine.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardField.Ten">
+            <summary>The ten.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardField.Eleven">
+            <summary>The eleven.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardField.Twelve">
+            <summary>The twelve.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardField.Thirteen">
+            <summary>The thirteen.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardField.Fourteen">
+            <summary>The fourteen.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardField.Fiveteen">
+            <summary>The fiveteen.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardField.Sixteen">
+            <summary>The sixteen.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardField.Seventeen">
+            <summary>The seventeen.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardField.Eighteen">
+            <summary>The eighteen.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardField.Nineteen">
+            <summary>The nineteen.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardField.Twenty">
+            <summary>The twenty.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardField.Bullseye">
+            <summary>The bullseye.</summary>
+        </member>
+        <member name="T:GameLogic.DartThrow.DartBoardQuantifier">
+            <summary>The quantifier for dart board field.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardQuantifier.Single">
+            <summary>The single.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardQuantifier.Double">
+            <summary>The double.</summary>
+        </member>
+        <member name="F:GameLogic.DartThrow.DartBoardQuantifier.Triple">
+            <summary>The triple.</summary>
+        </member>
+        <member name="T:GameLogic.DartThrow.DartThrow">
+            <summary>The dart throw.</summary>
+            <seealso cref="T:GameLogic.DartThrow.IDartThrow"/>
+        </member>
+        <member name="M:GameLogic.DartThrow.DartThrow.#ctor(GameLogic.DartThrow.DartBoardField,GameLogic.DartThrow.DartBoardQuantifier)">
+            <summary>Initializes a new instance of the <see cref="T:GameLogic.DartThrow.DartThrow"/> class.</summary>
+            <param name="dartBoardField">The dart board field.</param>
+            <param name="dartBoardQuantifier">The dart board quantifier.</param>
+        </member>
+        <member name="P:GameLogic.DartThrow.DartThrow.DartBoardField">
+            <summary>Gets the dart board field.</summary>
+            <value>The dart board field.</value>
+        </member>
+        <member name="P:GameLogic.DartThrow.DartThrow.DartBoardQuantifier">
+            <summary>Gets the dart board quantifier.</summary>
+            <value>The dart board quantifier.</value>
+        </member>
+        <member name="P:GameLogic.DartThrow.DartThrow.Points">
+            <summary>Gets the points.</summary>
+            <value>The points.</value>
+        </member>
+        <member name="M:GameLogic.DartThrow.DartThrow.CompareTo(GameLogic.DartThrow.IDartThrow)">
+            <summary>Compares to.</summary>
+            <param name="other">The other.</param>
+            <returns>The compare value.</returns>
+        </member>
+        <member name="M:GameLogic.DartThrow.DartThrow.Equals(GameLogic.DartThrow.IDartThrow)">
+            <summary>
+            Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>
+            true if the current object is equal to the <paramref name="other">other</paramref>
+            parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:GameLogic.DartThrow.DartThrow.Equals(System.Object)">
+            <summary>
+            Determines whether the specified <see cref="T:System.Object"/>, is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
+            <returns>
+            <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance;
+            otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:GameLogic.DartThrow.DartThrow.GetHashCode">
+            <summary>Returns a hash code for this instance.</summary>
+            <returns>
+            A hash code for this instance, suitable for use in hashing algorithms and data
+            structures like a hash table.
+            </returns>
+        </member>
+        <member name="M:GameLogic.DartThrow.DartThrow.ToString">
+            <summary>Converts to string.</summary>
+            <returns>A <see cref="T:System.String"/> that represents this instance.</returns>
+        </member>
+        <member name="T:GameLogic.DartThrow.IDartThrow">
+            <summary>The dart throw.</summary>
+        </member>
+        <member name="P:GameLogic.DartThrow.IDartThrow.DartBoardField">
+            <summary>Gets the dart board field.</summary>
+            <value>The dart board field.</value>
+        </member>
+        <member name="P:GameLogic.DartThrow.IDartThrow.DartBoardQuantifier">
+            <summary>Gets the dart board quantifier.</summary>
+            <value>The dart board quantifier.</value>
+        </member>
+        <member name="P:GameLogic.DartThrow.IDartThrow.Points">
+            <summary>Gets the points.</summary>
+            <value>The points.</value>
+        </member>
+        <member name="T:GameLogic.GameOptions.GameOptions">
+            <summary>The GameOptions.</summary>
+        </member>
+        <member name="P:GameLogic.GameOptions.GameOptions.AllPlayTillZero">
+            <summary>Gets or sets a value indicating whether [all play till zero].</summary>
+            <value><c>true</c> if [all play till zero]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:GameLogic.GameOptions.GameOptions.DoubleIn">
+            <summary>Gets or sets a value indicating whether [double in].</summary>
+            <value><c>true</c> if [double in]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:GameLogic.GameOptions.GameOptions.DoubleOut">
+            <summary>Gets or sets a value indicating whether [double out].</summary>
+            <value><c>true</c> if [double out]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:GameLogic.GameOptions.GameOptions.PlayerList">
+            <summary>Gets or sets the player list.</summary>
+            <value>The player list.</value>
+        </member>
+        <member name="P:GameLogic.GameOptions.GameOptions.StartPoints">
+            <summary>Gets or sets the start points.</summary>
+            <value>The start points.</value>
+        </member>
+        <member name="T:GameLogic.GameOptions.IGameOptions">
+            <summary>The game option interface.</summary>
+        </member>
+        <member name="P:GameLogic.GameOptions.IGameOptions.AllPlayTillZero">
+            <summary>Gets or sets a value indicating whether [all play till zero].</summary>
+            <value><c>true</c> if [all play till zero]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:GameLogic.GameOptions.IGameOptions.DoubleIn">
+            <summary>Gets or sets a value indicating whether [double in].</summary>
+            <value><c>true</c> if [double in]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:GameLogic.GameOptions.IGameOptions.DoubleOut">
+            <summary>Gets or sets a value indicating whether [double out].</summary>
+            <value><c>true</c> if [double out]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:GameLogic.GameOptions.IGameOptions.PlayerList">
+            <summary>Gets or sets the player list.</summary>
+            <value>The player list.</value>
+        </member>
+        <member name="P:GameLogic.GameOptions.IGameOptions.StartPoints">
+            <summary>Gets or sets the start points.</summary>
+            <value>The start points.</value>
+        </member>
+        <member name="T:GameLogic.GameProcedure.GameProcedure">
+            <summary>The game instance.</summary>
+            <seealso cref="T:GameLogic.GameProcedure.IGameProcedure"/>
+            <seealso cref="T:System.ComponentModel.INotifyPropertyChanged"/>
+        </member>
+        <member name="M:GameLogic.GameProcedure.GameProcedure.#ctor(GameLogic.GameOptions.IGameOptions)">
+            <summary>Initializes a new instance of the <see cref="T:GameLogic.GameProcedure.GameProcedure"/> class.</summary>
+            <param name="gameOptions">The game options.</param>
+        </member>
+        <member name="E:GameLogic.GameProcedure.GameProcedure.PropertyChanged">
+            <summary>Occurs when a property value changes.</summary>
+            <returns></returns>
+        </member>
+        <member name="P:GameLogic.GameProcedure.GameProcedure.CurrentPlayer">
+            <summary>Gets the current player.</summary>
+        </member>
+        <member name="P:GameLogic.GameProcedure.GameProcedure.GameOptions">
+            <summary>Gets the game options.</summary>
+            <value>The game options.</value>
+        </member>
+        <member name="M:GameLogic.GameProcedure.GameProcedure.PlayerThrown(GameLogic.DartThrow.IDartThrow)">
+            <summary>Players the thrown.</summary>
+            <param name="pointsThrown">The points thrown from the current player.</param>
+            <returns>
+            True if the remaining points are zero. False if the remaining points are more than zero
+            or rather where below zero.
+            </returns>
+        </member>
+        <member name="M:GameLogic.GameProcedure.GameProcedure.AllPointsAreZero">
+            <summary>All the points are zero.</summary>
+            <returns>True if all players points are zero.</returns>
+        </member>
+        <member name="M:GameLogic.GameProcedure.GameProcedure.AtLeastOnePlayersPointsAreZero">
+            <summary>At least one players points are zero.</summary>
+            <returns>True or false..</returns>
+        </member>
+        <member name="M:GameLogic.GameProcedure.GameProcedure.GoToNextPlayer">
+            <summary>Goes to next player.</summary>
+        </member>
+        <member name="M:GameLogic.GameProcedure.GameProcedure.RaisePropertyChanged(System.String)">
+            <summary>Raises the property changed.</summary>
+            <param name="propertyName">Name of the property.</param>
+        </member>
+        <member name="T:GameLogic.GameProcedure.IGameProcedure">
+            <summary>The logic for a game.</summary>
+        </member>
+        <member name="P:GameLogic.GameProcedure.IGameProcedure.CurrentPlayer">
+            <summary>Gets the current player.</summary>
+            <returns>The current player.</returns>
+        </member>
+        <member name="P:GameLogic.GameProcedure.IGameProcedure.GameOptions">
+            <summary>Gets the game options.</summary>
+            <value>The game options.</value>
+        </member>
+        <member name="M:GameLogic.GameProcedure.IGameProcedure.PlayerThrown(GameLogic.DartThrow.IDartThrow)">
+            <summary>Players the thrown.</summary>
+            <param name="pointsThrown">The points thrown from the current player.</param>
+            <returns>
+            True if the remaining points are zero. False if the remaining points are more than zero
+            or rather where below zero.
+            </returns>
+        </member>
+        <member name="T:GameLogic.Player.IPlayer">
+            <summary>The player interface.</summary>
+        </member>
+        <member name="P:GameLogic.Player.IPlayer.CurrentScore">
+            <summary>Gets or sets the current score.</summary>
+            <value>The current score.</value>
+        </member>
+        <member name="P:GameLogic.Player.IPlayer.DartCountThisRound">
+            <summary>Gets or sets the dart count per round.</summary>
+            <value>The dart count per round.</value>
+        </member>
+        <member name="P:GameLogic.Player.IPlayer.Name">
+            <summary>Gets or sets the name.</summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:GameLogic.Player.IPlayer.PointsThisRound">
+            <summary>Gets or sets the points this round.</summary>
+            <value>The points this round.</value>
+        </member>
+        <member name="P:GameLogic.Player.IPlayer.Round">
+            <summary>Gets or sets the round.</summary>
+            <value>The round.</value>
+        </member>
+        <member name="P:GameLogic.Player.IPlayer.ThrowHistory">
+            <summary>Gets or sets the throw history.</summary>
+            <value>The throw history.</value>
+        </member>
+        <member name="T:GameLogic.Player.Player">
+            <summary>The Player.</summary>
+        </member>
+        <member name="F:GameLogic.Player.Player.currentScore">
+            <summary>The current score.</summary>
+        </member>
+        <member name="E:GameLogic.Player.Player.PropertyChanged">
+            <summary>Occurs when a property value changes.</summary>
+            <returns></returns>
+        </member>
+        <member name="P:GameLogic.Player.Player.CurrentScore">
+            <summary>Gets or sets the current score.</summary>
+            <value>The current score.</value>
+        </member>
+        <member name="P:GameLogic.Player.Player.DartCountThisRound">
+            <summary>Gets or sets the dart count per round.</summary>
+            <value>The dart count per round.</value>
+        </member>
+        <member name="P:GameLogic.Player.Player.Name">
+            <summary>Gets or sets the name.</summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:GameLogic.Player.Player.PointsThisRound">
+            <summary>Gets or sets the points this round.</summary>
+            <value>The points this round.</value>
+        </member>
+        <member name="P:GameLogic.Player.Player.Round">
+            <summary>Gets or sets the round.</summary>
+            <value>The round.</value>
+        </member>
+        <member name="P:GameLogic.Player.Player.ThrowHistory">
+            <summary>Gets or sets the throw history.</summary>
+            <value>The throw history.</value>
+        </member>
+        <member name="M:GameLogic.Player.Player.ToString">
+            <summary>Returns a <see cref="T:System.String"/> that represents this instance.</summary>
+            <returns>A <see cref="T:System.String"/> that represents this instance.</returns>
+        </member>
+        <member name="M:GameLogic.Player.Player.RaisePropertyChanged(System.String)">
+            <summary>Raises the property changed.</summary>
+            <param name="propertyName">Name of the property.</param>
+        </member>
+    </members>
+</doc>

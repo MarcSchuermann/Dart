@@ -1,0 +1,72 @@
+﻿//// --------------------------------------------------------------------------------------------------------------------
+//// <copyright>Marc Schürmann</copyright>
+//// --------------------------------------------------------------------------------------------------------------------
+
+using Dart;
+using GameLogic.GameOptions;
+using GameLogic.Player;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using System.Collections.Generic;
+using System.Diagnostics.CodeAnalysis;
+
+namespace UnitTests.Game
+{
+    /// <summary>The unit test base.</summary>
+    [TestClass]
+    [ExcludeFromCodeCoverage]
+    public class TestBase
+    {
+        #region Public Methods
+
+        /// <summary>Gets the main window view model mock.</summary>
+        /// <returns>The mock.</returns>
+        public Mock<IMainWindowViewModel> GetMainWindowViewModelMock()
+        {
+            var playerList = new List<IPlayer>();
+            var player = new Player() { Name = "Hannes" };
+            playerList.Add(player);
+
+            return GetMainWindowViewModelMock(playerList);
+        }
+
+        /// <summary>Gets the main window view model mock.</summary>
+        /// <param name="playerlist">The player list.</param>
+        /// <returns>The mock.</returns>
+        public Mock<IMainWindowViewModel> GetMainWindowViewModelMock(List<IPlayer> playerlist)
+        {
+            var mainWindowViewModelMock = new Mock<IMainWindowViewModel>();
+            var configuredGameOptions = new Mock<IGameOptions>();
+
+            configuredGameOptions.SetupGet(x => x.PlayerList).Returns(playerlist);
+            mainWindowViewModelMock.SetupGet(x => x.ConfiguredGameOptions).Returns(configuredGameOptions.Object);
+
+            return mainWindowViewModelMock;
+        }
+
+        /// <summary>Gets the main window view model mock.</summary>
+        /// <param name="playerlist">The player list.</param>
+        /// <param name="allPlayTillZero">if set to <c>true</c> [all play till zero].</param>
+        /// <returns>The mock.</returns>
+        public Mock<IMainWindowViewModel> GetMainWindowViewModelMock(List<IPlayer> playerlist, bool allPlayTillZero)
+        {
+            var mainWindowViewModelMock = new Mock<IMainWindowViewModel>();
+            var configuredGameOptions = new Mock<IGameOptions>();
+
+            configuredGameOptions.SetupGet(x => x.PlayerList).Returns(playerlist);
+            mainWindowViewModelMock.SetupGet(x => x.ConfiguredGameOptions).Returns(configuredGameOptions.Object);
+
+            var currentApplicationSettings = new Mock<IApplicationSettings>();
+            currentApplicationSettings.SetupGet(x => x.AllPlayTillZero).Returns(allPlayTillZero);
+
+            var applicationSettingsViewModel = new Mock<IApplicationSettingsViewModel>();
+            applicationSettingsViewModel.SetupGet(x => x.CurrentApplicationSettings).Returns(currentApplicationSettings.Object);
+
+            mainWindowViewModelMock.SetupGet(x => x.SettingsViewModel).Returns(applicationSettingsViewModel.Object);
+
+            return mainWindowViewModelMock;
+        }
+
+        #endregion Public Methods
+    }
+}

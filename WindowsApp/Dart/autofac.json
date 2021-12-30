@@ -1,0 +1,24 @@
+{
+  "defaultAssembly": "Dart",
+
+  "components": [
+    {
+      "type": "Dart.ApplicationSettings",
+      "services": [
+        {
+          "type": "Dart.IApplicationSettings"
+        }
+      ],
+      "injectProperties": true
+    },
+    {
+      "type": "GameLogic.GameOptions.GameOptions, GameLogic",
+      "services": [
+        {
+          "type": "GameLogic.GameOptions.IGameOptions, GameLogic"
+        }
+      ],
+      "injectProperties": true
+    }
+  ]
+}

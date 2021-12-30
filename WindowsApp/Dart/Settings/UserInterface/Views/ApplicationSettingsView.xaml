@@ -1,0 +1,30 @@
+﻿<mah:MetroWindow x:Class="Dart.ApplicationSettingsView"
+        x:Name="Settings"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:properies="clr-namespace:Dart.Properties"
+        xmlns:mah="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+        xmlns:local="clr-namespace:Dart" Title="{x:Static properies:Resources.Settings}" WindowStartupLocation="CenterScreen" WindowState="Normal"
+        Height="400" Width="600">
+
+    <Grid>
+        <TabControl VerticalAlignment="Stretch">
+            <TabItem Header="{x:Static properies:Resources.GlobalGameSettings}">
+                <StackPanel>
+                    <CheckBox IsChecked="{Binding AllPlayTillZero}" Content="{x:Static properies:Resources.AllPlayTillZero}" Margin="2,2,0,2" />
+                    <CheckBox IsChecked="{Binding ShowUserInterfaceDartBoardData}" Content="{x:Static properies:Resources.ShowUserInterfaceDartBoardData}" Margin="2,2,0,2" />
+                </StackPanel>
+            </TabItem>
+            <TabItem Header="{x:Static properies:Resources.LanguageSelection}">
+                <ComboBox ItemsSource="{Binding AvailableLanguages.Keys}" SelectedItem="{Binding SelectedCultureInfo, Mode=TwoWay}" DisplayMemberPath="DisplayName" Height="25" MinWidth="120" VerticalAlignment="Top" HorizontalAlignment="Left" />
+            </TabItem>
+            <TabItem Header="{x:Static properies:Resources.View}">
+                <ComboBox ItemsSource="{Binding AllThemes}" SelectedItem="{Binding CurrentTheme, Mode=TwoWay}" DisplayMemberPath="DisplayName" SelectionChanged="SelectedThemeChanged" Height="25" MinWidth="120" VerticalAlignment="Top" HorizontalAlignment="Left" />
+            </TabItem>
+        </TabControl>
+        <StackPanel VerticalAlignment="Bottom" Orientation="Horizontal" HorizontalAlignment="Right">
+            <Button Content="OK" Height="30" MinWidth="70" Margin="5,5,5,5" Command="{Binding AcceptSettings}" CommandParameter="{Binding ElementName=Settings}" IsEnabled="{Binding CanAccept}" />
+            <Button Content="{x:Static properies:Resources.Cancel}" Height="30" MinWidth="70" Margin="0,5,5,5" Command="{Binding CancelSettings}" CommandParameter="{Binding ElementName=Settings}" />
+        </StackPanel>
+    </Grid>
+</mah:MetroWindow>

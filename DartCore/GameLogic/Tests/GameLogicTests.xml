@@ -1,0 +1,77 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GameLogicTests</name>
+    </assembly>
+    <members>
+        <member name="T:GameLogicTests.DartThrowTests.EqualsTest">
+            <summary>The Equals Test.</summary>
+        </member>
+        <member name="M:GameLogicTests.DartThrowTests.EqualsTest.ReturnFalseWhenFieldIsUnequal">
+            <summary>Returns the false when field is unequal.</summary>
+        </member>
+        <member name="M:GameLogicTests.DartThrowTests.EqualsTest.ReturnFalseWhenQuantifierAndFieldIsUnequal">
+            <summary>Returns the false when quantifier and field is unequal.</summary>
+        </member>
+        <member name="M:GameLogicTests.DartThrowTests.EqualsTest.ReturnFalseWhenQuantifierIsUnequal">
+            <summary>Returns the false when quantifier is unequal.</summary>
+        </member>
+        <member name="M:GameLogicTests.DartThrowTests.EqualsTest.ReturnTrueWhenEqual">
+            <summary>Returns the true when equal.</summary>
+        </member>
+        <member name="T:GameLogicTests.GameTests.ConstructorTest">
+            <summary>Tests the constructor.</summary>
+        </member>
+        <member name="M:GameLogicTests.GameTests.ConstructorTest.InitializedCorrect">
+            <summary>Initializeds the correct.</summary>
+        </member>
+        <member name="T:GameLogicTests.GameTests.ThrownTest">
+            <summary>Tests the method player thrown.</summary>
+        </member>
+        <member name="M:GameLogicTests.GameTests.ThrownTest.AllPlayerZeroPointsThrown">
+            <summary>Alls the player zero points thrown.</summary>
+        </member>
+        <member name="M:GameLogicTests.GameTests.ThrownTest.NextPlayerHasZeroPointsButAllPlayTillZeroThrown">
+            <summary>Nexts the player has zero points but all play till zero thrown.</summary>
+        </member>
+        <member name="M:GameLogicTests.GameTests.ThrownTest.OnePlayerHasZeroPointsButAllPlayTillZeroThrown">
+            <summary>Called when [player has zero points but all play till zero thrown].</summary>
+        </member>
+        <member name="M:GameLogicTests.GameTests.ThrownTest.PlayerThirdThrowGoToNextPlayer">
+            <summary>Players the third throw go to next player.</summary>
+        </member>
+        <member name="M:GameLogicTests.GameTests.ThrownTest.PlayerThrownBelowZero">
+            <summary>Players the thrown below zero.</summary>
+        </member>
+        <member name="M:GameLogicTests.GameTests.ThrownTest.PlayerThrownBelowZeroGoToNextPlayer">
+            <summary>Players the thrown below zero go to next player.</summary>
+        </member>
+        <member name="M:GameLogicTests.GameTests.ThrownTest.PlayerThrownSuccesfully">
+            <summary>Players the thrown succesfully.</summary>
+        </member>
+        <member name="M:GameLogicTests.GameTests.ThrownTest.PlayerThrownSuccesfullyCurrentScoreChanged">
+            <summary>Players the thrown succesfully current score changed.</summary>
+        </member>
+        <member name="M:GameLogicTests.GameTests.ThrownTest.PlayerThrownToZero">
+            <summary>Players the thrown to zero.</summary>
+        </member>
+        <member name="T:GameLogicTests.PlayerTests.ConstructorTest">
+            <summary>Tests the constructor.</summary>
+        </member>
+        <member name="M:GameLogicTests.PlayerTests.ConstructorTest.InitializationIsCorrect">
+            <summary>Initializations the is correct.</summary>
+        </member>
+        <member name="T:GameLogicTests.PlayerTests.CurrentScoreTest">
+            <summary>Tests that the current score property changed event was raised.</summary>
+        </member>
+        <member name="M:GameLogicTests.PlayerTests.CurrentScoreTest.RaisePropertyChangedSettingCurrentScore">
+            <summary>Raises the property changed setting current score.</summary>
+        </member>
+        <member name="T:GameLogicTests.PlayerTests.ToStringTest">
+            <summary>Tests the to string method.</summary>
+        </member>
+        <member name="M:GameLogicTests.PlayerTests.ToStringTest.ToStringReturnsName">
+            <summary>To the name of the string returns.</summary>
+        </member>
+    </members>
+</doc>
