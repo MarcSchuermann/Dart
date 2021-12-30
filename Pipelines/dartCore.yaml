@@ -1,0 +1,90 @@
+pool:
+  name: Azure Pipelines
+  demands:
+  - msbuild
+  - visualstudio
+  - vstest
+  - npm
+
+variables:
+- name: BuildPlatform
+  value: any cpu
+- name: BuildConfiguration
+  value: release
+
+steps:
+- task: NuGetCommand@2
+  displayName: 'NuGet restore'
+  inputs:
+    restoreSolution: '**\*.sln'
+
+- task: VSBuild@1
+  displayName: 'Build solution **\*.sln'
+  inputs:
+    msbuildArgs: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory)'
+    platform: '$(BuildPlatform)'
+    configuration: '$(BuildConfiguration)'
+
+- task: VSTest@2
+  displayName: 'VsTest - testAssemblies'
+  inputs:
+    testAssemblyVer2: |
+     $(Build.BinariesDirectory)\**\*Tests.dll
+     !**\obj\**
+    codeCoverageEnabled: true
+    platform: '$(BuildPlatform)'
+    configuration: '$(BuildConfiguration)'
+
+- task: CopyFiles@2
+  displayName: 'Copy TestResult Files to: $(build.artifactstagingdirectory)\TestResults'
+  inputs:
+    SourceFolder: '$(Agent.TempDirectory)\TestResults'
+    Contents: |
+     **\*.trx
+     **\*.coverage
+    TargetFolder: '$(build.artifactstagingdirectory)\TestResults'
+    flattenFolders: true
+
+- task: NuGetCommand@2
+  displayName: 'NuGet push'
+  inputs:
+    command: push
+    packagesToPush: '$(Build.BinariesDirectory)/**/*.nupkg'
+    publishVstsFeed: 'c05ca382-95eb-43eb-af0a-00b109382f26'
+    allowPackageConflicts: true
+
+- task: chrismason.vsts-docfxtasks.docfx-extension-build-task.DocFxTask@0
+  displayName: 'Create DocFx Documentation Environment'
+  inputs:
+    solution: '$/TeamProjectMarc/Dart/Dev/DartCore/Environment/docfx.json'
+
+- task: chrismason.vsts-docfxtasks.docfx-extension-build-task.DocFxTask@0
+  displayName: 'Create DocFx Documentation GameLogic'
+  inputs:
+    solution: '$/TeamProjectMarc/Dart/Dev/DartCore/GameLogic/docfx.json'
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)/doc_Environment/'
+  inputs:
+    SourceFolder: '$/TeamProjectMarc/Dart/Dev/DartCore/Environment/_site'
+    TargetFolder: '$(build.artifactstagingdirectory)/doc_Environment/'
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)/doc_GameLogic/'
+  inputs:
+    SourceFolder: '$/TeamProjectMarc/Dart/Dev/DartCore/GameLogic/_site'
+    TargetFolder: '$(build.artifactstagingdirectory)/doc_GameLogic/'
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
+  inputs:
+    SourceFolder: '$(system.defaultworkingdirectory)'
+    Contents: '**\bin\$(BuildConfiguration)\**'
+    TargetFolder: '$(build.artifactstagingdirectory)'
+  condition: succeededOrFailed()
+
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+  condition: succeededOrFailed()
