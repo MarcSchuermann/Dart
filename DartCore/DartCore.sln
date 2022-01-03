@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.28922.388
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Environment", "Environment\Environment.csproj", "{F92997EE-1DFB-47E3-BDAB-F7B817360EF2}"
 EndProject
@@ -16,8 +16,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{55B77803-29BE-4480-9F2D-61A5F2C3BCD6}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "gRPC", "gRPC\gRPC.csproj", "{9B674A08-CAFA-4032-8574-55B11E132A43}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +35,6 @@ Global
 		{A36F3E0A-094E-4E89-8716-D25D0778795C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A36F3E0A-094E-4E89-8716-D25D0778795C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A36F3E0A-094E-4E89-8716-D25D0778795C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{9B674A08-CAFA-4032-8574-55B11E132A43}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9B674A08-CAFA-4032-8574-55B11E132A43}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9B674A08-CAFA-4032-8574-55B11E132A43}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9B674A08-CAFA-4032-8574-55B11E132A43}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -50,24 +44,5 @@ Global
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5B3F438C-4C66-49BF-BADC-CBB0B51F0DB7}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 5
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://marcschuermann.visualstudio.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Environment\\Environment.csproj
-		SccProjectName1 = Environment
-		SccLocalPath1 = Environment
-		SccProjectUniqueName2 = GameLogic\\GameLogic.csproj
-		SccProjectName2 = GameLogic
-		SccLocalPath2 = GameLogic
-		SccProjectUniqueName3 = GameLogic\\Tests\\GameLogicTests.csproj
-		SccProjectTopLevelParentUniqueName3 = DartCore.sln
-		SccProjectName3 = GameLogic/Tests
-		SccLocalPath3 = GameLogic\\Tests
-		SccProjectUniqueName4 = gRPC\\gRPC.csproj
-		SccProjectName4 = gRPC
-		SccLocalPath4 = gRPC
 	EndGlobalSection
 EndGlobal
