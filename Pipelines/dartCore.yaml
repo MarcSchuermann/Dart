@@ -17,7 +17,7 @@ steps:
   displayName: 'NuGet restore'
   inputs:
     command: 'restore'
-    projects: '**\DartCore.sln'
+    projects: '**/DartCore.sln'
     feedsToUse: 'select'
     vstsFeed: 'c05ca382-95eb-43eb-af0a-00b109382f26'
 
