@@ -8,7 +8,7 @@ pool:
 
 variables:
 - name: BuildPlatform
-  value: any cpu
+  value: Any CPU
 - name: BuildConfiguration
   value: release
 
