@@ -18,10 +18,10 @@ steps:
   inputs:
     restoreSolution: '**\*.sln'
 
-- task: VSBuild@1
+- task: MSBuild@1
   displayName: 'Build solution **\*.sln'
   inputs:
-    msbuildArgs: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory)'
+    msbuildArguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory)'
     platform: '$(BuildPlatform)'
     configuration: '$(BuildConfiguration)'
 
