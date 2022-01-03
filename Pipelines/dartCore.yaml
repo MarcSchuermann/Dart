@@ -13,11 +13,11 @@ variables:
   value: release
 
 steps:
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
   displayName: 'NuGet restore'
   inputs:
     command: 'restore'
-    restoreSolution: '**\DartCore.sln'
+    projects: '**\DartCore.sln'
     feedsToUse: 'select'
     vstsFeed: 'c05ca382-95eb-43eb-af0a-00b109382f26'
 
