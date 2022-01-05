@@ -56,23 +56,23 @@ steps:
 - task: chrismason.vsts-docfxtasks.docfx-extension-build-task.DocFxTask@0
   displayName: 'Create DocFx Documentation Environment'
   inputs:
-    solution: '/DartCore/Environment/docfx.json'
+    solution: '$(System.DefaultWorkingDirectory)/DartCore/Environment/docfx.json'
 
 - task: chrismason.vsts-docfxtasks.docfx-extension-build-task.DocFxTask@0
   displayName: 'Create DocFx Documentation GameLogic'
   inputs:
-    solution: '/DartCore/GameLogic/docfx.json'
+    solution: '$(System.DefaultWorkingDirectory)/DartCore/GameLogic/docfx.json'
 
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)/doc_Environment/'
   inputs:
-    SourceFolder: '/DartCore/Environment/_site'
+    SourceFolder: '$(System.DefaultWorkingDirectory)/DartCore/Environment/_site'
     TargetFolder: '$(build.artifactstagingdirectory)/doc_Environment/'
 
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)/doc_GameLogic/'
   inputs:
-    SourceFolder: '/DartCore/GameLogic/_site'
+    SourceFolder: '$(System.DefaultWorkingDirectory)/DartCore/GameLogic/_site'
     TargetFolder: '$(build.artifactstagingdirectory)/doc_GameLogic/'
 
 - task: CopyFiles@2
