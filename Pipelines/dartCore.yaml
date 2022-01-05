@@ -1,10 +1,5 @@
 pool:
-  name: Azure Pipelines
-  demands:
-  - msbuild
-  - visualstudio
-  - vstest
-  - npm
+  vmImage: 'windows-latest'
 
 variables:
 - name: BuildPlatform
