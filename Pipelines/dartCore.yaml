@@ -8,22 +8,27 @@ pool:
 
 variables:
 - name: BuildPlatform
-  value: any cpu
+  value: Any CPU
 - name: BuildConfiguration
   value: release
 
 steps:
-- task: NuGetCommand@2
+- task: DotNetCoreCLI@2
   displayName: 'NuGet restore'
   inputs:
-    restoreSolution: '**\*.sln'
+    command: 'restore'
+    projects: '**/DartCore.sln'
+    feedsToUse: 'select'
+    vstsFeed: 'c05ca382-95eb-43eb-af0a-00b109382f26'
 
 - task: MSBuild@1
-  displayName: 'Build solution **\*.sln'
+  displayName: 'Build solution **\DartCore.sln'
   inputs:
-    msbuildArguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory)'
+    solution: '**/DartCore.sln'
+    msbuildArchitecture: 'x64'
     platform: '$(BuildPlatform)'
     configuration: '$(BuildConfiguration)'
+    msbuildArguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory)'
 
 - task: VSTest@2
   displayName: 'VsTest - testAssemblies'
