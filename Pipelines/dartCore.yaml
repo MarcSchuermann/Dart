@@ -45,6 +45,11 @@ steps:
     TargetFolder: '$(build.artifactstagingdirectory)\TestResults'
     flattenFolders: true
 
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish code coverage result'
+  inputs:
+    codeCoverageTool: 'JaCoCo'
+
 - task: NuGetCommand@2
   displayName: 'NuGet push'
   inputs:
