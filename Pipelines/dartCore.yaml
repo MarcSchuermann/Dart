@@ -30,9 +30,14 @@ steps:
   inputs:
     command: 'test'
     projects: '$(Build.BinariesDirectory)\**\*Tests.dll'
-    arguments: '--collect "Code coverage"'
-#      !**\obj\**
+    arguments: '--configuration $(buildConfiguration) --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=cobertura'
+    publishTestResults: true
 
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish code coverage report'
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
 # - task: VSTest@2
 #   displayName: 'VsTest - testAssemblies'
 #   inputs:
@@ -70,16 +75,16 @@ steps:
   inputs:
     solution: '$(System.DefaultWorkingDirectory)/DartCore/Environment/docfx.json'
 
-- task: chrismason.vsts-docfxtasks.docfx-extension-build-task.DocFxTask@0
-  displayName: 'Create DocFx Documentation GameLogic'
-  inputs:
-    solution: '$(System.DefaultWorkingDirectory)/DartCore/GameLogic/docfx.json'
-
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)/docu/Environment/'
   inputs:
     SourceFolder: '$(System.DefaultWorkingDirectory)/DartCore/Environment/_site'
     TargetFolder: '$(build.artifactstagingdirectory)/docu/Environment/'
+
+- task: chrismason.vsts-docfxtasks.docfx-extension-build-task.DocFxTask@0
+  displayName: 'Create DocFx Documentation GameLogic'
+  inputs:
+    solution: '$(System.DefaultWorkingDirectory)/DartCore/GameLogic/docfx.json'
 
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)/docu/GameLogic/'
