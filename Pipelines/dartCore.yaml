@@ -1,10 +1,5 @@
 pool:
-  name: Azure Pipelines
-  demands:
-  - msbuild
-  - visualstudio
-  - vstest
-  - npm
+  vmImage: 'windows-latest'
 
 variables:
 - name: BuildPlatform
@@ -14,7 +9,7 @@ variables:
 
 steps:
 - task: DotNetCoreCLI@2
-  displayName: 'NuGet restore'
+  displayName: 'DotNetCoreCLI NuGet restore'
   inputs:
     command: 'restore'
     projects: '**/DartCore.sln'
@@ -25,30 +20,47 @@ steps:
   displayName: 'Build solution **\DartCore.sln'
   inputs:
     solution: '**/DartCore.sln'
-    msbuildArchitecture: 'x64'
+    # msbuildArchitecture: 'x64'
     platform: '$(BuildPlatform)'
     configuration: '$(BuildConfiguration)'
     msbuildArguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory)'
 
-- task: VSTest@2
-  displayName: 'VsTest - testAssemblies'
+- task: DotNetCoreCLI@2
+  displayName: 'Run unit tests'
   inputs:
-    testAssemblyVer2: |
-     $(Build.BinariesDirectory)\**\*Tests.dll
-     !**\obj\**
-    codeCoverageEnabled: true
-    platform: '$(BuildPlatform)'
-    configuration: '$(BuildConfiguration)'
+    command: 'test'
+    projects: '$(Build.BinariesDirectory)\**\*Tests.dll'
+    arguments: '--configuration $(buildConfiguration) --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=cobertura'
+    publishTestResults: true
 
-- task: CopyFiles@2
-  displayName: 'Copy TestResult Files to: $(build.artifactstagingdirectory)\TestResults'
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish code coverage report'
   inputs:
-    SourceFolder: '$(Agent.TempDirectory)\TestResults'
-    Contents: |
-     **\*.trx
-     **\*.coverage
-    TargetFolder: '$(build.artifactstagingdirectory)\TestResults'
-    flattenFolders: true
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
+# - task: VSTest@2
+#   displayName: 'VsTest - testAssemblies'
+#   inputs:
+#     testAssemblyVer2: |
+#     codeCoverageEnabled: true
+#     platform: '$(BuildPlatform)'
+#     configuration: '$(BuildConfiguration)'
+
+# - task: CopyFiles@2
+#   displayName: 'Copy TestResult Files to: $(build.artifactstagingdirectory)\TestResults'
+#   inputs:
+#     SourceFolder: '$(Agent.TempDirectory)\TestResults'
+#     Contents: |
+#      **\*.trx
+#      **\*.coverage
+#     TargetFolder: '$(build.artifactstagingdirectory)\TestResults'
+#     flattenFolders: true
+
+# - task: PublishCodeCoverageResults@1
+#   displayName: 'Publish code coverage result'
+#   inputs:
+#     codeCoverageTool: 'JaCoCo'
+#     summaryFileLocation: '$(Agent.TempDirectory)\TestResults\*.coverage'
 
 - task: NuGetCommand@2
   displayName: 'NuGet push'
@@ -61,31 +73,31 @@ steps:
 - task: chrismason.vsts-docfxtasks.docfx-extension-build-task.DocFxTask@0
   displayName: 'Create DocFx Documentation Environment'
   inputs:
-    solution: '$/TeamProjectMarc/Dart/Dev/DartCore/Environment/docfx.json'
+    solution: '$(System.DefaultWorkingDirectory)/DartCore/Environment/docfx.json'
+
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)/docu/Environment/'
+  inputs:
+    SourceFolder: '$(System.DefaultWorkingDirectory)/DartCore/Environment/_site'
+    TargetFolder: '$(build.artifactstagingdirectory)/docu/Environment/'
 
 - task: chrismason.vsts-docfxtasks.docfx-extension-build-task.DocFxTask@0
   displayName: 'Create DocFx Documentation GameLogic'
   inputs:
-    solution: '$/TeamProjectMarc/Dart/Dev/DartCore/GameLogic/docfx.json'
+    solution: '$(System.DefaultWorkingDirectory)/DartCore/GameLogic/docfx.json'
 
 - task: CopyFiles@2
-  displayName: 'Copy Files to: $(build.artifactstagingdirectory)/doc_Environment/'
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)/docu/GameLogic/'
   inputs:
-    SourceFolder: '$/TeamProjectMarc/Dart/Dev/DartCore/Environment/_site'
-    TargetFolder: '$(build.artifactstagingdirectory)/doc_Environment/'
+    SourceFolder: '$(System.DefaultWorkingDirectory)/DartCore/GameLogic/_site'
+    TargetFolder: '$(build.artifactstagingdirectory)/docu/GameLogic/'
 
 - task: CopyFiles@2
-  displayName: 'Copy Files to: $(build.artifactstagingdirectory)/doc_GameLogic/'
+  displayName: 'Copy binaries to: $(build.artifactstagingdirectory)'
   inputs:
-    SourceFolder: '$/TeamProjectMarc/Dart/Dev/DartCore/GameLogic/_site'
-    TargetFolder: '$(build.artifactstagingdirectory)/doc_GameLogic/'
-
-- task: CopyFiles@2
-  displayName: 'Copy Files to: $(build.artifactstagingdirectory)'
-  inputs:
-    SourceFolder: '$(system.defaultworkingdirectory)'
-    Contents: '**\bin\$(BuildConfiguration)\**'
-    TargetFolder: '$(build.artifactstagingdirectory)'
+    SourceFolder: '$(Build.BinariesDirectory)'
+    Contents: '**'
+    TargetFolder: '$(build.artifactstagingdirectory)/binaries'
   condition: succeededOrFailed()
 
 - task: PublishBuildArtifacts@1
