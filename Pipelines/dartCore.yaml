@@ -25,15 +25,20 @@ steps:
     configuration: '$(BuildConfiguration)'
     msbuildArguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory)'
 
-- task: VSTest@2
-  displayName: 'VsTest - testAssemblies'
+- task: DotNetCoreCLI@2
+  displayName: 'Run unit tests'
   inputs:
-    testAssemblyVer2: |
-     $(Build.BinariesDirectory)\**\*Tests.dll
-     !**\obj\**
-    codeCoverageEnabled: true
-    platform: '$(BuildPlatform)'
-    configuration: '$(BuildConfiguration)'
+    command: 'test'
+    projects: $(Build.BinariesDirectory)\**\*Tests.dll
+#      !**\obj\**
+
+# - task: VSTest@2
+#   displayName: 'VsTest - testAssemblies'
+#   inputs:
+#     testAssemblyVer2: |
+#     codeCoverageEnabled: true
+#     platform: '$(BuildPlatform)'
+#     configuration: '$(BuildConfiguration)'
 
 # - task: CopyFiles@2
 #   displayName: 'Copy TestResult Files to: $(build.artifactstagingdirectory)\TestResults'
