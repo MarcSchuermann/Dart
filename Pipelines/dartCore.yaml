@@ -30,14 +30,9 @@ steps:
   inputs:
     command: 'test'
     projects: '$(Build.BinariesDirectory)\**\*Tests.dll'
-    arguments: '--configuration $(buildConfiguration) --collect:"XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=cobertura'
+    arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
     publishTestResults: true
 
-- task: PublishCodeCoverageResults@1
-  displayName: 'Publish code coverage report'
-  inputs:
-    codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '$(Agent.TempDirectory)/**/coverage.cobertura.xml'
 # - task: VSTest@2
 #   displayName: 'VsTest - testAssemblies'
 #   inputs:
