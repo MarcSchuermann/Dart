@@ -29,7 +29,8 @@ steps:
   displayName: 'Run unit tests'
   inputs:
     command: 'test'
-    projects: $(Build.BinariesDirectory)\**\*Tests.dll
+    projects: '$(Build.BinariesDirectory)\**\*Tests.dll'
+    arguments: '--collect "Code coverage"'
 #      !**\obj\**
 
 # - task: VSTest@2
