@@ -30,8 +30,7 @@ steps:
   inputs:
     command: 'test'
     projects: '$(Build.BinariesDirectory)\**\*Tests.dll'
-    arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
-    publishTestResults: true
+    arguments: '--configuration $(buildConfiguration) --logger trx --collect "Code coverage"'
 
 # - task: VSTest@2
 #   displayName: 'VsTest - testAssemblies'
