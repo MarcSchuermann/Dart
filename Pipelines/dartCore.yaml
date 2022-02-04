@@ -29,19 +29,13 @@ steps:
   inputs:
     command: 'test'
     projects: '$(Build.BinariesDirectory)\**\*Tests.dll'
-    arguments: '--configuration $(buildConfiguration) --collect:"XPlat Code Coverage"'
+    arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
 
-- script: 'dotnet tool install -g dotnet-reportgenerator-globaltool'
-  displayName: 'Command Line Script'
-
-- script: 'reportgenerator -reports:$(Agent.TempDirectory)/**/coverage.cobertura.xml -targetdir:$(build.sourcesdirectory) -reporttypes:"Cobertura"'
-  displayName: 'Command Line Script'
-
-- task: PublishCodeCoverageResults@1
-  displayName: 'Publish code coverage from $(build.sourcesdirectory)/Cobertura.xml'
+- script: dotnet test <test-project> --logger trx --collect "Code coverage"
+- task: PublishTestResults@2
   inputs:
-    codeCoverageTool: Cobertura
-    summaryFileLocation: '$(build.sourcesdirectory)/Cobertura.xml'
+    testRunner: VSTest
+    testResultsFiles: '**/*.trx'
 
 - task: NuGetCommand@2
   displayName: 'NuGet push'
