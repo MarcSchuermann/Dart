@@ -30,12 +30,13 @@ steps:
     command: 'test'
     projects: '$(Build.BinariesDirectory)\**\*Tests.dll'
     arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
+    publishTestResults: true
 
 # - script: dotnet test <test-project> --logger trx --collect "Code coverage"
-- task: PublishTestResults@2
-  inputs:
-    testRunner: VSTest
-    testResultsFiles: '**/*.trx'
+# - task: PublishTestResults@2
+#   inputs:
+#     testRunner: VSTest
+#     testResultsFiles: '**/*.trx'
 
 - task: NuGetCommand@2
   displayName: 'NuGet push'
