@@ -29,7 +29,7 @@ steps:
   inputs:
     command: 'test'
     projects: '$(Build.BinariesDirectory)\**\*Tests.dll'
-    arguments: '--configuration $(buildConfiguration) --collect "Code coverage"'
+    arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura'
     publishTestResults: true
 
 # - script: dotnet test <test-project> --logger trx --collect "Code coverage"
