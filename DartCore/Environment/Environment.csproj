@@ -8,7 +8,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <TargetFrameworks>net461;netstandard2.0</TargetFrameworks>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
     <NoWarn>1701;1702</NoWarn>
     <DocumentationFile>Environment.xml</DocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
