@@ -38,7 +38,7 @@ steps:
       **\*test*.dll
       !**\*TestAdapter.dll
       !**\obj\**
-    searchFolder: '$(System.DefaultWorkingDirectory)'
+    searchFolder: '$(Build.BinariesDirectory)'
     codeCoverageEnabled: true
 # - script: dotnet test <test-project> --logger trx --collect "Code coverage"
 # - task: PublishTestResults@2
