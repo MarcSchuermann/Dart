@@ -24,14 +24,22 @@ steps:
     configuration: '$(BuildConfiguration)'
     msbuildArguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory)'
 
-- task: DotNetCoreCLI@2
-  displayName: 'Run unit tests'
+# - task: DotNetCoreCLI@2
+#   displayName: 'Run unit tests'
+#   inputs:
+#     command: 'test'
+#     projects: '$(Build.BinariesDirectory)\**\*Tests.dll'
+#     arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura'
+#     publishTestResults: true
+- task: VSTest@2
   inputs:
-    command: 'test'
-    projects: '$(Build.BinariesDirectory)\**\*Tests.dll'
-    arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura'
-    publishTestResults: true
-
+    testSelector: 'testAssemblies'
+    testAssemblyVer2: |
+      **\*test*.dll
+      !**\*TestAdapter.dll
+      !**\obj\**
+    searchFolder: '$(System.DefaultWorkingDirectory)'
+    codeCoverageEnabled: true
 # - script: dotnet test <test-project> --logger trx --collect "Code coverage"
 # - task: PublishTestResults@2
 #   inputs:
