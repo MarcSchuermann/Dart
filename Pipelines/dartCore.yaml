@@ -7,8 +7,13 @@ variables:
 - name: BuildConfiguration
   value: release
 
-steps:
+parameters:
+- name: publishNuget
+  displayName: publish to nuget.org
+  type: boolean
+  default: false
 
+steps:
 # --- Restore nuget packages ---
 - task: DotNetCoreCLI@2
   displayName: 'DotNetCoreCLI NuGet restore'
@@ -45,6 +50,7 @@ steps:
 
 # --- Publish nuget packages ---
 - task: NuGetCommand@2
+  condition: and(succeeded(), eq(${{ publishNuget }}, 'true'))
   displayName: 'NuGet push'
   inputs:
     command: push
