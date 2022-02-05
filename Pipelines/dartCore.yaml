@@ -8,6 +8,8 @@ variables:
   value: release
 
 steps:
+
+# --- Restore nuget packages ---
 - task: DotNetCoreCLI@2
   displayName: 'DotNetCoreCLI NuGet restore'
   inputs:
@@ -16,6 +18,7 @@ steps:
     feedsToUse: 'select'
     vstsFeed: 'c05ca382-95eb-43eb-af0a-00b109382f26'
 
+# --- Build solution ---
 - task: MSBuild@1
   displayName: 'Build solution **\DartCore.sln'
   inputs:
@@ -24,20 +27,15 @@ steps:
     configuration: '$(BuildConfiguration)'
     msbuildArguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory)'
 
+# --- Run unit tests ---
 - task: DotNetCoreCLI@2
   displayName: 'dotnet test'
   inputs:
     command: 'test'
     projects: '**/*Tests.csproj'
     arguments: '/p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./MyCoverage/'
-#     publishTestResults: true
-# - task: VSTest@2
-#   inputs:
-#     testSelector: 'testAssemblies'
-#     testAssemblyVer2: |
-#       **\*Tests.dll
-#     searchFolder: '$(Build.BinariesDirectory)'
-#     codeCoverageEnabled: true
+
+# --- Publish code coverage results ---
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish Code Coverage Results'
   inputs:
@@ -45,6 +43,7 @@ steps:
     summaryFileLocation: '$(Build.SourcesDirectory)/**/MyCoverage/coverage.cobertura.xml'
     failIfCoverageEmpty: true
 
+# --- Publish nuget packages ---
 - task: NuGetCommand@2
   displayName: 'NuGet push'
   inputs:
@@ -53,28 +52,33 @@ steps:
     publishVstsFeed: 'c05ca382-95eb-43eb-af0a-00b109382f26'
     allowPackageConflicts: true
 
-- task: chrismason.vsts-docfxtasks.docfx-extension-build-task.DocFxTask@0
+# --- Create docu for environment ---
+- task: DocFxTask@0
   displayName: 'Create DocFx Documentation Environment'
   inputs:
     solution: '$(System.DefaultWorkingDirectory)/DartCore/Environment/docfx.json'
 
+# --- Copy docu for environment ---
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)/docu/Environment/'
   inputs:
     SourceFolder: '$(System.DefaultWorkingDirectory)/DartCore/Environment/_site'
     TargetFolder: '$(build.artifactstagingdirectory)/docu/Environment/'
 
-- task: chrismason.vsts-docfxtasks.docfx-extension-build-task.DocFxTask@0
+# --- Create docu for game logic ---
+- task: DocFxTask@0
   displayName: 'Create DocFx Documentation GameLogic'
   inputs:
     solution: '$(System.DefaultWorkingDirectory)/DartCore/GameLogic/docfx.json'
 
+# --- Copy docu for game logic ---
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)/docu/GameLogic/'
   inputs:
     SourceFolder: '$(System.DefaultWorkingDirectory)/DartCore/GameLogic/_site'
     TargetFolder: '$(build.artifactstagingdirectory)/docu/GameLogic/'
 
+# --- Copy binaries ---
 - task: CopyFiles@2
   displayName: 'Copy binaries to: $(build.artifactstagingdirectory)'
   inputs:
@@ -83,6 +87,7 @@ steps:
     TargetFolder: '$(build.artifactstagingdirectory)/binaries'
   condition: succeededOrFailed()
 
+# --- Publish drop ---
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   inputs:
