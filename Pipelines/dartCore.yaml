@@ -50,7 +50,7 @@ steps:
 
 # --- Publish nuget packages ---
 - task: NuGetCommand@2
-  condition: and(succeeded(), eq(${{ parameters.publishNuget }}, 'true'))
+  condition: and(succeeded(), eq(parameters.publishNuget, 'true'))
   displayName: 'NuGet push'
   inputs:
     command: push
