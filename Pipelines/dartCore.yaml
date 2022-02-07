@@ -29,6 +29,7 @@ steps:
 
 # --- Get Version from targets file ---
 - task: PowerShell@2
+  displayName: Update Version
   inputs:
     targetType: 'inline'
     script: |
