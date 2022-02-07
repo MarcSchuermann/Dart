@@ -12,6 +12,10 @@ parameters:
   displayName: publish to nuget.org
   type: boolean
   default: false
+- name: alpha
+  displayName: set alpha version
+  type: boolean
+  default: true
 
 steps:
 # --- Restore nuget packages ---
@@ -23,6 +27,27 @@ steps:
     feedsToUse: 'select'
     vstsFeed: 'c05ca382-95eb-43eb-af0a-00b109382f26'
 
+# --- Get Version from targets file ---
+- task: PowerShell@2
+  inputs:
+    targetType: 'inline'
+    script: |
+      [xml]$targetsFile = Get-Content -Path $(Build.SourcesDirectory)/DartCore/Directory.Build.targets
+      $version = $targetsFile.Project.PropertyGroup.Version
+      Write-Host "Parsed version is $version"
+
+      if ( '${{ parameters.alpha }}' -eq 'true' )
+      {
+        $alphaVersion = $version + "-alpha.$(Build.BuildNumber)"
+        Write-Host "Full version is $alphaVersion"
+        Write-Host "##vso[task.setvariable variable=fullVersion]$alphaVersion"
+      }
+      else
+      {
+        Write-Host "Full version is $version"
+        Write-Host "##vso[task.setvariable variable=fullVersion]$version"
+      }
+
 # --- Build solution ---
 - task: MSBuild@1
   displayName: 'Build solution **\DartCore.sln'
@@ -30,7 +55,7 @@ steps:
     solution: '**/DartCore.sln'
     platform: '$(BuildPlatform)'
     configuration: '$(BuildConfiguration)'
-    msbuildArguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory)'
+    msbuildArguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory) /p:Version=$(fullVersion)'
 
 # --- Run unit tests ---
 - task: DotNetCoreCLI@2
