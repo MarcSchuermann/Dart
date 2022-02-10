@@ -7,12 +7,12 @@
 namespace GameLogic.DartThrow
 {
     /// <summary>The dart throw.</summary>
-    /// <seealso cref="IDartThrow"/>
+    /// <seealso cref="IDartThrow" />
     public class DartThrow : IDartThrow
     {
         #region Public Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="DartThrow"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="DartThrow" /> class.</summary>
         /// <param name="dartBoardField">The dart board field.</param>
         /// <param name="dartBoardQuantifier">The dart board quantifier.</param>
         public DartThrow(DartBoardField dartBoardField, DartBoardQuantifier dartBoardQuantifier)
@@ -49,7 +49,7 @@ namespace GameLogic.DartThrow
             if (other == null)
                 return 1;
 
-            if (other.Points >= Points)
+            if (other.Points > Points)
                 return -1;
 
             if (other.Points == Points)
@@ -59,12 +59,12 @@ namespace GameLogic.DartThrow
         }
 
         /// <summary>
-        /// Indicates whether the current object is equal to another object of the same type.
+        ///    Indicates whether the current object is equal to another object of the same type.
         /// </summary>
         /// <param name="other">An object to compare with this object.</param>
         /// <returns>
-        /// true if the current object is equal to the <paramref name="other">other</paramref>
-        /// parameter; otherwise, false.
+        ///    true if the current object is equal to the <paramref name="other">other</paramref>
+        ///    parameter; otherwise, false.
         /// </returns>
         public bool Equals(IDartThrow other)
         {
@@ -72,12 +72,12 @@ namespace GameLogic.DartThrow
         }
 
         /// <summary>
-        /// Determines whether the specified <see cref="object"/>, is equal to this instance.
+        ///    Determines whether the specified <see cref="object" />, is equal to this instance.
         /// </summary>
-        /// <param name="obj">The <see cref="object"/> to compare with this instance.</param>
+        /// <param name="obj">The <see cref="object" /> to compare with this instance.</param>
         /// <returns>
-        /// <c>true</c> if the specified <see cref="object"/> is equal to this instance;
-        /// otherwise, <c>false</c>.
+        ///    <c>true</c> if the specified <see cref="object" /> is equal to this instance;
+        ///    otherwise, <c>false</c>.
         /// </returns>
         public override bool Equals(object obj)
         {
@@ -89,8 +89,8 @@ namespace GameLogic.DartThrow
 
         /// <summary>Returns a hash code for this instance.</summary>
         /// <returns>
-        /// A hash code for this instance, suitable for use in hashing algorithms and data
-        /// structures like a hash table.
+        ///    A hash code for this instance, suitable for use in hashing algorithms and data
+        ///    structures like a hash table.
         /// </returns>
         public override int GetHashCode()
         {
@@ -101,7 +101,7 @@ namespace GameLogic.DartThrow
         }
 
         /// <summary>Converts to string.</summary>
-        /// <returns>A <see cref="string"/> that represents this instance.</returns>
+        /// <returns>A <see cref="string" /> that represents this instance.</returns>
         public override string ToString() => $"{DartBoardQuantifier} {DartBoardField}";
 
         #endregion Public Methods
