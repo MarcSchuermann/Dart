@@ -15,6 +15,24 @@ namespace GameLogicTests.DartThrowTests
     {
         #region Public Methods
 
+        /// <summary>Returns the false when check equals with null.</summary>
+        [TestMethod]
+        public void ReturnFalseWhenCheckEqualsWithNull()
+        {
+            var dartThrow1 = new DartThrow(DartBoardField.Twenty, DartBoardQuantifier.Triple);
+
+            Assert.AreNotEqual(dartThrow1, null);
+        }
+
+        /// <summary>Returns the false when check equals with object.</summary>
+        [TestMethod]
+        public void ReturnFalseWhenCheckEqualsWithObject()
+        {
+            var dartThrow1 = new DartThrow(DartBoardField.Twenty, DartBoardQuantifier.Triple);
+
+            Assert.AreNotEqual(dartThrow1, new object());
+        }
+
         /// <summary>Returns the false when field is unequal.</summary>
         [TestMethod]
         public void ReturnFalseWhenFieldIsUnequal()

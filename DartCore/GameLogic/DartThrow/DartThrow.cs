@@ -94,10 +94,7 @@ namespace GameLogic.DartThrow
         /// </returns>
         public override int GetHashCode()
         {
-            var name = ToString();
-            if (string.IsNullOrWhiteSpace(name))
-                return 0;
-            return name.GetHashCode();
+            return DartBoardQuantifier.GetHashCode() ^ DartBoardField.GetHashCode();
         }
 
         /// <summary>Converts to string.</summary>
