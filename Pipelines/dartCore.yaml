@@ -7,7 +7,18 @@ variables:
 - name: BuildConfiguration
   value: release
 
+parameters:
+- name: publishNuget
+  displayName: publish to nuget.org
+  type: boolean
+  default: false
+- name: alpha
+  displayName: set alpha version
+  type: boolean
+  default: true
+
 steps:
+# --- Restore nuget packages ---
 - task: DotNetCoreCLI@2
   displayName: 'DotNetCoreCLI NuGet restore'
   inputs:
@@ -16,35 +27,56 @@ steps:
     feedsToUse: 'select'
     vstsFeed: 'c05ca382-95eb-43eb-af0a-00b109382f26'
 
+# --- Get Version from targets file ---
+- task: PowerShell@2
+  displayName: Update Version
+  inputs:
+    targetType: 'inline'
+    script: |
+      [xml]$targetsFile = Get-Content -Path $(Build.SourcesDirectory)/DartCore/Directory.Build.targets
+      $version = $targetsFile.Project.PropertyGroup.Version
+      Write-Host "Parsed version is $version"
+
+      if ( '${{ parameters.alpha }}' -eq 'true' )
+      {
+        $alphaVersion = $version + "-alpha.$(Build.BuildNumber)"
+        Write-Host "Full version is $alphaVersion"
+        Write-Host "##vso[task.setvariable variable=fullVersion]$alphaVersion"
+      }
+      else
+      {
+        Write-Host "Full version is $version"
+        Write-Host "##vso[task.setvariable variable=fullVersion]$version"
+      }
+
+# --- Build solution ---
 - task: MSBuild@1
   displayName: 'Build solution **\DartCore.sln'
   inputs:
     solution: '**/DartCore.sln'
     platform: '$(BuildPlatform)'
     configuration: '$(BuildConfiguration)'
-    msbuildArguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory)'
+    msbuildArguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory) /p:Version=$(fullVersion)'
 
-# - task: DotNetCoreCLI@2
-#   displayName: 'Run unit tests'
-#   inputs:
-#     command: 'test'
-#     projects: '$(Build.BinariesDirectory)\**\*Tests.dll'
-#     arguments: '--configuration $(buildConfiguration) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura'
-#     publishTestResults: true
-- task: VSTest@2
+# --- Run unit tests ---
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet test'
   inputs:
-    testSelector: 'testAssemblies'
-    testAssemblyVer2: |
-      **\*Tests.dll
-    searchFolder: '$(Build.BinariesDirectory)'
-    codeCoverageEnabled: true
-# - script: dotnet test <test-project> --logger trx --collect "Code coverage"
-# - task: PublishTestResults@2
-#   inputs:
-#     testRunner: VSTest
-#     testResultsFiles: '**/*.trx'
+    command: 'test'
+    projects: '**/*Tests.csproj'
+    arguments: '/p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./MyCoverage/'
 
+# --- Publish code coverage results ---
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish Code Coverage Results'
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '$(Build.SourcesDirectory)/**/MyCoverage/coverage.cobertura.xml'
+    failIfCoverageEmpty: true
+
+# --- Publish nuget packages ---
 - task: NuGetCommand@2
+  condition: and(succeeded(), eq('${{ parameters.publishNuget }}', 'true'))
   displayName: 'NuGet push'
   inputs:
     command: push
@@ -52,28 +84,33 @@ steps:
     publishVstsFeed: 'c05ca382-95eb-43eb-af0a-00b109382f26'
     allowPackageConflicts: true
 
-- task: chrismason.vsts-docfxtasks.docfx-extension-build-task.DocFxTask@0
+# --- Create docu for environment ---
+- task: DocFxTask@0
   displayName: 'Create DocFx Documentation Environment'
   inputs:
     solution: '$(System.DefaultWorkingDirectory)/DartCore/Environment/docfx.json'
 
+# --- Copy docu for environment ---
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)/docu/Environment/'
   inputs:
     SourceFolder: '$(System.DefaultWorkingDirectory)/DartCore/Environment/_site'
     TargetFolder: '$(build.artifactstagingdirectory)/docu/Environment/'
 
-- task: chrismason.vsts-docfxtasks.docfx-extension-build-task.DocFxTask@0
+# --- Create docu for game logic ---
+- task: DocFxTask@0
   displayName: 'Create DocFx Documentation GameLogic'
   inputs:
     solution: '$(System.DefaultWorkingDirectory)/DartCore/GameLogic/docfx.json'
 
+# --- Copy docu for game logic ---
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)/docu/GameLogic/'
   inputs:
     SourceFolder: '$(System.DefaultWorkingDirectory)/DartCore/GameLogic/_site'
     TargetFolder: '$(build.artifactstagingdirectory)/docu/GameLogic/'
 
+# --- Copy binaries ---
 - task: CopyFiles@2
   displayName: 'Copy binaries to: $(build.artifactstagingdirectory)'
   inputs:
@@ -82,6 +119,7 @@ steps:
     TargetFolder: '$(build.artifactstagingdirectory)/binaries'
   condition: succeededOrFailed()
 
+# --- Publish drop ---
 - task: PublishBuildArtifacts@1
   displayName: 'Publish Artifact: drop'
   inputs:
