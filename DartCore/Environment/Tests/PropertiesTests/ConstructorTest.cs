@@ -25,6 +25,7 @@ namespace EnvironmentTests.PropertiesTests
             var properties = new Properties("dark.lime", new CultureInfo("en-US"));
             properties.Theme.BaseTheme.Should().Be(BaseTheme.dark);
             properties.Theme.ColorSchema.Should().Be(ColorSchema.lime);
+            properties.Culture.Should().Be(new CultureInfo("en-US"));
         }
 
         #endregion Public Methods
