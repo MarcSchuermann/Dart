@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>GrpcService</name>
+    </assembly>
+    <members>
+        <member name="T:GrpcService.Services.DartServiceImpl">
+            <summary>The implementation of the dart serivce.</summary>
+            <seealso cref="T:GrpcService.DartService.DartServiceBase" />
+        </member>
+        <member name="M:GrpcService.Services.DartServiceImpl.#ctor(Microsoft.Extensions.Logging.ILogger{GrpcService.Services.DartServiceImpl})">
+            <summary>
+               Initializes a new instance of the <see cref="T:GrpcService.Services.DartServiceImpl" /> class.
+            </summary>
+            <param name="logger">The logger.</param>
+        </member>
+        <member name="M:GrpcService.Services.DartServiceImpl.InitGame(GrpcService.GameOptions,Grpc.Core.ServerCallContext)">
+            <summary>Sends a greeting.</summary>
+            <param name="request">The request received from the client.</param>
+            <param name="context">
+               The context of the server-side call handler being invoked.
+            </param>
+            <returns>The response to send back to the client (wrapped by a task).</returns>
+        </member>
+        <member name="M:GrpcService.Services.DartServiceImpl.Thrown(GrpcService.Throw,Grpc.Core.ServerCallContext)">
+            <summary>Throwns the specified request.</summary>
+            <param name="request">The request.</param>
+            <param name="context">The context.</param>
+            <returns>The response to send back to the client (wrapped by a task).</returns>
+            <exception cref="T:System.ArgumentNullException">gameProcedure.</exception>
+        </member>
+        <member name="T:GrpcService.DartReflection">
+            <summary>Holder for reflection information generated from Protos/dart.proto</summary>
+        </member>
+        <member name="P:GrpcService.DartReflection.Descriptor">
+            <summary>File descriptor for Protos/dart.proto</summary>
+        </member>
+        <member name="F:GrpcService.GameOptions.AllPlayTillZeroFieldNumber">
+            <summary>Field number for the "allPlayTillZero" field.</summary>
+        </member>
+        <member name="F:GrpcService.GameOptions.DoubleInFieldNumber">
+            <summary>Field number for the "doubleIn" field.</summary>
+        </member>
+        <member name="F:GrpcService.GameOptions.DoubleOutFieldNumber">
+            <summary>Field number for the "DoubleOut" field.</summary>
+        </member>
+        <member name="F:GrpcService.GameOptions.StartPointsFieldNumber">
+            <summary>Field number for the "StartPoints" field.</summary>
+        </member>
+        <member name="F:GrpcService.GameOptions.PlayersFieldNumber">
+            <summary>Field number for the "players" field.</summary>
+        </member>
+        <member name="F:GrpcService.Player.NameFieldNumber">
+            <summary>Field number for the "name" field.</summary>
+        </member>
+        <member name="F:GrpcService.Player.CurrentPointsFieldNumber">
+            <summary>Field number for the "currentPoints" field.</summary>
+        </member>
+        <member name="F:GrpcService.CurrentStanding.PlayersFieldNumber">
+            <summary>Field number for the "players" field.</summary>
+        </member>
+        <member name="F:GrpcService.Throw.FieldFieldNumber">
+            <summary>Field number for the "field" field.</summary>
+        </member>
+        <member name="F:GrpcService.Throw.MultipierFieldNumber">
+            <summary>Field number for the "multipier" field.</summary>
+        </member>
+        <member name="T:GrpcService.DartService">
+            <summary>
+            The greeting service definition.
+            </summary>
+        </member>
+        <member name="P:GrpcService.DartService.Descriptor">
+            <summary>Service descriptor</summary>
+        </member>
+        <member name="T:GrpcService.DartService.DartServiceBase">
+            <summary>Base class for server-side implementations of DartService</summary>
+        </member>
+        <member name="M:GrpcService.DartService.DartServiceBase.InitGame(GrpcService.GameOptions,Grpc.Core.ServerCallContext)">
+            <summary>
+            Sends a greeting
+            </summary>
+            <param name="request">The request received from the client.</param>
+            <param name="context">The context of the server-side call handler being invoked.</param>
+            <returns>The response to send back to the client (wrapped by a task).</returns>
+        </member>
+        <member name="M:GrpcService.DartService.BindService(GrpcService.DartService.DartServiceBase)">
+            <summary>Creates service definition that can be registered with a server</summary>
+            <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+        </member>
+        <member name="M:GrpcService.DartService.BindService(Grpc.Core.ServiceBinderBase,GrpcService.DartService.DartServiceBase)">
+            <summary>Register service method with a service binder with or without implementation. Useful when customizing the  service binding logic.
+            Note: this method is part of an experimental API that can change or be removed without any prior notice.</summary>
+            <param name="serviceBinder">Service methods will be bound by calling <c>AddMethod</c> on this object.</param>
+            <param name="serviceImpl">An object implementing the server-side handling logic.</param>
+        </member>
+    </members>
+</doc>

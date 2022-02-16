@@ -17,6 +17,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{55B77803-29BE-4480-9F2D-61A5F2C3BCD6}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GrpcService", "GrpcService\GrpcService.csproj", "{AE6F70B0-BA12-4E16-A22B-EE984031F134}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EnvironmentTests", "Environment\Tests\EnvironmentTests.csproj", "{B4DA9182-D5FB-41D5-BD8A-C09D409DCB8A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -35,12 +39,21 @@ Global
 		{A36F3E0A-094E-4E89-8716-D25D0778795C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A36F3E0A-094E-4E89-8716-D25D0778795C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A36F3E0A-094E-4E89-8716-D25D0778795C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE6F70B0-BA12-4E16-A22B-EE984031F134}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE6F70B0-BA12-4E16-A22B-EE984031F134}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE6F70B0-BA12-4E16-A22B-EE984031F134}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE6F70B0-BA12-4E16-A22B-EE984031F134}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4DA9182-D5FB-41D5-BD8A-C09D409DCB8A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4DA9182-D5FB-41D5-BD8A-C09D409DCB8A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4DA9182-D5FB-41D5-BD8A-C09D409DCB8A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4DA9182-D5FB-41D5-BD8A-C09D409DCB8A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{A36F3E0A-094E-4E89-8716-D25D0778795C} = {55B77803-29BE-4480-9F2D-61A5F2C3BCD6}
+		{B4DA9182-D5FB-41D5-BD8A-C09D409DCB8A} = {55B77803-29BE-4480-9F2D-61A5F2C3BCD6}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5B3F438C-4C66-49BF-BADC-CBB0B51F0DB7}

@@ -1,0 +1,35 @@
+syntax = "proto3";
+
+option csharp_namespace = "GrpcService";
+
+package dart;
+
+// The greeting service definition.
+service DartService {
+  // Sends a greeting
+  rpc InitGame (GameOptions) returns (CurrentStanding);
+
+  rpc Thrown (Throw) returns (CurrentStanding);
+}
+
+message GameOptions {
+  bool allPlayTillZero = 1;
+  bool doubleIn = 2;
+  bool DoubleOut = 3;
+  uint32 StartPoints = 4;
+  repeated Player players = 5;
+}
+
+message Player {
+  string name = 1;
+  uint32 currentPoints = 2;
+}
+
+message CurrentStanding {
+	repeated Player players = 1;
+}
+
+message Throw {
+	uint32 field = 1;
+	uint32 multipier = 2;
+}

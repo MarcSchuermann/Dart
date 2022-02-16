@@ -4,11 +4,11 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System.Collections.Generic;
 using FluentAssertions;
 using GameLogic.GameOptions;
 using GameLogic.Player;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Collections.Generic;
 
 namespace GameLogicTests.GameOptionsTests
 {
