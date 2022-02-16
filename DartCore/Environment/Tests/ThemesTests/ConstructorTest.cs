@@ -1,4 +1,10 @@
-﻿using Environment.Themes;
+﻿// -----------------------------------------------------------------------
+// <copyright file="ConstructorTest.cs" company="Marc Schürmann">
+//     Copyright (c) Marc Schürmann. All Rights Reserved.
+// </copyright>
+// -----------------------------------------------------------------------
+
+using Environment.Themes;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 

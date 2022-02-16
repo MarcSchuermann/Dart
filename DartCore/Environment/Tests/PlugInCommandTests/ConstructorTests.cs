@@ -1,7 +1,15 @@
-﻿using Environment.Extensibility;
+﻿// -----------------------------------------------------------------------
+// <copyright file="ConstructorTests.cs" company="Marc Schürmann">
+//     Copyright (c) Marc Schürmann. All Rights Reserved.
+// </copyright>
+// -----------------------------------------------------------------------
+
+using System.Diagnostics.CodeAnalysis;
+using Environment;
+using Environment.Extensibility;
 using FluentAssertions;
+using GameLogic.GameOptions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 
 namespace EnvironmentTests.PlugInCommandTests
 {
@@ -15,10 +23,9 @@ namespace EnvironmentTests.PlugInCommandTests
         [TestMethod]
         public void InitCorrect()
         {
-            var plugIn = new Mock<IPlugIn>();
-            plugIn.SetupGet(x => x.Name).Returns("myPlugIn");
+            var myPlugIn = new MyPlugIn("myPlugIn");
 
-            var plugInCommand = new PlugInCommand(plugIn.Object, () => { }, true, true);
+            var plugInCommand = new PlugInCommand(myPlugIn, () => { }, true, true);
 
             plugInCommand.PlugIn.Name.Should().Be("myPlugIn");
             plugInCommand.OnExecute.Should().NotBeNull();
@@ -27,5 +34,40 @@ namespace EnvironmentTests.PlugInCommandTests
         }
 
         #endregion Public Methods
+
+        #region Private Classes
+
+        private class MyPlugIn : IPlugIn
+        {
+            #region Public Constructors
+
+            public MyPlugIn(string name)
+            {
+                Name = name;
+            }
+
+            #endregion Public Constructors
+
+            #region Public Properties
+
+            public IGameOptions GameOptions { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+            public string Name { get; set; }
+            public IPlugInCommand PlugInCommand => throw new System.NotImplementedException();
+
+            public IProperties Properties { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
+
+            #endregion Public Properties
+
+            #region Public Methods
+
+            public bool Equals([AllowNull] IPlugIn other)
+            {
+                throw new System.NotImplementedException();
+            }
+
+            #endregion Public Methods
+        }
+
+        #endregion Private Classes
     }
 }
