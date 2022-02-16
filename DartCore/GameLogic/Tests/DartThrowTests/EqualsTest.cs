@@ -4,6 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using FluentAssertions;
 using GameLogic.DartThrow;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
@@ -19,9 +20,7 @@ namespace GameLogicTests.DartThrowTests
         [TestMethod]
         public void ReturnFalseWhenCheckEqualsWithNull()
         {
-            var dartThrow1 = new DartThrow(DartBoardField.Twenty, DartBoardQuantifier.Triple);
-
-            Assert.AreNotEqual(dartThrow1, null);
+            new DartThrow(DartBoardField.Twenty, DartBoardQuantifier.Triple).Equals(null).Should().BeFalse();
         }
 
         /// <summary>Returns the false when check equals with object.</summary>
