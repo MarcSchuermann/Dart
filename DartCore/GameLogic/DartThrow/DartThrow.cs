@@ -68,7 +68,10 @@ namespace GameLogic.DartThrow
         /// </returns>
         public bool Equals(IDartThrow other)
         {
-            return other?.DartBoardField == DartBoardField && other?.DartBoardQuantifier == DartBoardQuantifier;
+            if (other == null)
+                return false;
+
+            return other.DartBoardField == DartBoardField && other.DartBoardQuantifier == DartBoardQuantifier;
         }
 
         /// <summary>
