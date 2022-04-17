@@ -9,7 +9,7 @@ variables:
 
 parameters:
 - name: publishNuget
-  displayName: publish to nuget.org
+  displayName: publish to VstsFeed
   type: boolean
   default: false
 - name: alpha
