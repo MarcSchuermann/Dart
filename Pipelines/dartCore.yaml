@@ -82,7 +82,7 @@ steps:
   displayName: 'NuGet push'
   inputs:
     command: push
-    packagesToPush: '$(Build.BinariesDirectory)/**/*.nupkg'
+    packagesToPush: '$(Build.BinariesDirectory)/**/Schuermann.Darts.*.nupkg'
     publishVstsFeed: 'c05ca382-95eb-43eb-af0a-00b109382f26'
     allowPackageConflicts: true
 
@@ -112,7 +112,7 @@ steps:
     SourceFolder: '$(System.DefaultWorkingDirectory)/DartCore/GameLogic/_site'
     TargetFolder: '$(build.artifactstagingdirectory)/docu/GameLogic/'
 
-# --- Copy binaries ---
+# --- Copy all BinariesDirectory to staging directory ---
 - task: CopyFiles@2
   displayName: 'Copy binaries to: $(build.artifactstagingdirectory)'
   inputs:
