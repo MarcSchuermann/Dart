@@ -6,10 +6,12 @@ variables:
   value: Any CPU
 - name: BuildConfiguration
   value: release
+- name: Solution
+  value: DartCore/DartCore.sln
 
 parameters:
 - name: publishNuget
-  displayName: publish to nuget.org
+  displayName: publish to VstsFeed
   type: boolean
   default: false
 - name: alpha
@@ -23,7 +25,7 @@ steps:
   displayName: 'DotNetCoreCLI NuGet restore'
   inputs:
     command: 'restore'
-    projects: '**/DartCore.sln'
+    projects: $(Solution)
     feedsToUse: 'select'
     vstsFeed: 'c05ca382-95eb-43eb-af0a-00b109382f26'
 
@@ -50,21 +52,21 @@ steps:
       }
 
 # --- Build solution ---
-- task: MSBuild@1
-  displayName: 'Build solution **\DartCore.sln'
-  inputs:
-    solution: '**/DartCore.sln'
-    platform: '$(BuildPlatform)'
-    configuration: '$(BuildConfiguration)'
-    msbuildArguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory) /p:Version=$(fullVersion)'
+# - task: MSBuild@1
+#   displayName: 'Build solution **\DartCore.sln'
+#   inputs:
+#     solution: '**/DartCore.sln'
+#     platform: '$(BuildPlatform)'
+#     configuration: '$(BuildConfiguration)'
+#     msbuildArguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory) /p:Version=$(fullVersion)'
 
 # --- Run unit tests ---
 - task: DotNetCoreCLI@2
   displayName: 'dotnet test'
   inputs:
     command: 'test'
-    projects: '**/*Tests.csproj'
-    arguments: '/p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./MyCoverage/'
+    projects: $(Solution)
+    arguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory) /p:Configuration=$(BuildConfiguration) /p:Version=$(fullVersion) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./MyCoverage/'
 
 # --- Publish code coverage results ---
 - task: PublishCodeCoverageResults@1
@@ -80,7 +82,7 @@ steps:
   displayName: 'NuGet push'
   inputs:
     command: push
-    packagesToPush: '$(Build.BinariesDirectory)/**/*.nupkg'
+    packagesToPush: '$(Build.BinariesDirectory)/**/Schuermann.Darts.*.nupkg'
     publishVstsFeed: 'c05ca382-95eb-43eb-af0a-00b109382f26'
     allowPackageConflicts: true
 
@@ -110,7 +112,7 @@ steps:
     SourceFolder: '$(System.DefaultWorkingDirectory)/DartCore/GameLogic/_site'
     TargetFolder: '$(build.artifactstagingdirectory)/docu/GameLogic/'
 
-# --- Copy binaries ---
+# --- Copy all BinariesDirectory to staging directory ---
 - task: CopyFiles@2
   displayName: 'Copy binaries to: $(build.artifactstagingdirectory)'
   inputs:
