@@ -50,13 +50,13 @@ steps:
       }
 
 # --- Build solution ---
-- task: MSBuild@1
-  displayName: 'Build solution **\DartCore.sln'
-  inputs:
-    solution: '**/DartCore.sln'
-    platform: '$(BuildPlatform)'
-    configuration: '$(BuildConfiguration)'
-    msbuildArguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory) /p:Version=$(fullVersion)'
+# - task: MSBuild@1
+#   displayName: 'Build solution **\DartCore.sln'
+#   inputs:
+#     solution: '**/DartCore.sln'
+#     platform: '$(BuildPlatform)'
+#     configuration: '$(BuildConfiguration)'
+#     msbuildArguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory) /p:Version=$(fullVersion)'
 
 # --- Run unit tests ---
 - task: DotNetCoreCLI@2
@@ -64,7 +64,7 @@ steps:
   inputs:
     command: 'test'
     projects: '**/*Tests.csproj'
-    arguments: '/p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./MyCoverage/'
+    arguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory) /p:Configuration=$(BuildConfiguration) /p:Version=$(fullVersion) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./MyCoverage/'
 
 # --- Publish code coverage results ---
 - task: PublishCodeCoverageResults@1
