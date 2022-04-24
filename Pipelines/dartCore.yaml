@@ -35,7 +35,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      [xml]$targetsFile = Get-Content -Path $(Build.SourcesDirectory)/DartCore/Directory.Build.targets
+      [xml]$targetsFile = Get-Content -Path $(Build.SourcesDirectory)/DartCore/DartCore.Build.targets
       $version = $targetsFile.Project.PropertyGroup.Version
       Write-Host "Parsed version is $version"
 
@@ -50,15 +50,6 @@ steps:
         Write-Host "Full version is $version"
         Write-Host "##vso[task.setvariable variable=fullVersion]$version"
       }
-
-# --- Build solution ---
-# - task: MSBuild@1
-#   displayName: 'Build solution **\DartCore.sln'
-#   inputs:
-#     solution: '**/DartCore.sln'
-#     platform: '$(BuildPlatform)'
-#     configuration: '$(BuildConfiguration)'
-#     msbuildArguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory) /p:Version=$(fullVersion)'
 
 # --- Run unit tests ---
 - task: DotNetCoreCLI@2
