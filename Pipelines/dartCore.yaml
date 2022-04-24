@@ -6,6 +6,8 @@ variables:
   value: Any CPU
 - name: BuildConfiguration
   value: release
+- name: Solution
+  value: DartCore/DartCore.sln
 
 parameters:
 - name: publishNuget
@@ -23,7 +25,7 @@ steps:
   displayName: 'DotNetCoreCLI NuGet restore'
   inputs:
     command: 'restore'
-    projects: '**/DartCore.sln'
+    projects: $(Solution)
     feedsToUse: 'select'
     vstsFeed: 'c05ca382-95eb-43eb-af0a-00b109382f26'
 
@@ -63,7 +65,7 @@ steps:
   displayName: 'dotnet test'
   inputs:
     command: 'test'
-    projects: '**/*Tests.csproj'
+    projects: $(Solution)
     arguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory) /p:Configuration=$(BuildConfiguration) /p:Version=$(fullVersion) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./MyCoverage/'
 
 # --- Publish code coverage results ---
