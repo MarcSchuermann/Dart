@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>GameLogic</name>
+        <name>Schuermann.Darts.GameCore</name>
     </assembly>
     <members>
         <member name="T:GameLogic.DartThrow.DartBoardField">
@@ -87,10 +87,10 @@
         </member>
         <member name="T:GameLogic.DartThrow.DartThrow">
             <summary>The dart throw.</summary>
-            <seealso cref="T:GameLogic.DartThrow.IDartThrow"/>
+            <seealso cref="T:GameLogic.DartThrow.IDartThrow" />
         </member>
         <member name="M:GameLogic.DartThrow.DartThrow.#ctor(GameLogic.DartThrow.DartBoardField,GameLogic.DartThrow.DartBoardQuantifier)">
-            <summary>Initializes a new instance of the <see cref="T:GameLogic.DartThrow.DartThrow"/> class.</summary>
+            <summary>Initializes a new instance of the <see cref="T:GameLogic.DartThrow.DartThrow" /> class.</summary>
             <param name="dartBoardField">The dart board field.</param>
             <param name="dartBoardQuantifier">The dart board quantifier.</param>
         </member>
@@ -113,34 +113,34 @@
         </member>
         <member name="M:GameLogic.DartThrow.DartThrow.Equals(GameLogic.DartThrow.IDartThrow)">
             <summary>
-            Indicates whether the current object is equal to another object of the same type.
+               Indicates whether the current object is equal to another object of the same type.
             </summary>
             <param name="other">An object to compare with this object.</param>
             <returns>
-            true if the current object is equal to the <paramref name="other">other</paramref>
-            parameter; otherwise, false.
+               true if the current object is equal to the <paramref name="other">other</paramref>
+               parameter; otherwise, false.
             </returns>
         </member>
         <member name="M:GameLogic.DartThrow.DartThrow.Equals(System.Object)">
             <summary>
-            Determines whether the specified <see cref="T:System.Object"/>, is equal to this instance.
+               Determines whether the specified <see cref="T:System.Object" />, is equal to this instance.
             </summary>
-            <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
+            <param name="obj">The <see cref="T:System.Object" /> to compare with this instance.</param>
             <returns>
-            <c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance;
-            otherwise, <c>false</c>.
+               <c>true</c> if the specified <see cref="T:System.Object" /> is equal to this instance;
+               otherwise, <c>false</c>.
             </returns>
         </member>
         <member name="M:GameLogic.DartThrow.DartThrow.GetHashCode">
             <summary>Returns a hash code for this instance.</summary>
             <returns>
-            A hash code for this instance, suitable for use in hashing algorithms and data
-            structures like a hash table.
+               A hash code for this instance, suitable for use in hashing algorithms and data
+               structures like a hash table.
             </returns>
         </member>
         <member name="M:GameLogic.DartThrow.DartThrow.ToString">
             <summary>Converts to string.</summary>
-            <returns>A <see cref="T:System.String"/> that represents this instance.</returns>
+            <returns>A <see cref="T:System.String" /> that represents this instance.</returns>
         </member>
         <member name="T:GameLogic.DartThrow.IDartThrow">
             <summary>The dart throw.</summary>
