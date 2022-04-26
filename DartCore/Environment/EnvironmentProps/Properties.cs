@@ -5,14 +5,14 @@
 using System.Globalization;
 using Environment.Themes;
 
-namespace Environment
+namespace Schuermann.Darts.Environment.EnvironmentProps
 {
     /// <summary>The properties of the environment like the culture or the theme.</summary>
     public class Properties : IProperties
     {
         #region Public Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="Properties"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="Properties" /> class.</summary>
         /// <param name="theme">The theme.</param>
         /// <param name="culture">The culture.</param>
         public Properties(string theme, CultureInfo culture)

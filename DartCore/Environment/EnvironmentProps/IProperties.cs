@@ -5,7 +5,7 @@
 using System.Globalization;
 using Environment.Themes;
 
-namespace Environment
+namespace Schuermann.Darts.Environment.EnvironmentProps
 {
     /// <summary>The properties.</summary>
     public interface IProperties

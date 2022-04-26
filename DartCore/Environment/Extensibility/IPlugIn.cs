@@ -6,6 +6,7 @@
 
 using System;
 using GameLogic.GameOptions;
+using Schuermann.Darts.Environment.EnvironmentProps;
 
 namespace Environment.Extensibility
 {

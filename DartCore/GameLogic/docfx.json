@@ -3,7 +3,7 @@
     {
       "src": [
         {
-          "files": [ "**/GameLogic.csproj" ],
+          "files": [ "**/Schuermann.Darts.GameCore.csproj" ],
           "exclude": [ "**/bin/**", "**/obj/**" ]
         }
       ],

@@ -3,7 +3,7 @@
     {
       "src": [
         {
-          "files": [ "**/Environment.csproj" ],
+          "files": [ "**/Schuermann.Darts.Environment.csproj" ],
           "exclude": [ "**/bin/**", "**/obj/**" ]
         }
       ],

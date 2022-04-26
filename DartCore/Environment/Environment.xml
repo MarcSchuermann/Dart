@@ -4,6 +4,33 @@
         <name>Schuermann.Darts.Environment</name>
     </assembly>
     <members>
+        <member name="T:Schuermann.Darts.Environment.EnvironmentProps.IProperties">
+            <summary>The properties.</summary>
+        </member>
+        <member name="P:Schuermann.Darts.Environment.EnvironmentProps.IProperties.Culture">
+            <summary>Gets the culture.</summary>
+            <value>The culture.</value>
+        </member>
+        <member name="P:Schuermann.Darts.Environment.EnvironmentProps.IProperties.Theme">
+            <summary>Gets the theme.</summary>
+            <value>The theme.</value>
+        </member>
+        <member name="T:Schuermann.Darts.Environment.EnvironmentProps.Properties">
+            <summary>The properties of the environment like the culture or the theme.</summary>
+        </member>
+        <member name="M:Schuermann.Darts.Environment.EnvironmentProps.Properties.#ctor(System.String,System.Globalization.CultureInfo)">
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.Environment.EnvironmentProps.Properties" /> class.</summary>
+            <param name="theme">The theme.</param>
+            <param name="culture">The culture.</param>
+        </member>
+        <member name="P:Schuermann.Darts.Environment.EnvironmentProps.Properties.Culture">
+            <summary>Gets the culture.</summary>
+            <value>The culture.</value>
+        </member>
+        <member name="P:Schuermann.Darts.Environment.EnvironmentProps.Properties.Theme">
+            <summary>Gets the theme.</summary>
+            <value>The theme.</value>
+        </member>
         <member name="T:Environment.Extensibility.IPlugIn">
             <summary>The plug in interface.</summary>
         </member>
@@ -71,33 +98,6 @@
         </member>
         <member name="P:Environment.Extensibility.PlugInCommand.PlugIn">
             <inheritdoc/>
-        </member>
-        <member name="T:Environment.IProperties">
-            <summary>The properties.</summary>
-        </member>
-        <member name="P:Environment.IProperties.Culture">
-            <summary>Gets the culture.</summary>
-            <value>The culture.</value>
-        </member>
-        <member name="P:Environment.IProperties.Theme">
-            <summary>Gets the theme.</summary>
-            <value>The theme.</value>
-        </member>
-        <member name="T:Environment.Properties">
-            <summary>The properties of the environment like the culture or the theme.</summary>
-        </member>
-        <member name="M:Environment.Properties.#ctor(System.String,System.Globalization.CultureInfo)">
-            <summary>Initializes a new instance of the <see cref="T:Environment.Properties"/> class.</summary>
-            <param name="theme">The theme.</param>
-            <param name="culture">The culture.</param>
-        </member>
-        <member name="P:Environment.Properties.Culture">
-            <summary>Gets the culture.</summary>
-            <value>The culture.</value>
-        </member>
-        <member name="P:Environment.Properties.Theme">
-            <summary>Gets the theme.</summary>
-            <value>The theme.</value>
         </member>
         <member name="T:Environment.Themes.BaseTheme">
             <summary>The base theme. Light or dark.</summary>
