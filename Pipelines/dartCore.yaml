@@ -35,7 +35,7 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
-      [xml]$targetsFile = Get-Content -Path $(Build.SourcesDirectory)/DartCore/Directory.Build.targets
+      [xml]$targetsFile = Get-Content -Path $(Build.SourcesDirectory)/DartCore/DartCore.Build.targets
       $version = $targetsFile.Project.PropertyGroup.Version
       Write-Host "Parsed version is $version"
 
@@ -51,15 +51,6 @@ steps:
         Write-Host "##vso[task.setvariable variable=fullVersion]$version"
       }
 
-# --- Build solution ---
-# - task: MSBuild@1
-#   displayName: 'Build solution **\DartCore.sln'
-#   inputs:
-#     solution: '**/DartCore.sln'
-#     platform: '$(BuildPlatform)'
-#     configuration: '$(BuildConfiguration)'
-#     msbuildArguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory) /p:Version=$(fullVersion)'
-
 # --- Run unit tests ---
 - task: DotNetCoreCLI@2
   displayName: 'dotnet test'
@@ -68,12 +59,21 @@ steps:
     projects: $(Solution)
     arguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory) /p:Configuration=$(BuildConfiguration) /p:Version=$(fullVersion) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./MyCoverage/'
 
+# --- Merge the multiple code coverage result files ---
+- task: reportgenerator@5
+  displayName: 'Merge code coverage reports'
+  inputs:
+    reports: '$(Build.SourcesDirectory)/**/MyCoverage/coverage.cobertura.xml'
+    targetdir: '$(Pipeline.Workspace)/coverlet'
+    reporttypes: 'Cobertura'
+    verbosity: 'Verbose'
+
 # --- Publish code coverage results ---
 - task: PublishCodeCoverageResults@1
   displayName: 'Publish Code Coverage Results'
   inputs:
     codeCoverageTool: 'Cobertura'
-    summaryFileLocation: '$(Build.SourcesDirectory)/**/MyCoverage/coverage.cobertura.xml'
+    summaryFileLocation: '$(Pipeline.Workspace)/coverlet/Cobertura.xml'
     failIfCoverageEmpty: true
 
 # --- Publish nuget packages ---
