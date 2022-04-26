@@ -9,7 +9,7 @@
 	<PropertyGroup>
 		<Authors>Marc Schuermann</Authors>
 		<Company>Marc Schuermann</Company>
-		<Version>1.0.7</Version>
+		<VersionToCreate>1.0.7</VersionToCreate>
 		<Copyright>Copyright by Marc Schuermann</Copyright>
 	</PropertyGroup>
 </Project>

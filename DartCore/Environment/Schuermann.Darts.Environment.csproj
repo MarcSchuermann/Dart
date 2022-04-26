@@ -6,6 +6,8 @@
     <NoWarn>1701;1702</NoWarn>
     <DocumentationFile>Environment.xml</DocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+	<Version>$(VersionToCreate)</Version>
+	<Description>Contains environmental stuff like localisation, themes and the plugin system.</Description>
   </PropertyGroup>
 
   <PropertyGroup>
