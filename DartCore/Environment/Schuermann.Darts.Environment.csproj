@@ -15,14 +15,14 @@
     <EmbeddedResource Remove="Tests\**" />
     <None Remove="Tests\**" />
   </ItemGroup>
+	
+  <ItemGroup>
+	<AdditionalFiles Include="..\..\stylecop.json" Link="stylecop.json" />
+  </ItemGroup>
 
   <ItemGroup>
     <None Remove="Environment.xml" />
   </ItemGroup>
-
-	<ItemGroup>
-		<AdditionalFiles Include="..\stylecop.json" Link="stylecop.json" />
-	</ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\GameLogic\Schuermann.Darts.GameCore.csproj" />

@@ -1,6 +1,8 @@
-﻿// <copyright file="ThemeConverter.cs" company="Marc Schürmann">
+﻿// -----------------------------------------------------------------------
+// <copyright file="ThemeConverter.cs" company="Marc Schürmann">
 //     Copyright (c) Marc Schürmann. All Rights Reserved.
 // </copyright>
+// -----------------------------------------------------------------------
 
 using System;
 using System.Diagnostics;

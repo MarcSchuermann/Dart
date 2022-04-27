@@ -1,8 +1,4 @@
-﻿// <copyright file="Properties.cs" company="Marc Schürmann">
-//     Copyright (c) Marc Schürmann. All Rights Reserved.
-// </copyright>
-
-using System.Globalization;
+﻿using System.Globalization;
 using Environment.Themes;
 
 namespace Schuermann.Darts.Environment.EnvironmentProps
