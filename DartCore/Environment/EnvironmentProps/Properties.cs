@@ -30,5 +30,14 @@ namespace Schuermann.Darts.Environment.EnvironmentProps
         public Theme Theme { get; }
 
         #endregion Public Properties
+
+        #region Public Methods
+
+        public void Asdf(out int aaa)
+        {
+            aaa = 0;
+        }
+
+        #endregion Public Methods
     }
 }
