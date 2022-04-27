@@ -2,11 +2,11 @@
 //// <copyright>Marc Schürmann</copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
-using Core;
-using Dart;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics.CodeAnalysis;
 using System.Windows;
+using Dart;
+using Dart.Common.UserInterface.Helper;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests.Game.UserInterface.Converter.ListToVisibilityConverterTests
 {

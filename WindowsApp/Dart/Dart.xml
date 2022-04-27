@@ -4,6 +4,135 @@
         <name>Dart</name>
     </assembly>
     <members>
+        <member name="T:Dart.Common.Commands.GenericRelayCommand`1">
+            <summary>The GenericRelayCommand.</summary>
+            <typeparam name="T">The parameter T.</typeparam>
+            <seealso cref="T:System.Windows.Input.ICommand" />
+        </member>
+        <member name="F:Dart.Common.Commands.GenericRelayCommand`1.canExecute">
+            <summary>The can execute.</summary>
+        </member>
+        <member name="F:Dart.Common.Commands.GenericRelayCommand`1.execute">
+            <summary>The execute.</summary>
+        </member>
+        <member name="M:Dart.Common.Commands.GenericRelayCommand`1.#ctor(System.Action{`0})">
+            <summary>
+               Initializes a new instance of the <see cref="T:Dart.Common.Commands.GenericRelayCommand`1" /> class.
+            </summary>
+            <param name="execute">The execute.</param>
+        </member>
+        <member name="M:Dart.Common.Commands.GenericRelayCommand`1.#ctor(System.Action{`0},System.Func{System.Boolean})">
+            <summary>
+               Initializes a new instance of the <see cref="T:Dart.Common.Commands.GenericRelayCommand`1" /> class.
+            </summary>
+            <param name="execute">The action to execute.</param>
+            <param name="canExecute">The can execute function.</param>
+        </member>
+        <member name="M:Dart.Common.Commands.GenericRelayCommand`1.Finalize">
+            <summary>
+               Finalizes an instance of the <see cref="T:Dart.Common.Commands.GenericRelayCommand`1" /> class.
+            </summary>
+        </member>
+        <member name="E:Dart.Common.Commands.GenericRelayCommand`1.CanExecuteChanged">
+            <summary>
+               Occurs when changes occur that affect whether or not the command should execute.
+            </summary>
+        </member>
+        <member name="M:Dart.Common.Commands.GenericRelayCommand`1.CanExecute(System.Object)">
+            <summary>
+               Defines the method that determines whether the command can execute in its current
+               state.
+            </summary>
+            <param name="parameter">
+               Data used by the command. If the command does not require data to be passed, this
+               object can be set to null.
+            </param>
+            <returns>true if this command can be executed; otherwise, false.</returns>
+        </member>
+        <member name="M:Dart.Common.Commands.GenericRelayCommand`1.Execute(System.Object)">
+            <summary>Defines the method to be called when the command is invoked.</summary>
+            <param name="parameter">
+               Data used by the command. If the command does not require data to be passed, this
+               object can be set to null.
+            </param>
+        </member>
+        <member name="M:Dart.Common.Commands.GenericRelayCommand`1.RaiseCanExecuteChanged">
+            <summary>Raises the can execute changed.</summary>
+        </member>
+        <member name="M:Dart.Common.Commands.GenericRelayCommand`1.RemoveCommand">
+            <summary>Removes the command.</summary>
+        </member>
+        <member name="T:Dart.Common.Commands.RelayCommand">
+            <summary>The RelayCommand.</summary>
+            <seealso cref="T:System.Windows.Input.ICommand" />
+        </member>
+        <member name="F:Dart.Common.Commands.RelayCommand.canExecute">
+            <summary>The can execute.</summary>
+        </member>
+        <member name="F:Dart.Common.Commands.RelayCommand.execute">
+            <summary>The execute.</summary>
+        </member>
+        <member name="M:Dart.Common.Commands.RelayCommand.#ctor(System.Action)">
+            <summary>
+               Initializes a new instance of the <see cref="T:Dart.Common.Commands.RelayCommand" /> class.
+            </summary>
+            <param name="execute">The execute.</param>
+        </member>
+        <member name="M:Dart.Common.Commands.RelayCommand.#ctor(System.Action,System.Func{System.Boolean})">
+            <summary>
+               Initializes a new instance of the <see cref="T:Dart.Common.Commands.RelayCommand" /> class.
+            </summary>
+            <param name="execute">The execute.</param>
+            <param name="canExecute">The can execute.</param>
+            <exception cref="T:System.ArgumentNullException">The ArgumentNullException.</exception>
+        </member>
+        <member name="M:Dart.Common.Commands.RelayCommand.Finalize">
+            <summary>Finalizes an instance of the <see cref="T:Dart.Common.Commands.RelayCommand" /> class.</summary>
+        </member>
+        <member name="E:Dart.Common.Commands.RelayCommand.CanExecuteChanged">
+            <summary>
+               Occurs when changes occur that affect whether or not the command should execute.
+            </summary>
+        </member>
+        <member name="M:Dart.Common.Commands.RelayCommand.CanExecute(System.Object)">
+            <summary>
+               Defines the method that determines whether the command can execute in its current
+               state.
+            </summary>
+            <param name="parameter">
+               Data used by the command. If the command does not require data to be passed, this
+               object can be set to null.
+            </param>
+            <returns>true if this command can be executed; otherwise, false.</returns>
+        </member>
+        <member name="M:Dart.Common.Commands.RelayCommand.Execute(System.Object)">
+            <summary>Defines the method to be called when the command is invoked.</summary>
+            <param name="parameter">
+               Data used by the command. If the command does not require data to be passed, this
+               object can be set to null.
+            </param>
+        </member>
+        <member name="M:Dart.Common.Commands.RelayCommand.RaiseCanExecuteChanged">
+            <summary>Raises the can execute changed.</summary>
+        </member>
+        <member name="M:Dart.Common.Commands.RelayCommand.RemoveCommand">
+            <summary>Removes the command.</summary>
+        </member>
+        <member name="T:Dart.Common.Commands.SimpleCommandManager">
+            <summary>The simple command manager.</summary>
+        </member>
+        <member name="M:Dart.Common.Commands.SimpleCommandManager.AddRaiseCanExecuteChangedAction(System.Action@)">
+            <summary>Adds the raise can execute changed action.</summary>
+            <param name="raiseCanExecuteChangedAction">
+               The raise can execute changed action.
+            </param>
+        </member>
+        <member name="M:Dart.Common.Commands.SimpleCommandManager.RemoveRaiseCanExecuteChangedAction(System.Action)">
+            <summary>Removes the raise can execute changed action.</summary>
+            <param name="raiseCanExecuteChangedAction">
+               The raise can execute changed action.
+            </param>
+        </member>
         <member name="T:Dart.Common.ServiceContainer">
             <summary>The container to get public services.</summary>
         </member>
@@ -131,6 +260,47 @@
         <member name="P:Dart.Common.UserInterface.Helper.DartBoardVariables.PointsToOuterTriple">
             <summary>Gets the points to outer triple.</summary>
             <value>The points to outer triple.</value>
+        </member>
+        <member name="T:Dart.Common.UserInterface.Helper.ItemsChangeObservableCollection`1">
+            <summary>The ItemsChangeObservableCollection.</summary>
+            <typeparam name="T">The T.</typeparam>
+            <seealso cref="T:System.Collections.ObjectModel.ObservableCollection`1" />
+        </member>
+        <member name="M:Dart.Common.UserInterface.Helper.ItemsChangeObservableCollection`1.ClearItems">
+            <summary>Clears the items.</summary>
+        </member>
+        <member name="M:Dart.Common.UserInterface.Helper.ItemsChangeObservableCollection`1.OnCollectionChanged(System.Collections.Specialized.NotifyCollectionChangedEventArgs)">
+            <summary>Raises the <see cref="E:CollectionChanged" /> event.</summary>
+            <param name="e">
+               The <see cref="T:System.Collections.Specialized.NotifyCollectionChangedEventArgs" /> instance containing the event
+               data.
+            </param>
+        </member>
+        <member name="M:Dart.Common.UserInterface.Helper.ItemsChangeObservableCollection`1.Item_PropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>Handles the PropertyChanged event of the Item control.</summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">
+               The <see cref="T:System.ComponentModel.PropertyChangedEventArgs" /> instance containing the event data.
+            </param>
+        </member>
+        <member name="M:Dart.Common.UserInterface.Helper.ItemsChangeObservableCollection`1.RegisterPropertyChanged(System.Collections.IList)">
+            <summary>Registers the property changed.</summary>
+            <param name="items">The items.</param>
+        </member>
+        <member name="M:Dart.Common.UserInterface.Helper.ItemsChangeObservableCollection`1.UnRegisterPropertyChanged(System.Collections.IList)">
+            <summary>Use the register property changed.</summary>
+            <param name="items">The items.</param>
+        </member>
+        <member name="T:Dart.Common.UserInterface.Helper.NotifyPropertyChanged">
+            <summary>The NotifyPropertyChanged.</summary>
+            <seealso cref="T:System.ComponentModel.INotifyPropertyChanged" />
+        </member>
+        <member name="E:Dart.Common.UserInterface.Helper.NotifyPropertyChanged.PropertyChanged">
+            <summary>Occurs when [property changed].</summary>
+        </member>
+        <member name="M:Dart.Common.UserInterface.Helper.NotifyPropertyChanged.RaisePropertyChanged(System.String)">
+            <summary>Raises the property changed.</summary>
+            <param name="propertyName">Name of the property.</param>
         </member>
         <member name="T:Dart.DartBoardConstants">
             <summary>The Store.</summary>
@@ -266,10 +436,10 @@
         </member>
         <member name="T:Dart.ThrowInfo">
             <summary>The throw info.</summary>
-            <seealso cref="T:Core.NotifyPropertyChanged"/>
+            <seealso cref="T:Dart.Common.UserInterface.Helper.NotifyPropertyChanged" />
         </member>
         <member name="M:Dart.ThrowInfo.#ctor(System.Windows.UIElement)">
-            <summary>Initializes a new instance of the <see cref="T:Dart.ThrowInfo"/> class.</summary>
+            <summary>Initializes a new instance of the <see cref="T:Dart.ThrowInfo" /> class.</summary>
             <param name="dartBoardElement">The dart board.</param>
         </member>
         <member name="P:Dart.ThrowInfo.GetCurrentAngle">
@@ -326,7 +496,7 @@
         </member>
         <member name="T:Dart.ViewModelBase">
             <summary>The NotifyPropertyChanged.</summary>
-            <seealso cref="T:System.ComponentModel.INotifyPropertyChanged"/>
+            <seealso cref="T:System.ComponentModel.INotifyPropertyChanged" />
         </member>
         <member name="P:Dart.ViewModelBase.AvailableLanguages">
             <summary>Gets the available languages.</summary>
@@ -468,7 +638,9 @@
             <summary>The MainWindowViewModel.</summary>
         </member>
         <member name="M:Dart.MainWindowViewModel.#ctor">
-            <summary>Initializes a new instance of the <see cref="T:Dart.MainWindowViewModel"/> class.</summary>
+            <summary>
+               Initializes a new instance of the <see cref="T:Dart.MainWindowViewModel" /> class.
+            </summary>
         </member>
         <member name="P:Dart.MainWindowViewModel.ConfiguredGameOptions">
             <summary>Gets or sets the configured game options.</summary>
@@ -555,10 +727,12 @@
         </member>
         <member name="T:Dart.ToolBarViewModel">
             <summary>The ToolBarViewModel.</summary>
-            <seealso cref="T:Dart.ViewModelBase"/>
+            <seealso cref="T:Dart.ViewModelBase" />
         </member>
         <member name="M:Dart.ToolBarViewModel.#ctor(Dart.IViewModelBase)">
-            <summary>Initializes a new instance of the <see cref="T:Dart.ToolBarViewModel"/> class.</summary>
+            <summary>
+               Initializes a new instance of the <see cref="T:Dart.ToolBarViewModel" /> class.
+            </summary>
             <param name="owner">The owner.</param>
         </member>
         <member name="P:Dart.ToolBarViewModel.OpenSettings">
@@ -1151,6 +1325,36 @@
         <member name="M:Game.App.Main">
             <summary>
             Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
             </summary>
         </member>
     </members>

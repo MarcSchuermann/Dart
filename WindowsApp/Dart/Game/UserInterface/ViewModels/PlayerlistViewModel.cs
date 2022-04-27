@@ -6,7 +6,7 @@
 
 using System;
 using System.ComponentModel;
-using Core;
+using Dart.Common.UserInterface.Helper;
 
 namespace Dart
 {

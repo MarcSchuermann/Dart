@@ -4,7 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 using System.Windows;
-using Core;
+using Dart.Common.Commands;
 using Dart.Properties;
 using GameLogic.DartThrow;
 using GameLogic.GameProcedure;

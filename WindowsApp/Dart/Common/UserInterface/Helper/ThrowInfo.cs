@@ -7,14 +7,13 @@
 using System;
 using System.Windows;
 using System.Windows.Input;
-using Core;
 using Dart.Common.UserInterface.Helper;
 using GameLogic.DartThrow;
 
 namespace Dart
 {
     /// <summary>The throw info.</summary>
-    /// <seealso cref="Core.NotifyPropertyChanged"/>
+    /// <seealso cref="Common.UserInterface.Helper.NotifyPropertyChanged" />
     public class ThrowInfo : NotifyPropertyChanged
     {
         #region Private Fields
@@ -25,7 +24,7 @@ namespace Dart
 
         #region Public Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="ThrowInfo"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="ThrowInfo" /> class.</summary>
         /// <param name="dartBoardElement">The dart board.</param>
         public ThrowInfo(UIElement dartBoardElement)
         {

@@ -33,14 +33,6 @@
     </PackageReference>
   </ItemGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\..\StyleCop.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
-  <ItemGroup>
-    <AdditionalFiles Include="..\..\stylecop.json" Link="stylecop.json" />
-  </ItemGroup>
-
   <ItemGroup>
     <ProjectReference Include="..\Schuermann.Darts.Environment.csproj" />
   </ItemGroup>

@@ -1,6 +1,8 @@
-﻿// <copyright file="ColorSchema.cs" company="Marc Schürmann">
-// Copyright (c) Marc Schürmann. All Rights Reserved.
+﻿// -----------------------------------------------------------------------
+// <copyright file="ColorSchema.cs" company="Marc Schürmann">
+//     Copyright (c) Marc Schürmann. All Rights Reserved.
 // </copyright>
+// -----------------------------------------------------------------------
 
 namespace Environment.Themes
 {

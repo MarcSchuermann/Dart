@@ -14,8 +14,6 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Castle.Core" Version="4.4.1" />
-    <PackageReference Include="MarcSchuermann.Core" Version="1.0.4" />
-    <PackageReference Include="GameLogic" Version="1.0.5" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="16.8.3" />
     <PackageReference Include="Moq" Version="4.7.145" />
     <PackageReference Include="MSTest.TestAdapter" Version="2.2.3" />

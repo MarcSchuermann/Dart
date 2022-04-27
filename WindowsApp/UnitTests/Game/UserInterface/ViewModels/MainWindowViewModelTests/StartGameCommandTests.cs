@@ -2,9 +2,8 @@
 //// <copyright>Marc Schürmann</copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
-using Core;
 using Dart;
-using GameLogic.Player;
+using Dart.Common.UserInterface.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests.Game.UserInterface.ViewModels.MainWindowViewModelTests

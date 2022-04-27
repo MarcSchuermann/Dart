@@ -12,7 +12,6 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A2BF478F-AEEB-4BFD-82C8-5BEBD50292A5}"
 	ProjectSection(SolutionItems) = preProject
 		DartCore.Build.targets = DartCore.Build.targets
-		StyleCop.ruleset = StyleCop.ruleset
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{55B77803-29BE-4480-9F2D-61A5F2C3BCD6}"

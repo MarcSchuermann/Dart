@@ -1,6 +1,8 @@
-﻿// <copyright file="IProperties.cs" company="Marc Schürmann">
+﻿// -----------------------------------------------------------------------
+// <copyright file="IProperties.cs" company="Marc Schürmann">
 //     Copyright (c) Marc Schürmann. All Rights Reserved.
 // </copyright>
+// -----------------------------------------------------------------------
 
 using System.Globalization;
 using Environment.Themes;

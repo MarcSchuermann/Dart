@@ -1,6 +1,8 @@
-﻿// <copyright file="Theme.cs" company="Marc Schürmann">
+﻿// -----------------------------------------------------------------------
+// <copyright file="Theme.cs" company="Marc Schürmann">
 //     Copyright (c) Marc Schürmann. All Rights Reserved.
 // </copyright>
+// -----------------------------------------------------------------------
 
 namespace Environment.Themes
 {
@@ -9,13 +11,13 @@ namespace Environment.Themes
     {
         #region Public Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="Theme"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="Theme" /> class.</summary>
         public Theme()
             : this(BaseTheme.light, ColorSchema.blue)
         {
         }
 
-        /// <summary>Initializes a new instance of the <see cref="Theme"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="Theme" /> class.</summary>
         /// <param name="baseTheme">The base theme.</param>
         /// <param name="colorSchema">The color schema.</param>
         public Theme(BaseTheme baseTheme, ColorSchema colorSchema)

@@ -8,7 +8,7 @@ using System;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
-using Core;
+using Dart.Common.UserInterface.Helper;
 
 namespace Dart
 {

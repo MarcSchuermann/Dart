@@ -6,12 +6,12 @@
 
 using System.Collections.Generic;
 using System.Globalization;
-using Core;
+using Dart.Common.UserInterface.Helper;
 
 namespace Dart
 {
     /// <summary>The NotifyPropertyChanged.</summary>
-    /// <seealso cref="System.ComponentModel.INotifyPropertyChanged"/>
+    /// <seealso cref="System.ComponentModel.INotifyPropertyChanged" />
     public class ViewModelBase : NotifyPropertyChanged, IViewModelBase
     {
         #region Public Properties

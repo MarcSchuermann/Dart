@@ -5,17 +5,19 @@
 // -----------------------------------------------------------------------
 
 using System.Windows.Input;
-using Core;
+using Dart.Common.Commands;
 
 namespace Dart
 {
     /// <summary>The ToolBarViewModel.</summary>
-    /// <seealso cref="Dart.ViewModelBase"/>
+    /// <seealso cref="Dart.ViewModelBase" />
     public class ToolBarViewModel : ViewModelBase
     {
         #region Public Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="ToolBarViewModel"/> class.</summary>
+        /// <summary>
+        ///    Initializes a new instance of the <see cref="ToolBarViewModel" /> class.
+        /// </summary>
         /// <param name="owner">The owner.</param>
         public ToolBarViewModel(IViewModelBase owner)
         {

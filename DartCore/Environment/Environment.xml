@@ -184,10 +184,10 @@
             <summary>The theme.</summary>
         </member>
         <member name="M:Environment.Themes.Theme.#ctor">
-            <summary>Initializes a new instance of the <see cref="T:Environment.Themes.Theme"/> class.</summary>
+            <summary>Initializes a new instance of the <see cref="T:Environment.Themes.Theme" /> class.</summary>
         </member>
         <member name="M:Environment.Themes.Theme.#ctor(Environment.Themes.BaseTheme,Environment.Themes.ColorSchema)">
-            <summary>Initializes a new instance of the <see cref="T:Environment.Themes.Theme"/> class.</summary>
+            <summary>Initializes a new instance of the <see cref="T:Environment.Themes.Theme" /> class.</summary>
             <param name="baseTheme">The base theme.</param>
             <param name="colorSchema">The color schema.</param>
         </member>

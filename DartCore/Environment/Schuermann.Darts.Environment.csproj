@@ -10,10 +10,6 @@
 	<Description>Contains environmental stuff like localisation, themes and the plugin system.</Description>
   </PropertyGroup>
 
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\StyleCop.ruleset</CodeAnalysisRuleSet>
-  </PropertyGroup>
-
   <ItemGroup>
     <Compile Remove="Tests\**" />
     <EmbeddedResource Remove="Tests\**" />
@@ -24,9 +20,9 @@
     <None Remove="Environment.xml" />
   </ItemGroup>
 
-  <ItemGroup>
-    <AdditionalFiles Include="..\stylecop.json" Link="stylecop.json" />
-  </ItemGroup>
+	<ItemGroup>
+		<AdditionalFiles Include="..\stylecop.json" Link="stylecop.json" />
+	</ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\GameLogic\Schuermann.Darts.GameCore.csproj" />

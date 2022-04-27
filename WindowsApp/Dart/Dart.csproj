@@ -17,7 +17,7 @@
   </PropertyGroup>
 
   <PropertyGroup>
-    <CodeAnalysisRuleSet>..\..\StyleCop.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRuleSet></CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
@@ -25,21 +25,16 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <AdditionalFiles Include="..\..\stylecop.json" Link="stylecop.json" />
-  </ItemGroup>
-
-  <ItemGroup>
     <PackageReference Include="Autofac" Version="5.2.0" />
     <PackageReference Include="Autofac.Configuration" Version="5.0.0" />
     <PackageReference Include="ControlzEx" Version="4.3.0" />
-    <PackageReference Include="Environment" Version="1.0.3" />
     <PackageReference Include="Fizzler" Version="1.2.0" />
-    <PackageReference Include="GameLogic" Version="1.0.5" />
     <PackageReference Include="MahApps.Metro" Version="2.1.0" />
-    <PackageReference Include="MarcSchuermann.Core" Version="1.0.4" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
     <PackageReference Include="NLog" Version="4.4.12" />
+    <PackageReference Include="Schuermann.Darts.Environment" Version="1.0.7-alpha.20220426.2" />
+    <PackageReference Include="Schuermann.Darts.GameCore" Version="1.0.7-alpha.20220426.2" />
     <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
@@ -74,6 +69,8 @@
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </Page>
     <None Remove="Resources\dartboard.png" />
+    <AdditionalFiles Include="..\..\stylecop.json" Link="stylecop.json" />
+    <None Include="..\.editorconfig" Link=".editorconfig" />
     <Resource Include="Resources\dartboard.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

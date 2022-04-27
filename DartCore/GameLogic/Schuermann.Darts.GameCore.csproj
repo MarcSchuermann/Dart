@@ -1,5 +1,5 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-	<Import Project="../DartCore.Build.targets"/>
+	<Import Project="../DartCore.Build.targets" />
 
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
@@ -8,10 +8,6 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	<Version>$(VersionToCreate)</Version>
 	<Description>Contains the core data for a dart game.</Description>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <CodeAnalysisRuleSet>..\StyleCop.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
 
   <ItemGroup>

@@ -11,8 +11,8 @@ using System.Linq;
 using System.Windows;
 using Autofac;
 using ControlzEx.Theming;
-using Core;
 using Dart.Common;
+using Dart.Common.Commands;
 using Dart.Common.Theme;
 
 namespace Dart
