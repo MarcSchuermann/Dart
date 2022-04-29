@@ -36,8 +36,10 @@ steps:
     targetType: 'inline'
     script: |
       [xml]$targetsFile = Get-Content -Path $(Build.SourcesDirectory)/DartCore/DartCore.Build.targets
-      $version = $targetsFile.Project.PropertyGroup.VersionToCreate
-      Write-Host "Parsed version is $version"
+      $readVersion = $targetsFile.Project.PropertyGroup.VersionToCreate
+      Write-Host "readVersion is $readVersion"
+      $version = $readVersion.replace(' ','')
+      Write-Host "Cleand readVersion is $version"
 
       if ( '${{ parameters.alpha }}' -eq 'true' )
       {
