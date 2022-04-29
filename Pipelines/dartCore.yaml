@@ -46,7 +46,7 @@ steps:
 
       if ( '${{ parameters.alpha }}' -eq 'true' )
       {
-        $alphaVersion = $version + "-alpha.$(Build.BuildNumber)"
+        $alphaVersion = $version+"-alpha.$(Build.BuildNumber)"
         Write-Host "Full version is $alphaVersion"
         Write-Host "##vso[task.setvariable variable=fullVersion]$alphaVersion"
       }
