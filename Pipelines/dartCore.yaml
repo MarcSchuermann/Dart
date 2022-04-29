@@ -36,7 +36,7 @@ steps:
     targetType: 'inline'
     script: |
       [xml]$targetsFile = Get-Content -Path $(Build.SourcesDirectory)/DartCore/DartCore.Build.targets
-      $version = $targetsFile.Project.PropertyGroup.VersionToCreate
+      $version = $targetsFile.Project.PropertyGroup.VersionToCreate.replace(' ','')
       Write-Host "Parsed version is $version"
 
       if ( '${{ parameters.alpha }}' -eq 'true' )
