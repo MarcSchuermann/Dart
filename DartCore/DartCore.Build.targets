@@ -9,12 +9,12 @@
 	</PropertyGroup>
 
 	<PropertyGroup>
-		<AnalysisMode>All</AnalysisMode>
-	</PropertyGroup>
-
-	<PropertyGroup>
 		<AnalysisLevel>5.0</AnalysisLevel>
 	</PropertyGroup>-->
+
+	<PropertyGroup>
+		<AnalysisMode>AllEnabledByDefault</AnalysisMode>
+	</PropertyGroup>
 
 	<PropertyGroup>
 		<Authors>Marc Schuermann</Authors>
