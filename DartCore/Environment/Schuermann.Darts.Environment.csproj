@@ -2,8 +2,8 @@
 	<Import Project="../DartCore.Build.targets" />
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
-    <NoWarn>1701;1702</NoWarn>
+    <TargetFrameworks>net6.0</TargetFrameworks>
+    <!--<NoWarn>1701;1702</NoWarn>-->
     <DocumentationFile>Environment.xml</DocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	<Version>$(VersionToCreate)</Version>

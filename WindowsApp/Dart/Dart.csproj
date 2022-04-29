@@ -70,7 +70,6 @@
     </Page>
     <None Remove="Resources\dartboard.png" />
     <AdditionalFiles Include="..\..\stylecop.json" Link="stylecop.json" />
-    <None Include="..\.editorconfig" Link=".editorconfig" />
     <Resource Include="Resources\dartboard.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>

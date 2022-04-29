@@ -1,6 +1,6 @@
 <Project>
 
-	<PropertyGroup>
+	<!--<PropertyGroup>
 		<EnableNETAnalyzers>true</EnableNETAnalyzers>
 	</PropertyGroup>
 
@@ -14,12 +14,12 @@
 
 	<PropertyGroup>
 		<AnalysisLevel>5.0</AnalysisLevel>
-	</PropertyGroup>
+	</PropertyGroup>-->
 
 	<PropertyGroup>
 		<Authors>Marc Schuermann</Authors>
 		<Company>Marc Schuermann</Company>
-		<VersionToCreate>1.0.7</VersionToCreate>
+		<VersionToCreate>2.0.0</VersionToCreate>
 		<Copyright>Copyright by Marc Schuermann</Copyright>
 	</PropertyGroup>
 </Project>
