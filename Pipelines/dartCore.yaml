@@ -64,6 +64,15 @@ steps:
 - task: DotNetCoreCLI@2
   displayName: 'dotnet test'
   inputs:
+    command: 'build'
+    projects: $(Solution)
+    arguments: '/p:Configuration=$(BuildConfiguration) /p:Version=$(fullVersion) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./MyCoverage/'
+
+
+# --- Run unit tests ---
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet test'
+  inputs:
     command: 'test'
     projects: $(Solution)
     arguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory) /p:Configuration=$(BuildConfiguration) /p:Version=$(fullVersion) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./MyCoverage/'
