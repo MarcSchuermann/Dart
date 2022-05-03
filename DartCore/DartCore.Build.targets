@@ -4,6 +4,10 @@
 		<Company>Marc Schuermann</Company>
 		<Version>2.0.1</Version>
 		<Copyright>Copyright by Marc Schuermann</Copyright>
+	</PropertyGroup>
+
+	<PropertyGroup>
 		<AnalysisMode>AllEnabledByDefault</AnalysisMode>
+		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
 	</PropertyGroup>
 </Project>
