@@ -36,7 +36,11 @@ steps:
     targetType: 'inline'
     script: |
       [xml]$targetsFile = Get-Content -Path $(Build.SourcesDirectory)/DartCore/DartCore.Build.targets
-      $version = $targetsFile.Project.PropertyGroup.VersionToCreate
+      Get-ChildItem '$(Build.SourcesDirectory)' -Recurse
+      Get-Content $(Build.SourcesDirectory)/DartCore/DartCore.Build.targets
+
+      [xml]$targetsFile = Get-Content -Path $(Build.SourcesDirectory)/DartCore/DartCore.Build.targets
+      $readVersion = $targetsFile.Project.PropertyGroup.Version
       Write-Host "readVersion is $version"
       if ($version -Match " ")
       {
