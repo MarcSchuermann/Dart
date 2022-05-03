@@ -36,7 +36,7 @@ steps:
     targetType: 'inline'
     script: |
       [xml]$targetsFile = Get-Content -Path $(Build.SourcesDirectory)/DartCore/DartCore.Build.targets
-      $readVersion = $targetsFile.Project.PropertyGroup.VersionToCreate
+      $readVersion = $targetsFile.Project.PropertyGroup.Version
       Write-Host "readVersion is $readVersion"
       $version = $readVersion.replace(' ','')
       Write-Host "Cleand readVersion is $version"
