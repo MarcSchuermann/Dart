@@ -6,7 +6,6 @@
     <!--<NoWarn>1701;1702</NoWarn>-->
     <DocumentationFile>GameLogic.xml</DocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	<Version>$(VersionToCreate)</Version>
 	<Description>Contains the core data for a dart game.</Description>
   </PropertyGroup>
 
