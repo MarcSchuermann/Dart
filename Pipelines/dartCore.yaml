@@ -40,7 +40,7 @@ steps:
       Get-Content $(Build.SourcesDirectory)/DartCore/DartCore.Build.targets
 
       [xml]$targetsFile = Get-Content -Path $(Build.SourcesDirectory)/DartCore/DartCore.Build.targets
-      $readVersion = $targetsFile.Project.PropertyGroup.Version
+      $version = $targetsFile.Project.PropertyGroup.Version
       Write-Host "readVersion is $version"
       if ($version -Match " ")
       {
