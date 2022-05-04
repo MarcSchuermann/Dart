@@ -78,7 +78,7 @@ steps:
 
 # --- Show SourcesDirectory and BinariesDirectory ---
 - task: PowerShell@2
-  displayName: Update Version
+  displayName: Show SourcesDirectory and BinariesDirectory
   inputs:
     targetType: 'inline'
     script: |
