@@ -68,7 +68,7 @@ steps:
     projects: $(Solution)
     arguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory) /p:Configuration=$(BuildConfiguration) /p:Version=$(fullVersion)'
 
-# --- Run unit tests ---
+# --- Run tests ---
 - task: DotNetCoreCLI@2
   displayName: 'dotnet test'
   inputs:
@@ -76,14 +76,14 @@ steps:
     projects: $(Solution)
     arguments: '/p:Configuration=$(BuildConfiguration) /p:Version=$(fullVersion) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./MyCoverage/'
 
-# --- Get Version from targets file ---
+# --- Show SourcesDirectory and BinariesDirectory ---
 - task: PowerShell@2
   displayName: Update Version
   inputs:
     targetType: 'inline'
     script: |
       Get-ChildItem '$(Build.SourcesDirectory)' -Recurse
-      Write-Host "------------------------------------------------"
+      Write-Host "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
       Get-ChildItem '$(Build.BinariesDirectory)' -Recurse
 
 # --- Merge the multiple code coverage result files ---
