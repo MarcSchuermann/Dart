@@ -4,8 +4,8 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using GameLogic.Player;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Schuermann.Darts.GameCore.Game;
 
 namespace GameLogicTests.PlayerTests
 {
@@ -19,8 +19,10 @@ namespace GameLogicTests.PlayerTests
         [TestMethod]
         public void ToStringReturnsName()
         {
-            var player = new Player();
-            player.Name = "Willy";
+            var player = new Player
+            {
+                Name = "Willy"
+            };
 
             Assert.AreEqual("Willy", player.ToString());
         }

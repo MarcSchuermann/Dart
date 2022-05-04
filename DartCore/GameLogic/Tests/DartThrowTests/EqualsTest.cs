@@ -5,8 +5,8 @@
 // -----------------------------------------------------------------------
 
 using FluentAssertions;
-using GameLogic.DartThrow;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Schuermann.Darts.GameCore.Thrown;
 
 namespace GameLogicTests.DartThrowTests
 {

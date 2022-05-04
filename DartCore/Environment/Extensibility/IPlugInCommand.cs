@@ -6,7 +6,7 @@
 
 using System;
 
-namespace Environment.Extensibility
+namespace Schuermann.Darts.Environment.Extensibility
 {
     /// <summary>The plug in command.</summary>
     public interface IPlugInCommand

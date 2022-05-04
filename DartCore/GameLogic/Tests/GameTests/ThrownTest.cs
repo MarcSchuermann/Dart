@@ -5,13 +5,10 @@
 // -----------------------------------------------------------------------
 
 using System.Collections.Generic;
-using System.ComponentModel;
 using System.Linq;
-using GameLogic.DartThrow;
-using GameLogic.GameOptions;
-using GameLogic.GameProcedure;
-using GameLogic.Player;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Schuermann.Darts.GameCore.Game;
+using Schuermann.Darts.GameCore.Thrown;
 
 namespace GameLogicTests.GameTests
 {
@@ -29,7 +26,7 @@ namespace GameLogicTests.GameTests
             var player2 = new Player() { Name = "Dieter", CurrentScore = 0 };
 
             var playerList = new List<IPlayer>() { player1, player2 };
-            var gameOptions = new GameOptions() { PlayerList = playerList, AllPlayTillZero = true };
+            var gameOptions = new GameOptions(playerList) { AllPlayTillZero = true };
 
             var game = new GameProcedure(gameOptions);
 
@@ -46,7 +43,7 @@ namespace GameLogicTests.GameTests
             var player2 = new Player() { Name = "Dieter", CurrentScore = 0 };
 
             var playerList = new List<IPlayer>() { player1, player2 };
-            var gameOptions = new GameOptions() { PlayerList = playerList, AllPlayTillZero = true };
+            var gameOptions = new GameOptions(playerList);
 
             var game = new GameProcedure(gameOptions);
 
@@ -63,7 +60,7 @@ namespace GameLogicTests.GameTests
             var player2 = new Player() { Name = "Dieter", CurrentScore = 100 };
 
             var playerList = new List<IPlayer>() { player1, player2 };
-            var gameOptions = new GameOptions() { PlayerList = playerList, AllPlayTillZero = false };
+            var gameOptions = new GameOptions(playerList);
 
             var game = new GameProcedure(gameOptions);
 
@@ -80,7 +77,7 @@ namespace GameLogicTests.GameTests
             var player2 = new Player() { Name = "Dieter", CurrentScore = 6 };
 
             var playerList = new List<IPlayer>() { player1, player2 };
-            var gameOptions = new GameOptions() { PlayerList = playerList };
+            var gameOptions = new GameOptions(playerList);
 
             var game = new GameProcedure(gameOptions);
 
@@ -95,7 +92,7 @@ namespace GameLogicTests.GameTests
         {
             var player = new Player() { Name = "Hans", CurrentScore = 10 };
             var playerList = new List<IPlayer>() { player };
-            var gameOptions = new GameOptions() { PlayerList = playerList };
+            var gameOptions = new GameOptions(playerList);
 
             var game = new GameProcedure(gameOptions);
 
@@ -112,7 +109,7 @@ namespace GameLogicTests.GameTests
             var player2 = new Player() { Name = "Dieter", CurrentScore = 6 };
 
             var playerList = new List<IPlayer>() { player1, player2 };
-            var gameOptions = new GameOptions() { PlayerList = playerList };
+            var gameOptions = new GameOptions(playerList);
 
             var game = new GameProcedure(gameOptions);
 
@@ -127,7 +124,7 @@ namespace GameLogicTests.GameTests
         {
             var player = new Player() { Name = "Hans", CurrentScore = 100 };
             var playerList = new List<IPlayer>() { player };
-            var gameOptions = new GameOptions() { PlayerList = playerList };
+            var gameOptions = new GameOptions(playerList);
 
             var game = new GameProcedure(gameOptions);
 
@@ -144,7 +141,7 @@ namespace GameLogicTests.GameTests
 
             var player = new Player() { Name = "Hans", CurrentScore = 100 };
             var playerList = new List<IPlayer>() { player };
-            var gameOptions = new GameOptions() { PlayerList = playerList };
+            var gameOptions = new GameOptions(playerList);
 
             var game = new GameProcedure(gameOptions);
             game.PropertyChanged += (sender, e) =>
@@ -163,7 +160,7 @@ namespace GameLogicTests.GameTests
         {
             var player = new Player() { Name = "Hans", CurrentScore = 60 };
             var playerList = new List<IPlayer>() { player };
-            var gameOptions = new GameOptions() { PlayerList = playerList };
+            var gameOptions = new GameOptions(playerList);
 
             var game = new GameProcedure(gameOptions);
 

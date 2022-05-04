@@ -2,23 +2,22 @@
 //     Copyright (c) Marc Schürmann. All Rights Reserved.
 // </copyright>
 
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using GameLogic.DartThrow;
-using GameLogic.GameOptions;
-using GameLogic.Player;
+using Schuermann.Darts.GameCore.Thrown;
 
-namespace GameLogic.GameProcedure
+namespace Schuermann.Darts.GameCore.Game
 {
     /// <summary>The game instance.</summary>
-    /// <seealso cref="IGameProcedure"/>
-    /// <seealso cref="INotifyPropertyChanged"/>
+    /// <seealso cref="IGameProcedure" />
+    /// <seealso cref="INotifyPropertyChanged" />
     public class GameProcedure : IGameProcedure, INotifyPropertyChanged
     {
         #region Public Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="GameProcedure"/> class.</summary>
+        /// <summary>
+        ///    Initializes a new instance of the <see cref="GameProcedure" /> class.
+        /// </summary>
         /// <param name="gameOptions">The game options.</param>
         public GameProcedure(IGameOptions gameOptions)
         {
@@ -52,11 +51,14 @@ namespace GameLogic.GameProcedure
         /// <summary>Players the thrown.</summary>
         /// <param name="pointsThrown">The points thrown from the current player.</param>
         /// <returns>
-        /// True if the remaining points are zero. False if the remaining points are more than zero
-        /// or rather where below zero.
+        ///    True if the remaining points are zero. False if the remaining points are more than
+        ///    zero or rather where below zero.
         /// </returns>
         public bool PlayerThrown(IDartThrow pointsThrown)
         {
+            if (pointsThrown == null)
+                return CurrentPlayer.CurrentScore == 0;
+
             if (CurrentPlayer.CurrentScore >= pointsThrown.Points)
             {
                 CurrentPlayer.CurrentScore -= pointsThrown.Points;
@@ -65,9 +67,7 @@ namespace GameLogic.GameProcedure
                 AddThrowHistory(pointsThrown);
 
                 if (CurrentPlayer.CurrentScore == 0)
-                {
                     return true;
-                }
             }
             else
             {
@@ -91,10 +91,7 @@ namespace GameLogic.GameProcedure
 
         private void AddThrowHistory(IDartThrow thrownPoints)
         {
-            if (CurrentPlayer.ThrowHistory == null)
-                CurrentPlayer.ThrowHistory = new List<IDartThrow>();
-
-            CurrentPlayer.ThrowHistory.Add(thrownPoints);
+            CurrentPlayer?.ThrowHistory.Add(thrownPoints);
         }
 
         /// <summary>All the points are zero.</summary>

@@ -5,10 +5,10 @@
 // -----------------------------------------------------------------------
 
 using System;
-using GameLogic.GameOptions;
 using Schuermann.Darts.Environment.EnvironmentProps;
+using Schuermann.Darts.GameCore.Game;
 
-namespace Environment.Extensibility
+namespace Schuermann.Darts.Environment.Extensibility
 {
     /// <summary>The plug in interface.</summary>
     public interface IPlugIn : IEquatable<IPlugIn>

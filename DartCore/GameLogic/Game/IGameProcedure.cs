@@ -1,14 +1,12 @@
 ﻿// -----------------------------------------------------------------------
 // <copyright file="IGameProcedure.cs" company="Marc Schürmann">
-// Copyright (c) Marc Schürmann. All Rights Reserved.
+//     Copyright (c) Marc Schürmann. All Rights Reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-using GameLogic.DartThrow;
-using GameLogic.GameOptions;
-using GameLogic.Player;
+using Schuermann.Darts.GameCore.Thrown;
 
-namespace GameLogic.GameProcedure
+namespace Schuermann.Darts.GameCore.Game
 {
     /// <summary>The logic for a game.</summary>
     public interface IGameProcedure
@@ -30,8 +28,8 @@ namespace GameLogic.GameProcedure
         /// <summary>Players the thrown.</summary>
         /// <param name="pointsThrown">The points thrown from the current player.</param>
         /// <returns>
-        /// True if the remaining points are zero. False if the remaining points are more than zero
-        /// or rather where below zero.
+        ///    True if the remaining points are zero. False if the remaining points are more than
+        ///    zero or rather where below zero.
         /// </returns>
         bool PlayerThrown(IDartThrow pointsThrown);
 

@@ -1,12 +1,12 @@
 ﻿// -----------------------------------------------------------------------
 // <copyright file="IDartThrow.cs" company="Marc Schürmann">
-// Copyright (c) Marc Schürmann. All Rights Reserved.
+//     Copyright (c) Marc Schürmann. All Rights Reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
 using System;
 
-namespace GameLogic.DartThrow
+namespace Schuermann.Darts.GameCore.Thrown
 {
     /// <summary>The dart throw.</summary>
     public interface IDartThrow : IEquatable<IDartThrow>, IComparable<IDartThrow>

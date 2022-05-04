@@ -4,7 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace GameLogic.DartThrow
+namespace Schuermann.Darts.GameCore.Thrown
 {
     /// <summary>The quantifier for dart board field.</summary>
     public enum DartBoardQuantifier

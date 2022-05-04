@@ -4,9 +4,9 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using Environment.Themes;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Schuermann.Darts.Environment.Themes;
 
 namespace EnvironmentTests.ThemesTests
 {

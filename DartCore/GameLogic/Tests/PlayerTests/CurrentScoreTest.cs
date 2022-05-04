@@ -6,8 +6,8 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using GameLogic.Player;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Schuermann.Darts.GameCore.Game;
 
 namespace GameLogicTests.PlayerTests
 {

@@ -3,7 +3,6 @@
 
   <PropertyGroup>
     <TargetFrameworks>net6.0</TargetFrameworks>
-    <!--<NoWarn>1701;1702</NoWarn>-->
     <DocumentationFile>Environment.xml</DocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	<Description>Contains environmental stuff like localisation, themes and the plugin system.</Description>
@@ -22,4 +21,10 @@
   <ItemGroup>
     <ProjectReference Include="..\GameLogic\Schuermann.Darts.GameCore.csproj" />
   </ItemGroup>
+
+	<ItemGroup>
+		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+			<_Parameter1>$(MSBuildProjectName).Tests</_Parameter1>
+		</AssemblyAttribute>
+	</ItemGroup>
 </Project>

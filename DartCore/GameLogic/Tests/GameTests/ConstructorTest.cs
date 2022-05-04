@@ -5,10 +5,8 @@
 // -----------------------------------------------------------------------
 
 using System.Collections.Generic;
-using GameLogic.GameOptions;
-using GameLogic.GameProcedure;
-using GameLogic.Player;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Schuermann.Darts.GameCore.Game;
 
 namespace GameLogicTests.GameTests
 {
@@ -24,7 +22,7 @@ namespace GameLogicTests.GameTests
         {
             var player = new Player() { Name = "Hans" };
             var playerList = new List<IPlayer>() { player };
-            var gameOptions = new GameOptions() { PlayerList = playerList };
+            var gameOptions = new GameOptions(playerList);
 
             var game = new GameProcedure(gameOptions);
 

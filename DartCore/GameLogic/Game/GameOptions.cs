@@ -3,13 +3,29 @@
 // </copyright>
 
 using System.Collections.Generic;
-using GameLogic.Player;
 
-namespace GameLogic.GameOptions
+namespace Schuermann.Darts.GameCore.Game
 {
-    /// <summary>The GameOptions.</summary>
+    /// <summary>The options for a dart game.</summary>
+    /// <seealso cref="IGameOptions" />
     public class GameOptions : IGameOptions
     {
+        #region Public Constructors
+
+        /// <summary>Initializes a new instance of the <see cref="GameOptions" /> class.</summary>
+        public GameOptions() : this(new List<IPlayer>())
+        {
+        }
+
+        /// <summary>Initializes a new instance of the <see cref="GameOptions" /> class.</summary>
+        /// <param name="playerList">The player list.</param>
+        public GameOptions(IList<IPlayer> playerList)
+        {
+            PlayerList = playerList;
+        }
+
+        #endregion Public Constructors
+
         #region Public Properties
 
         /// <summary>Gets or sets a value indicating whether [all play till zero].</summary>
@@ -26,7 +42,7 @@ namespace GameLogic.GameOptions
 
         /// <summary>Gets or sets the player list.</summary>
         /// <value>The player list.</value>
-        public IList<IPlayer> PlayerList { get; set; }
+        public IList<IPlayer> PlayerList { get; }
 
         /// <summary>Gets or sets the start points.</summary>
         /// <value>The start points.</value>

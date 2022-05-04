@@ -4,7 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Environment.Themes
+namespace Schuermann.Darts.Environment.Themes
 {
     /// <summary>The theme.</summary>
     public class Theme

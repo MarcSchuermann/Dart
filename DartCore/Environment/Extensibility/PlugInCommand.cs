@@ -6,15 +6,17 @@
 
 using System;
 
-namespace Environment.Extensibility
+namespace Schuermann.Darts.Environment.Extensibility
 {
     /// <summary>The simpliest implementation of the IPlugInCommand.</summary>
-    /// <seealso cref="Environment.Extensibility.IPlugInCommand"/>
+    /// <seealso cref="IPlugInCommand" />
     public class PlugInCommand : IPlugInCommand
     {
         #region Public Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="PlugInCommand"/> class.</summary>
+        /// <summary>
+        ///    Initializes a new instance of the <see cref="PlugInCommand" /> class.
+        /// </summary>
         /// <param name="plugIn">The plug in.</param>
         /// <param name="onExecute">The on execute.</param>
         /// <param name="enabledInMainMenu">if set to <c>true</c> [enabled in main menu].</param>
@@ -31,19 +33,19 @@ namespace Environment.Extensibility
 
         #region Public Properties
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         public string DisplayText => PlugIn.Name;
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         public bool EnabledInGame { get; }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         public bool EnabledInMainMenu { get; }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         public Action OnExecute { get; }
 
-        /// <inheritdoc/>
+        /// <inheritdoc />
         public IPlugIn PlugIn { get; }
 
         #endregion Public Properties
