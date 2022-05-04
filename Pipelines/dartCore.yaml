@@ -60,13 +60,13 @@ steps:
         Write-Host "##vso[task.setvariable variable=fullVersion]$version"
       }
 
-# --- Run unit tests ---
+# --- Run build ---
 - task: DotNetCoreCLI@2
-  displayName: 'dotnet test'
+  displayName: 'dotnet build'
   inputs:
     command: 'build'
     projects: $(Solution)
-    arguments: '/p:Configuration=$(BuildConfiguration) /p:Version=$(fullVersion) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./MyCoverage/'
+    arguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory) /p:Configuration=$(BuildConfiguration) /p:Version=$(fullVersion)'
 
 
 # --- Run unit tests ---
@@ -75,7 +75,7 @@ steps:
   inputs:
     command: 'test'
     projects: $(Solution)
-    arguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory) /p:Configuration=$(BuildConfiguration) /p:Version=$(fullVersion) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./MyCoverage/'
+    arguments: '--no-build /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./MyCoverage/'
 
 # --- Merge the multiple code coverage result files ---
 - task: reportgenerator@5
