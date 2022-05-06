@@ -1,46 +1,28 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup Label="Globals">
-    <SccProjectName>%24/TeamProjectMarc/Dart/Dev/WindowsApp/Dart</SccProjectName>
-    <SccProvider>{4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}</SccProvider>
-    <SccAuxPath>https://marcschuermann.visualstudio.com</SccAuxPath>
-    <SccLocalPath>.</SccLocalPath>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <RootNamespace>Dart</RootNamespace>
-    <AssemblyName>Dart</AssemblyName>
-    <TargetFramework>net461</TargetFramework>
+	<PropertyGroup>
+    <!--<RootNamespace>Dart</RootNamespace>-->
+    <!--<AssemblyName>Dart</AssemblyName>-->
+    <TargetFramework>net6.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
-    <StyleCopTreatErrorsAsWarnings>True</StyleCopTreatErrorsAsWarnings>
     <ApplicationIcon>darts.ico</ApplicationIcon>
-  </PropertyGroup>
-
-  <PropertyGroup>
-    <CodeAnalysisRuleSet></CodeAnalysisRuleSet>
-  </PropertyGroup>
-
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DocumentationFile>Dart.xml</DocumentationFile>
+	<UseWPF>true</UseWPF>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="5.2.0" />
-    <PackageReference Include="Autofac.Configuration" Version="5.0.0" />
-    <PackageReference Include="ControlzEx" Version="4.3.0" />
+    <PackageReference Include="Autofac" Version="6.3.0" />
+    <PackageReference Include="Autofac.Configuration" Version="6.0.0" />
+    <PackageReference Include="ControlzEx" Version="5.0.1" />
     <PackageReference Include="Fizzler" Version="1.2.0" />
-    <PackageReference Include="MahApps.Metro" Version="2.1.0" />
+    <PackageReference Include="MahApps.Metro" Version="2.4.9" />
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
-    <PackageReference Include="NLog" Version="4.4.12" />
-    <PackageReference Include="Schuermann.Darts.Environment" Version="1.0.7-alpha.20220426.2" />
-    <PackageReference Include="Schuermann.Darts.GameCore" Version="1.0.7-alpha.20220426.2" />
-    <PackageReference Include="StyleCop.Analyzers" Version="1.1.118">
-      <PrivateAssets>all</PrivateAssets>
-      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
-    </PackageReference>
+    <PackageReference Include="NLog" Version="4.7.15" />
+    <PackageReference Include="Schuermann.Darts.Environment" Version="2.0.1-alpha.20220504.6" />
+    <PackageReference Include="Schuermann.Darts.GameCore" Version="2.0.1-alpha.20220504.6" />
     <PackageReference Include="Svg" Version="3.2.3" />
-    <PackageReference Include="Syncfusion.PropertyGrid.WPF46" Version="15.4.0.20" />
+    <PackageReference Include="Syncfusion.PropertyGrid.WPF" Version="20.1.0.52" />
     <PackageReference Include="System.Buffers" Version="4.5.1" />
     <PackageReference Include="System.ComponentModel.Composition" Version="5.0.0" />
     <PackageReference Include="System.Composition.AttributedModel" Version="5.0.0" />
@@ -48,45 +30,38 @@
     <PackageReference Include="System.Numerics.Vectors" Version="4.5.0" />
     <PackageReference Include="System.Runtime.CompilerServices.Unsafe" Version="5.0.0" />
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
-    <PackageReference Include="Wpf.MvvmTools" Version="1.0.3" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Reference Include="System.Windows.Controls.Ribbon" />
-    <Reference Include="System.Windows.Forms" />
-  </ItemGroup>
-
-  <ItemGroup>
+  <!--<ItemGroup>-->
     <!-- App.xaml -->
-    <ApplicationDefinition Include="App.xaml">
+    <!--<ApplicationDefinition Include="App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </ApplicationDefinition>
+    </ApplicationDefinition>-->
 
     <!-- XAML elements -->
-    <Page Include="**\*.xaml" Exclude="App.xaml">
+    <!--<Page Include="**\*.xaml" Exclude="App.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </Page>
-    <None Remove="Resources\dartboard.png" />
-    <AdditionalFiles Include="..\..\stylecop.json" Link="stylecop.json" />
+    </Page>-->
+    <!--<None Remove="Resources\dartboard.png" />
     <Resource Include="Resources\dartboard.png">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </Resource>
-    <Compile Update="**\*.xaml.cs" SubType="Code" DependentUpon="%(Filename)" />
+    <Compile Update="**\*.xaml.cs" SubType="Code" DependentUpon="%(Filename)" />-->
 
     <!-- Resources -->
-    <EmbeddedResource Update="Properties\Resources.resx" Generator="ResXFileCodeGenerator" LastGenOutput="Resources.Designer.cs" />
+    <!--<EmbeddedResource Update="Properties\Resources.resx" Generator="ResXFileCodeGenerator" LastGenOutput="Resources.Designer.cs" />
     <Compile Update="Properties\Resources.Designer.cs" AutoGen="True" DependentUpon="Resources.resx" DesignTime="True" />
     <None Update="autofac.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
     <None Update="NLog.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    </None>-->
 
     <!-- Settings -->
-    <None Update="Properties\Settings.settings" Generator="SettingsSingleFileGenerator" LastGenOutput="Settings.Designer.cs" />
+    <!--<None Update="Properties\Settings.settings" Generator="SettingsSingleFileGenerator" LastGenOutput="Settings.Designer.cs" />
     <Compile Update="Properties\Settings.Designer.cs" AutoGen="True" DependentUpon="Settings.settings" />
-  </ItemGroup>
+  </ItemGroup>-->
 </Project>

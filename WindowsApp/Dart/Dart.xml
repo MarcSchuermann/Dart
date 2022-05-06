@@ -517,7 +517,7 @@
         </member>
         <member name="T:Dart.IMainWindowViewModel">
             <summary>The main window view model interface.</summary>
-            <seealso cref="T:Dart.IViewModelBase"/>
+            <seealso cref="T:Dart.IViewModelBase" />
         </member>
         <member name="P:Dart.IMainWindowViewModel.ConfiguredGameOptions">
             <summary>Gets or sets the configured game options.</summary>
@@ -531,52 +531,193 @@
             <summary>Gets the settings view model.</summary>
             <value>The settings view model.</value>
         </member>
-        <member name="T:Dart.ListToVisibilityConverter">
+        <member name="T:Dart.Game.UserInterface.Converter.ListToVisibilityConverter">
             <summary>The ListToVisibilityConverter.</summary>
-            <seealso cref="T:System.Windows.Data.IValueConverter"/>
+            <seealso cref="T:System.Windows.Data.IValueConverter" />
         </member>
-        <member name="M:Dart.ListToVisibilityConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+        <member name="M:Dart.Game.UserInterface.Converter.ListToVisibilityConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
             <summary>Converts a value.</summary>
             <param name="value">The value produced by the binding source.</param>
             <param name="targetType">The type of the binding target property.</param>
             <param name="parameter">The converter parameter to use.</param>
             <param name="culture">The culture to use in the converter.</param>
-            <returns>A converted value. If the method returns null, the valid null value is used.</returns>
+            <returns>
+               A converted value. If the method returns null, the valid null value is used.
+            </returns>
         </member>
-        <member name="M:Dart.ListToVisibilityConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+        <member name="M:Dart.Game.UserInterface.Converter.ListToVisibilityConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
             <summary>Converts a value.</summary>
             <param name="value">The value that is produced by the binding target.</param>
             <param name="targetType">The type to convert to.</param>
             <param name="parameter">The converter parameter to use.</param>
             <param name="culture">The culture to use in the converter.</param>
-            <returns>A converted value. If the method returns null, the valid null value is used.</returns>
+            <returns>
+               A converted value. If the method returns null, the valid null value is used.
+            </returns>
         </member>
-        <member name="T:Dart.ViewModelTypeToVisibilityConverter">
+        <member name="T:Dart.Game.UserInterface.Converter.ViewModelTypeToVisibilityConverter">
             <summary>The ViewModelTypeToVisibilityConverter.</summary>
-            <seealso cref="T:System.Windows.Data.IValueConverter"/>
+            <seealso cref="T:System.Windows.Data.IValueConverter" />
         </member>
-        <member name="M:Dart.ViewModelTypeToVisibilityConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+        <member name="M:Dart.Game.UserInterface.Converter.ViewModelTypeToVisibilityConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
             <summary>Converts a value.</summary>
             <param name="value">The value produced by the binding source.</param>
             <param name="targetType">The type of the binding target property.</param>
             <param name="parameter">The converter parameter to use.</param>
             <param name="culture">The culture to use in the converter.</param>
-            <returns>A converted value. If the method returns null, the valid null value is used.</returns>
+            <returns>
+               A converted value. If the method returns null, the valid null value is used.
+            </returns>
         </member>
-        <member name="M:Dart.ViewModelTypeToVisibilityConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+        <member name="M:Dart.Game.UserInterface.Converter.ViewModelTypeToVisibilityConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
             <summary>Converts a value.</summary>
             <param name="value">The value that is produced by the binding target.</param>
             <param name="targetType">The type to convert to.</param>
             <param name="parameter">The converter parameter to use.</param>
             <param name="culture">The culture to use in the converter.</param>
-            <returns>A converted value. If the method returns null, the valid null value is used.</returns>
+            <returns>
+               A converted value. If the method returns null, the valid null value is used.
+            </returns>
+        </member>
+        <member name="T:Dart.Game.UserInterface.Views.DartGameView">
+            <summary>Interaction logic for DartGameView.</summary>
+            <summary>
+            DartGameView
+            </summary>
+        </member>
+        <member name="M:Dart.Game.UserInterface.Views.DartGameView.#ctor">
+            <summary>
+               Initializes a new instance of the <see cref="T:Dart.Game.UserInterface.Views.DartGameView" /> class.
+            </summary>
+        </member>
+        <member name="P:Dart.Game.UserInterface.Views.DartGameView.CurrentPoints">
+            <summary>Gets the current points.</summary>
+            <value>The current points.</value>
+        </member>
+        <member name="M:Dart.Game.UserInterface.Views.DartGameView.DartBoardMouseLeave(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>Handles the MouseLeave event of the DartBoard control.</summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">
+               The <see cref="T:System.Windows.Input.MouseEventArgs" /> instance containing the event data.
+            </param>
+        </member>
+        <member name="M:Dart.Game.UserInterface.Views.DartGameView.DartBoardMouseMove(System.Object,System.Windows.Input.MouseEventArgs)">
+            <summary>Handles the MouseMove event of the DartBoard control.</summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">
+               The <see cref="T:System.Windows.Input.MouseEventArgs" /> instance containing the event data.
+            </param>
+        </member>
+        <member name="M:Dart.Game.UserInterface.Views.DartGameView.GetCurrentMousePosition">
+            <summary>Gets the current mouse position.</summary>
+            <returns>The current mouse position.</returns>
+        </member>
+        <member name="M:Dart.Game.UserInterface.Views.DartGameView.RenderPointsAdorner(System.Object,System.Windows.Point,System.Int32)">
+            <summary>Renders the points adorner.</summary>
+            <param name="sender">The sender.</param>
+            <param name="actuallyMousePosition">The actually mouse position.</param>
+            <param name="actuallyPoints">The actually points.</param>
+        </member>
+        <member name="M:Dart.Game.UserInterface.Views.DartGameView.ShowDevUiData">
+            <summary>Shows the development UI data.</summary>
+        </member>
+        <member name="M:Dart.Game.UserInterface.Views.DartGameView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Dart.Game.UserInterface.Views.GameOptionsView">
+            <summary>The GameOptionsView.</summary>
+            <seealso cref="T:System.Windows.Controls.UserControl" />
+            <seealso cref="T:System.Windows.Markup.IComponentConnector" />
+            <summary>
+            GameOptionsView
+            </summary>
+        </member>
+        <member name="M:Dart.Game.UserInterface.Views.GameOptionsView.#ctor">
+            <summary>
+               Initializes a new instance of the <see cref="T:Dart.Game.UserInterface.Views.GameOptionsView" /> class.
+            </summary>
+        </member>
+        <member name="M:Dart.Game.UserInterface.Views.GameOptionsView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Dart.Game.UserInterface.Views.GameSettingsView">
+            <summary>The GameSettingsView.</summary>
+            <seealso cref="T:System.Windows.Controls.UserControl" />
+            <seealso cref="T:System.Windows.Markup.IComponentConnector" />
+            <summary>
+            GameSettingsView
+            </summary>
+        </member>
+        <member name="M:Dart.Game.UserInterface.Views.GameSettingsView.#ctor">
+            <summary>
+               Initializes a new instance of the <see cref="T:Dart.Game.UserInterface.Views.GameSettingsView" /> class.
+            </summary>
+        </member>
+        <member name="M:Dart.Game.UserInterface.Views.GameSettingsView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Dart.Game.UserInterface.Views.PlayerlistView">
+            <summary>The Player list view.</summary>
+            <seealso cref="T:System.Windows.Controls.UserControl" />
+            <seealso cref="T:System.Windows.Markup.IComponentConnector" />
+            <summary>
+            PlayerlistView
+            </summary>
+        </member>
+        <member name="M:Dart.Game.UserInterface.Views.PlayerlistView.#ctor">
+            <summary>
+               Initializes a new instance of the <see cref="T:Dart.Game.UserInterface.Views.PlayerlistView" /> class.
+            </summary>
+        </member>
+        <member name="M:Dart.Game.UserInterface.Views.PlayerlistView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Dart.Game.UserInterface.Views.PlayerView">
+            <summary>The PlayerView.</summary>
+            <seealso cref="T:System.Windows.Controls.UserControl" />
+            <seealso cref="T:System.Windows.Markup.IComponentConnector" />
+            <summary>
+            PlayerView
+            </summary>
+        </member>
+        <member name="M:Dart.Game.UserInterface.Views.PlayerView.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:Dart.Game.UserInterface.Views.PlayerView" /> class.</summary>
+        </member>
+        <member name="M:Dart.Game.UserInterface.Views.PlayerView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
+        <member name="T:Dart.Game.UserInterface.Views.RibbonView">
+            <summary>Interaction logic for RibbonView.xaml.</summary>
+            <summary>
+            RibbonView
+            </summary>
+        </member>
+        <member name="M:Dart.Game.UserInterface.Views.RibbonView.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:Dart.Game.UserInterface.Views.RibbonView" /> class.</summary>
+        </member>
+        <member name="M:Dart.Game.UserInterface.Views.RibbonView.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
         </member>
         <member name="T:Dart.DartGameViewModel">
             <summary>The DartGameViewModel.</summary>
-            <seealso cref="T:Dart.ViewModelBase"/>
+            <seealso cref="T:Dart.ViewModelBase" />
         </member>
         <member name="M:Dart.DartGameViewModel.#ctor(Dart.IViewModelBase)">
-            <summary>Initializes a new instance of the <see cref="T:Dart.DartGameViewModel"/> class.</summary>
+            <summary>
+               Initializes a new instance of the <see cref="T:Dart.DartGameViewModel" /> class.
+            </summary>
             <param name="owner">The owner.</param>
         </member>
         <member name="P:Dart.DartGameViewModel.CurrentPointsUnderMouse">
@@ -685,13 +826,11 @@
             <summary>Creates the current game options.</summary>
             <returns>The current game options.</returns>
         </member>
-        <member name="M:Dart.MainWindowViewModel.ShowQuitDialog(System.Object)">
+        <member name="M:Dart.MainWindowViewModel.ShowQuitDialog">
             <summary>Shows the quit dialog.</summary>
-            <param name="x">The x.</param>
         </member>
-        <member name="M:Dart.MainWindowViewModel.StartDartGame(System.Object)">
+        <member name="M:Dart.MainWindowViewModel.StartDartGame">
             <summary>Starts the dart game.</summary>
-            <param name="x">The x.</param>
         </member>
         <member name="T:Dart.PlayerlistViewModel">
             <summary>The Player list ViewModel.</summary>
@@ -761,141 +900,27 @@
         <member name="M:Dart.ToolBarViewModel.ResetCurrentGame">
             <summary>Resets the current game.</summary>
         </member>
-        <member name="T:Dart.DartGameView">
-            <summary>Interaction logic for DartGameView.</summary>
-            <summary>
-            DartGameView
-            </summary>
-        </member>
-        <member name="M:Dart.DartGameView.#ctor">
-            <summary>Initializes a new instance of the <see cref="T:Dart.DartGameView"/> class.</summary>
-        </member>
-        <member name="P:Dart.DartGameView.CurrentPoints">
-            <summary>Gets the current points.</summary>
-            <value>The current points.</value>
-        </member>
-        <member name="M:Dart.DartGameView.DartBoardMouseLeave(System.Object,System.Windows.Input.MouseEventArgs)">
-            <summary>Handles the MouseLeave event of the DartBoard control.</summary>
-            <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Input.MouseEventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:Dart.DartGameView.DartBoardMouseMove(System.Object,System.Windows.Input.MouseEventArgs)">
-            <summary>Handles the MouseMove event of the DartBoard control.</summary>
-            <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.Windows.Input.MouseEventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:Dart.DartGameView.GetCurrentMousePosition">
-            <summary>Gets the current mouse position.</summary>
-            <returns>The current mouse position.</returns>
-        </member>
-        <member name="M:Dart.DartGameView.RenderPointsAdorner(System.Object,System.Windows.Point,System.Int32)">
-            <summary>Renders the points adorner.</summary>
-            <param name="sender">The sender.</param>
-            <param name="actuallyMousePosition">The actually mouse position.</param>
-            <param name="actuallyPoints">The actually points.</param>
-        </member>
-        <member name="M:Dart.DartGameView.ShowDevUiData">
-            <summary>Shows the development UI data.</summary>
-        </member>
-        <member name="M:Dart.DartGameView.InitializeComponent">
-            <summary>
-            InitializeComponent
-            </summary>
-        </member>
-        <member name="T:Dart.GameOptionsView">
-            <summary>The GameOptionsView.</summary>
-            <seealso cref="T:System.Windows.Controls.UserControl"/>
-            <seealso cref="T:System.Windows.Markup.IComponentConnector"/>
-            <summary>
-            GameOptionsView
-            </summary>
-        </member>
-        <member name="M:Dart.GameOptionsView.#ctor">
-            <summary>Initializes a new instance of the <see cref="T:Dart.GameOptionsView"/> class.</summary>
-        </member>
-        <member name="M:Dart.GameOptionsView.InitializeComponent">
-            <summary>
-            InitializeComponent
-            </summary>
-        </member>
-        <member name="T:Dart.GameSettingsView">
-            <summary>The GameSettingsView.</summary>
-            <seealso cref="T:System.Windows.Controls.UserControl"/>
-            <seealso cref="T:System.Windows.Markup.IComponentConnector"/>
-            <summary>
-            GameSettingsView
-            </summary>
-        </member>
-        <member name="M:Dart.GameSettingsView.#ctor">
-            <summary>Initializes a new instance of the <see cref="T:Dart.GameSettingsView"/> class.</summary>
-        </member>
-        <member name="M:Dart.GameSettingsView.InitializeComponent">
-            <summary>
-            InitializeComponent
-            </summary>
-        </member>
-        <member name="T:Dart.MainWindow">
+        <member name="T:Dart.MainWindowView">
             <summary>The MainWindow.</summary>
-            <seealso cref="T:System.Windows.Window"/>
-            <seealso cref="T:System.Windows.Markup.IComponentConnector"/>
+            <seealso cref="T:System.Windows.Window" />
+            <seealso cref="T:System.Windows.Markup.IComponentConnector" />
             <summary>
-            MainWindow
+            MainWindowView
             </summary>
         </member>
-        <member name="M:Dart.MainWindow.#ctor">
-            <summary>Initializes a new instance of the <see cref="T:Dart.MainWindow"/> class.</summary>
-        </member>
-        <member name="M:Dart.MainWindow.OnClosing(System.ComponentModel.CancelEventArgs)">
-            <summary>Raises the <see cref="E:System.Windows.Window.Closing"/> event.</summary>
-            <param name="e">A <see cref="T:System.ComponentModel.CancelEventArgs"/> that contains the event data.</param>
-        </member>
-        <member name="M:Dart.MainWindow.InitializeComponent">
+        <member name="M:Dart.MainWindowView.#ctor">
             <summary>
-            InitializeComponent
+               Initializes a new instance of the <see cref="T:Dart.MainWindowView" /> class.
             </summary>
         </member>
-        <member name="T:Dart.PlayerlistView">
-            <summary>The Player list view.</summary>
-            <seealso cref="T:System.Windows.Controls.UserControl"/>
-            <seealso cref="T:System.Windows.Markup.IComponentConnector"/>
-            <summary>
-            PlayerlistView
-            </summary>
+        <member name="M:Dart.MainWindowView.OnClosing(System.ComponentModel.CancelEventArgs)">
+            <summary>Raises the <see cref="E:System.Windows.Window.Closing" /> event.</summary>
+            <param name="e">
+               A <see cref="T:System.ComponentModel.CancelEventArgs" /> that contains the event
+               data.
+            </param>
         </member>
-        <member name="M:Dart.PlayerlistView.#ctor">
-            <summary>Initializes a new instance of the <see cref="T:Dart.PlayerlistView"/> class.</summary>
-        </member>
-        <member name="M:Dart.PlayerlistView.InitializeComponent">
-            <summary>
-            InitializeComponent
-            </summary>
-        </member>
-        <member name="T:Dart.PlayerView">
-            <summary>The PlayerView.</summary>
-            <seealso cref="T:System.Windows.Controls.UserControl"/>
-            <seealso cref="T:System.Windows.Markup.IComponentConnector"/>
-            <summary>
-            PlayerView
-            </summary>
-        </member>
-        <member name="M:Dart.PlayerView.#ctor">
-            <summary>Initializes a new instance of the <see cref="T:Dart.PlayerView"/> class.</summary>
-        </member>
-        <member name="M:Dart.PlayerView.InitializeComponent">
-            <summary>
-            InitializeComponent
-            </summary>
-        </member>
-        <member name="T:Dart.Game.UserInterface.Views.RibbonView">
-            <summary>Interaction logic for RibbonView.xaml.</summary>
-            <summary>
-            RibbonView
-            </summary>
-        </member>
-        <member name="M:Dart.Game.UserInterface.Views.RibbonView.#ctor">
-            <summary>Initializes a new instance of the <see cref="T:Dart.Game.UserInterface.Views.RibbonView"/> class.</summary>
-        </member>
-        <member name="M:Dart.Game.UserInterface.Views.RibbonView.InitializeComponent">
+        <member name="M:Dart.MainWindowView.InitializeComponent">
             <summary>
             InitializeComponent
             </summary>
@@ -1325,36 +1350,6 @@
         <member name="M:Game.App.Main">
             <summary>
             Application Entry Point.
-            </summary>
-        </member>
-        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
-            <summary>
-            GeneratedInternalTypeHelper
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
-            <summary>
-            CreateInstance
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            GetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            SetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
-            <summary>
-            CreateDelegate
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
-            <summary>
-            AddEventHandler
             </summary>
         </member>
     </members>

@@ -8,7 +8,7 @@ using System;
 using System.Linq;
 using System.Windows.Controls;
 using System.Windows.Controls.Ribbon;
-using Environment.Extensibility;
+using Schuermann.Darts.Environment.Extensibility;
 
 namespace Dart.Game.UserInterface.Views
 {
@@ -17,7 +17,7 @@ namespace Dart.Game.UserInterface.Views
     {
         #region Public Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="RibbonView"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="RibbonView" /> class.</summary>
         public RibbonView()
         {
             InitializeComponent();

@@ -9,10 +9,10 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace Dart
+namespace Dart.Game.UserInterface.Converter
 {
     /// <summary>The ViewModelTypeToVisibilityConverter.</summary>
-    /// <seealso cref="System.Windows.Data.IValueConverter"/>
+    /// <seealso cref="IValueConverter" />
     public class ViewModelTypeToVisibilityConverter : IValueConverter
     {
         #region Public Methods
@@ -22,7 +22,9 @@ namespace Dart
         /// <param name="targetType">The type of the binding target property.</param>
         /// <param name="parameter">The converter parameter to use.</param>
         /// <param name="culture">The culture to use in the converter.</param>
-        /// <returns>A converted value. If the method returns null, the valid null value is used.</returns>
+        /// <returns>
+        ///    A converted value. If the method returns null, the valid null value is used.
+        /// </returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var currentGameOptions = value as GameOptionsViewModel;
@@ -38,7 +40,9 @@ namespace Dart
         /// <param name="targetType">The type to convert to.</param>
         /// <param name="parameter">The converter parameter to use.</param>
         /// <param name="culture">The culture to use in the converter.</param>
-        /// <returns>A converted value. If the method returns null, the valid null value is used.</returns>
+        /// <returns>
+        ///    A converted value. If the method returns null, the valid null value is used.
+        /// </returns>
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             return null;

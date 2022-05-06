@@ -6,18 +6,20 @@
 using System.Windows;
 using Dart.Common.Commands;
 using Dart.Properties;
-using GameLogic.DartThrow;
-using GameLogic.GameProcedure;
+using Schuermann.Darts.GameCore.Game;
+using Schuermann.Darts.GameCore.Thrown;
 
 namespace Dart
 {
     /// <summary>The DartGameViewModel.</summary>
-    /// <seealso cref="Dart.ViewModelBase"/>
+    /// <seealso cref="Dart.ViewModelBase" />
     public class DartGameViewModel : ViewModelBase
     {
         #region Public Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="DartGameViewModel"/> class.</summary>
+        /// <summary>
+        ///    Initializes a new instance of the <see cref="DartGameViewModel" /> class.
+        /// </summary>
         /// <param name="owner">The owner.</param>
         public DartGameViewModel(IViewModelBase owner)
         {

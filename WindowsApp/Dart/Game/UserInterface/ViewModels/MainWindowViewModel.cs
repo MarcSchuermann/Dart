@@ -13,12 +13,10 @@ using System.Windows;
 using System.Windows.Input;
 using Autofac;
 using Dart.Common;
-using Environment.Extensibility;
-using GameLogic.DartThrow;
-using GameLogic.GameOptions;
-using GameLogic.Player;
-using MvvmTools;
+using Dart.Common.Commands;
 using Schuermann.Darts.Environment.EnvironmentProps;
+using Schuermann.Darts.Environment.Extensibility;
+using Schuermann.Darts.GameCore.Game;
 
 namespace Dart
 {
@@ -27,29 +25,30 @@ namespace Dart
     {
         #region Private Fields
 
-        private Predicate<object> canShutdown = (object x) => { return true; };
+        private Func<bool> canShutdown = () => { return true; };
 
-        private Predicate<object> canStart = (object currentContent) =>
-             {
-                 var currentGameOptions = currentContent as GameOptionsViewModel;
+        private Func<bool> canStart = () =>
+                          {
+                             // TODO
+                             var currentGameOptions = new GameOptionsViewModel();//currentContent as GameOptionsViewModel;
 
-                 if (currentGameOptions == null || currentGameOptions.GameSettings == null || currentGameOptions.PlayerlistViewModel == null)
-                     return false;
+                             if (currentGameOptions == null || currentGameOptions.GameSettings == null || currentGameOptions.PlayerlistViewModel == null)
+                                  return false;
 
-                 if (string.IsNullOrWhiteSpace(currentGameOptions.GameSettings.SelectedPlayerCount))
-                     return false;
+                              if (string.IsNullOrWhiteSpace(currentGameOptions.GameSettings.SelectedPlayerCount))
+                                  return false;
 
-                 if (string.IsNullOrWhiteSpace(currentGameOptions.GameSettings.SelectedStartPoints))
-                     return false;
+                              if (string.IsNullOrWhiteSpace(currentGameOptions.GameSettings.SelectedStartPoints))
+                                  return false;
 
-                 foreach (var player in currentGameOptions.PlayerlistViewModel.Playerlist)
-                 {
-                     if (player.Name == null || player.Name.Length < 3)
-                         return false;
-                 }
+                              foreach (var player in currentGameOptions.PlayerlistViewModel.Playerlist)
+                              {
+                                  if (player.Name == null || player.Name.Length < 3)
+                                      return false;
+                              }
 
-                 return true;
-             };
+                              return true;
+                          };
 
         private IViewModelBase currentContent;
 
@@ -178,11 +177,10 @@ namespace Dart
             if (currentGameOptionsViewModel != null)
             {
                 gameOptions.StartPoints = Convert.ToInt16(currentGameOptionsViewModel.GameSettings.SelectedStartPoints);
-                gameOptions.PlayerList = new List<IPlayer>();
 
                 foreach (var player in currentGameOptionsViewModel.PlayerlistViewModel.Playerlist)
                 {
-                    gameOptions.PlayerList.Add(new Player() { Name = player.Name, CurrentScore = gameOptions.StartPoints, ThrowHistory = new List<IDartThrow>(), Round = 0, DartCountThisRound = 0, PointsThisRound = 0 });
+                    gameOptions.PlayerList.Add(new Player() { Name = player.Name, CurrentScore = gameOptions.StartPoints, Round = 0, DartCountThisRound = 0, PointsThisRound = 0 });
                 }
             }
 
@@ -210,8 +208,7 @@ namespace Dart
         }
 
         /// <summary>Shows the quit dialog.</summary>
-        /// <param name="x">The x.</param>
-        private void ShowQuitDialog(object x)
+        private void ShowQuitDialog()
         {
             if (MessageBox.Show(Properties.Resources.CloseText, Properties.Resources.Close, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
             {
@@ -220,8 +217,7 @@ namespace Dart
         }
 
         /// <summary>Starts the dart game.</summary>
-        /// <param name="x">The x.</param>
-        private void StartDartGame(object x)
+        private void StartDartGame()
         {
             ConfiguredGameOptions = CreateCurrentGameOptions();
 

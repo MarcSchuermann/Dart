@@ -7,11 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Dart", "Dart\Dart.csproj", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UnitTests_Dart", "UnitTests\UnitTests_Dart.csproj", "{C7C95595-6447-4C57-B517-77800039527C}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{98EB8ED4-B8E8-441B-A199-F9932256F3BE}"
-	ProjectSection(SolutionItems) = preProject
-		..\StyleCop.ruleset = ..\StyleCop.ruleset
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

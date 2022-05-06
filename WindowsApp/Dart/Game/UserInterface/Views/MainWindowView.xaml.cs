@@ -11,19 +11,22 @@ using System.Globalization;
 using System.Threading;
 using ControlzEx.Theming;
 using Dart.Tools;
+using MahApps.Metro.Controls;
 
 namespace Dart
 {
     /// <summary>The MainWindow.</summary>
-    /// <seealso cref="System.Windows.Window"/>
-    /// <seealso cref="System.Windows.Markup.IComponentConnector"/>
+    /// <seealso cref="System.Windows.Window" />
+    /// <seealso cref="System.Windows.Markup.IComponentConnector" />
     [ExcludeFromCodeCoverage]
-    public partial class MainWindow
+    public partial class MainWindowView : MetroWindow
     {
         #region Public Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="MainWindow"/> class.</summary>
-        public MainWindow()
+        /// <summary>
+        ///    Initializes a new instance of the <see cref="MainWindowView" /> class.
+        /// </summary>
+        public MainWindowView()
         {
             Dart.Common.Splashscreen.SplashScreen.ShowSplashScreen();
 
@@ -43,8 +46,11 @@ namespace Dart
 
         #region Protected Methods
 
-        /// <summary>Raises the <see cref="E:System.Windows.Window.Closing"/> event.</summary>
-        /// <param name="e">A <see cref="T:System.ComponentModel.CancelEventArgs"/> that contains the event data.</param>
+        /// <summary>Raises the <see cref="E:System.Windows.Window.Closing" /> event.</summary>
+        /// <param name="e">
+        ///    A <see cref="T:System.ComponentModel.CancelEventArgs" /> that contains the event
+        ///    data.
+        /// </param>
         protected override void OnClosing(CancelEventArgs e)
         {
             base.OnClosing(e);
