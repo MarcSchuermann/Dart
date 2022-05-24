@@ -14,24 +14,26 @@ using ControlzEx.Theming;
 using Dart.Common;
 using Dart.Common.Commands;
 using Dart.Common.Theme;
+using Dart.Settings.Interfaces;
 
 namespace Dart
 {
     /// <summary>The SettingsViewModel.</summary>
-    /// <seealso cref="Dart.ViewModelBase"/>
+    /// <seealso cref="Dart.ViewModelBase" />
     public class ApplicationSettingsViewModel : ViewModelBase, IApplicationSettingsViewModel
     {
         #region Private Fields
 
+        private readonly IViewModelBase mainWindowViewModel;
         private IApplicationSettings currentApplicationSettings;
-
-        private IViewModelBase mainWindowViewModel;
 
         #endregion Private Fields
 
         #region Public Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="ApplicationSettingsViewModel"/> class.</summary>
+        /// <summary>
+        ///    Initializes a new instance of the <see cref="ApplicationSettingsViewModel" /> class.
+        /// </summary>
         /// <param name="ownerViewModel">The main window view model.</param>
         public ApplicationSettingsViewModel(IViewModelBase ownerViewModel)
         {
@@ -48,12 +50,16 @@ namespace Dart
 
         /// <summary>The language changed event heandler.</summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="args">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="args">
+        ///    The <see cref="EventArgs" /> instance containing the event data.
+        /// </param>
         public delegate void LanguageChangedEventHaendler(object sender, EventArgs args);
 
         /// <summary>The theme changed event heandler.</summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="args">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="args">
+        ///    The <see cref="EventArgs" /> instance containing the event data.
+        /// </param>
         public delegate void ThemeChangedEventHaendler(object sender, EventArgs args);
 
         #endregion Public Delegates
@@ -153,8 +159,12 @@ namespace Dart
             }
         }
 
-        /// <summary>Gets or sets a value indicating whether [show user interface dart board data].</summary>
-        /// <value><c>true</c> if [show user interface dart board data]; otherwise, <c>false</c>.</value>
+        /// <summary>
+        ///    Gets or sets a value indicating whether [show user interface dart board data].
+        /// </summary>
+        /// <value>
+        ///    <c>true</c> if [show user interface dart board data]; otherwise, <c>false</c>.
+        /// </value>
         public bool ShowUserInterfaceDartBoardData
         {
             get => CurrentApplicationSettings.ShowUserInterfaceDartBoardData;
@@ -168,6 +178,13 @@ namespace Dart
         #endregion Public Properties
 
         #region Private Methods
+
+        /// <summary>Cancels the application settings.</summary>
+        /// <param name="window">The window.</param>
+        private static void CancelApplicationSettings(Window window)
+        {
+            window.Close();
+        }
 
         /// <summary>Accepts the application settings.</summary>
         /// <param name="window">The window.</param>
@@ -184,13 +201,6 @@ namespace Dart
             if (themeChanged)
                 ThemeChangedEvent?.Invoke(this, new EventArgs());
 
-            window.Close();
-        }
-
-        /// <summary>Cancels the application settings.</summary>
-        /// <param name="window">The window.</param>
-        private void CancelApplicationSettings(Window window)
-        {
             window.Close();
         }
 

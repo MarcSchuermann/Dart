@@ -4,6 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using Dart.Settings.Interfaces;
 using static Dart.ApplicationSettingsViewModel;
 
 namespace Dart

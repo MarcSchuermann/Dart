@@ -22,8 +22,7 @@ namespace Dart.Tools
         {
             try
             {
-                // TODO: Test this
-                var iconSourcePath = Path.Combine(Assembly.GetExecutingAssembly().Location, "darts.ico");
+                var iconSourcePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "darts.ico");
 
                 if (!File.Exists(iconSourcePath))
                     return;

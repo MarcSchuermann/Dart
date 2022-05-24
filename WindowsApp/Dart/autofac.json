@@ -3,19 +3,28 @@
 
   "components": [
     {
-      "type": "Dart.ApplicationSettings",
+      "type": "Dart.Settings.ApplicationSettings",
       "services": [
         {
-          "type": "Dart.IApplicationSettings"
+          "type": "Dart.Settings.Interfaces.IApplicationSettings"
         }
       ],
       "injectProperties": true
     },
     {
-      "type": "GameLogic.GameOptions.GameOptions, GameLogic",
+      "type": "Schuermann.Darts.GameCore.Game.GameProcedure, Schuermann.Darts.GameCore",
       "services": [
         {
-          "type": "GameLogic.GameOptions.IGameOptions, GameLogic"
+          "type": "Schuermann.Darts.GameCore.Game.IGameProcedure, Schuermann.Darts.GameCore"
+        }
+      ],
+      "injectProperties": true
+    },
+    {
+      "type": "Schuermann.Darts.GameCore.Game.GameOptions, Schuermann.Darts.GameCore",
+      "services": [
+        {
+          "type": "Schuermann.Darts.GameCore.Game.IGameOptions, Schuermann.Darts.GameCore"
         }
       ],
       "injectProperties": true

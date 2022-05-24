@@ -8,7 +8,6 @@ using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using System.Threading;
 using ControlzEx.Theming;
 using Dart.Tools;
 using MahApps.Metro.Controls;
@@ -37,7 +36,7 @@ namespace Dart
             SubscribeToLanguageChangedEvent();
             SubscribeToThemeChangedEvent();
 
-            Thread.Sleep(1500);
+            //Thread.Sleep(1500);
 
             Dart.Common.Splashscreen.SplashScreen.HideSplashScreen();
         }

@@ -3,9 +3,8 @@
 //     Copyright (c) Marc Schürmann. All Rights Reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-using System.Windows;
+using System.Windows.Input;
 using Dart.Common.Commands;
-using Dart.Properties;
 using Schuermann.Darts.GameCore.Game;
 using Schuermann.Darts.GameCore.Thrown;
 
@@ -38,7 +37,7 @@ namespace Dart
 
         /// <summary>Gets the dart thrown.</summary>
         /// <value>The dart thrown.</value>
-        public RelayCommand DartThrown => new RelayCommand(Thrown);
+        public ICommand DartThrown => new RelayCommand(x => Thrown());
 
         /// <summary>Gets the game.</summary>
         /// <value>The game.</value>
@@ -59,24 +58,5 @@ namespace Dart
         }
 
         #endregion Public Methods
-
-        #region Private Methods
-
-        /// <summary>Shows the finish dialog.</summary>
-        private void ShowFinishDialog()
-        {
-            var result = MessageBox.Show(Resources.RestartGame, Resources.Finish, MessageBoxButton.OKCancel, MessageBoxImage.Question);
-
-            if (result == MessageBoxResult.OK)
-            {
-                // TODO reset
-            }
-            else if (result == MessageBoxResult.Cancel)
-            {
-                // TODO set dart borad disabled
-            }
-        }
-
-        #endregion Private Methods
     }
 }

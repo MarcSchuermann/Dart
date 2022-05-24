@@ -30,7 +30,7 @@ namespace Dart
 
         /// <summary>Gets the open settings.</summary>
         /// <value>The open settings.</value>
-        public ICommand OpenSettings => new RelayCommand(OpenApplicationSettings);
+        public ICommand OpenSettings => new RelayCommand(x => OpenApplicationSettings());
 
         /// <summary>Gets the owner view model.</summary>
         /// <value>The owner view model.</value>
@@ -38,11 +38,11 @@ namespace Dart
 
         /// <summary>Gets the quit application.</summary>
         /// <value>The quit application.</value>
-        public ICommand QuitApplication => new RelayCommand(QuitCurrentApplication, () => true);
+        public ICommand QuitApplication => new RelayCommand(x => QuitCurrentApplication(), (OwnerViewModel) => true);
 
         /// <summary>Gets the reset game.</summary>
         /// <value>The reset game.</value>
-        public ICommand ResetGame => new RelayCommand(ResetCurrentGame, CanReset);
+        public ICommand ResetGame => new RelayCommand(x => ResetCurrentGame(), CanReset);
 
         #endregion Public Properties
 
@@ -50,7 +50,7 @@ namespace Dart
 
         /// <summary>Determines whether this instance can reset.</summary>
         /// <returns><c>true</c> if this instance can reset; otherwise, <c>false</c>.</returns>
-        private bool CanReset()
+        private bool CanReset(object x)
         {
             return OwnerViewModel.CurrentContent is GameOptionsViewModel;
         }

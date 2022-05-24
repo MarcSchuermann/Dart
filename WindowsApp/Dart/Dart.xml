@@ -4,6 +4,52 @@
         <name>Dart</name>
     </assembly>
     <members>
+        <member name="T:Dart.Common.Commands.EventArgs`1">
+            <summary></summary>
+            <typeparam name="T"></typeparam>
+            <seealso cref="T:System.EventArgs" />
+        </member>
+        <member name="M:Dart.Common.Commands.EventArgs`1.#ctor(`0)">
+            <summary>
+               Initializes a new instance of the <see cref="T:Dart.Common.Commands.EventArgs`1" /> class.
+            </summary>
+            <param name="value">The value.</param>
+        </member>
+        <member name="P:Dart.Common.Commands.EventArgs`1.Value">
+            <summary>Gets the value.</summary>
+            <value>The value.</value>
+        </member>
+        <member name="T:Dart.Common.Commands.EventRaiser">
+            <summary>The event raiser.</summary>
+        </member>
+        <member name="M:Dart.Common.Commands.EventRaiser.Raise(System.EventHandler,System.Object)">
+            <summary>Raises the specified sender.</summary>
+            <param name="handler">The handler.</param>
+            <param name="sender">The sender.</param>
+        </member>
+        <member name="M:Dart.Common.Commands.EventRaiser.Raise``1(System.EventHandler{Dart.Common.Commands.EventArgs{``0}},System.Object,``0)">
+            <summary>Raises the specified sender.</summary>
+            <typeparam name="T"></typeparam>
+            <param name="handler">The handler.</param>
+            <param name="sender">The sender.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Dart.Common.Commands.EventRaiser.Raise``1(System.EventHandler{``0},System.Object,``0)">
+            <summary>Raises the specified sender.</summary>
+            <typeparam name="T"></typeparam>
+            <param name="handler">The handler.</param>
+            <param name="sender">The sender.</param>
+            <param name="value">The value.</param>
+        </member>
+        <member name="M:Dart.Common.Commands.EventRaiser.Raise``1(System.EventHandler{Dart.Common.Commands.EventArgs{``0}},System.Object,Dart.Common.Commands.EventArgs{``0})">
+            <summary>Raises the specified sender.</summary>
+            <typeparam name="T"></typeparam>
+            <param name="handler">The handler.</param>
+            <param name="sender">The sender.</param>
+            <param name="value">
+               The <see cref="T:Dart.Common.Commands.EventArgs`1" /> instance containing the event data.
+            </param>
+        </member>
         <member name="T:Dart.Common.Commands.GenericRelayCommand`1">
             <summary>The GenericRelayCommand.</summary>
             <typeparam name="T">The parameter T.</typeparam>
@@ -62,32 +108,68 @@
         <member name="M:Dart.Common.Commands.GenericRelayCommand`1.RemoveCommand">
             <summary>Removes the command.</summary>
         </member>
-        <member name="T:Dart.Common.Commands.RelayCommand">
-            <summary>The RelayCommand.</summary>
+        <member name="T:Dart.Common.Commands.RelayCommand`1">
+            <summary>The relay command.</summary>
+            <typeparam name="T"></typeparam>
             <seealso cref="T:System.Windows.Input.ICommand" />
         </member>
-        <member name="F:Dart.Common.Commands.RelayCommand.canExecute">
-            <summary>The can execute.</summary>
+        <member name="M:Dart.Common.Commands.RelayCommand`1.#ctor(System.Action{`0})">
+            <summary>
+               Initializes a new instance of the <see cref="T:Dart.Common.Commands.RelayCommand`1" /> class.
+            </summary>
+            <param name="execute">The execute.</param>
         </member>
-        <member name="F:Dart.Common.Commands.RelayCommand.execute">
-            <summary>The execute.</summary>
+        <member name="M:Dart.Common.Commands.RelayCommand`1.#ctor(System.Action{`0},System.Predicate{`0})">
+            <summary>
+               Initializes a new instance of the <see cref="T:Dart.Common.Commands.RelayCommand`1" /> class.
+            </summary>
+            <param name="execute">The execute.</param>
+            <param name="canExecute">The can execute.</param>
+            <exception cref="T:System.ArgumentNullException">execute</exception>
         </member>
-        <member name="M:Dart.Common.Commands.RelayCommand.#ctor(System.Action)">
+        <member name="E:Dart.Common.Commands.RelayCommand`1.CanExecuteChanged">
+            <summary>
+               Occurs when changes occur that affect whether or not the command should execute.
+            </summary>
+        </member>
+        <member name="M:Dart.Common.Commands.RelayCommand`1.CanExecute(System.Object)">
+            <summary>
+               Defines the method that determines whether the command can execute in its current
+               state.
+            </summary>
+            <param name="parameter">
+               Data used by the command. If the command does not require data to be passed, this
+               object can be set to <see langword="null" />.
+            </param>
+            <returns>
+               <see langword="true" /> if this command can be executed; otherwise, <see
+               langword="false" />.
+            </returns>
+        </member>
+        <member name="M:Dart.Common.Commands.RelayCommand`1.Execute(System.Object)">
+            <summary>Defines the method to be called when the command is invoked.</summary>
+            <param name="parameter">
+               Data used by the command. If the command does not require data to be passed, this
+               object can be set to <see langword="null" />.
+            </param>
+        </member>
+        <member name="T:Dart.Common.Commands.RelayCommand">
+            <summary></summary>
+            <seealso cref="T:System.Windows.Input.ICommand" />
+        </member>
+        <member name="M:Dart.Common.Commands.RelayCommand.#ctor(System.Action{System.Object})">
             <summary>
                Initializes a new instance of the <see cref="T:Dart.Common.Commands.RelayCommand" /> class.
             </summary>
             <param name="execute">The execute.</param>
         </member>
-        <member name="M:Dart.Common.Commands.RelayCommand.#ctor(System.Action,System.Func{System.Boolean})">
+        <member name="M:Dart.Common.Commands.RelayCommand.#ctor(System.Action{System.Object},System.Predicate{System.Object})">
             <summary>
                Initializes a new instance of the <see cref="T:Dart.Common.Commands.RelayCommand" /> class.
             </summary>
             <param name="execute">The execute.</param>
             <param name="canExecute">The can execute.</param>
-            <exception cref="T:System.ArgumentNullException">The ArgumentNullException.</exception>
-        </member>
-        <member name="M:Dart.Common.Commands.RelayCommand.Finalize">
-            <summary>Finalizes an instance of the <see cref="T:Dart.Common.Commands.RelayCommand" /> class.</summary>
+            <exception cref="T:System.ArgumentNullException">execute</exception>
         </member>
         <member name="E:Dart.Common.Commands.RelayCommand.CanExecuteChanged">
             <summary>
@@ -101,22 +183,22 @@
             </summary>
             <param name="parameter">
                Data used by the command. If the command does not require data to be passed, this
-               object can be set to null.
+               object can be set to <see langword="null" />.
             </param>
-            <returns>true if this command can be executed; otherwise, false.</returns>
+            <returns>
+               <see langword="true" /> if this command can be executed; otherwise, <see
+               langword="false" />.
+            </returns>
         </member>
         <member name="M:Dart.Common.Commands.RelayCommand.Execute(System.Object)">
             <summary>Defines the method to be called when the command is invoked.</summary>
             <param name="parameter">
                Data used by the command. If the command does not require data to be passed, this
-               object can be set to null.
+               object can be set to <see langword="null" />.
             </param>
         </member>
         <member name="M:Dart.Common.Commands.RelayCommand.RaiseCanExecuteChanged">
             <summary>Raises the can execute changed.</summary>
-        </member>
-        <member name="M:Dart.Common.Commands.RelayCommand.RemoveCommand">
-            <summary>Removes the command.</summary>
         </member>
         <member name="T:Dart.Common.Commands.SimpleCommandManager">
             <summary>The simple command manager.</summary>
@@ -739,9 +821,6 @@
         <member name="M:Dart.DartGameViewModel.Thrown">
             <summary>Thrown this instance.</summary>
         </member>
-        <member name="M:Dart.DartGameViewModel.ShowFinishDialog">
-            <summary>Shows the finish dialog.</summary>
-        </member>
         <member name="T:Dart.GameOptionsViewModel">
             <summary>The GameOptionsViewModel.</summary>
         </member>
@@ -815,19 +894,19 @@
             <summary>Gets or sets the current tool bar view model.</summary>
             <value>The current tool bar view model.</value>
         </member>
+        <member name="M:Dart.MainWindowViewModel.SetCulture">
+            <summary>Sets the culture.</summary>
+        </member>
         <member name="M:Dart.MainWindowViewModel.Clone">
             <summary>Creates a new object that is a copy of the current instance.</summary>
             <returns>A new object that is a copy of this instance.</returns>
         </member>
-        <member name="M:Dart.MainWindowViewModel.SetCulture">
-            <summary>Sets the culture.</summary>
+        <member name="M:Dart.MainWindowViewModel.ShowQuitDialog">
+            <summary>Shows the quit dialog.</summary>
         </member>
         <member name="M:Dart.MainWindowViewModel.CreateCurrentGameOptions">
             <summary>Creates the current game options.</summary>
             <returns>The current game options.</returns>
-        </member>
-        <member name="M:Dart.MainWindowViewModel.ShowQuitDialog">
-            <summary>Shows the quit dialog.</summary>
         </member>
         <member name="M:Dart.MainWindowViewModel.StartDartGame">
             <summary>Starts the dart game.</summary>
@@ -890,7 +969,7 @@
             <summary>Gets the reset game.</summary>
             <value>The reset game.</value>
         </member>
-        <member name="M:Dart.ToolBarViewModel.CanReset">
+        <member name="M:Dart.ToolBarViewModel.CanReset(System.Object)">
             <summary>Determines whether this instance can reset.</summary>
             <returns><c>true</c> if this instance can reset; otherwise, <c>false</c>.</returns>
         </member>
@@ -1120,92 +1199,102 @@
               Looks up a localized string similar to View.
             </summary>
         </member>
-        <member name="T:Dart.ApplicationSettings">
+        <member name="T:Dart.Settings.ApplicationSettings">
             <summary>The ApplicationSettings.</summary>
         </member>
-        <member name="P:Dart.ApplicationSettings.AllPlayTillZero">
+        <member name="P:Dart.Settings.ApplicationSettings.AllPlayTillZero">
             <summary>Gets or sets a value indicating whether [all play till zero].</summary>
             <value><c>true</c> if [all play till zero]; otherwise, <c>false</c>.</value>
         </member>
-        <member name="P:Dart.ApplicationSettings.CurrentTheme">
+        <member name="P:Dart.Settings.ApplicationSettings.CurrentTheme">
             <summary>Gets or sets the current theme.</summary>
             <value>The current theme.</value>
         </member>
-        <member name="P:Dart.ApplicationSettings.SelectedCultureInfo">
+        <member name="P:Dart.Settings.ApplicationSettings.SelectedCultureInfo">
             <summary>Gets or sets the selected culture information.</summary>
             <value>The selected culture information.</value>
         </member>
-        <member name="P:Dart.ApplicationSettings.ShowUserInterfaceDartBoardData">
+        <member name="P:Dart.Settings.ApplicationSettings.ShowUserInterfaceDartBoardData">
             <summary>Gets or sets a value indicating whether [show user interface dart board data].</summary>
             <value><c>true</c> if [show user interface dart board data]; otherwise, <c>false</c>.</value>
         </member>
-        <member name="M:Dart.ApplicationSettings.op_Inequality(Dart.ApplicationSettings,Dart.IApplicationSettings)">
+        <member name="M:Dart.Settings.ApplicationSettings.op_Inequality(Dart.Settings.ApplicationSettings,Dart.Settings.Interfaces.IApplicationSettings)">
             <summary>Implements the operator !=.</summary>
             <param name="appSettings1">The application settings1.</param>
             <param name="appSettings2">The application settings2.</param>
             <returns>The result of the operator.</returns>
         </member>
-        <member name="M:Dart.ApplicationSettings.op_Equality(Dart.ApplicationSettings,Dart.IApplicationSettings)">
+        <member name="M:Dart.Settings.ApplicationSettings.op_Equality(Dart.Settings.ApplicationSettings,Dart.Settings.Interfaces.IApplicationSettings)">
             <summary>Implements the operator ==.</summary>
             <param name="appSettings1">The application settings1.</param>
             <param name="appSettings2">The application settings2.</param>
             <returns>The result of the operator.</returns>
         </member>
-        <member name="M:Dart.ApplicationSettings.Equals(System.Object)">
+        <member name="M:Dart.Settings.ApplicationSettings.Equals(System.Object)">
             <summary>Determines whether the specified <see cref="T:System.Object"/>, is equal to this instance.</summary>
             <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
             <returns><c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.</returns>
         </member>
-        <member name="M:Dart.ApplicationSettings.Equals(Dart.IApplicationSettings)">
+        <member name="M:Dart.Settings.ApplicationSettings.Equals(Dart.Settings.Interfaces.IApplicationSettings)">
             <summary>Equals the specified to compare.</summary>
             <param name="settingsToCompare">To compare.</param>
             <returns>True if equal.</returns>
         </member>
-        <member name="M:Dart.ApplicationSettings.GetHashCode">
+        <member name="M:Dart.Settings.ApplicationSettings.GetHashCode">
             <summary>Returns a hash code for this instance.</summary>
             <returns>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</returns>
         </member>
-        <member name="T:Dart.IApplicationSettings">
+        <member name="T:Dart.Settings.Interfaces.IApplicationSettings">
             <summary>The application settings interface.</summary>
         </member>
-        <member name="P:Dart.IApplicationSettings.AllPlayTillZero">
+        <member name="P:Dart.Settings.Interfaces.IApplicationSettings.AllPlayTillZero">
             <summary>Gets or sets a value indicating whether [all play till zero].</summary>
             <value><c>true</c> if [all play till zero]; otherwise, <c>false</c>.</value>
         </member>
-        <member name="P:Dart.IApplicationSettings.CurrentTheme">
+        <member name="P:Dart.Settings.Interfaces.IApplicationSettings.CurrentTheme">
             <summary>Gets or sets the current theme.</summary>
             <value>The current theme.</value>
         </member>
-        <member name="P:Dart.IApplicationSettings.SelectedCultureInfo">
+        <member name="P:Dart.Settings.Interfaces.IApplicationSettings.SelectedCultureInfo">
             <summary>Gets or sets the selected culture information.</summary>
             <value>The selected culture information.</value>
         </member>
-        <member name="P:Dart.IApplicationSettings.ShowUserInterfaceDartBoardData">
-            <summary>Gets or sets a value indicating whether [show user interface dart board data].</summary>
-            <value><c>true</c> if [show user interface dart board data]; otherwise, <c>false</c>.</value>
+        <member name="P:Dart.Settings.Interfaces.IApplicationSettings.ShowUserInterfaceDartBoardData">
+            <summary>
+               Gets or sets a value indicating whether [show user interface dart board data].
+            </summary>
+            <value>
+               <c>true</c> if [show user interface dart board data]; otherwise, <c>false</c>.
+            </value>
         </member>
-        <member name="M:Dart.IApplicationSettings.Equals(Dart.IApplicationSettings)">
+        <member name="M:Dart.Settings.Interfaces.IApplicationSettings.Equals(Dart.Settings.Interfaces.IApplicationSettings)">
             <summary>Equals the specified to compare.</summary>
             <param name="settingsToCompare">To compare.</param>
             <returns>True or false.</returns>
         </member>
         <member name="T:Dart.ApplicationSettingsViewModel">
             <summary>The SettingsViewModel.</summary>
-            <seealso cref="T:Dart.ViewModelBase"/>
+            <seealso cref="T:Dart.ViewModelBase" />
         </member>
         <member name="M:Dart.ApplicationSettingsViewModel.#ctor(Dart.IViewModelBase)">
-            <summary>Initializes a new instance of the <see cref="T:Dart.ApplicationSettingsViewModel"/> class.</summary>
+            <summary>
+               Initializes a new instance of the <see cref="T:Dart.ApplicationSettingsViewModel" /> class.
+            </summary>
             <param name="ownerViewModel">The main window view model.</param>
         </member>
         <member name="T:Dart.ApplicationSettingsViewModel.LanguageChangedEventHaendler">
             <summary>The language changed event heandler.</summary>
             <param name="sender">The sender.</param>
-            <param name="args">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="args">
+               The <see cref="T:System.EventArgs" /> instance containing the event data.
+            </param>
         </member>
         <member name="T:Dart.ApplicationSettingsViewModel.ThemeChangedEventHaendler">
             <summary>The theme changed event heandler.</summary>
             <param name="sender">The sender.</param>
-            <param name="args">The <see cref="T:System.EventArgs"/> instance containing the event data.</param>
+            <param name="args">
+               The <see cref="T:System.EventArgs" /> instance containing the event data.
+            </param>
         </member>
         <member name="E:Dart.ApplicationSettingsViewModel.LanguageChangedEvent">
             <summary>Occurs when [language changed event].</summary>
@@ -1246,15 +1335,19 @@
             <value>The selected culture information.</value>
         </member>
         <member name="P:Dart.ApplicationSettingsViewModel.ShowUserInterfaceDartBoardData">
-            <summary>Gets or sets a value indicating whether [show user interface dart board data].</summary>
-            <value><c>true</c> if [show user interface dart board data]; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="M:Dart.ApplicationSettingsViewModel.AcceptApplicationSettings(System.Windows.Window)">
-            <summary>Accepts the application settings.</summary>
-            <param name="window">The window.</param>
+            <summary>
+               Gets or sets a value indicating whether [show user interface dart board data].
+            </summary>
+            <value>
+               <c>true</c> if [show user interface dart board data]; otherwise, <c>false</c>.
+            </value>
         </member>
         <member name="M:Dart.ApplicationSettingsViewModel.CancelApplicationSettings(System.Windows.Window)">
             <summary>Cancels the application settings.</summary>
+            <param name="window">The window.</param>
+        </member>
+        <member name="M:Dart.ApplicationSettingsViewModel.AcceptApplicationSettings(System.Windows.Window)">
+            <summary>Accepts the application settings.</summary>
             <param name="window">The window.</param>
         </member>
         <member name="M:Dart.ApplicationSettingsViewModel.GetSettings">
@@ -1297,7 +1390,7 @@
         </member>
         <member name="T:Dart.Tools.BitmapToImageSourceConverter.SvgToImageSourceConverter">
             <summary>The bitmap to image converter.</summary>
-            <seealso cref="T:System.Windows.Data.IValueConverter"/>
+            <seealso cref="T:System.Windows.Data.IValueConverter" />
         </member>
         <member name="M:Dart.Tools.BitmapToImageSourceConverter.SvgToImageSourceConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
             <summary>Converts a value.</summary>
@@ -1305,7 +1398,9 @@
             <param name="targetType">The type of the binding target property.</param>
             <param name="parameter">The converter parameter to use.</param>
             <param name="culture">The culture to use in the converter.</param>
-            <returns>A converted value. If the method returns null, the valid null value is used.</returns>
+            <returns>
+               A converted value. If the method returns null, the valid null value is used.
+            </returns>
         </member>
         <member name="M:Dart.Tools.BitmapToImageSourceConverter.SvgToImageSourceConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
             <summary>Converts a value.</summary>
@@ -1313,7 +1408,9 @@
             <param name="targetType">The type to convert to.</param>
             <param name="parameter">The converter parameter to use.</param>
             <param name="culture">The culture to use in the converter.</param>
-            <returns>A converted value. If the method returns null, the valid null value is used.</returns>
+            <returns>
+               A converted value. If the method returns null, the valid null value is used.
+            </returns>
         </member>
         <member name="T:Dart.Tools.DevelopmentPropertiesView">
             <summary>Interaction logic for DartBoardData.</summary>
@@ -1350,6 +1447,36 @@
         <member name="M:Game.App.Main">
             <summary>
             Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
             </summary>
         </member>
     </members>

@@ -14,7 +14,7 @@ namespace Dart.Common.Commands
     {
         #region Private Fields
 
-        private static List<Action> raiseCanExecuteChangedActions = new List<Action>();
+        private static readonly List<Action> raiseCanExecuteChangedActions = new();
 
         #endregion Private Fields
 

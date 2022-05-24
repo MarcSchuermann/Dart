@@ -22,11 +22,11 @@ namespace Dart
 
         /// <summary>Gets the selectable player count.</summary>
         /// <value>The selectable player count.</value>
-        public List<int> SelectablePlayerCount => new List<int> { 1, 2, 3, 4, 5, 6, 7, 8 };
+        public static IList<int> SelectablePlayerCount => new List<int> { 1, 2, 3, 4, 5, 6, 7, 8 };
 
         /// <summary>Gets the selectable start points.</summary>
         /// <value>The selectable start points.</value>
-        public List<int> SelectableStartPoints => new List<int> { 301, 501, 701 };
+        public static IList<int> SelectableStartPoints => new List<int> { 301, 501, 701 };
 
         /// <summary>Gets or sets the selected player count.</summary>
         /// <value>The selected player count.</value>

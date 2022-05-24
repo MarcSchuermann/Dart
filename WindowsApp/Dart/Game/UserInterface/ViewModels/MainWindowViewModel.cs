@@ -25,30 +25,27 @@ namespace Dart
     {
         #region Private Fields
 
-        private Func<bool> canShutdown = () => { return true; };
+        private readonly Predicate<object> canShutdown = (currentContent) => { return true; };
 
-        private Func<bool> canStart = () =>
-                          {
-                             // TODO
-                             var currentGameOptions = new GameOptionsViewModel();//currentContent as GameOptionsViewModel;
+        private readonly Predicate<object> canStart = (currentContent) =>
+                                       {
+                                           if (currentContent is not GameOptionsViewModel currentGameOptions || currentGameOptions.GameSettings == null || currentGameOptions.PlayerlistViewModel == null)
+                                               return false;
 
-                             if (currentGameOptions == null || currentGameOptions.GameSettings == null || currentGameOptions.PlayerlistViewModel == null)
-                                  return false;
+                                           if (string.IsNullOrWhiteSpace(currentGameOptions.GameSettings.SelectedPlayerCount))
+                                               return false;
 
-                              if (string.IsNullOrWhiteSpace(currentGameOptions.GameSettings.SelectedPlayerCount))
-                                  return false;
+                                           if (string.IsNullOrWhiteSpace(currentGameOptions.GameSettings.SelectedStartPoints))
+                                               return false;
 
-                              if (string.IsNullOrWhiteSpace(currentGameOptions.GameSettings.SelectedStartPoints))
-                                  return false;
+                                           foreach (var player in currentGameOptions.PlayerlistViewModel.Playerlist)
+                                           {
+                                               if (player.Name == null || player.Name.Length < 3)
+                                                   return false;
+                                           }
 
-                              foreach (var player in currentGameOptions.PlayerlistViewModel.Playerlist)
-                              {
-                                  if (player.Name == null || player.Name.Length < 3)
-                                      return false;
-                              }
-
-                              return true;
-                          };
+                                           return true;
+                                       };
 
         private IViewModelBase currentContent;
 
@@ -114,7 +111,7 @@ namespace Dart
 
         /// <summary>Gets the quit application.</summary>
         /// <value>The quit application.</value>
-        public ICommand QuitApplication => new RelayCommand(ShowQuitDialog, canShutdown);
+        public ICommand QuitApplication => new RelayCommand(x => ShowQuitDialog(), canShutdown);
 
         /// <summary>Gets the settings view model.</summary>
         /// <value>The settings view model.</value>
@@ -122,7 +119,7 @@ namespace Dart
 
         /// <summary>Gets the start game.</summary>
         /// <value>The start game.</value>
-        public ICommand StartGame => new RelayCommand(StartDartGame, canStart);
+        public ICommand StartGame => new RelayCommand(x => StartDartGame(), canStart);
 
         /// <summary>Gets or sets the current tool bar view model.</summary>
         /// <value>The current tool bar view model.</value>
@@ -147,6 +144,13 @@ namespace Dart
 
         #region Public Methods
 
+        /// <summary>Sets the culture.</summary>
+        public static void SetCulture()
+        {
+            Thread.CurrentThread.CurrentCulture = Properties.Settings.Default.CurrentCulture;
+            Thread.CurrentThread.CurrentUICulture = Properties.Settings.Default.CurrentCulture;
+        }
+
         /// <summary>Creates a new object that is a copy of the current instance.</summary>
         /// <returns>A new object that is a copy of this instance.</returns>
         public object Clone()
@@ -154,16 +158,18 @@ namespace Dart
             return MemberwiseClone();
         }
 
-        /// <summary>Sets the culture.</summary>
-        public void SetCulture()
-        {
-            Thread.CurrentThread.CurrentCulture = Properties.Settings.Default.CurrentCulture;
-            Thread.CurrentThread.CurrentUICulture = Properties.Settings.Default.CurrentCulture;
-        }
-
         #endregion Public Methods
 
         #region Private Methods
+
+        /// <summary>Shows the quit dialog.</summary>
+        private static void ShowQuitDialog()
+        {
+            if (MessageBox.Show(Properties.Resources.CloseText, Properties.Resources.Close, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+            {
+                Application.Current.Shutdown(0);
+            }
+        }
 
         /// <summary>Creates the current game options.</summary>
         /// <returns>The current game options.</returns>
@@ -172,9 +178,7 @@ namespace Dart
             var container = ServiceContainer.GetContainer();
             var gameOptions = container.Resolve<IGameOptions>();
 
-            var currentGameOptionsViewModel = CurrentContent as GameOptionsViewModel;
-
-            if (currentGameOptionsViewModel != null)
+            if (CurrentContent is GameOptionsViewModel currentGameOptionsViewModel)
             {
                 gameOptions.StartPoints = Convert.ToInt16(currentGameOptionsViewModel.GameSettings.SelectedStartPoints);
 
@@ -191,6 +195,7 @@ namespace Dart
         {
             try
             {
+                // TODO: Make path configurabel and setable via command line. And compile charts with the new core assemblies.
                 var catalog = new DirectoryCatalog(@"D:\_tf\Dart\Dev\Extensions\Charts\Charts\bin\Debug\");
                 var container = new CompositionContainer(catalog);
                 CurrentProperties = new Schuermann.Darts.Environment.EnvironmentProps.Properties(SettingsViewModel.CurrentApplicationSettings.CurrentTheme.OriginalTheme.Name, SettingsViewModel.CurrentApplicationSettings.SelectedCultureInfo);
@@ -205,15 +210,6 @@ namespace Dart
         private void SettingsViewModel_LanguageChangedEvent(object sender, EventArgs args)
         {
             SetCulture();
-        }
-
-        /// <summary>Shows the quit dialog.</summary>
-        private void ShowQuitDialog()
-        {
-            if (MessageBox.Show(Properties.Resources.CloseText, Properties.Resources.Close, MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
-            {
-                Application.Current.Shutdown(0);
-            }
         }
 
         /// <summary>Starts the dart game.</summary>

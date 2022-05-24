@@ -43,13 +43,9 @@ namespace Dart.Common.Commands
         /// <param name="canExecute">The can execute function.</param>
         public GenericRelayCommand(Action<T> execute, Func<bool> canExecute)
         {
-            if (execute == null)
-            {
-                throw new ArgumentNullException("execute");
-            }
-
-            this.execute = execute;
+            this.execute = execute ?? throw new ArgumentNullException(nameof(execute));
             this.canExecute = canExecute;
+
             raiseCanExecuteChangedAction = RaiseCanExecuteChanged;
             SimpleCommandManager.AddRaiseCanExecuteChangedAction(ref raiseCanExecuteChangedAction);
         }
