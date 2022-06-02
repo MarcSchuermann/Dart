@@ -2,9 +2,9 @@
 //// <copyright>Marc Schürmann</copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
-using Dart;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics.CodeAnalysis;
+using Dart.Game.UserInterface.Converter;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests.Game.UserInterface.Converter.ViewModelTypeToVisibilityConverterTests
 {

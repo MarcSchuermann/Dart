@@ -6,6 +6,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Windows;
 using Dart;
 using Dart.Common.UserInterface.Helper;
+using Dart.Game.UserInterface.Converter;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests.Game.UserInterface.Converter.ListToVisibilityConverterTests
@@ -43,9 +44,11 @@ namespace UnitTests.Game.UserInterface.Converter.ListToVisibilityConverterTests
         {
             var converter = new ListToVisibilityConverter();
 
-            var playerList = new ItemsChangeObservableCollection<PlayerViewModel>();
-            playerList.Add(new PlayerViewModel("Willy"));
-            playerList.Add(new PlayerViewModel("Herbert"));
+            var playerList = new ItemsChangeObservableCollection<PlayerViewModel>
+            {
+                new PlayerViewModel("Willy"),
+                new PlayerViewModel("Herbert")
+            };
 
             Assert.AreEqual(Visibility.Visible, converter.Convert(playerList, null, null, null));
         }

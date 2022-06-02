@@ -2,11 +2,12 @@
 //// <copyright>Marc Schürmann</copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
+using System;
+using System.Diagnostics.CodeAnalysis;
+using System.Windows;
 using Dart;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
-using System.Diagnostics.CodeAnalysis;
-using System.Windows;
 
 namespace UnitTests.Settings.UserInterface.ViewModelsTests.ApplicationSettingsViewModelTests
 {
@@ -18,15 +19,19 @@ namespace UnitTests.Settings.UserInterface.ViewModelsTests.ApplicationSettingsVi
         #region Public Methods
 
         /// <summary>Does the not crash when cancel settings command executed.</summary>
+        [STAThread]
         [TestMethod]
         public void DoNotCrashWhenCancelSettingsCommandExecuted()
         {
-            var mainViewModelMock = new Mock<IViewModelBase>();
-            var applicationSettingsViewModel = new ApplicationSettingsViewModel(mainViewModelMock.Object);
+            ViewTestExecuter.Instance.Run(() =>
+            {
+                var mainViewModelMock = new Mock<IViewModelBase>();
+                var applicationSettingsViewModel = new ApplicationSettingsViewModel(mainViewModelMock.Object);
 
-            var cancelCommand = applicationSettingsViewModel.CancelSettings;
+                var cancelCommand = applicationSettingsViewModel.CancelSettings;
 
-            cancelCommand.Execute(new Window());
+                cancelCommand.Execute(new Window());
+            });
         }
 
         #endregion Public Methods

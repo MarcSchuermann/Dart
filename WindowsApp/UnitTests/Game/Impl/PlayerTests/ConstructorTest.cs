@@ -2,11 +2,12 @@
 //// <copyright>Marc Schürmann</copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
-using GameLogic.DartThrow;
-using GameLogic.Player;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Schuermann.Darts.GameCore.Game;
+using Schuermann.Darts.GameCore.Thrown;
 
 namespace UnitTests.Game.Impl.PlayerTests
 {
@@ -28,7 +29,7 @@ namespace UnitTests.Game.Impl.PlayerTests
             Assert.AreEqual(null, player.Name);
             Assert.AreEqual(0, player.PointsThisRound);
             Assert.AreEqual(0, player.Round);
-            Assert.AreEqual(null, player.ThrowHistory);
+            player.ThrowHistory.Count.Should().Be(0);
         }
 
         /// <summary>Sets the parameter.</summary>
@@ -36,13 +37,14 @@ namespace UnitTests.Game.Impl.PlayerTests
         public void SetParameter()
         {
             var player = new Player();
+            var throwHisory = new List<IDartThrow> { new DartThrow(DartBoardField.Twenty, DartBoardQuantifier.Triple), new DartThrow(DartBoardField.Twenty, DartBoardQuantifier.Single), new DartThrow(DartBoardField.Twelve, DartBoardQuantifier.Single) };
+            throwHisory.ForEach(x => player.ThrowHistory.Add(x));
 
             player.CurrentScore = 123;
             player.DartCountThisRound = 77;
             player.Name = "Hans";
             player.PointsThisRound = 180;
             player.Round = 7;
-            player.ThrowHistory = new List<IDartThrow> { new DartThrow(DartBoardField.Twenty, DartBoardQuantifier.Triple), new DartThrow(DartBoardField.Twenty, DartBoardQuantifier.Single), new DartThrow(DartBoardField.Twelve, DartBoardQuantifier.Single) };
 
             Assert.AreEqual(123, player.CurrentScore);
             Assert.AreEqual(77, player.DartCountThisRound);

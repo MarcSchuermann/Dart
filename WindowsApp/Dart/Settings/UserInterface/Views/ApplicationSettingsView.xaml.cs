@@ -13,7 +13,9 @@ namespace Dart
     {
         #region Public Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="ApplicationSettingsView"/> class.</summary>
+        /// <summary>
+        ///    Initializes a new instance of the <see cref="ApplicationSettingsView" /> class.
+        /// </summary>
         public ApplicationSettingsView()
         {
             InitializeComponent();

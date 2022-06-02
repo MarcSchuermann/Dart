@@ -2,11 +2,11 @@
 //// <copyright>Marc Schürmann</copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
-using GameLogic.GameOptions;
-using GameLogic.Player;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using FluentAssertions;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Schuermann.Darts.GameCore.Game;
 
 namespace UnitTests.Game.Impl.GameOptionsTests
 {
@@ -25,7 +25,7 @@ namespace UnitTests.Game.Impl.GameOptionsTests
 
             Assert.AreEqual(false, gameOptions.DoubleIn);
             Assert.AreEqual(false, gameOptions.DoubleOut);
-            Assert.AreEqual(null, gameOptions.PlayerList);
+            gameOptions.PlayerList.Count.Should().Be(0);
             Assert.AreEqual(0, gameOptions.StartPoints);
         }
 
@@ -33,12 +33,12 @@ namespace UnitTests.Game.Impl.GameOptionsTests
         [TestMethod]
         public void SetParameter()
         {
-            var gameOptions = new GameOptions();
-
-            gameOptions.DoubleIn = true;
-            gameOptions.DoubleOut = true;
-            gameOptions.PlayerList = new List<IPlayer> { new Player() { Name = "Detlef" }, new Player() { Name = "Dieter" } };
-            gameOptions.StartPoints = 301;
+            var gameOptions = new GameOptions(new List<IPlayer> { new Player() { Name = "Detlef" }, new Player() { Name = "Dieter" } })
+            {
+                DoubleIn = true,
+                DoubleOut = true,
+                StartPoints = 301
+            };
 
             Assert.AreEqual(true, gameOptions.DoubleIn);
             Assert.AreEqual(true, gameOptions.DoubleOut);

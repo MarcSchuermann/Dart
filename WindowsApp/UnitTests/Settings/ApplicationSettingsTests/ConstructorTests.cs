@@ -2,9 +2,9 @@
 //// <copyright>Marc Schürmann</copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
-using Dart;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Globalization;
+using Dart.Settings;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests.Settings.ApplicationSettingsTests
 {

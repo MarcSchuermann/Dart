@@ -2,7 +2,7 @@
 //// <copyright>Marc Schürmann</copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
-using Dart;
+using Dart.Game.UserInterface.Views;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests.Game.UserInterface.Views.DartGameViewTests
@@ -17,9 +17,12 @@ namespace UnitTests.Game.UserInterface.Views.DartGameViewTests
         [TestMethod]
         public void GetCurrentPoints()
         {
-            var dartGameView = new DartGameView();
+            ViewTestExecuter.Instance.Run(() =>
+            {
+                var dartGameView = new DartGameView();
 
-            Assert.IsNull(dartGameView.CurrentPoints);
+                Assert.IsNull(dartGameView.CurrentPoints);
+            });
         }
 
         #endregion Public Methods

@@ -28,24 +28,24 @@ namespace Dart
         private readonly Predicate<object> canShutdown = (currentContent) => { return true; };
 
         private readonly Predicate<object> canStart = (currentContent) =>
-                                       {
-                                           if (currentContent is not GameOptionsViewModel currentGameOptions || currentGameOptions.GameSettings == null || currentGameOptions.PlayerlistViewModel == null)
-                                               return false;
-
-                                           if (string.IsNullOrWhiteSpace(currentGameOptions.GameSettings.SelectedPlayerCount))
-                                               return false;
-
-                                           if (string.IsNullOrWhiteSpace(currentGameOptions.GameSettings.SelectedStartPoints))
-                                               return false;
-
-                                           foreach (var player in currentGameOptions.PlayerlistViewModel.Playerlist)
                                            {
-                                               if (player.Name == null || player.Name.Length < 3)
+                                               if (currentContent is not GameOptionsViewModel currentGameOptions || currentGameOptions.GameSettings == null || currentGameOptions.PlayerlistViewModel == null)
                                                    return false;
-                                           }
 
-                                           return true;
-                                       };
+                                               if (string.IsNullOrWhiteSpace(currentGameOptions.GameSettings.SelectedPlayerCount))
+                                                   return false;
+
+                                               if (string.IsNullOrWhiteSpace(currentGameOptions.GameSettings.SelectedStartPoints))
+                                                   return false;
+
+                                               foreach (var player in currentGameOptions.PlayerlistViewModel.Playerlist)
+                                               {
+                                                   if (player.Name == null || player.Name.Length < 3)
+                                                       return false;
+                                               }
+
+                                               return true;
+                                           };
 
         private IViewModelBase currentContent;
 
