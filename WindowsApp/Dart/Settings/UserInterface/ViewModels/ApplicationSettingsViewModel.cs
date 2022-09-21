@@ -35,7 +35,8 @@ namespace Dart
         {
             CurrentApplicationSettings = applicationSettings;
 
-            CurrentTheme = applicationSettings.CurrentTheme;
+            if (applicationSettings != null)
+                CurrentTheme = applicationSettings.CurrentTheme;
         }
 
         #endregion Public Constructors

@@ -77,6 +77,7 @@ namespace Dart
 
         #region Public Events
 
+        /// <summary>Occurs when [game started].</summary>
         public event EventHandler<EventArgs> GameStarted;
 
         #endregion Public Events
@@ -123,7 +124,7 @@ namespace Dart
 
         /// <summary>Gets the settings view model.</summary>
         /// <value>The settings view model.</value>
-        public IApplicationSettingsViewModel SettingsViewModel { get; private set; }
+        public IApplicationSettingsViewModel SettingsViewModel { get; }
 
         /// <summary>Gets the start game.</summary>
         /// <value>The start game.</value>

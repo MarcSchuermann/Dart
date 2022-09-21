@@ -818,6 +818,9 @@
                Initializes a new instance of the <see cref="T:Dart.MainWindowViewModel" /> class.
             </summary>
         </member>
+        <member name="E:Dart.MainWindowViewModel.GameStarted">
+            <summary>Occurs when [game started].</summary>
+        </member>
         <member name="P:Dart.MainWindowViewModel.ConfiguredGameOptions">
             <summary>Gets or sets the configured game options.</summary>
             <value>The configured game options.</value>
