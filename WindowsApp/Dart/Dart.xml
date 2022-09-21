@@ -243,7 +243,9 @@
             </summary>
         </member>
         <member name="M:Dart.Common.Splashscreen.SplashScreenWindow.#ctor">
-            <summary>Initializes a new instance of the <see cref="T:Dart.Common.Splashscreen.SplashScreenWindow"/> class.</summary>
+            <summary>
+               Initializes a new instance of the <see cref="T:Dart.Common.Splashscreen.SplashScreenWindow" /> class.
+            </summary>
         </member>
         <member name="M:Dart.Common.Splashscreen.SplashScreenWindow.StartClose(System.Boolean)">
             <summary>Starts the close.</summary>
@@ -318,6 +320,126 @@
         <member name="M:Dart.Common.Theme.NamedTheme.ToString">
             <summary>Converts to string.</summary>
             <returns>A <see cref="T:System.String"/> that represents this instance.</returns>
+        </member>
+        <member name="T:Dart.Common.UserInterface.Converter.BitmapToImageSourceConverter">
+            <summary>The bitmap to image converter.</summary>
+            <seealso cref="T:System.Windows.Data.IValueConverter" />
+        </member>
+        <member name="M:Dart.Common.UserInterface.Converter.BitmapToImageSourceConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>Converts a value.</summary>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>
+               A converted value. If the method returns null, the valid null value is used.
+            </returns>
+        </member>
+        <member name="M:Dart.Common.UserInterface.Converter.BitmapToImageSourceConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>Converts a value.</summary>
+            <param name="value">The value that is produced by the binding target.</param>
+            <param name="targetType">The type to convert to.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>
+               A converted value. If the method returns null, the valid null value is used.
+            </returns>
+        </member>
+        <member name="T:Dart.Common.UserInterface.Converter.ListToVisibilityConverter">
+            <summary>The ListToVisibilityConverter.</summary>
+            <seealso cref="T:System.Windows.Data.IValueConverter" />
+        </member>
+        <member name="M:Dart.Common.UserInterface.Converter.ListToVisibilityConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>Converts a value.</summary>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>
+               A converted value. If the method returns null, the valid null value is used.
+            </returns>
+        </member>
+        <member name="M:Dart.Common.UserInterface.Converter.ListToVisibilityConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>Converts a value.</summary>
+            <param name="value">The value that is produced by the binding target.</param>
+            <param name="targetType">The type to convert to.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>
+               A converted value. If the method returns null, the valid null value is used.
+            </returns>
+        </member>
+        <member name="T:Dart.Common.UserInterface.Converter.SvgToImageSourceConverter">
+            <summary>The bitmap to image converter.</summary>
+            <seealso cref="T:System.Windows.Data.IValueConverter" />
+        </member>
+        <member name="M:Dart.Common.UserInterface.Converter.SvgToImageSourceConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>Converts a value.</summary>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>
+               A converted value. If the method returns null, the valid null value is used.
+            </returns>
+        </member>
+        <member name="M:Dart.Common.UserInterface.Converter.SvgToImageSourceConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>Converts a value.</summary>
+            <param name="value">The value that is produced by the binding target.</param>
+            <param name="targetType">The type to convert to.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>
+               A converted value. If the method returns null, the valid null value is used.
+            </returns>
+        </member>
+        <member name="T:Dart.Common.UserInterface.Converter.SvgToJpegConverter">
+            <summary>The bitmap to image converter.</summary>
+            <seealso cref="T:System.Windows.Data.IValueConverter" />
+        </member>
+        <member name="M:Dart.Common.UserInterface.Converter.SvgToJpegConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>Converts a value.</summary>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>
+               A converted value. If the method returns null, the valid null value is used.
+            </returns>
+        </member>
+        <member name="M:Dart.Common.UserInterface.Converter.SvgToJpegConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>Converts a value.</summary>
+            <param name="value">The value that is produced by the binding target.</param>
+            <param name="targetType">The type to convert to.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>
+               A converted value. If the method returns null, the valid null value is used.
+            </returns>
+        </member>
+        <member name="T:Dart.Common.UserInterface.Converter.ViewModelTypeToVisibilityConverter">
+            <summary>The ViewModelTypeToVisibilityConverter.</summary>
+            <seealso cref="T:System.Windows.Data.IValueConverter" />
+        </member>
+        <member name="M:Dart.Common.UserInterface.Converter.ViewModelTypeToVisibilityConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>Converts a value.</summary>
+            <param name="value">The value produced by the binding source.</param>
+            <param name="targetType">The type of the binding target property.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>
+               A converted value. If the method returns null, the valid null value is used.
+            </returns>
+        </member>
+        <member name="M:Dart.Common.UserInterface.Converter.ViewModelTypeToVisibilityConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
+            <summary>Converts a value.</summary>
+            <param name="value">The value that is produced by the binding target.</param>
+            <param name="targetType">The type to convert to.</param>
+            <param name="parameter">The converter parameter to use.</param>
+            <param name="culture">The culture to use in the converter.</param>
+            <returns>
+               A converted value. If the method returns null, the valid null value is used.
+            </returns>
         </member>
         <member name="P:Dart.Common.UserInterface.Helper.DartBoardVariables.InnerBullsEyeRadius">
             <summary>Gets the inner bulls eye radius.</summary>
@@ -570,7 +692,11 @@
         </member>
         <member name="T:Dart.IViewModelBase">
             <summary>The IViewModelBase.</summary>
-            <seealso cref="T:System.ComponentModel.INotifyPropertyChanged"/>
+            <seealso cref="T:System.ComponentModel.INotifyPropertyChanged" />
+        </member>
+        <member name="P:Dart.IViewModelBase.Label">
+            <summary>Gets the label.</summary>
+            <value>The label.</value>
         </member>
         <member name="M:Dart.IViewModelBase.RaisePropertyChanged(System.String)">
             <summary>Raises the property changed.</summary>
@@ -601,6 +727,9 @@
             <summary>The main window view model interface.</summary>
             <seealso cref="T:Dart.IViewModelBase" />
         </member>
+        <member name="E:Dart.IMainWindowViewModel.GameStarted">
+            <summary>Occurs when [game started].</summary>
+        </member>
         <member name="P:Dart.IMainWindowViewModel.ConfiguredGameOptions">
             <summary>Gets or sets the configured game options.</summary>
             <value>The configured game options.</value>
@@ -613,53 +742,162 @@
             <summary>Gets the settings view model.</summary>
             <value>The settings view model.</value>
         </member>
-        <member name="T:Dart.Game.UserInterface.Converter.ListToVisibilityConverter">
-            <summary>The ListToVisibilityConverter.</summary>
-            <seealso cref="T:System.Windows.Data.IValueConverter" />
+        <member name="T:Dart.DartGameViewModel">
+            <summary>The DartGameViewModel.</summary>
+            <seealso cref="T:Dart.ViewModelBase" />
         </member>
-        <member name="M:Dart.Game.UserInterface.Converter.ListToVisibilityConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
-            <summary>Converts a value.</summary>
-            <param name="value">The value produced by the binding source.</param>
-            <param name="targetType">The type of the binding target property.</param>
-            <param name="parameter">The converter parameter to use.</param>
-            <param name="culture">The culture to use in the converter.</param>
-            <returns>
-               A converted value. If the method returns null, the valid null value is used.
-            </returns>
+        <member name="M:Dart.DartGameViewModel.#ctor(Dart.IViewModelBase)">
+            <summary>
+               Initializes a new instance of the <see cref="T:Dart.DartGameViewModel" /> class.
+            </summary>
+            <param name="owner">The owner.</param>
         </member>
-        <member name="M:Dart.Game.UserInterface.Converter.ListToVisibilityConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
-            <summary>Converts a value.</summary>
-            <param name="value">The value that is produced by the binding target.</param>
-            <param name="targetType">The type to convert to.</param>
-            <param name="parameter">The converter parameter to use.</param>
-            <param name="culture">The culture to use in the converter.</param>
-            <returns>
-               A converted value. If the method returns null, the valid null value is used.
-            </returns>
+        <member name="P:Dart.DartGameViewModel.CurrentPointsUnderMouse">
+            <summary>Gets or sets the current points under mouse.</summary>
+            <value>The current points under mouse.</value>
         </member>
-        <member name="T:Dart.Game.UserInterface.Converter.ViewModelTypeToVisibilityConverter">
-            <summary>The ViewModelTypeToVisibilityConverter.</summary>
-            <seealso cref="T:System.Windows.Data.IValueConverter" />
+        <member name="P:Dart.DartGameViewModel.DartThrown">
+            <summary>Gets the dart thrown.</summary>
+            <value>The dart thrown.</value>
         </member>
-        <member name="M:Dart.Game.UserInterface.Converter.ViewModelTypeToVisibilityConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
-            <summary>Converts a value.</summary>
-            <param name="value">The value produced by the binding source.</param>
-            <param name="targetType">The type of the binding target property.</param>
-            <param name="parameter">The converter parameter to use.</param>
-            <param name="culture">The culture to use in the converter.</param>
-            <returns>
-               A converted value. If the method returns null, the valid null value is used.
-            </returns>
+        <member name="P:Dart.DartGameViewModel.Game">
+            <summary>Gets the game.</summary>
+            <value>The game.</value>
         </member>
-        <member name="M:Dart.Game.UserInterface.Converter.ViewModelTypeToVisibilityConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
-            <summary>Converts a value.</summary>
-            <param name="value">The value that is produced by the binding target.</param>
-            <param name="targetType">The type to convert to.</param>
-            <param name="parameter">The converter parameter to use.</param>
-            <param name="culture">The culture to use in the converter.</param>
-            <returns>
-               A converted value. If the method returns null, the valid null value is used.
-            </returns>
+        <member name="P:Dart.DartGameViewModel.MainWindowViewModel">
+            <summary>Gets or sets the main window view model.</summary>
+            <value>The main window view model.</value>
+        </member>
+        <member name="M:Dart.DartGameViewModel.Thrown">
+            <summary>Thrown this instance.</summary>
+        </member>
+        <member name="T:Dart.GameOptionsViewModel">
+            <summary>The GameOptionsViewModel.</summary>
+        </member>
+        <member name="M:Dart.GameOptionsViewModel.#ctor">
+            <summary>
+               Initializes a new instance of the <see cref="T:Dart.GameOptionsViewModel" /> class.
+            </summary>
+        </member>
+        <member name="P:Dart.GameOptionsViewModel.GameSettings">
+            <summary>Gets or sets the game settings.</summary>
+            <value>The game settings.</value>
+        </member>
+        <member name="P:Dart.GameOptionsViewModel.Label">
+            <summary>Gets the label.</summary>
+            <value>The label.</value>
+        </member>
+        <member name="P:Dart.GameOptionsViewModel.PlayerlistViewModel">
+            <summary>Gets or sets the player list view model.</summary>
+            <value>The player list view model.</value>
+        </member>
+        <member name="T:Dart.GameSettingsViewModel">
+            <summary>The GameSettingsViewModel.</summary>
+        </member>
+        <member name="P:Dart.GameSettingsViewModel.SelectablePlayerCount">
+            <summary>Gets the selectable player count.</summary>
+            <value>The selectable player count.</value>
+        </member>
+        <member name="P:Dart.GameSettingsViewModel.SelectableStartPoints">
+            <summary>Gets the selectable start points.</summary>
+            <value>The selectable start points.</value>
+        </member>
+        <member name="P:Dart.GameSettingsViewModel.SelectedPlayerCount">
+            <summary>Gets or sets the selected player count.</summary>
+            <value>The selected player count.</value>
+        </member>
+        <member name="P:Dart.GameSettingsViewModel.SelectedStartPoints">
+            <summary>Gets or sets the selected start points.</summary>
+            <value>The selected start points.</value>
+        </member>
+        <member name="T:Dart.MainWindowViewModel">
+            <summary>The MainWindowViewModel.</summary>
+        </member>
+        <member name="M:Dart.MainWindowViewModel.#ctor">
+            <summary>
+               Initializes a new instance of the <see cref="T:Dart.MainWindowViewModel" /> class.
+            </summary>
+        </member>
+        <member name="P:Dart.MainWindowViewModel.ConfiguredGameOptions">
+            <summary>Gets or sets the configured game options.</summary>
+            <value>The configured game options.</value>
+        </member>
+        <member name="P:Dart.MainWindowViewModel.CurrentContent">
+            <summary>Gets or sets the content of the current.</summary>
+            <value>The content of the current.</value>
+        </member>
+        <member name="P:Dart.MainWindowViewModel.CurrentProperties">
+            <summary>Gets the properties.</summary>
+            <value>The properties.</value>
+        </member>
+        <member name="P:Dart.MainWindowViewModel.PlugIns">
+            <summary>Gets or sets the plug ins.</summary>
+            <value>The plug ins.</value>
+        </member>
+        <member name="P:Dart.MainWindowViewModel.QuitApplication">
+            <summary>Gets the quit application.</summary>
+            <value>The quit application.</value>
+        </member>
+        <member name="P:Dart.MainWindowViewModel.SettingsViewModel">
+            <summary>Gets the settings view model.</summary>
+            <value>The settings view model.</value>
+        </member>
+        <member name="P:Dart.MainWindowViewModel.StartGame">
+            <summary>Gets the start game.</summary>
+            <value>The start game.</value>
+        </member>
+        <member name="M:Dart.MainWindowViewModel.SetCulture(System.Globalization.CultureInfo)">
+            <summary>Sets the culture.</summary>
+        </member>
+        <member name="M:Dart.MainWindowViewModel.Clone">
+            <summary>Creates a new object that is a copy of the current instance.</summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="M:Dart.MainWindowViewModel.ShowQuitDialog">
+            <summary>Shows the quit dialog.</summary>
+        </member>
+        <member name="M:Dart.MainWindowViewModel.CreateCurrentGameOptions">
+            <summary>Creates the current game options.</summary>
+            <returns>The current game options.</returns>
+        </member>
+        <member name="M:Dart.MainWindowViewModel.GetSettings">
+            <summary>Gets the current settings.</summary>
+            <returns>The current applications settings.</returns>
+        </member>
+        <member name="M:Dart.MainWindowViewModel.StartDartGame">
+            <summary>Starts the dart game.</summary>
+        </member>
+        <member name="T:Dart.PlayerlistViewModel">
+            <summary>The Player list ViewModel.</summary>
+        </member>
+        <member name="M:Dart.PlayerlistViewModel.#ctor(Dart.GameSettingsViewModel)">
+            <summary>Initializes a new instance of the <see cref="T:Dart.PlayerlistViewModel"/> class.</summary>
+            <param name="gameSettingsViewModel">The game settings view model.</param>
+        </member>
+        <member name="P:Dart.PlayerlistViewModel.Playerlist">
+            <summary>Gets or sets the player list.</summary>
+            <value>The player list.</value>
+        </member>
+        <member name="M:Dart.PlayerlistViewModel.GameSettingsViewModel_PropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>Handles the PropertyChanged event of the GameSettingsViewModel control.</summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Dart.PlayerlistViewModel.SetupPlayerlist(System.Int32)">
+            <summary>Creates the player list.</summary>
+            <param name="playerCount">The player count.</param>
+            <returns>The Player list.</returns>
+        </member>
+        <member name="T:Dart.PlayerViewModel">
+            <summary>The PlayerViewModel.</summary>
+        </member>
+        <member name="M:Dart.PlayerViewModel.#ctor(System.String)">
+            <summary>Initializes a new instance of the <see cref="T:Dart.PlayerViewModel"/> class.</summary>
+            <param name="name">The name.</param>
+        </member>
+        <member name="P:Dart.PlayerViewModel.Name">
+            <summary>Gets or sets the name.</summary>
+            <value>The name.</value>
         </member>
         <member name="T:Dart.Game.UserInterface.Views.DartGameView">
             <summary>Interaction logic for DartGameView.</summary>
@@ -778,207 +1016,6 @@
             InitializeComponent
             </summary>
         </member>
-        <member name="T:Dart.Game.UserInterface.Views.RibbonView">
-            <summary>Interaction logic for RibbonView.xaml.</summary>
-            <summary>
-            RibbonView
-            </summary>
-        </member>
-        <member name="M:Dart.Game.UserInterface.Views.RibbonView.#ctor">
-            <summary>Initializes a new instance of the <see cref="T:Dart.Game.UserInterface.Views.RibbonView" /> class.</summary>
-        </member>
-        <member name="M:Dart.Game.UserInterface.Views.RibbonView.InitializeComponent">
-            <summary>
-            InitializeComponent
-            </summary>
-        </member>
-        <member name="T:Dart.DartGameViewModel">
-            <summary>The DartGameViewModel.</summary>
-            <seealso cref="T:Dart.ViewModelBase" />
-        </member>
-        <member name="M:Dart.DartGameViewModel.#ctor(Dart.IViewModelBase)">
-            <summary>
-               Initializes a new instance of the <see cref="T:Dart.DartGameViewModel" /> class.
-            </summary>
-            <param name="owner">The owner.</param>
-        </member>
-        <member name="P:Dart.DartGameViewModel.CurrentPointsUnderMouse">
-            <summary>Gets or sets the current points under mouse.</summary>
-            <value>The current points under mouse.</value>
-        </member>
-        <member name="P:Dart.DartGameViewModel.DartThrown">
-            <summary>Gets the dart thrown.</summary>
-            <value>The dart thrown.</value>
-        </member>
-        <member name="P:Dart.DartGameViewModel.Game">
-            <summary>Gets the game.</summary>
-            <value>The game.</value>
-        </member>
-        <member name="P:Dart.DartGameViewModel.MainWindowViewModel">
-            <summary>Gets or sets the main window view model.</summary>
-            <value>The main window view model.</value>
-        </member>
-        <member name="M:Dart.DartGameViewModel.Thrown">
-            <summary>Thrown this instance.</summary>
-        </member>
-        <member name="T:Dart.GameOptionsViewModel">
-            <summary>The GameOptionsViewModel.</summary>
-        </member>
-        <member name="M:Dart.GameOptionsViewModel.#ctor">
-            <summary>Initializes a new instance of the <see cref="T:Dart.GameOptionsViewModel"/> class.</summary>
-        </member>
-        <member name="P:Dart.GameOptionsViewModel.GameSettings">
-            <summary>Gets or sets the game settings.</summary>
-            <value>The game settings.</value>
-        </member>
-        <member name="P:Dart.GameOptionsViewModel.PlayerlistViewModel">
-            <summary>Gets or sets the player list view model.</summary>
-            <value>The player list view model.</value>
-        </member>
-        <member name="T:Dart.GameSettingsViewModel">
-            <summary>The GameSettingsViewModel.</summary>
-        </member>
-        <member name="P:Dart.GameSettingsViewModel.SelectablePlayerCount">
-            <summary>Gets the selectable player count.</summary>
-            <value>The selectable player count.</value>
-        </member>
-        <member name="P:Dart.GameSettingsViewModel.SelectableStartPoints">
-            <summary>Gets the selectable start points.</summary>
-            <value>The selectable start points.</value>
-        </member>
-        <member name="P:Dart.GameSettingsViewModel.SelectedPlayerCount">
-            <summary>Gets or sets the selected player count.</summary>
-            <value>The selected player count.</value>
-        </member>
-        <member name="P:Dart.GameSettingsViewModel.SelectedStartPoints">
-            <summary>Gets or sets the selected start points.</summary>
-            <value>The selected start points.</value>
-        </member>
-        <member name="T:Dart.MainWindowViewModel">
-            <summary>The MainWindowViewModel.</summary>
-        </member>
-        <member name="M:Dart.MainWindowViewModel.#ctor">
-            <summary>
-               Initializes a new instance of the <see cref="T:Dart.MainWindowViewModel" /> class.
-            </summary>
-        </member>
-        <member name="P:Dart.MainWindowViewModel.ConfiguredGameOptions">
-            <summary>Gets or sets the configured game options.</summary>
-            <value>The configured game options.</value>
-        </member>
-        <member name="P:Dart.MainWindowViewModel.CurrentContent">
-            <summary>Gets or sets the content of the current.</summary>
-            <value>The content of the current.</value>
-        </member>
-        <member name="P:Dart.MainWindowViewModel.CurrentProperties">
-            <summary>Gets the properties.</summary>
-            <value>The properties.</value>
-        </member>
-        <member name="P:Dart.MainWindowViewModel.PlugIns">
-            <summary>Gets or sets the plug ins.</summary>
-            <value>The plug ins.</value>
-        </member>
-        <member name="P:Dart.MainWindowViewModel.QuitApplication">
-            <summary>Gets the quit application.</summary>
-            <value>The quit application.</value>
-        </member>
-        <member name="P:Dart.MainWindowViewModel.SettingsViewModel">
-            <summary>Gets the settings view model.</summary>
-            <value>The settings view model.</value>
-        </member>
-        <member name="P:Dart.MainWindowViewModel.StartGame">
-            <summary>Gets the start game.</summary>
-            <value>The start game.</value>
-        </member>
-        <member name="P:Dart.MainWindowViewModel.ToolBarViewModel">
-            <summary>Gets or sets the current tool bar view model.</summary>
-            <value>The current tool bar view model.</value>
-        </member>
-        <member name="M:Dart.MainWindowViewModel.SetCulture">
-            <summary>Sets the culture.</summary>
-        </member>
-        <member name="M:Dart.MainWindowViewModel.Clone">
-            <summary>Creates a new object that is a copy of the current instance.</summary>
-            <returns>A new object that is a copy of this instance.</returns>
-        </member>
-        <member name="M:Dart.MainWindowViewModel.ShowQuitDialog">
-            <summary>Shows the quit dialog.</summary>
-        </member>
-        <member name="M:Dart.MainWindowViewModel.CreateCurrentGameOptions">
-            <summary>Creates the current game options.</summary>
-            <returns>The current game options.</returns>
-        </member>
-        <member name="M:Dart.MainWindowViewModel.StartDartGame">
-            <summary>Starts the dart game.</summary>
-        </member>
-        <member name="T:Dart.PlayerlistViewModel">
-            <summary>The Player list ViewModel.</summary>
-        </member>
-        <member name="M:Dart.PlayerlistViewModel.#ctor(Dart.GameSettingsViewModel)">
-            <summary>Initializes a new instance of the <see cref="T:Dart.PlayerlistViewModel"/> class.</summary>
-            <param name="gameSettingsViewModel">The game settings view model.</param>
-        </member>
-        <member name="P:Dart.PlayerlistViewModel.Playerlist">
-            <summary>Gets or sets the player list.</summary>
-            <value>The player list.</value>
-        </member>
-        <member name="M:Dart.PlayerlistViewModel.GameSettingsViewModel_PropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
-            <summary>Handles the PropertyChanged event of the GameSettingsViewModel control.</summary>
-            <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:Dart.PlayerlistViewModel.SetupPlayerlist(System.Int32)">
-            <summary>Creates the player list.</summary>
-            <param name="playerCount">The player count.</param>
-            <returns>The Player list.</returns>
-        </member>
-        <member name="T:Dart.PlayerViewModel">
-            <summary>The PlayerViewModel.</summary>
-        </member>
-        <member name="M:Dart.PlayerViewModel.#ctor(System.String)">
-            <summary>Initializes a new instance of the <see cref="T:Dart.PlayerViewModel"/> class.</summary>
-            <param name="name">The name.</param>
-        </member>
-        <member name="P:Dart.PlayerViewModel.Name">
-            <summary>Gets or sets the name.</summary>
-            <value>The name.</value>
-        </member>
-        <member name="T:Dart.ToolBarViewModel">
-            <summary>The ToolBarViewModel.</summary>
-            <seealso cref="T:Dart.ViewModelBase" />
-        </member>
-        <member name="M:Dart.ToolBarViewModel.#ctor(Dart.IViewModelBase)">
-            <summary>
-               Initializes a new instance of the <see cref="T:Dart.ToolBarViewModel" /> class.
-            </summary>
-            <param name="owner">The owner.</param>
-        </member>
-        <member name="P:Dart.ToolBarViewModel.OpenSettings">
-            <summary>Gets the open settings.</summary>
-            <value>The open settings.</value>
-        </member>
-        <member name="P:Dart.ToolBarViewModel.OwnerViewModel">
-            <summary>Gets the owner view model.</summary>
-            <value>The owner view model.</value>
-        </member>
-        <member name="P:Dart.ToolBarViewModel.QuitApplication">
-            <summary>Gets the quit application.</summary>
-            <value>The quit application.</value>
-        </member>
-        <member name="P:Dart.ToolBarViewModel.ResetGame">
-            <summary>Gets the reset game.</summary>
-            <value>The reset game.</value>
-        </member>
-        <member name="M:Dart.ToolBarViewModel.CanReset(System.Object)">
-            <summary>Determines whether this instance can reset.</summary>
-            <returns><c>true</c> if this instance can reset; otherwise, <c>false</c>.</returns>
-        </member>
-        <member name="M:Dart.ToolBarViewModel.OpenApplicationSettings">
-            <summary>Opens the application settings.</summary>
-        </member>
-        <member name="M:Dart.ToolBarViewModel.ResetCurrentGame">
-            <summary>Resets the current game.</summary>
-        </member>
         <member name="T:Dart.MainWindowView">
             <summary>The MainWindow.</summary>
             <seealso cref="T:System.Windows.Window" />
@@ -1032,6 +1069,11 @@
             <summary>
               Overrides the current thread's CurrentUICulture property for all
               resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:Dart.Properties.Resources.About">
+            <summary>
+              Looks up a localized string similar to About.
             </summary>
         </member>
         <member name="P:Dart.Properties.Resources.AcceptChanges">
@@ -1189,6 +1231,11 @@
               Looks up a localized string similar to Startpoints:.
             </summary>
         </member>
+        <member name="P:Dart.Properties.Resources.Throwgame">
+            <summary>
+              Looks up a localized string similar to Throwgame.
+            </summary>
+        </member>
         <member name="P:Dart.Properties.Resources.Version">
             <summary>
               Looks up a localized string similar to version.
@@ -1276,11 +1323,11 @@
             <summary>The SettingsViewModel.</summary>
             <seealso cref="T:Dart.ViewModelBase" />
         </member>
-        <member name="M:Dart.ApplicationSettingsViewModel.#ctor(Dart.IViewModelBase)">
+        <member name="M:Dart.ApplicationSettingsViewModel.#ctor(Dart.Settings.Interfaces.IApplicationSettings)">
             <summary>
                Initializes a new instance of the <see cref="T:Dart.ApplicationSettingsViewModel" /> class.
             </summary>
-            <param name="ownerViewModel">The main window view model.</param>
+            <param name="applicationSettings">The application settings.</param>
         </member>
         <member name="T:Dart.ApplicationSettingsViewModel.LanguageChangedEventHaendler">
             <summary>The language changed event heandler.</summary>
@@ -1302,9 +1349,9 @@
         <member name="E:Dart.ApplicationSettingsViewModel.ThemeChangedEvent">
             <summary>Occurs when [theme changed event].</summary>
         </member>
-        <member name="P:Dart.ApplicationSettingsViewModel.AcceptSettings">
-            <summary>Gets the accept settings.</summary>
-            <value>The accept settings.</value>
+        <member name="P:Dart.ApplicationSettingsViewModel.Label">
+            <summary>Gets the label.</summary>
+            <value>The label.</value>
         </member>
         <member name="P:Dart.ApplicationSettingsViewModel.AllPlayTillZero">
             <summary>Gets or sets a value indicating whether [all play till zero].</summary>
@@ -1313,14 +1360,6 @@
         <member name="P:Dart.ApplicationSettingsViewModel.AllThemes">
             <summary>Gets all themes.</summary>
             <value>All themes.</value>
-        </member>
-        <member name="P:Dart.ApplicationSettingsViewModel.CanAccept">
-            <summary>Gets a value indicating whether this instance can accept.</summary>
-            <value><c>true</c> if this instance can accept; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="P:Dart.ApplicationSettingsViewModel.CancelSettings">
-            <summary>Gets the cancel settings.</summary>
-            <value>The cancel settings.</value>
         </member>
         <member name="P:Dart.ApplicationSettingsViewModel.CurrentApplicationSettings">
             <summary>Gets or sets the current application settings.</summary>
@@ -1342,17 +1381,12 @@
                <c>true</c> if [show user interface dart board data]; otherwise, <c>false</c>.
             </value>
         </member>
+        <member name="M:Dart.ApplicationSettingsViewModel.Accept">
+            <summary>Accepts this instance.</summary>
+        </member>
         <member name="M:Dart.ApplicationSettingsViewModel.CancelApplicationSettings(System.Windows.Window)">
             <summary>Cancels the application settings.</summary>
             <param name="window">The window.</param>
-        </member>
-        <member name="M:Dart.ApplicationSettingsViewModel.AcceptApplicationSettings(System.Windows.Window)">
-            <summary>Accepts the application settings.</summary>
-            <param name="window">The window.</param>
-        </member>
-        <member name="M:Dart.ApplicationSettingsViewModel.GetSettings">
-            <summary>Gets the current settings.</summary>
-            <returns>The current applications settings.</returns>
         </member>
         <member name="T:Dart.ApplicationSettingsView">
             <summary>Interaction logic for SettingsView.</summary>
@@ -1369,50 +1403,6 @@
             <summary>
             InitializeComponent
             </summary>
-        </member>
-        <member name="T:Dart.Tools.BitmapToImageSourceConverter.BitmapToImageSourceConverter">
-            <summary>The bitmap to image converter.</summary>
-            <seealso cref="T:System.Windows.Data.IValueConverter"/>
-        </member>
-        <member name="M:Dart.Tools.BitmapToImageSourceConverter.BitmapToImageSourceConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
-            <summary>Converts a value.</summary>
-            <param name="value">The value produced by the binding source.</param>
-            <param name="targetType">The type of the binding target property.</param>
-            <param name="parameter">The converter parameter to use.</param>
-            <param name="culture">The culture to use in the converter.</param>
-            <returns>A converted value. If the method returns null, the valid null value is used.</returns>
-        </member>
-        <member name="M:Dart.Tools.BitmapToImageSourceConverter.BitmapToImageSourceConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
-            <summary>Converts a value.</summary>
-            <param name="value">The value that is produced by the binding target.</param>
-            <param name="targetType">The type to convert to.</param>
-            <param name="parameter">The converter parameter to use.</param>
-            <param name="culture">The culture to use in the converter.</param>
-            <returns>A converted value. If the method returns null, the valid null value is used.</returns>
-        </member>
-        <member name="T:Dart.Tools.BitmapToImageSourceConverter.SvgToImageSourceConverter">
-            <summary>The bitmap to image converter.</summary>
-            <seealso cref="T:System.Windows.Data.IValueConverter" />
-        </member>
-        <member name="M:Dart.Tools.BitmapToImageSourceConverter.SvgToImageSourceConverter.Convert(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
-            <summary>Converts a value.</summary>
-            <param name="value">The value produced by the binding source.</param>
-            <param name="targetType">The type of the binding target property.</param>
-            <param name="parameter">The converter parameter to use.</param>
-            <param name="culture">The culture to use in the converter.</param>
-            <returns>
-               A converted value. If the method returns null, the valid null value is used.
-            </returns>
-        </member>
-        <member name="M:Dart.Tools.BitmapToImageSourceConverter.SvgToImageSourceConverter.ConvertBack(System.Object,System.Type,System.Object,System.Globalization.CultureInfo)">
-            <summary>Converts a value.</summary>
-            <param name="value">The value that is produced by the binding target.</param>
-            <param name="targetType">The type to convert to.</param>
-            <param name="parameter">The converter parameter to use.</param>
-            <param name="culture">The culture to use in the converter.</param>
-            <returns>
-               A converted value. If the method returns null, the valid null value is used.
-            </returns>
         </member>
         <member name="T:Dart.Tools.DevelopmentPropertiesView">
             <summary>Interaction logic for DartBoardData.</summary>

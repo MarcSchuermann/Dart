@@ -4,6 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System;
 using System.Windows.Input;
 using Schuermann.Darts.GameCore.Game;
 
@@ -13,6 +14,13 @@ namespace Dart
     /// <seealso cref="Dart.IViewModelBase" />
     public interface IMainWindowViewModel : IViewModelBase
     {
+        #region Public Events
+
+        /// <summary>Occurs when [game started].</summary>
+        event EventHandler<EventArgs> GameStarted;
+
+        #endregion Public Events
+
         #region Public Properties
 
         /// <summary>Gets or sets the configured game options.</summary>

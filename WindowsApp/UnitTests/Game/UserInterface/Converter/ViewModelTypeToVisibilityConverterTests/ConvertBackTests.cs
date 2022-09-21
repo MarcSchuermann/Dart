@@ -3,7 +3,7 @@
 //// --------------------------------------------------------------------------------------------------------------------
 
 using System.Diagnostics.CodeAnalysis;
-using Dart.Game.UserInterface.Converter;
+using Dart.Common.UserInterface.Converter;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests.Game.UserInterface.Converter.ViewModelTypeToVisibilityConverterTests

@@ -5,7 +5,7 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Windows;
 using Dart;
-using Dart.Game.UserInterface.Converter;
+using Dart.Common.UserInterface.Converter;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests.Game.UserInterface.Converter.ViewModelTypeToVisibilityConverterTests

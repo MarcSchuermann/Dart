@@ -9,7 +9,7 @@ using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
 
-namespace Dart.Game.UserInterface.Converter
+namespace Dart.Common.UserInterface.Converter
 {
     /// <summary>The ViewModelTypeToVisibilityConverter.</summary>
     /// <seealso cref="IValueConverter" />

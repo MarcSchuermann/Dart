@@ -4,6 +4,8 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System.ComponentModel;
+using System.Windows.Controls;
 using ControlzEx.Theming;
 
 namespace Dart
@@ -19,21 +21,22 @@ namespace Dart
         public ApplicationSettingsView()
         {
             InitializeComponent();
-            ThemeManager.Current.ChangeTheme(this, $"{Properties.Settings.Default.BaseColorScheme}.{Properties.Settings.Default.ColorScheme}");
         }
 
         #endregion Public Constructors
 
         #region Private Methods
 
-        private void ApplicationSettingsViewModel_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
+        private void ApplicationSettingsViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
         {
             SetTheme(sender);
         }
 
-        private void SelectedThemeChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        private void SelectedThemeChanged(object sender, SelectionChangedEventArgs e)
         {
-            ApplicationSettingsViewModel applicationSettingsViewModel = DataContext as ApplicationSettingsViewModel;
+            if (DataContext is not ApplicationSettingsViewModel applicationSettingsViewModel)
+                return;
+
             applicationSettingsViewModel.PropertyChanged += ApplicationSettingsViewModel_PropertyChanged;
 
             SetTheme(sender);
@@ -44,6 +47,7 @@ namespace Dart
             if (sender is ApplicationSettingsViewModel applicationSettingsViewModel)
             {
                 ThemeManager.Current.ChangeTheme(this, applicationSettingsViewModel.CurrentTheme.OriginalTheme);
+                applicationSettingsViewModel.Accept();
             }
         }
 

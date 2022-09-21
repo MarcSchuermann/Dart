@@ -16,7 +16,9 @@ namespace Dart.Common.Splashscreen
     {
         #region Public Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="SplashScreenWindow"/> class.</summary>
+        /// <summary>
+        ///    Initializes a new instance of the <see cref="SplashScreenWindow" /> class.
+        /// </summary>
         public SplashScreenWindow()
         {
             InitializeComponent();

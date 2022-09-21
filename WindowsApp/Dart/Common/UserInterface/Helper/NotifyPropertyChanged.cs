@@ -25,9 +25,7 @@ namespace Dart.Common.UserInterface.Helper
         /// <param name="propertyName">Name of the property.</param>
         public void RaisePropertyChanged(string propertyName)
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
-
-            handler?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
 
         #endregion Public Methods

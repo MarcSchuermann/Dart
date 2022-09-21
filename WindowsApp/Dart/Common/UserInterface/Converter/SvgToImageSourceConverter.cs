@@ -1,20 +1,25 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="ListToVisibilityConverter.cs" company="Marc Schürmann">
+// <copyright file="SvgToImageSourceConverter.cs" company="Marc Schürmann">
 //     Copyright (c) Marc Schürmann. All Rights Reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
 using System;
+using System.Drawing;
 using System.Globalization;
+using System.Text;
 using System.Windows;
 using System.Windows.Data;
-using Dart.Common.UserInterface.Helper;
+using System.Windows.Interop;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using Svg;
 
-namespace Dart.Game.UserInterface.Converter
+namespace Dart.Common.UserInterface.Converter
 {
-    /// <summary>The ListToVisibilityConverter.</summary>
+    /// <summary>The bitmap to image converter.</summary>
     /// <seealso cref="IValueConverter" />
-    public class ListToVisibilityConverter : IValueConverter
+    public class SvgToImageSourceConverter : IValueConverter
     {
         #region Public Methods
 
@@ -28,12 +33,12 @@ namespace Dart.Game.UserInterface.Converter
         /// </returns>
         public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            var playerlist = value as ItemsChangeObservableCollection<PlayerViewModel>;
+            var svgContentNode = Encoding.Default.GetString((byte[])value);
 
-            if (playerlist == null || playerlist.Count == 0)
-                return Visibility.Hidden;
+            var convertedSvg = SvgDocument.FromSvg<SvgDocument>(svgContentNode);
+            var bitmap = convertedSvg.Draw(32, 32);
 
-            return Visibility.Visible;
+            return ImageSourceForBitmap(bitmap);
         }
 
         /// <summary>Converts a value.</summary>
@@ -46,9 +51,28 @@ namespace Dart.Game.UserInterface.Converter
         /// </returns>
         public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
-            return null;
+            throw new NotImplementedException();
         }
 
         #endregion Public Methods
+
+        #region Private Methods
+
+        private static ImageSource ImageSourceForBitmap(Bitmap bmp)
+        {
+            var handle = bmp.GetHbitmap();
+            ImageSource retVal = null;
+            try
+            {
+                retVal = Imaging.CreateBitmapSourceFromHBitmap(handle, IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
+            }
+            catch (Exception)
+            {
+            }
+
+            return retVal;
+        }
+
+        #endregion Private Methods
     }
 }

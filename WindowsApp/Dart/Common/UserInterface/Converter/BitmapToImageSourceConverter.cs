@@ -1,25 +1,19 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="SvgToImageSourceConverter.cs" company="Marc Schürmann">
+// <copyright file="BitmapToImageSourceConverter.cs" company="Marc Schürmann">
 //     Copyright (c) Marc Schürmann. All Rights Reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
 using System;
-using System.Drawing;
-using System.Globalization;
-using System.Text;
-using System.Windows;
+using System.IO;
 using System.Windows.Data;
-using System.Windows.Interop;
-using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using Svg;
 
-namespace Dart.Tools.BitmapToImageSourceConverter
+namespace Dart.Common.UserInterface.Converter
 {
     /// <summary>The bitmap to image converter.</summary>
-    /// <seealso cref="System.Windows.Data.IValueConverter" />
-    public class SvgToImageSourceConverter : IValueConverter
+    /// <seealso cref="IValueConverter" />
+    public class BitmapToImageSourceConverter : IValueConverter
     {
         #region Public Methods
 
@@ -31,14 +25,17 @@ namespace Dart.Tools.BitmapToImageSourceConverter
         /// <returns>
         ///    A converted value. If the method returns null, the valid null value is used.
         /// </returns>
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
-            var svgContentNode = Encoding.Default.GetString((byte[])value);
+            MemoryStream ms = new MemoryStream();
+            ((System.Drawing.Bitmap)value).Save(ms, System.Drawing.Imaging.ImageFormat.Bmp);
+            BitmapImage image = new BitmapImage();
+            image.BeginInit();
+            ms.Seek(0, SeekOrigin.Begin);
+            image.StreamSource = ms;
+            image.EndInit();
 
-            var convertedSvg = SvgDocument.FromSvg<SvgDocument>(svgContentNode);
-            var bitmap = convertedSvg.Draw(32, 32);
-
-            return ImageSourceForBitmap(bitmap);
+            return image;
         }
 
         /// <summary>Converts a value.</summary>
@@ -49,30 +46,11 @@ namespace Dart.Tools.BitmapToImageSourceConverter
         /// <returns>
         ///    A converted value. If the method returns null, the valid null value is used.
         /// </returns>
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
         {
             throw new NotImplementedException();
         }
 
         #endregion Public Methods
-
-        #region Private Methods
-
-        private static ImageSource ImageSourceForBitmap(Bitmap bmp)
-        {
-            var handle = bmp.GetHbitmap();
-            ImageSource retVal = null;
-            try
-            {
-                retVal = Imaging.CreateBitmapSourceFromHBitmap(handle, IntPtr.Zero, Int32Rect.Empty, BitmapSizeOptions.FromEmptyOptions());
-            }
-            catch (Exception)
-            {
-            }
-
-            return retVal;
-        }
-
-        #endregion Private Methods
     }
 }

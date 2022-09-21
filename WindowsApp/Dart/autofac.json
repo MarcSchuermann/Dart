@@ -9,7 +9,8 @@
           "type": "Dart.Settings.Interfaces.IApplicationSettings"
         }
       ],
-      "injectProperties": true
+      "injectProperties": true,
+      "instanceScope": "SingleInstance"
     },
     {
       "type": "Schuermann.Darts.GameCore.Game.GameProcedure, Schuermann.Darts.GameCore",
