@@ -35,6 +35,9 @@ steps:
   inputs:
     targetType: 'inline'
     script: |
+      Get-ChildItem '$(Build.SourcesDirectory)' -Recurse
+      Get-Content $(Build.SourcesDirectory)/DartCore/DartCore.Build.targets
+
       [xml]$targetsFile = Get-Content -Path $(Build.SourcesDirectory)/DartCore/DartCore.Build.targets
       Get-ChildItem '$(Build.SourcesDirectory)' -Recurse
       Get-Content $(Build.SourcesDirectory)/DartCore/DartCore.Build.targets
