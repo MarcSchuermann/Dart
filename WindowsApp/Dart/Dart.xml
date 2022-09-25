@@ -752,6 +752,10 @@
             </summary>
             <param name="owner">The owner.</param>
         </member>
+        <member name="P:Dart.DartGameViewModel.Label">
+            <summary>Gets the label.</summary>
+            <value>The label.</value>
+        </member>
         <member name="P:Dart.DartGameViewModel.CurrentPointsUnderMouse">
             <summary>Gets or sets the current points under mouse.</summary>
             <value>The current points under mouse.</value>

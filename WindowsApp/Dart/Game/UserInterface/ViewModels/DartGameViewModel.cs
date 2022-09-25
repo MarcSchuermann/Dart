@@ -31,6 +31,10 @@ namespace Dart
 
         #region Public Properties
 
+        /// <summary>Gets the label.</summary>
+        /// <value>The label.</value>
+        public static string Label => Properties.Resources.Throwgame;
+
         /// <summary>Gets or sets the current points under mouse.</summary>
         /// <value>The current points under mouse.</value>
         public IDartThrow CurrentPointsUnderMouse { get; set; }
