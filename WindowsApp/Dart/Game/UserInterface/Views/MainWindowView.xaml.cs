@@ -8,43 +8,54 @@ using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
-using System.Threading;
 using ControlzEx.Theming;
+using Dart.Common.Splashscreen;
 using Dart.Tools;
+using MahApps.Metro.Controls;
 
 namespace Dart
 {
     /// <summary>The MainWindow.</summary>
-    /// <seealso cref="System.Windows.Window"/>
-    /// <seealso cref="System.Windows.Markup.IComponentConnector"/>
+    /// <seealso cref="System.Windows.Window" />
+    /// <seealso cref="System.Windows.Markup.IComponentConnector" />
     [ExcludeFromCodeCoverage]
-    public partial class MainWindow
+    public partial class MainWindowView : MetroWindow
     {
         #region Public Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="MainWindow"/> class.</summary>
-        public MainWindow()
+        /// <summary>
+        ///    Initializes a new instance of the <see cref="MainWindowView" /> class.
+        /// </summary>
+        public MainWindowView()
         {
-            Dart.Common.Splashscreen.SplashScreen.ShowSplashScreen();
+            SplashScreen.ShowSplashScreen();
 
             InitializeComponent();
             IconSetter.SetProgramsIcon();
             LoadUserSettings();
 
-            SubscribeToLanguageChangedEvent();
-            SubscribeToThemeChangedEvent();
+            SubscribeToSettingsChangedEvent();
 
-            Thread.Sleep(1500);
+            //Thread.Sleep(1500);
 
-            Dart.Common.Splashscreen.SplashScreen.HideSplashScreen();
+            SplashScreen.HideSplashScreen();
+
+            if (DataContext is MainWindowViewModel mainWindowViewModel)
+            {
+                HamburgerMenuControl.Content = mainWindowViewModel.CurrentContent;
+                mainWindowViewModel.GameStarted += MainWindowViewModel_GameStarted;
+            }
         }
 
         #endregion Public Constructors
 
         #region Protected Methods
 
-        /// <summary>Raises the <see cref="E:System.Windows.Window.Closing"/> event.</summary>
-        /// <param name="e">A <see cref="T:System.ComponentModel.CancelEventArgs"/> that contains the event data.</param>
+        /// <summary>Raises the <see cref="E:System.Windows.Window.Closing" /> event.</summary>
+        /// <param name="e">
+        ///    A <see cref="T:System.ComponentModel.CancelEventArgs" /> that contains the event
+        ///    data.
+        /// </param>
         protected override void OnClosing(CancelEventArgs e)
         {
             base.OnClosing(e);
@@ -61,6 +72,46 @@ namespace Dart
 
         #region Private Methods
 
+        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
+        {
+        }
+
+        private void HamburgerMenuControl_OnItemInvoked(object sender, HamburgerMenuItemInvokedEventArgs e)
+        {
+            if (DataContext is MainWindowViewModel mainWindowViewModel)
+            {
+                if (e.InvokedItem is HamburgerMenuGlyphItem menuItem)
+                {
+                    switch (menuItem.Tag.ToString())
+                    {
+                        case "settings":
+                            mainWindowViewModel.CurrentContent = mainWindowViewModel.SettingsViewModel;
+                            HamburgerMenuControl.Content = (DataContext as MainWindowViewModel).CurrentContent;
+                            //SubscribeToSettingsChangedEvent();
+                            break;
+
+                        case "throwgame":
+                            mainWindowViewModel.CurrentContent = new GameOptionsViewModel();
+                            HamburgerMenuControl.Content = (DataContext as MainWindowViewModel).CurrentContent;
+                            break;
+                    }
+                }
+                if (e.InvokedItem is HamburgerMenuIconItem menuIconItem)
+                {
+                    switch (menuIconItem.Tag.ToString())
+                    {
+                        case "info":
+                            mainWindowViewModel.CurrentContent = null;
+                            HamburgerMenuControl.Content = "TODO";
+                            break;
+                    }
+                }
+            }
+
+            if (!e.IsItemOptions && HamburgerMenuControl.IsPaneOpen)
+                HamburgerMenuControl.SetCurrentValue(HamburgerMenu.IsPaneOpenProperty, false);
+        }
+
         private void LoadUserSettings()
         {
             Height = Properties.Settings.Default.WindowHeight;
@@ -73,6 +124,11 @@ namespace Dart
             CultureInfo.CurrentUICulture = Properties.Settings.Default.CurrentCulture;
 
             ThemeManager.Current.ChangeTheme(this, $"{Properties.Settings.Default.BaseColorScheme}.{Properties.Settings.Default.ColorScheme}");
+        }
+
+        private void MainWindowViewModel_GameStarted(object sender, EventArgs e)
+        {
+            HamburgerMenuControl.Content = (DataContext as MainWindowViewModel).CurrentContent;
         }
 
         private void SetTheme(object sender)
@@ -95,24 +151,17 @@ namespace Dart
             }
         }
 
-        private void SettingsViewModel_ThemeChangedEvent(object sender, EventArgs args)
-        {
-            SetTheme(sender);
-        }
+        //private void SettingsViewModel_ThemeChangedEvent(object sender, EventArgs args)
+        //{
+        //    SetTheme(sender);
+        //}
 
-        private void SubscribeToLanguageChangedEvent()
+        private void SubscribeToSettingsChangedEvent()
         {
             if (DataContext is IMainWindowViewModel mainWindowViewModel)
             {
-                mainWindowViewModel.SettingsViewModel.LanguageChangedEvent += SettingsViewModel_LanguageChangedEvent;
-            }
-        }
-
-        private void SubscribeToThemeChangedEvent()
-        {
-            if (DataContext is IMainWindowViewModel mainWindowViewModel)
-            {
-                mainWindowViewModel.SettingsViewModel.ThemeChangedEvent += SettingsViewModel_ThemeChangedEvent;
+                mainWindowViewModel.SettingsViewModel.PropertyChanged += SettingsViewModel_LanguageChangedEvent;
+                //mainWindowViewModel.SettingsViewModel.ThemeChangedEvent += SettingsViewModel_ThemeChangedEvent;
             }
         }
 

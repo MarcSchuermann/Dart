@@ -9,9 +9,17 @@ using System.ComponentModel;
 namespace Dart
 {
     /// <summary>The IViewModelBase.</summary>
-    /// <seealso cref="System.ComponentModel.INotifyPropertyChanged"/>
+    /// <seealso cref="System.ComponentModel.INotifyPropertyChanged" />
     public interface IViewModelBase : INotifyPropertyChanged
     {
+        #region Public Properties
+
+        /// <summary>Gets the label.</summary>
+        /// <value>The label.</value>
+        static string Label { get; }
+
+        #endregion Public Properties
+
         #region Public Methods
 
         /// <summary>Raises the property changed.</summary>

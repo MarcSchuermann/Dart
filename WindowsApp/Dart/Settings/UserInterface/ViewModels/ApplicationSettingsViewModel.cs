@@ -9,37 +9,34 @@ using System.Collections.Generic;
 using System.Globalization;
 using System.Linq;
 using System.Windows;
-using Autofac;
 using ControlzEx.Theming;
-using Dart.Common;
-using Dart.Common.Commands;
 using Dart.Common.Theme;
+using Dart.Settings.Interfaces;
 
 namespace Dart
 {
     /// <summary>The SettingsViewModel.</summary>
-    /// <seealso cref="Dart.ViewModelBase"/>
+    /// <seealso cref="Dart.ViewModelBase" />
     public class ApplicationSettingsViewModel : ViewModelBase, IApplicationSettingsViewModel
     {
         #region Private Fields
 
         private IApplicationSettings currentApplicationSettings;
 
-        private IViewModelBase mainWindowViewModel;
-
         #endregion Private Fields
 
         #region Public Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="ApplicationSettingsViewModel"/> class.</summary>
-        /// <param name="ownerViewModel">The main window view model.</param>
-        public ApplicationSettingsViewModel(IViewModelBase ownerViewModel)
+        /// <summary>
+        ///    Initializes a new instance of the <see cref="ApplicationSettingsViewModel" /> class.
+        /// </summary>
+        /// <param name="applicationSettings">The application settings.</param>
+        public ApplicationSettingsViewModel(IApplicationSettings applicationSettings)
         {
-            mainWindowViewModel = ownerViewModel;
+            CurrentApplicationSettings = applicationSettings;
 
-            CurrentApplicationSettings = GetSettings();
-
-            CurrentTheme = GetCurrentTheme();
+            if (applicationSettings != null)
+                CurrentTheme = applicationSettings.CurrentTheme;
         }
 
         #endregion Public Constructors
@@ -48,12 +45,16 @@ namespace Dart
 
         /// <summary>The language changed event heandler.</summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="args">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="args">
+        ///    The <see cref="EventArgs" /> instance containing the event data.
+        /// </param>
         public delegate void LanguageChangedEventHaendler(object sender, EventArgs args);
 
         /// <summary>The theme changed event heandler.</summary>
         /// <param name="sender">The sender.</param>
-        /// <param name="args">The <see cref="EventArgs"/> instance containing the event data.</param>
+        /// <param name="args">
+        ///    The <see cref="EventArgs" /> instance containing the event data.
+        /// </param>
         public delegate void ThemeChangedEventHaendler(object sender, EventArgs args);
 
         #endregion Public Delegates
@@ -70,9 +71,9 @@ namespace Dart
 
         #region Public Properties
 
-        /// <summary>Gets the accept settings.</summary>
-        /// <value>The accept settings.</value>
-        public GenericRelayCommand<Window> AcceptSettings => new GenericRelayCommand<Window>(param => AcceptApplicationSettings(param));
+        /// <summary>Gets the label.</summary>
+        /// <value>The label.</value>
+        public static string Label => Properties.Resources.Settings;
 
         /// <summary>Gets or sets a value indicating whether [all play till zero].</summary>
         /// <value><c>true</c> if [all play till zero]; otherwise, <c>false</c>.</value>
@@ -82,7 +83,6 @@ namespace Dart
             set
             {
                 CurrentApplicationSettings.AllPlayTillZero = value;
-                RaisePropertyChanged(nameof(CanAccept));
             }
         }
 
@@ -103,14 +103,6 @@ namespace Dart
                 return tmp.OrderBy(x => x.OriginalTheme.ColorScheme).ThenBy(x => x.OriginalTheme.BaseColorScheme);
             }
         }
-
-        /// <summary>Gets a value indicating whether this instance can accept.</summary>
-        /// <value><c>true</c> if this instance can accept; otherwise, <c>false</c>.</value>
-        public bool CanAccept => !CurrentApplicationSettings.Equals(GetSettings());
-
-        /// <summary>Gets the cancel settings.</summary>
-        /// <value>The cancel settings.</value>
-        public GenericRelayCommand<Window> CancelSettings => new GenericRelayCommand<Window>(param => CancelApplicationSettings(param));
 
         /// <summary>Gets or sets the current application settings.</summary>
         /// <value>The current application settings.</value>
@@ -137,7 +129,7 @@ namespace Dart
                 CurrentApplicationSettings.CurrentTheme = value;
                 if (Application.Current != null)
                     ThemeManager.Current.ChangeTheme(Application.Current, $"{Properties.Settings.Default.BaseColorScheme}.{Properties.Settings.Default.ColorScheme}");
-                RaisePropertyChanged(nameof(CanAccept));
+                RaisePropertyChanged(nameof(CurrentTheme));
             }
         }
 
@@ -149,76 +141,50 @@ namespace Dart
             set
             {
                 CurrentApplicationSettings.SelectedCultureInfo = value;
-                RaisePropertyChanged(nameof(CanAccept));
+                RaisePropertyChanged(nameof(SelectedCultureInfo));
             }
         }
 
-        /// <summary>Gets or sets a value indicating whether [show user interface dart board data].</summary>
-        /// <value><c>true</c> if [show user interface dart board data]; otherwise, <c>false</c>.</value>
+        /// <summary>
+        ///    Gets or sets a value indicating whether [show user interface dart board data].
+        /// </summary>
+        /// <value>
+        ///    <c>true</c> if [show user interface dart board data]; otherwise, <c>false</c>.
+        /// </value>
         public bool ShowUserInterfaceDartBoardData
         {
             get => CurrentApplicationSettings.ShowUserInterfaceDartBoardData;
             set
             {
                 CurrentApplicationSettings.ShowUserInterfaceDartBoardData = value;
-                RaisePropertyChanged(nameof(CanAccept));
             }
         }
 
         #endregion Public Properties
 
-        #region Private Methods
+        #region Public Methods
 
-        /// <summary>Accepts the application settings.</summary>
-        /// <param name="window">The window.</param>
-        private void AcceptApplicationSettings(Window window)
+        /// <summary>Accepts this instance.</summary>
+        public void Accept()
         {
-            var languageChanged = HasLanguageChanged();
-            var themeChanged = HasThemeChanged();
-
             SaveSettings(CurrentApplicationSettings);
 
-            if (languageChanged)
+            if (HasLanguageChanged())
                 LanguageChangedEvent?.Invoke(this, new EventArgs());
 
-            if (themeChanged)
+            if (HasThemeChanged())
                 ThemeChangedEvent?.Invoke(this, new EventArgs());
-
-            window.Close();
         }
+
+        #endregion Public Methods
+
+        #region Private Methods
 
         /// <summary>Cancels the application settings.</summary>
         /// <param name="window">The window.</param>
-        private void CancelApplicationSettings(Window window)
+        private static void CancelApplicationSettings(Window window)
         {
             window.Close();
-        }
-
-        private INamedTheme GetCurrentTheme()
-        {
-            foreach (var myTheme in AllThemes)
-            {
-                if (myTheme.OriginalTheme.BaseColorScheme == Properties.Settings.Default.BaseColorScheme
-                    && myTheme.OriginalTheme.ColorScheme == Properties.Settings.Default.ColorScheme)
-                {
-                    return myTheme;
-                }
-            }
-
-            return null;
-        }
-
-        /// <summary>Gets the current settings.</summary>
-        /// <returns>The current applications settings.</returns>
-        private IApplicationSettings GetSettings()
-        {
-            var container = ServiceContainer.GetContainer();
-            var applicationSettings = container.Resolve<IApplicationSettings>();
-            applicationSettings.ShowUserInterfaceDartBoardData = Properties.Settings.Default.ShowUserInterfaceDartBoardData;
-            applicationSettings.SelectedCultureInfo = Properties.Settings.Default.CurrentCulture;
-            applicationSettings.AllPlayTillZero = Properties.Settings.Default.AllPlayTillZero;
-            applicationSettings.CurrentTheme = GetCurrentTheme();
-            return applicationSettings;
         }
 
         private bool HasLanguageChanged()
@@ -228,7 +194,7 @@ namespace Dart
 
         private bool HasThemeChanged()
         {
-            return CurrentTheme.ToString() != $"{Properties.Settings.Default.BaseColorScheme}.{Properties.Settings.Default.ColorScheme}";
+            return CurrentTheme.ToString() != $"{Properties.Settings.Default.BaseColorScheme} {Properties.Settings.Default.ColorScheme}";
         }
 
         private void SaveSettings(IApplicationSettings applicationSettings)

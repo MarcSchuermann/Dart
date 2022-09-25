@@ -5,9 +5,9 @@
 // -----------------------------------------------------------------------
 
 using System.Collections.Generic;
-using GameLogic.DartThrow;
-using GameLogic.Player;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Schuermann.Darts.GameCore.Game;
+using Schuermann.Darts.GameCore.Thrown;
 
 namespace GameLogicTests.PlayerTests
 {
@@ -22,7 +22,7 @@ namespace GameLogicTests.PlayerTests
         public void InitializationIsCorrect()
         {
             var throwHistory = new List<IDartThrow> { new DartThrow(DartBoardField.One, DartBoardQuantifier.Single), new DartThrow(DartBoardField.Two, DartBoardQuantifier.Single), new DartThrow(DartBoardField.Three, DartBoardQuantifier.Single) };
-            var player = new Player() { CurrentScore = 666, DartCountThisRound = 69, Name = "Hans", PointsThisRound = 26, Round = 123, ThrowHistory = throwHistory };
+            var player = new Player(throwHistory) { CurrentScore = 666, DartCountThisRound = 69, Name = "Hans", PointsThisRound = 26, Round = 123 };
 
             Assert.AreEqual(666, player.CurrentScore);
             Assert.AreEqual(69, player.DartCountThisRound);

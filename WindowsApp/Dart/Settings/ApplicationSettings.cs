@@ -7,8 +7,9 @@
 using System;
 using System.Globalization;
 using Dart.Common.Theme;
+using Dart.Settings.Interfaces;
 
-namespace Dart
+namespace Dart.Settings
 {
     /// <summary>The ApplicationSettings.</summary>
     public class ApplicationSettings : IEquatable<IApplicationSettings>, IApplicationSettings

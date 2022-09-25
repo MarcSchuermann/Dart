@@ -2,14 +2,12 @@
 //// <copyright>Marc Schürmann</copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
-using Dart;
+using Dart.Game.UserInterface.Views;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests.Game.UserInterface.Views.DartGameViewTests
 {
-    /// <summary>
-    /// The construcotr test.
-    /// </summary>
+    /// <summary>The construcotr test.</summary>
     [TestClass]
     public class ConstructorTests
     {
@@ -19,7 +17,11 @@ namespace UnitTests.Game.UserInterface.Views.DartGameViewTests
         [TestMethod]
         public void NoCrashWhenInitialize()
         {
-            var dartGameView = new DartGameView();
+            ViewTestExecuter.Instance.Run(() =>
+            {
+                var dartGameView = new DartGameView();
+                Assert.IsNotNull(dartGameView);
+            });
         }
 
         /// <summary>Noes the crash when initialize with dev UI data.</summary>

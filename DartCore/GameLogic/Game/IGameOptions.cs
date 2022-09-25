@@ -1,13 +1,12 @@
 ﻿// -----------------------------------------------------------------------
 // <copyright file="IGameOptions.cs" company="Marc Schürmann">
-// Copyright (c) Marc Schürmann. All Rights Reserved.
+//     Copyright (c) Marc Schürmann. All Rights Reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
 using System.Collections.Generic;
-using GameLogic.Player;
 
-namespace GameLogic.GameOptions
+namespace Schuermann.Darts.GameCore.Game
 {
     /// <summary>The game option interface.</summary>
     public interface IGameOptions
@@ -28,7 +27,7 @@ namespace GameLogic.GameOptions
 
         /// <summary>Gets or sets the player list.</summary>
         /// <value>The player list.</value>
-        IList<IPlayer> PlayerList { get; set; }
+        IList<IPlayer> PlayerList { get; }
 
         /// <summary>Gets or sets the start points.</summary>
         /// <value>The start points.</value>

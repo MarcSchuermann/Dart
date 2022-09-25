@@ -7,7 +7,6 @@
 using System;
 using System.IO;
 using System.Reflection;
-using System.Windows.Forms;
 using Microsoft.Win32;
 using NLog;
 
@@ -23,7 +22,7 @@ namespace Dart.Tools
         {
             try
             {
-                var iconSourcePath = Path.Combine(Application.StartupPath, "darts.ico");
+                var iconSourcePath = Path.Combine(Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location), "darts.ico");
 
                 if (!File.Exists(iconSourcePath))
                     return;

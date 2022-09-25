@@ -44,7 +44,9 @@ namespace Dart.Common
             var builder = new ContainerBuilder();
             builder.RegisterModule(module);
 
-            return builder.Build();
+            var serviceContainer = builder.Build();
+            serviceContainer.BeginLifetimeScope();
+            return serviceContainer;
         }
 
         #endregion Private Methods

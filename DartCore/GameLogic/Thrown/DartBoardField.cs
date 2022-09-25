@@ -4,9 +4,10 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace GameLogic.DartThrow
+namespace Schuermann.Darts.GameCore.Thrown
 {
     /// <summary>The dart board fields.</summary>
+    [System.Flags]
     public enum DartBoardField
     {
         /// <summary>The zero.</summary>

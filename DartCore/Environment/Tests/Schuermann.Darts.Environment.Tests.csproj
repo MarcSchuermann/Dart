@@ -1,8 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netcoreapp3.1</TargetFramework>
-    <NoWarn>1701;1702</NoWarn>
+    <TargetFramework>net6.0</TargetFramework>
     <DocumentationFile>GameLogicTests.xml</DocumentationFile>
     <OutputType>Library</OutputType>
   </PropertyGroup>

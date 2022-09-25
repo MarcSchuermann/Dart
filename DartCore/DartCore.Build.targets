@@ -1,25 +1,10 @@
 <Project>
-
-	<PropertyGroup>
-		<EnableNETAnalyzers>true</EnableNETAnalyzers>
-	</PropertyGroup>
-
-	<PropertyGroup>
-		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
-	</PropertyGroup>
-
-	<PropertyGroup>
-		<AnalysisMode>All</AnalysisMode>
-	</PropertyGroup>
-
-	<PropertyGroup>
-		<AnalysisLevel>5.0</AnalysisLevel>
-	</PropertyGroup>
-
 	<PropertyGroup>
 		<Authors>Marc Schuermann</Authors>
 		<Company>Marc Schuermann</Company>
-		<VersionToCreate>1.0.7</VersionToCreate>
+		<Version>2.0.1</Version>
 		<Copyright>Copyright by Marc Schuermann</Copyright>
+		<AnalysisMode>AllEnabledByDefault</AnalysisMode>
+		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
 	</PropertyGroup>
 </Project>

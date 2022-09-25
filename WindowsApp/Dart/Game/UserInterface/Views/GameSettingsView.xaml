@@ -1,23 +1,22 @@
-﻿<UserControl x:Class="Dart.GameSettingsView"
+﻿<UserControl x:Class="Dart.Game.UserInterface.Views.GameSettingsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:local="clr-namespace:Game"
              xmlns:properies="clr-namespace:Dart.Properties">
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition/>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition />
+            <ColumnDefinition Width="100" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
-            <RowDefinition Height="30"/>
-            <RowDefinition Height="30"/>
+            <RowDefinition Height="30" />
+            <RowDefinition Height="30" />
         </Grid.RowDefinitions>
 
-        <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static properies:Resources.Playercount}" Margin="5,5,5,5"/>
-        <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding SelectablePlayerCount}" SelectedItem="{Binding SelectedPlayerCount, Mode=TwoWay}"/>
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static properies:Resources.Playercount}" Margin="5,5,5,5" />
+        <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding SelectablePlayerCount}" SelectedItem="{Binding SelectedPlayerCount, Mode=TwoWay}" />
 
-        <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static properies:Resources.Startpoints}" Margin="5,5,5,5"/>
-        <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding SelectableStartPoints}" SelectedItem="{Binding SelectedStartPoints, Mode=TwoWay}"/>
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static properies:Resources.Startpoints}" Margin="5,5,5,5" />
+        <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding SelectableStartPoints}" SelectedItem="{Binding SelectedStartPoints, Mode=TwoWay}" />
     </Grid>
 </UserControl>

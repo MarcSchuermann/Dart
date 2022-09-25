@@ -5,7 +5,7 @@
 // -----------------------------------------------------------------------
 
 using System.Globalization;
-using Environment.Themes;
+using Schuermann.Darts.Environment.Themes;
 
 namespace Schuermann.Darts.Environment.EnvironmentProps
 {

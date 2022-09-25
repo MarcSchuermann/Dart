@@ -9,9 +9,9 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using Dart.Tools;
-using GameLogic.DartThrow;
+using Schuermann.Darts.GameCore.Thrown;
 
-namespace Dart
+namespace Dart.Game.UserInterface.Views
 {
     /// <summary>Interaction logic for DartGameView.</summary>
     public partial class DartGameView : UserControl
@@ -26,7 +26,9 @@ namespace Dart
 
         #region Public Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="DartGameView"/> class.</summary>
+        /// <summary>
+        ///    Initializes a new instance of the <see cref="DartGameView" /> class.
+        /// </summary>
         public DartGameView()
         {
             InitializeComponent();
@@ -48,7 +50,9 @@ namespace Dart
 
         /// <summary>Handles the MouseLeave event of the DartBoard control.</summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">
+        ///    The <see cref="MouseEventArgs" /> instance containing the event data.
+        /// </param>
         private void DartBoardMouseLeave(object sender, MouseEventArgs e)
         {
             var adornerLayer = AdornerLayer.GetAdornerLayer((System.Windows.Media.Visual)sender);
@@ -57,7 +61,9 @@ namespace Dart
 
         /// <summary>Handles the MouseMove event of the DartBoard control.</summary>
         /// <param name="sender">The source of the event.</param>
-        /// <param name="e">The <see cref="MouseEventArgs"/> instance containing the event data.</param>
+        /// <param name="e">
+        ///    The <see cref="MouseEventArgs" /> instance containing the event data.
+        /// </param>
         private void DartBoardMouseMove(object sender, MouseEventArgs e)
         {
             CurrentPoints = new ThrowInfo(DartBoardImage).GetPointsAtMousePosition;

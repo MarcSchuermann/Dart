@@ -1,10 +1,10 @@
 ﻿// -----------------------------------------------------------------------
 // <copyright file="BaseTheme.cs" company="Marc Schürmann">
-// Copyright (c) Marc Schürmann. All Rights Reserved.
+//     Copyright (c) Marc Schürmann. All Rights Reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Environment.Themes
+namespace Schuermann.Darts.Environment.Themes
 {
     /// <summary>The base theme. Light or dark.</summary>
     public enum BaseTheme

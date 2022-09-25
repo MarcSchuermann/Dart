@@ -4,15 +4,23 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System;
 using System.Windows.Input;
-using GameLogic.GameOptions;
+using Schuermann.Darts.GameCore.Game;
 
 namespace Dart
 {
     /// <summary>The main window view model interface.</summary>
-    /// <seealso cref="Dart.IViewModelBase"/>
+    /// <seealso cref="Dart.IViewModelBase" />
     public interface IMainWindowViewModel : IViewModelBase
     {
+        #region Public Events
+
+        /// <summary>Occurs when [game started].</summary>
+        event EventHandler<EventArgs> GameStarted;
+
+        #endregion Public Events
+
         #region Public Properties
 
         /// <summary>Gets or sets the configured game options.</summary>

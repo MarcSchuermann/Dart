@@ -2,13 +2,13 @@
 //// <copyright>Marc Schürmann</copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
-using Dart;
-using GameLogic.GameOptions;
-using GameLogic.Player;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Moq;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
+using Dart;
+using Dart.Settings.Interfaces;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Moq;
+using Schuermann.Darts.GameCore.Game;
 
 namespace UnitTests.Game
 {
@@ -20,20 +20,9 @@ namespace UnitTests.Game
         #region Public Methods
 
         /// <summary>Gets the main window view model mock.</summary>
-        /// <returns>The mock.</returns>
-        public Mock<IMainWindowViewModel> GetMainWindowViewModelMock()
-        {
-            var playerList = new List<IPlayer>();
-            var player = new Player() { Name = "Hannes" };
-            playerList.Add(player);
-
-            return GetMainWindowViewModelMock(playerList);
-        }
-
-        /// <summary>Gets the main window view model mock.</summary>
         /// <param name="playerlist">The player list.</param>
         /// <returns>The mock.</returns>
-        public Mock<IMainWindowViewModel> GetMainWindowViewModelMock(List<IPlayer> playerlist)
+        public static Mock<IMainWindowViewModel> GetMainWindowViewModelMock(List<IPlayer> playerlist)
         {
             var mainWindowViewModelMock = new Mock<IMainWindowViewModel>();
             var configuredGameOptions = new Mock<IGameOptions>();
@@ -45,10 +34,21 @@ namespace UnitTests.Game
         }
 
         /// <summary>Gets the main window view model mock.</summary>
+        /// <returns>The mock.</returns>
+        public static Mock<IMainWindowViewModel> GetMainWindowViewModelMock()
+        {
+            var playerList = new List<IPlayer>();
+            var player = new Player() { Name = "Hannes" };
+            playerList.Add(player);
+
+            return GetMainWindowViewModelMock(playerList);
+        }
+
+        /// <summary>Gets the main window view model mock.</summary>
         /// <param name="playerlist">The player list.</param>
         /// <param name="allPlayTillZero">if set to <c>true</c> [all play till zero].</param>
         /// <returns>The mock.</returns>
-        public Mock<IMainWindowViewModel> GetMainWindowViewModelMock(List<IPlayer> playerlist, bool allPlayTillZero)
+        public static Mock<IMainWindowViewModel> GetMainWindowViewModelMock(List<IPlayer> playerlist, bool allPlayTillZero)
         {
             var mainWindowViewModelMock = new Mock<IMainWindowViewModel>();
             var configuredGameOptions = new Mock<IGameOptions>();

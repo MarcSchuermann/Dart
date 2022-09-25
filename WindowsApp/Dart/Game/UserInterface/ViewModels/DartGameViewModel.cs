@@ -3,21 +3,22 @@
 //     Copyright (c) Marc Schürmann. All Rights Reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-using System.Windows;
+using System.Windows.Input;
 using Dart.Common.Commands;
-using Dart.Properties;
-using GameLogic.DartThrow;
-using GameLogic.GameProcedure;
+using Schuermann.Darts.GameCore.Game;
+using Schuermann.Darts.GameCore.Thrown;
 
 namespace Dart
 {
     /// <summary>The DartGameViewModel.</summary>
-    /// <seealso cref="Dart.ViewModelBase"/>
+    /// <seealso cref="Dart.ViewModelBase" />
     public class DartGameViewModel : ViewModelBase
     {
         #region Public Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="DartGameViewModel"/> class.</summary>
+        /// <summary>
+        ///    Initializes a new instance of the <see cref="DartGameViewModel" /> class.
+        /// </summary>
         /// <param name="owner">The owner.</param>
         public DartGameViewModel(IViewModelBase owner)
         {
@@ -30,13 +31,17 @@ namespace Dart
 
         #region Public Properties
 
+        /// <summary>Gets the label.</summary>
+        /// <value>The label.</value>
+        public static string Label => Properties.Resources.Throwgame;
+
         /// <summary>Gets or sets the current points under mouse.</summary>
         /// <value>The current points under mouse.</value>
         public IDartThrow CurrentPointsUnderMouse { get; set; }
 
         /// <summary>Gets the dart thrown.</summary>
         /// <value>The dart thrown.</value>
-        public RelayCommand DartThrown => new RelayCommand(Thrown);
+        public ICommand DartThrown => new RelayCommand(x => Thrown());
 
         /// <summary>Gets the game.</summary>
         /// <value>The game.</value>
@@ -57,24 +62,5 @@ namespace Dart
         }
 
         #endregion Public Methods
-
-        #region Private Methods
-
-        /// <summary>Shows the finish dialog.</summary>
-        private void ShowFinishDialog()
-        {
-            var result = MessageBox.Show(Resources.RestartGame, Resources.Finish, MessageBoxButton.OKCancel, MessageBoxImage.Question);
-
-            if (result == MessageBoxResult.OK)
-            {
-                // TODO reset
-            }
-            else if (result == MessageBoxResult.Cancel)
-            {
-                // TODO set dart borad disabled
-            }
-        }
-
-        #endregion Private Methods
     }
 }

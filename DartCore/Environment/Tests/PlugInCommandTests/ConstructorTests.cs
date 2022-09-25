@@ -4,10 +4,10 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using Environment.Extensibility;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using Schuermann.Darts.Environment.Extensibility;
 
 namespace EnvironmentTests.PlugInCommandTests
 {

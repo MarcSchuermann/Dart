@@ -2,15 +2,13 @@
 //// <copyright>Marc Schürmann</copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
+using System.Diagnostics.CodeAnalysis;
 using Dart.Tools;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using System.Diagnostics.CodeAnalysis;
 
 namespace UnitTests.Tools.DartBoardData.DevelopmentPropertiesViewTests
 {
-    /// <summary>
-    /// The constructor test.
-    /// </summary>
+    /// <summary>The constructor test.</summary>
     [TestClass]
     [ExcludeFromCodeCoverage]
     public class ConstructorTests
@@ -21,7 +19,10 @@ namespace UnitTests.Tools.DartBoardData.DevelopmentPropertiesViewTests
         [TestMethod]
         public void InitializedCorrect()
         {
-            var developmentPropertiesView = new DevelopmentPropertiesView();
+            ViewTestExecuter.Instance.Run(() =>
+            {
+                var developmentPropertiesView = new DevelopmentPropertiesView();
+            });
         }
 
         #endregion Public Methods

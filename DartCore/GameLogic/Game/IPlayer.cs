@@ -3,9 +3,9 @@
 // </copyright>
 
 using System.Collections.Generic;
-using GameLogic.DartThrow;
+using Schuermann.Darts.GameCore.Thrown;
 
-namespace GameLogic.Player
+namespace Schuermann.Darts.GameCore.Game
 {
     /// <summary>The player interface.</summary>
     public interface IPlayer
@@ -34,7 +34,7 @@ namespace GameLogic.Player
 
         /// <summary>Gets or sets the throw history.</summary>
         /// <value>The throw history.</value>
-        IList<IDartThrow> ThrowHistory { get; set; }
+        IList<IDartThrow> ThrowHistory { get; }
 
         #endregion Public Properties
     }

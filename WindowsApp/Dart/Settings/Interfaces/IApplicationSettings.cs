@@ -7,7 +7,7 @@
 using System.Globalization;
 using Dart.Common.Theme;
 
-namespace Dart
+namespace Dart.Settings.Interfaces
 {
     /// <summary>The application settings interface.</summary>
     public interface IApplicationSettings
@@ -26,8 +26,12 @@ namespace Dart
         /// <value>The selected culture information.</value>
         CultureInfo SelectedCultureInfo { get; set; }
 
-        /// <summary>Gets or sets a value indicating whether [show user interface dart board data].</summary>
-        /// <value><c>true</c> if [show user interface dart board data]; otherwise, <c>false</c>.</value>
+        /// <summary>
+        ///    Gets or sets a value indicating whether [show user interface dart board data].
+        /// </summary>
+        /// <value>
+        ///    <c>true</c> if [show user interface dart board data]; otherwise, <c>false</c>.
+        /// </value>
         bool ShowUserInterfaceDartBoardData { get; set; }
 
         #endregion Public Properties

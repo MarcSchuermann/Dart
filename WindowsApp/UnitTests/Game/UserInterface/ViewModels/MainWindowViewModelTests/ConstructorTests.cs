@@ -2,17 +2,17 @@
 //// <copyright>Marc Schürmann</copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
-using Dart;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
+using Dart;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests.Game.UserInterface.ViewModels.MainWindowViewModelTests
 {
     /// <summary>The constructor tests.</summary>
-    /// <seealso cref="UnitTests.Game.TestBase"/>
+    /// <seealso cref="UnitTests.Game.TestBase" />
     [TestClass]
     [ExcludeFromCodeCoverage]
     public class ConstructorTests
@@ -29,7 +29,6 @@ namespace UnitTests.Game.UserInterface.ViewModels.MainWindowViewModelTests
             Assert.IsNull(mainWindowViewModel.ConfiguredGameOptions);
             Assert.IsInstanceOfType(mainWindowViewModel.CurrentContent, typeof(GameOptionsViewModel));
             Assert.IsInstanceOfType(mainWindowViewModel.SettingsViewModel, typeof(ApplicationSettingsViewModel));
-            Assert.IsInstanceOfType(mainWindowViewModel.ToolBarViewModel, typeof(ToolBarViewModel));
         }
 
         #endregion Public Methods

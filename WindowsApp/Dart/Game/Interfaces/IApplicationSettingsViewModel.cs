@@ -4,12 +4,13 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using Dart.Settings.Interfaces;
 using static Dart.ApplicationSettingsViewModel;
 
 namespace Dart
 {
     /// <summary>The application settings view model interface.</summary>
-    public interface IApplicationSettingsViewModel
+    public interface IApplicationSettingsViewModel : IViewModelBase
     {
         #region Public Events
 

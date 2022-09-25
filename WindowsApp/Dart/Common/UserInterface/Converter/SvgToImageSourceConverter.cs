@@ -6,6 +6,7 @@
 
 using System;
 using System.Drawing;
+using System.Globalization;
 using System.Text;
 using System.Windows;
 using System.Windows.Data;
@@ -14,10 +15,10 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using Svg;
 
-namespace Dart.Tools.BitmapToImageSourceConverter
+namespace Dart.Common.UserInterface.Converter
 {
     /// <summary>The bitmap to image converter.</summary>
-    /// <seealso cref="System.Windows.Data.IValueConverter"/>
+    /// <seealso cref="IValueConverter" />
     public class SvgToImageSourceConverter : IValueConverter
     {
         #region Public Methods
@@ -27,8 +28,10 @@ namespace Dart.Tools.BitmapToImageSourceConverter
         /// <param name="targetType">The type of the binding target property.</param>
         /// <param name="parameter">The converter parameter to use.</param>
         /// <param name="culture">The culture to use in the converter.</param>
-        /// <returns>A converted value. If the method returns null, the valid null value is used.</returns>
-        public object Convert(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        /// <returns>
+        ///    A converted value. If the method returns null, the valid null value is used.
+        /// </returns>
+        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
         {
             var svgContentNode = Encoding.Default.GetString((byte[])value);
 
@@ -43,8 +46,10 @@ namespace Dart.Tools.BitmapToImageSourceConverter
         /// <param name="targetType">The type to convert to.</param>
         /// <param name="parameter">The converter parameter to use.</param>
         /// <param name="culture">The culture to use in the converter.</param>
-        /// <returns>A converted value. If the method returns null, the valid null value is used.</returns>
-        public object ConvertBack(object value, Type targetType, object parameter, System.Globalization.CultureInfo culture)
+        /// <returns>
+        ///    A converted value. If the method returns null, the valid null value is used.
+        /// </returns>
+        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
         {
             throw new NotImplementedException();
         }

@@ -31,183 +31,185 @@
             <summary>Gets the theme.</summary>
             <value>The theme.</value>
         </member>
-        <member name="T:Environment.Extensibility.IPlugIn">
+        <member name="T:Schuermann.Darts.Environment.Extensibility.IPlugIn">
             <summary>The plug in interface.</summary>
         </member>
-        <member name="P:Environment.Extensibility.IPlugIn.GameOptions">
+        <member name="P:Schuermann.Darts.Environment.Extensibility.IPlugIn.GameOptions">
             <summary>Gets or sets the game options.</summary>
             <value>The game options.</value>
         </member>
-        <member name="P:Environment.Extensibility.IPlugIn.Name">
+        <member name="P:Schuermann.Darts.Environment.Extensibility.IPlugIn.Name">
             <summary>Gets the name.</summary>
             <value>The name.</value>
         </member>
-        <member name="P:Environment.Extensibility.IPlugIn.PlugInCommand">
+        <member name="P:Schuermann.Darts.Environment.Extensibility.IPlugIn.PlugInCommand">
             <summary>Gets the plug in command.</summary>
             <value>The plug in command.</value>
         </member>
-        <member name="P:Environment.Extensibility.IPlugIn.Properties">
+        <member name="P:Schuermann.Darts.Environment.Extensibility.IPlugIn.Properties">
             <summary>Gets or sets the properties.</summary>
             <value>The properties.</value>
         </member>
-        <member name="T:Environment.Extensibility.IPlugInCommand">
+        <member name="T:Schuermann.Darts.Environment.Extensibility.IPlugInCommand">
             <summary>The plug in command.</summary>
         </member>
-        <member name="P:Environment.Extensibility.IPlugInCommand.DisplayText">
+        <member name="P:Schuermann.Darts.Environment.Extensibility.IPlugInCommand.DisplayText">
             <summary>Gets the display text.</summary>
             <value>The display text.</value>
         </member>
-        <member name="P:Environment.Extensibility.IPlugInCommand.EnabledInGame">
+        <member name="P:Schuermann.Darts.Environment.Extensibility.IPlugInCommand.EnabledInGame">
             <summary>Gets a value indicating whether [enabled in game].</summary>
             <value><c>true</c> if [enabled in game]; otherwise, <c>false</c>.</value>
         </member>
-        <member name="P:Environment.Extensibility.IPlugInCommand.EnabledInMainMenu">
+        <member name="P:Schuermann.Darts.Environment.Extensibility.IPlugInCommand.EnabledInMainMenu">
             <summary>Gets a value indicating whether [enabled in main menu].</summary>
             <value><c>true</c> if [enabled in main menu]; otherwise, <c>false</c>.</value>
         </member>
-        <member name="P:Environment.Extensibility.IPlugInCommand.OnExecute">
+        <member name="P:Schuermann.Darts.Environment.Extensibility.IPlugInCommand.OnExecute">
             <summary>Gets the on execute.</summary>
             <value>The on execute.</value>
         </member>
-        <member name="P:Environment.Extensibility.IPlugInCommand.PlugIn">
+        <member name="P:Schuermann.Darts.Environment.Extensibility.IPlugInCommand.PlugIn">
             <summary>Gets the plug in.</summary>
             <value>The plug in.</value>
         </member>
-        <member name="T:Environment.Extensibility.PlugInCommand">
+        <member name="T:Schuermann.Darts.Environment.Extensibility.PlugInCommand">
             <summary>The simpliest implementation of the IPlugInCommand.</summary>
-            <seealso cref="T:Environment.Extensibility.IPlugInCommand"/>
+            <seealso cref="T:Schuermann.Darts.Environment.Extensibility.IPlugInCommand" />
         </member>
-        <member name="M:Environment.Extensibility.PlugInCommand.#ctor(Environment.Extensibility.IPlugIn,System.Action,System.Boolean,System.Boolean)">
-            <summary>Initializes a new instance of the <see cref="T:Environment.Extensibility.PlugInCommand"/> class.</summary>
+        <member name="M:Schuermann.Darts.Environment.Extensibility.PlugInCommand.#ctor(Schuermann.Darts.Environment.Extensibility.IPlugIn,System.Action,System.Boolean,System.Boolean)">
+            <summary>
+               Initializes a new instance of the <see cref="T:Schuermann.Darts.Environment.Extensibility.PlugInCommand" /> class.
+            </summary>
             <param name="plugIn">The plug in.</param>
             <param name="onExecute">The on execute.</param>
             <param name="enabledInMainMenu">if set to <c>true</c> [enabled in main menu].</param>
             <param name="enabledInGame">if set to <c>true</c> [enabled in game].</param>
         </member>
-        <member name="P:Environment.Extensibility.PlugInCommand.DisplayText">
-            <inheritdoc/>
+        <member name="P:Schuermann.Darts.Environment.Extensibility.PlugInCommand.DisplayText">
+            <inheritdoc />
         </member>
-        <member name="P:Environment.Extensibility.PlugInCommand.EnabledInGame">
-            <inheritdoc/>
+        <member name="P:Schuermann.Darts.Environment.Extensibility.PlugInCommand.EnabledInGame">
+            <inheritdoc />
         </member>
-        <member name="P:Environment.Extensibility.PlugInCommand.EnabledInMainMenu">
-            <inheritdoc/>
+        <member name="P:Schuermann.Darts.Environment.Extensibility.PlugInCommand.EnabledInMainMenu">
+            <inheritdoc />
         </member>
-        <member name="P:Environment.Extensibility.PlugInCommand.OnExecute">
-            <inheritdoc/>
+        <member name="P:Schuermann.Darts.Environment.Extensibility.PlugInCommand.OnExecute">
+            <inheritdoc />
         </member>
-        <member name="P:Environment.Extensibility.PlugInCommand.PlugIn">
-            <inheritdoc/>
+        <member name="P:Schuermann.Darts.Environment.Extensibility.PlugInCommand.PlugIn">
+            <inheritdoc />
         </member>
-        <member name="T:Environment.Themes.BaseTheme">
+        <member name="T:Schuermann.Darts.Environment.Themes.BaseTheme">
             <summary>The base theme. Light or dark.</summary>
         </member>
-        <member name="F:Environment.Themes.BaseTheme.dark">
+        <member name="F:Schuermann.Darts.Environment.Themes.BaseTheme.dark">
             <summary>The dark.</summary>
         </member>
-        <member name="F:Environment.Themes.BaseTheme.light">
+        <member name="F:Schuermann.Darts.Environment.Themes.BaseTheme.light">
             <summary>The light.</summary>
         </member>
-        <member name="T:Environment.Themes.ColorSchema">
+        <member name="T:Schuermann.Darts.Environment.Themes.ColorSchema">
             <summary>The color.</summary>
         </member>
-        <member name="F:Environment.Themes.ColorSchema.red">
+        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.red">
             <summary>The red.</summary>
         </member>
-        <member name="F:Environment.Themes.ColorSchema.green">
+        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.green">
             <summary>The green.</summary>
         </member>
-        <member name="F:Environment.Themes.ColorSchema.blue">
+        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.blue">
             <summary>The blue.</summary>
         </member>
-        <member name="F:Environment.Themes.ColorSchema.purple">
+        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.purple">
             <summary>The purple.</summary>
         </member>
-        <member name="F:Environment.Themes.ColorSchema.orange">
+        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.orange">
             <summary>The orange.</summary>
         </member>
-        <member name="F:Environment.Themes.ColorSchema.lime">
+        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.lime">
             <summary>The lime.</summary>
         </member>
-        <member name="F:Environment.Themes.ColorSchema.emerald">
+        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.emerald">
             <summary>The emerald.</summary>
         </member>
-        <member name="F:Environment.Themes.ColorSchema.teal">
+        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.teal">
             <summary>The teal.</summary>
         </member>
-        <member name="F:Environment.Themes.ColorSchema.cyan">
+        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.cyan">
             <summary>The cyan.</summary>
         </member>
-        <member name="F:Environment.Themes.ColorSchema.cobalt">
+        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.cobalt">
             <summary>The cobalt.</summary>
         </member>
-        <member name="F:Environment.Themes.ColorSchema.indigo">
+        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.indigo">
             <summary>The indigo.</summary>
         </member>
-        <member name="F:Environment.Themes.ColorSchema.violet">
+        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.violet">
             <summary>The violet.</summary>
         </member>
-        <member name="F:Environment.Themes.ColorSchema.pink">
+        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.pink">
             <summary>The pink.</summary>
         </member>
-        <member name="F:Environment.Themes.ColorSchema.magenta">
+        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.magenta">
             <summary>The magenta.</summary>
         </member>
-        <member name="F:Environment.Themes.ColorSchema.crimson">
+        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.crimson">
             <summary>The crimson.</summary>
         </member>
-        <member name="F:Environment.Themes.ColorSchema.amber">
+        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.amber">
             <summary>The amber.</summary>
         </member>
-        <member name="F:Environment.Themes.ColorSchema.yellow">
+        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.yellow">
             <summary>The yellow.</summary>
         </member>
-        <member name="F:Environment.Themes.ColorSchema.brown">
+        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.brown">
             <summary>The brown.</summary>
         </member>
-        <member name="F:Environment.Themes.ColorSchema.olive">
+        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.olive">
             <summary>The olive.</summary>
         </member>
-        <member name="F:Environment.Themes.ColorSchema.steel">
+        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.steel">
             <summary>The steel.</summary>
         </member>
-        <member name="F:Environment.Themes.ColorSchema.mauve">
+        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.mauve">
             <summary>The mauve.</summary>
         </member>
-        <member name="F:Environment.Themes.ColorSchema.taupe">
+        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.taupe">
             <summary>The taupe.</summary>
         </member>
-        <member name="F:Environment.Themes.ColorSchema.sienna">
+        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.sienna">
             <summary>The sienna.</summary>
         </member>
-        <member name="T:Environment.Themes.Theme">
+        <member name="T:Schuermann.Darts.Environment.Themes.Theme">
             <summary>The theme.</summary>
         </member>
-        <member name="M:Environment.Themes.Theme.#ctor">
-            <summary>Initializes a new instance of the <see cref="T:Environment.Themes.Theme" /> class.</summary>
+        <member name="M:Schuermann.Darts.Environment.Themes.Theme.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.Environment.Themes.Theme" /> class.</summary>
         </member>
-        <member name="M:Environment.Themes.Theme.#ctor(Environment.Themes.BaseTheme,Environment.Themes.ColorSchema)">
-            <summary>Initializes a new instance of the <see cref="T:Environment.Themes.Theme" /> class.</summary>
+        <member name="M:Schuermann.Darts.Environment.Themes.Theme.#ctor(Schuermann.Darts.Environment.Themes.BaseTheme,Schuermann.Darts.Environment.Themes.ColorSchema)">
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.Environment.Themes.Theme" /> class.</summary>
             <param name="baseTheme">The base theme.</param>
             <param name="colorSchema">The color schema.</param>
         </member>
-        <member name="P:Environment.Themes.Theme.BaseTheme">
+        <member name="P:Schuermann.Darts.Environment.Themes.Theme.BaseTheme">
             <summary>Gets the base theme.</summary>
             <value>The base theme.</value>
         </member>
-        <member name="P:Environment.Themes.Theme.ColorSchema">
+        <member name="P:Schuermann.Darts.Environment.Themes.Theme.ColorSchema">
             <summary>Gets the color schema.</summary>
             <value>The color schema.</value>
         </member>
-        <member name="T:Environment.Themes.ThemeConverter">
+        <member name="T:Schuermann.Darts.Environment.Themes.ThemeConverter">
             <summary>The theme converter.</summary>
         </member>
-        <member name="M:Environment.Themes.ThemeConverter.Convert(System.String)">
+        <member name="M:Schuermann.Darts.Environment.Themes.ThemeConverter.Convert(System.String)">
             <summary>Converts the specified theme.</summary>
             <param name="theme">The theme.</param>
             <returns>The converted theme.</returns>
         </member>
-        <member name="M:Environment.Themes.ThemeConverter.Convert(System.String,System.String)">
+        <member name="M:Schuermann.Darts.Environment.Themes.ThemeConverter.Convert(System.String,System.String)">
             <summary>Converts the specified base theme.</summary>
             <param name="baseTheme">The base theme.</param>
             <param name="colorSchema">The color schema.</param>

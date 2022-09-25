@@ -8,7 +8,7 @@ using System;
 using System.Windows;
 using System.Windows.Input;
 using Dart.Common.UserInterface.Helper;
-using GameLogic.DartThrow;
+using Schuermann.Darts.GameCore.Thrown;
 
 namespace Dart
 {

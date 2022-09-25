@@ -4,9 +4,9 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace GameLogic.DartThrow
+namespace Schuermann.Darts.GameCore.Thrown
 {
-    /// <summary>The dart throw.</summary>
+    /// <summary>A thrown dart.</summary>
     /// <seealso cref="IDartThrow" />
     public class DartThrow : IDartThrow
     {
@@ -40,6 +40,87 @@ namespace GameLogic.DartThrow
         #endregion Public Properties
 
         #region Public Methods
+
+        /// <summary>Implements the operator !=.</summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator !=(DartThrow left, DartThrow right)
+        {
+            return !(left == right);
+        }
+
+        /// <summary>Implements the operator &lt;.</summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator <(DartThrow left, DartThrow right)
+        {
+            if (left == null)
+                return false;
+
+            if (right == null)
+                return true;
+
+            return left.Points < right.Points;
+        }
+
+        /// <summary>Implements the operator &lt;=.</summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator <=(DartThrow left, DartThrow right)
+        {
+            if (left == null)
+                return false;
+
+            if (right == null)
+                return true;
+
+            return left.Points <= right.Points;
+        }
+
+        /// <summary>Implements the operator ==.</summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator ==(DartThrow left, DartThrow right)
+        {
+            if (left == null)
+                return false;
+
+            return left.Equals(right);
+        }
+
+        /// <summary>Implements the operator &gt;.</summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator >(DartThrow left, DartThrow right)
+        {
+            if (left == null)
+                return true;
+
+            if (right == null)
+                return false;
+
+            return left.Points > right.Points;
+        }
+
+        /// <summary>Implements the operator &gt;=.</summary>
+        /// <param name="left">The left.</param>
+        /// <param name="right">The right.</param>
+        /// <returns>The result of the operator.</returns>
+        public static bool operator >=(DartThrow left, DartThrow right)
+        {
+            if (left == null)
+                return true;
+
+            if (right == null)
+                return false;
+
+            return left.Points >= right.Points;
+        }
 
         /// <summary>Compares to.</summary>
         /// <param name="other">The other.</param>

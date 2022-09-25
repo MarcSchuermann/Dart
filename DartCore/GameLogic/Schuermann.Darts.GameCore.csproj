@@ -2,11 +2,9 @@
 	<Import Project="../DartCore.Build.targets" />
 
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
-    <NoWarn>1701;1702</NoWarn>
+    <TargetFrameworks>net6.0</TargetFrameworks>
     <DocumentationFile>GameLogic.xml</DocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
-	<Version>$(VersionToCreate)</Version>
 	<Description>Contains the core data for a dart game.</Description>
   </PropertyGroup>
 
@@ -19,4 +17,10 @@
   <ItemGroup>
     <None Remove="GameLogic.xml" />
   </ItemGroup>
+
+	<ItemGroup>
+		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleTo">
+			<_Parameter1>$(MSBuildProjectName).Tests</_Parameter1>
+		</AssemblyAttribute>
+	</ItemGroup>
 </Project>

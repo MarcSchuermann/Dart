@@ -18,7 +18,9 @@ namespace Dart
 
         #region Public Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="GameOptionsViewModel"/> class.</summary>
+        /// <summary>
+        ///    Initializes a new instance of the <see cref="GameOptionsViewModel" /> class.
+        /// </summary>
         public GameOptionsViewModel()
         {
             GameSettings = new GameSettingsViewModel();
@@ -47,6 +49,10 @@ namespace Dart
                 RaisePropertyChanged(nameof(GameSettings));
             }
         }
+
+        /// <summary>Gets the label.</summary>
+        /// <value>The label.</value>
+        public string Label => Properties.Resources.Throwgame;
 
         /// <summary>Gets or sets the player list view model.</summary>
         /// <value>The player list view model.</value>

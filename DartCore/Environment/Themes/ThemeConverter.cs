@@ -6,8 +6,9 @@
 
 using System;
 using System.Diagnostics;
+using System.Globalization;
 
-namespace Environment.Themes
+namespace Schuermann.Darts.Environment.Themes
 {
     /// <summary>The theme converter.</summary>
     public static class ThemeConverter
@@ -19,6 +20,9 @@ namespace Environment.Themes
         /// <returns>The converted theme.</returns>
         public static Theme Convert(string theme)
         {
+            if (theme == null)
+                return new Theme();
+
             try
             {
                 var themeArray = theme.Split(new char[] { '.' }, 2);
@@ -28,7 +32,7 @@ namespace Environment.Themes
 
                 return Convert(themeArray[0], themeArray[1]);
             }
-            catch (Exception)
+            catch
             {
                 Debug.WriteLine($"{nameof(theme)} {theme} could not be converted.");
             }
@@ -45,7 +49,7 @@ namespace Environment.Themes
             if (string.IsNullOrWhiteSpace(baseTheme) || string.IsNullOrWhiteSpace(colorSchema))
                 return new Theme();
 
-            if (Enum.TryParse(baseTheme.ToLower(), out BaseTheme convertedBaseTheme) && Enum.TryParse(colorSchema.ToLower(), out ColorSchema convertedColorSchema))
+            if (Enum.TryParse(baseTheme.ToLower(CultureInfo.CurrentCulture), out BaseTheme convertedBaseTheme) && Enum.TryParse(colorSchema.ToLower(CultureInfo.CurrentCulture), out ColorSchema convertedColorSchema))
                 return new Theme(convertedBaseTheme, convertedColorSchema);
 
             return new Theme();
