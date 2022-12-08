@@ -1253,6 +1253,59 @@
               Looks up a localized string similar to View.
             </summary>
         </member>
+        <member name="T:Dart.Save.GameSaver">
+            <summary>Saves the given Game.</summary>
+        </member>
+        <member name="M:Dart.Save.GameSaver.AsJson(Schuermann.Darts.GameCore.Game.IGameProcedure)">
+            <summary>Ases the json.</summary>
+            <param name="currentGame">The current game.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Dart.Save.GameSaver.Load(System.IO.Stream)">
+            <summary>
+            Loads the specified stream.
+            </summary>
+            <param name="stream">The stream.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Dart.Save.Xml.GameInstance">
+            <summary>The game instance that should be serialized.</summary>
+        </member>
+        <member name="M:Dart.Save.Xml.GameInstance.#ctor">
+            <summary>
+               Initializes a new instance of the <see cref="T:Dart.Save.Xml.GameInstance" /> class.
+            </summary>
+        </member>
+        <member name="M:Dart.Save.Xml.GameInstance.#ctor(Schuermann.Darts.GameCore.Game.IGameProcedure)">
+            <summary>
+               Initializes a new instance of the <see cref="T:Dart.Save.Xml.GameInstance" /> class.
+            </summary>
+            <param name="currentGame">The current game.</param>
+        </member>
+        <member name="P:Dart.Save.Xml.GameInstance.AllPlayTillZero">
+            <summary>Gets or sets a value indicating whether [all play till zero].</summary>
+            <value><c>true</c> if [all play till zero]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Dart.Save.Xml.GameInstance.CurrentPlayer">
+            <summary>Gets or sets the curren player.</summary>
+            <value>The curren player.</value>
+        </member>
+        <member name="P:Dart.Save.Xml.GameInstance.DoubleIn">
+            <summary>Gets or sets a value indicating whether [double in].</summary>
+            <value><c>true</c> if [double in]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Dart.Save.Xml.GameInstance.DoubleOut">
+            <summary>Gets or sets a value indicating whether [double out].</summary>
+            <value><c>true</c> if [double out]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Dart.Save.Xml.GameInstance.PlayerList">
+            <summary>Gets or sets the player list.</summary>
+            <value>The player list.</value>
+        </member>
+        <member name="P:Dart.Save.Xml.GameInstance.StartPoints">
+            <summary>Gets or sets the start points.</summary>
+            <value>The start points.</value>
+        </member>
         <member name="T:Dart.Settings.ApplicationSettings">
             <summary>The ApplicationSettings.</summary>
         </member>

@@ -23,22 +23,12 @@ namespace Schuermann.Darts.GameCore.Game
         #region Public Constructors
 
         /// <summary>Initializes a new instance of the <see cref="Player" /> class.</summary>
-        public Player() : this(new List<IDartThrow>())
+        public Player()
         {
+            ThrowHistory = new List<IDartThrow>();
         }
 
         #endregion Public Constructors
-
-        #region Internal Constructors
-
-        /// <summary>Initializes a new instance of the <see cref="Player" /> class.</summary>
-        /// <param name="throwHistory">The throw history.</param>
-        internal Player(List<IDartThrow> throwHistory)
-        {
-            ThrowHistory = throwHistory;
-        }
-
-        #endregion Internal Constructors
 
         #region Public Events
 
@@ -83,7 +73,7 @@ namespace Schuermann.Darts.GameCore.Game
 
         /// <summary>Gets or sets the throw history.</summary>
         /// <value>The throw history.</value>
-        public IList<IDartThrow> ThrowHistory { get; }
+        public IList<IDartThrow> ThrowHistory { get; set; }
 
         #endregion Public Properties
 

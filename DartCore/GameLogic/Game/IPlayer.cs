@@ -34,7 +34,7 @@ namespace Schuermann.Darts.GameCore.Game
 
         /// <summary>Gets or sets the throw history.</summary>
         /// <value>The throw history.</value>
-        IList<IDartThrow> ThrowHistory { get; }
+        IList<IDartThrow> ThrowHistory { get; set; }
 
         #endregion Public Properties
     }

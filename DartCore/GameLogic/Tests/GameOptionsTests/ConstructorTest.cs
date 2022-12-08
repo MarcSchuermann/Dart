@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Schuermann.Darts.GameCore.Game;
+using Schuermann.Darts.GameCore.Thrown;
 
 namespace GameLogicTests.GameOptionsTests
 {
@@ -21,7 +22,8 @@ namespace GameLogicTests.GameOptionsTests
         [TestMethod]
         public void InitializedCorrect()
         {
-            var gameOptions = new GameOptions();
+            var players = new List<IPlayer>();
+            var gameOptions = new GameOptions(players);
             gameOptions.StartPoints.Should().Be(0);
             gameOptions.DoubleOut.Should().BeFalse();
             gameOptions.DoubleIn.Should().BeFalse();

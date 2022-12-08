@@ -19,4 +19,12 @@
   <ItemGroup>
     <ProjectReference Include="..\Dart\Dart.csproj" />
   </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Schuermann.Darts.Environment">
+      <HintPath>..\..\DartCore\Environment\bin\Debug\net6.0\Schuermann.Darts.Environment.dll</HintPath>
+    </Reference>
+    <Reference Include="Schuermann.Darts.GameCore">
+      <HintPath>..\..\DartCore\Environment\bin\Debug\net6.0\Schuermann.Darts.GameCore.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

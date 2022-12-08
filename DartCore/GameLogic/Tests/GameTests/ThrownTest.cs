@@ -83,7 +83,7 @@ namespace GameLogicTests.GameTests
 
             game.PlayerThrown(new DartThrow(DartBoardField.Two, DartBoardQuantifier.Single));
 
-            Assert.AreEqual(player2, game.CurrentPlayer);
+            Assert.AreEqual(player2, game.Instance.CurrentPlayer);
         }
 
         /// <summary>Players the thrown below zero.</summary>
@@ -98,7 +98,7 @@ namespace GameLogicTests.GameTests
 
             game.PlayerThrown(new DartThrow(DartBoardField.Twenty, DartBoardQuantifier.Single));
 
-            Assert.AreEqual(10, game.CurrentPlayer.CurrentScore);
+            Assert.AreEqual(10, game.Instance.CurrentPlayer.CurrentScore);
         }
 
         /// <summary>Players the thrown below zero go to next player.</summary>
@@ -115,7 +115,7 @@ namespace GameLogicTests.GameTests
 
             game.PlayerThrown(new DartThrow(DartBoardField.Twenty, DartBoardQuantifier.Single));
 
-            Assert.AreEqual(player2, game.CurrentPlayer);
+            Assert.AreEqual(player2, game.Instance.CurrentPlayer);
         }
 
         /// <summary>Players the thrown succesfully.</summary>
@@ -130,7 +130,7 @@ namespace GameLogicTests.GameTests
 
             game.PlayerThrown(new DartThrow(DartBoardField.Twenty, DartBoardQuantifier.Single));
 
-            Assert.AreEqual(80, game.CurrentPlayer.CurrentScore);
+            Assert.AreEqual(80, game.Instance.CurrentPlayer.CurrentScore);
         }
 
         /// <summary>Players the thrown succesfully current score changed.</summary>
@@ -167,7 +167,7 @@ namespace GameLogicTests.GameTests
             var playerFinished = game.PlayerThrown(new DartThrow(DartBoardField.Twenty, DartBoardQuantifier.Triple));
 
             Assert.IsTrue(playerFinished);
-            Assert.AreEqual(0, game.CurrentPlayer.CurrentScore);
+            Assert.AreEqual(0, game.Instance.CurrentPlayer.CurrentScore);
         }
 
         #endregion Public Methods

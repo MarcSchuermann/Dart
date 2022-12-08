@@ -21,8 +21,7 @@ namespace Schuermann.Darts.GameCore.Game
         /// <param name="gameOptions">The game options.</param>
         public GameProcedure(IGameOptions gameOptions)
         {
-            GameOptions = gameOptions;
-            CurrentPlayer = GameOptions.PlayerList.First();
+            Instance = new GameInstance(gameOptions);            
         }
 
         #endregion Public Constructors
@@ -37,12 +36,13 @@ namespace Schuermann.Darts.GameCore.Game
 
         #region Public Properties
 
-        /// <summary>Gets the current player.</summary>
-        public IPlayer CurrentPlayer { get; private set; }
-
-        /// <summary>Gets the game options.</summary>
-        /// <value>The game options.</value>
-        public IGameOptions GameOptions { get; }
+        /// <summary>
+        /// Gets the instance.
+        /// </summary>
+        /// <value>
+        /// The instance.
+        /// </value>
+        public IGameInstance Instance { get; }
 
         #endregion Public Properties
 
@@ -57,30 +57,30 @@ namespace Schuermann.Darts.GameCore.Game
         public bool PlayerThrown(IDartThrow pointsThrown)
         {
             if (pointsThrown == null)
-                return CurrentPlayer.CurrentScore == 0;
+                return Instance.CurrentPlayer.CurrentScore == 0;
 
-            if (CurrentPlayer.CurrentScore >= pointsThrown.Points)
+            if (Instance.CurrentPlayer.CurrentScore >= pointsThrown.Points)
             {
-                CurrentPlayer.CurrentScore -= pointsThrown.Points;
-                CurrentPlayer.DartCountThisRound++;
-                CurrentPlayer.PointsThisRound += pointsThrown.Points;
+                Instance.CurrentPlayer.CurrentScore -= pointsThrown.Points;
+                Instance.CurrentPlayer.DartCountThisRound++;
+                Instance.CurrentPlayer.PointsThisRound += pointsThrown.Points;
                 AddThrowHistory(pointsThrown);
 
-                if (CurrentPlayer.CurrentScore == 0)
+                if (Instance.CurrentPlayer.CurrentScore == 0)
                     return true;
             }
             else
             {
                 AddThrowHistory(pointsThrown);
 
-                CurrentPlayer.CurrentScore += CurrentPlayer.PointsThisRound;
+                Instance.CurrentPlayer.CurrentScore += Instance.CurrentPlayer.PointsThisRound;
                 GoToNextPlayer();
             }
 
-            if (CurrentPlayer.DartCountThisRound >= 3)
+            if (Instance.CurrentPlayer.DartCountThisRound >= 3)
                 GoToNextPlayer();
 
-            RaisePropertyChanged(nameof(CurrentPlayer.CurrentScore));
+            RaisePropertyChanged(nameof(Instance.CurrentPlayer.CurrentScore));
 
             return false;
         }
@@ -91,14 +91,14 @@ namespace Schuermann.Darts.GameCore.Game
 
         private void AddThrowHistory(IDartThrow thrownPoints)
         {
-            CurrentPlayer?.ThrowHistory.Add(thrownPoints);
+            Instance.CurrentPlayer?.ThrowHistory.Add(thrownPoints);
         }
 
         /// <summary>All the points are zero.</summary>
         /// <returns>True if all players points are zero.</returns>
         private bool AllPointsAreZero()
         {
-            foreach (var player in GameOptions.PlayerList)
+            foreach (var player in Instance.GameOptions.PlayerList)
             {
                 if (player.CurrentScore != 0)
                     return false;
@@ -111,7 +111,7 @@ namespace Schuermann.Darts.GameCore.Game
         /// <returns>True or false..</returns>
         private bool AtLeastOnePlayersPointsAreZero()
         {
-            foreach (var player in GameOptions.PlayerList)
+            foreach (var player in Instance.GameOptions.PlayerList)
             {
                 if (player.CurrentScore == 0)
                     return true;
@@ -126,31 +126,31 @@ namespace Schuermann.Darts.GameCore.Game
             if (AllPointsAreZero())
                 return;
 
-            if (AtLeastOnePlayersPointsAreZero() && !GameOptions.AllPlayTillZero)
+            if (AtLeastOnePlayersPointsAreZero() && !Instance.GameOptions.AllPlayTillZero)
                 return;
 
-            CurrentPlayer.Round++;
+            Instance.CurrentPlayer.Round++;
 
-            foreach (var player in GameOptions.PlayerList)
+            foreach (var player in Instance.GameOptions.PlayerList)
             {
-                if (player == CurrentPlayer)
+                if (player == Instance.CurrentPlayer)
                 {
-                    int index = GameOptions.PlayerList.IndexOf(CurrentPlayer);
-                    if (index + 1 < GameOptions.PlayerList.Count)
+                    int index = Instance.GameOptions.PlayerList.IndexOf(Instance.CurrentPlayer);
+                    if (index + 1 < Instance.GameOptions.PlayerList.Count)
                     {
-                        CurrentPlayer = GameOptions.PlayerList[index + 1];
+                        Instance.CurrentPlayer = Instance.GameOptions.PlayerList[index + 1];
                         break;
                     }
 
-                    CurrentPlayer = GameOptions.PlayerList.First();
+                    Instance.CurrentPlayer = Instance.GameOptions.PlayerList.First();
                     break;
                 }
             }
 
-            CurrentPlayer.DartCountThisRound = 0;
-            CurrentPlayer.PointsThisRound = 0;
+            Instance.CurrentPlayer.DartCountThisRound = 0;
+            Instance.CurrentPlayer.PointsThisRound = 0;
 
-            if (CurrentPlayer.CurrentScore == 0 && GameOptions.AllPlayTillZero && !AllPointsAreZero())
+            if (Instance.CurrentPlayer.CurrentScore == 0 && Instance.GameOptions.AllPlayTillZero && !AllPointsAreZero())
                 GoToNextPlayer();
         }
 

@@ -13,11 +13,6 @@ namespace Schuermann.Darts.GameCore.Game
         #region Public Constructors
 
         /// <summary>Initializes a new instance of the <see cref="GameOptions" /> class.</summary>
-        public GameOptions() : this(new List<IPlayer>())
-        {
-        }
-
-        /// <summary>Initializes a new instance of the <see cref="GameOptions" /> class.</summary>
         /// <param name="playerList">The player list.</param>
         public GameOptions(IList<IPlayer> playerList)
         {

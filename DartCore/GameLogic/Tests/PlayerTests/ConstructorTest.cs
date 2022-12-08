@@ -22,7 +22,7 @@ namespace GameLogicTests.PlayerTests
         public void InitializationIsCorrect()
         {
             var throwHistory = new List<IDartThrow> { new DartThrow(DartBoardField.One, DartBoardQuantifier.Single), new DartThrow(DartBoardField.Two, DartBoardQuantifier.Single), new DartThrow(DartBoardField.Three, DartBoardQuantifier.Single) };
-            var player = new Player(throwHistory) { CurrentScore = 666, DartCountThisRound = 69, Name = "Hans", PointsThisRound = 26, Round = 123 };
+            var player = new Player() { CurrentScore = 666, DartCountThisRound = 69, Name = "Hans", PointsThisRound = 26, Round = 123, ThrowHistory = throwHistory };
 
             Assert.AreEqual(666, player.CurrentScore);
             Assert.AreEqual(69, player.DartCountThisRound);

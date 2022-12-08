@@ -4,12 +4,39 @@
         <name>Schuermann.Darts.GameCore</name>
     </assembly>
     <members>
+        <member name="T:Schuermann.Darts.GameCore.Game.GameInstance">
+            <summary>The instance.</summary>
+            <seealso cref="T:Schuermann.Darts.GameCore.Game.IGameInstance" />
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Game.GameInstance.#ctor(Schuermann.Darts.GameCore.Game.IGameOptions)">
+            <summary>
+               Initializes a new instance of the <see cref="T:Schuermann.Darts.GameCore.Game.GameInstance" /> class.
+            </summary>
+            <param name="gameOptions">The game options.</param>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.Game.GameInstance.CurrentPlayer">
+            <summary>Gets the current player.</summary>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.Game.GameInstance.GameOptions">
+            <summary>Gets the game options.</summary>
+            <value>The game options.</value>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Game.GameInstance.Dispose">
+            <summary>
+               Performs application-defined tasks associated with freeing, releasing, or resetting
+               unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Game.GameInstance.Dispose(System.Boolean)">
+            <summary>Releases unmanaged and - optionally - managed resources.</summary>
+            <param name="disposing">
+               <c>true</c> to release both managed and unmanaged resources; <c>false</c> to release
+               only unmanaged resources.
+            </param>
+        </member>
         <member name="T:Schuermann.Darts.GameCore.Game.GameOptions">
             <summary>The options for a dart game.</summary>
             <seealso cref="T:Schuermann.Darts.GameCore.Game.IGameOptions" />
-        </member>
-        <member name="M:Schuermann.Darts.GameCore.Game.GameOptions.#ctor">
-            <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.GameCore.Game.GameOptions" /> class.</summary>
         </member>
         <member name="M:Schuermann.Darts.GameCore.Game.GameOptions.#ctor(System.Collections.Generic.IList{Schuermann.Darts.GameCore.Game.IPlayer})">
             <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.GameCore.Game.GameOptions" /> class.</summary>
@@ -50,12 +77,13 @@
             <summary>Occurs when a property value changes.</summary>
             <returns></returns>
         </member>
-        <member name="P:Schuermann.Darts.GameCore.Game.GameProcedure.CurrentPlayer">
-            <summary>Gets the current player.</summary>
-        </member>
-        <member name="P:Schuermann.Darts.GameCore.Game.GameProcedure.GameOptions">
-            <summary>Gets the game options.</summary>
-            <value>The game options.</value>
+        <member name="P:Schuermann.Darts.GameCore.Game.GameProcedure.Instance">
+            <summary>
+            Gets the instance.
+            </summary>
+            <value>
+            The instance.
+            </value>
         </member>
         <member name="M:Schuermann.Darts.GameCore.Game.GameProcedure.PlayerThrown(Schuermann.Darts.GameCore.Thrown.IDartThrow)">
             <summary>Players the thrown.</summary>
@@ -79,6 +107,17 @@
         <member name="M:Schuermann.Darts.GameCore.Game.GameProcedure.RaisePropertyChanged(System.String)">
             <summary>Raises the property changed.</summary>
             <param name="propertyName">Name of the property.</param>
+        </member>
+        <member name="T:Schuermann.Darts.GameCore.Game.IGameInstance">
+            <summary>The instance of a game.</summary>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.Game.IGameInstance.CurrentPlayer">
+            <summary>Gets the current player.</summary>
+            <returns>The current player.</returns>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.Game.IGameInstance.GameOptions">
+            <summary>Gets the game options.</summary>
+            <value>The game options.</value>
         </member>
         <member name="T:Schuermann.Darts.GameCore.Game.IGameOptions">
             <summary>The game option interface.</summary>
@@ -106,13 +145,9 @@
         <member name="T:Schuermann.Darts.GameCore.Game.IGameProcedure">
             <summary>The logic for a game.</summary>
         </member>
-        <member name="P:Schuermann.Darts.GameCore.Game.IGameProcedure.CurrentPlayer">
-            <summary>Gets the current player.</summary>
-            <returns>The current player.</returns>
-        </member>
-        <member name="P:Schuermann.Darts.GameCore.Game.IGameProcedure.GameOptions">
-            <summary>Gets the game options.</summary>
-            <value>The game options.</value>
+        <member name="P:Schuermann.Darts.GameCore.Game.IGameProcedure.Instance">
+            <summary>Gets the instance.</summary>
+            <value>The instance.</value>
         </member>
         <member name="M:Schuermann.Darts.GameCore.Game.IGameProcedure.PlayerThrown(Schuermann.Darts.GameCore.Thrown.IDartThrow)">
             <summary>Players the thrown.</summary>
@@ -158,10 +193,6 @@
         <member name="M:Schuermann.Darts.GameCore.Game.Player.#ctor">
             <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.GameCore.Game.Player" /> class.</summary>
         </member>
-        <member name="M:Schuermann.Darts.GameCore.Game.Player.#ctor(System.Collections.Generic.List{Schuermann.Darts.GameCore.Thrown.IDartThrow})">
-            <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.GameCore.Game.Player" /> class.</summary>
-            <param name="throwHistory">The throw history.</param>
-        </member>
         <member name="E:Schuermann.Darts.GameCore.Game.Player.PropertyChanged">
             <summary>Occurs when a property value changes.</summary>
             <returns></returns>
@@ -197,6 +228,32 @@
         <member name="M:Schuermann.Darts.GameCore.Game.Player.RaisePropertyChanged(System.String)">
             <summary>Raises the property changed.</summary>
             <param name="propertyName">Name of the property.</param>
+        </member>
+        <member name="T:Schuermann.Darts.GameCore.Save.IPersist">
+            <summary>Saves or loads the game.</summary>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Save.IPersist.Load(System.IO.Stream)">
+            <summary>Loads the specified stream.</summary>
+            <param name="stream">The stream.</param>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Save.IPersist.Save(Schuermann.Darts.GameCore.Game.IGameInstance)">
+            <summary>Saves the specified instance.</summary>
+            <param name="instance">The instance.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Schuermann.Darts.GameCore.Save.Persister">
+            <summary>Persist the current came instance.</summary>
+            <seealso cref="T:Schuermann.Darts.GameCore.Save.IPersist" />
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Save.Persister.Load(System.IO.Stream)">
+            <summary>Loads the specified stream.</summary>
+            <param name="stream">The stream.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Save.Persister.Save(Schuermann.Darts.GameCore.Game.IGameInstance)">
+            <summary>Saves the specified instance.</summary>
+            <param name="instance">The instance.</param>
+            <returns></returns>
         </member>
         <member name="T:Schuermann.Darts.GameCore.Thrown.DartBoardField">
             <summary>The dart board fields.</summary>
