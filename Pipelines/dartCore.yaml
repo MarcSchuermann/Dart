@@ -76,8 +76,10 @@ steps:
   displayName: 'dotnet test'
   inputs:
     command: 'test'
-    projects: $(Solution)
+    projects: '$(Solution)'
     arguments: '/p:Configuration=$(BuildConfiguration) /p:Version=$(fullVersion) /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura /p:CoverletOutput=./MyCoverage/'
+    # publishTestResults has to be false due to https://stackoverflow.com/questions/74386402/coverlet-does-not-create-report-in-azure-devops
+    publishTestResults: false
 
 # --- Show SourcesDirectory and BinariesDirectory ---
 - task: PowerShell@2
