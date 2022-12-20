@@ -112,7 +112,7 @@ steps:
 - task: PublishTestResults@2
   inputs:
     testResultsFormat: 'VSTest'
-    testResultsFiles: '/**/*.trx'
+    testResultsFiles: '$(Build.SourcesDirectory)/**/*.trx'
     searchFolder: '$(Build.SourcesDirectory)'
     mergeTestResults: true
     failTaskOnFailedTests: true
