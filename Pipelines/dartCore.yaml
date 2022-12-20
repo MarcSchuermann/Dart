@@ -79,7 +79,7 @@ steps:
     projects: '$(Solution)'
     arguments: '--configuration $(BuildConfiguration) --logger trx --collect "XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=cobertura'
     # publishTestResults has to be false due to https://stackoverflow.com/questions/74386402/coverlet-does-not-create-report-in-azure-devops
-    publishTestResults: true
+    publishTestResults: false
 
 # --- Show SourcesDirectory and BinariesDirectory ---
 - task: PowerShell@2
@@ -95,7 +95,7 @@ steps:
 - task: reportgenerator@5
   displayName: 'Merge code coverage reports'
   inputs:
-    reports: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
+    reports: 'coverage.cobertura.xml'
     targetdir: '$(Pipeline.Workspace)/coverlet'
     reporttypes: 'Cobertura'
     verbosity: 'Verbose'
@@ -107,6 +107,15 @@ steps:
     codeCoverageTool: 'Cobertura'
     summaryFileLocation: '$(Pipeline.Workspace)/coverlet/Cobertura.xml'
     failIfCoverageEmpty: true
+
+# --- Publish test results ---
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'VSTest'
+    testResultsFiles: '/**/*.trx'
+    searchFolder: '$(Build.SourcesDirectory)'
+    mergeTestResults: true
+    failTaskOnFailedTests: true
 
 # --- Publish nuget packages ---
 - task: NuGetCommand@2
