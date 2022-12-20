@@ -77,7 +77,7 @@ steps:
   inputs:
     command: 'test'
     projects: '$(Solution)'
-    arguments: '--configuration $(BuildConfiguration) --logger trx --collect "XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=cobertura'
+    arguments: '--configuration $(BuildConfiguration) --logger trx --collect "XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=cobertura --no-build'
     # publishTestResults has to be false due to https://stackoverflow.com/questions/74386402/coverlet-does-not-create-report-in-azure-devops
     publishTestResults: false
 
