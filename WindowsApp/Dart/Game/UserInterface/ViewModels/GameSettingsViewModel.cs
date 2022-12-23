@@ -4,12 +4,21 @@
 // </copyright>
 // -----------------------------------------------------------------------
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Dart
 {
     /// <summary>The GameSettingsViewModel.</summary>
     public class GameSettingsViewModel : ViewModelBase
     {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GameSettingsViewModel"/> class.
+        /// </summary>
+        public GameSettingsViewModel()
+        {
+            SelectedPlayerCount = SelectablePlayerCount.First().ToString();
+            SelectedStartPoints = SelectableStartPoints.First().ToString();
+        }
         #region Private Fields
 
         private string selectedPlayerCount;
@@ -32,10 +41,7 @@ namespace Dart
         /// <value>The selected player count.</value>
         public string SelectedPlayerCount
         {
-            get
-            {
-                return selectedPlayerCount;
-            }
+            get => selectedPlayerCount;
             set
             {
                 selectedPlayerCount = value;
@@ -47,10 +53,7 @@ namespace Dart
         /// <value>The selected start points.</value>
         public string SelectedStartPoints
         {
-            get
-            {
-                return selectedStartPoints;
-            }
+            get => selectedStartPoints;
             set
             {
                 selectedStartPoints = value;

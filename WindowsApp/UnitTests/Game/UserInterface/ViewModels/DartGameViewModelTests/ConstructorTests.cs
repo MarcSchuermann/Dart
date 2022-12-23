@@ -24,7 +24,7 @@ namespace UnitTests.Game.UserInterface.ViewModels.DartGameViewModelTests
 
             var dartGameViewModel = new DartGameViewModel(getMainWindowViewModelMock.Object);
 
-            Assert.AreEqual("Hannes", dartGameViewModel.Game.CurrentPlayer.Name);
+            Assert.AreEqual("Hannes", dartGameViewModel.Game.Instance.CurrentPlayer.Name);
         }
 
         #endregion Public Methods

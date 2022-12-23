@@ -25,7 +25,7 @@ namespace UnitTests.Game.UserInterface.ViewModels.MainWindowViewModelTests
 
             mainWindowViewModel.StartGame.Execute(null);
 
-            Assert.AreEqual("Hans-Dieter", (mainWindowViewModel.CurrentContent as DartGameViewModel).Game.CurrentPlayer.Name);
+            Assert.AreEqual("Hans-Dieter", (mainWindowViewModel.CurrentContent as DartGameViewModel).Game.Instance.CurrentPlayer.Name);
         }
 
         /// <summary>Starts the game command set content to dart game.</summary>

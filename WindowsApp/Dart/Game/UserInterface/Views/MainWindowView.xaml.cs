@@ -8,8 +8,8 @@ using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using System.Windows.Input;
 using ControlzEx.Theming;
-using Dart.Common.Splashscreen;
 using Dart.Tools;
 using MahApps.Metro.Controls;
 
@@ -28,7 +28,7 @@ namespace Dart
         /// </summary>
         public MainWindowView()
         {
-            SplashScreen.ShowSplashScreen();
+            Common.Splashscreen.SplashScreen.ShowSplashScreen();
 
             InitializeComponent();
             IconSetter.SetProgramsIcon();
@@ -38,12 +38,14 @@ namespace Dart
 
             //Thread.Sleep(1500);
 
-            SplashScreen.HideSplashScreen();
+            Common.Splashscreen.SplashScreen.HideSplashScreen();
 
             if (DataContext is MainWindowViewModel mainWindowViewModel)
             {
                 HamburgerMenuControl.Content = mainWindowViewModel.CurrentContent;
                 mainWindowViewModel.GameStarted += MainWindowViewModel_GameStarted;
+
+                KeyDown += MainWindowView_KeyDown;
             }
         }
 
@@ -72,10 +74,6 @@ namespace Dart
 
         #region Private Methods
 
-        private void Button_Click(object sender, System.Windows.RoutedEventArgs e)
-        {
-        }
-
         private void HamburgerMenuControl_OnItemInvoked(object sender, HamburgerMenuItemInvokedEventArgs e)
         {
             if (DataContext is MainWindowViewModel mainWindowViewModel)
@@ -87,7 +85,6 @@ namespace Dart
                         case "settings":
                             mainWindowViewModel.CurrentContent = mainWindowViewModel.SettingsViewModel;
                             HamburgerMenuControl.Content = (DataContext as MainWindowViewModel).CurrentContent;
-                            //SubscribeToSettingsChangedEvent();
                             break;
 
                         case "throwgame":
@@ -126,6 +123,25 @@ namespace Dart
             ThemeManager.Current.ChangeTheme(this, $"{Properties.Settings.Default.BaseColorScheme}.{Properties.Settings.Default.ColorScheme}");
         }
 
+        private void MainWindowView_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl)) && Keyboard.IsKeyDown(Key.S))
+            {
+                ((MainWindowViewModel)DataContext).ShowSaveDialog();
+            }
+
+            if ((Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl)) && Keyboard.IsKeyDown(Key.L))
+            {
+                var loadedMainWindowViewModel = ((MainWindowViewModel)DataContext).ShowLoadDialog();
+
+                if (DataContext is MainWindowViewModel mainWindowViewModel)
+                {
+                    mainWindowViewModel.CurrentContent = loadedMainWindowViewModel.CurrentContent;
+                    HamburgerMenuControl.Content = loadedMainWindowViewModel.CurrentContent;
+                }
+            }
+        }
+
         private void MainWindowViewModel_GameStarted(object sender, EventArgs e)
         {
             HamburgerMenuControl.Content = (DataContext as MainWindowViewModel).CurrentContent;
@@ -151,17 +167,11 @@ namespace Dart
             }
         }
 
-        //private void SettingsViewModel_ThemeChangedEvent(object sender, EventArgs args)
-        //{
-        //    SetTheme(sender);
-        //}
-
         private void SubscribeToSettingsChangedEvent()
         {
             if (DataContext is IMainWindowViewModel mainWindowViewModel)
             {
                 mainWindowViewModel.SettingsViewModel.PropertyChanged += SettingsViewModel_LanguageChangedEvent;
-                //mainWindowViewModel.SettingsViewModel.ThemeChangedEvent += SettingsViewModel_ThemeChangedEvent;
             }
         }
 

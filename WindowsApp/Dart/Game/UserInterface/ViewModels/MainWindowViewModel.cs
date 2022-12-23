@@ -9,6 +9,7 @@ using System.Collections.Generic;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Threading;
 using System.Windows;
@@ -19,9 +20,11 @@ using Dart.Common;
 using Dart.Common.Commands;
 using Dart.Common.Theme;
 using Dart.Settings.Interfaces;
+using Microsoft.Win32;
 using Schuermann.Darts.Environment.EnvironmentProps;
 using Schuermann.Darts.Environment.Extensibility;
 using Schuermann.Darts.GameCore.Game;
+using Schuermann.Darts.GameCore.Save;
 
 namespace Dart
 {
@@ -29,8 +32,6 @@ namespace Dart
     public class MainWindowViewModel : ViewModelBase, IMainWindowViewModel, ICloneable
     {
         #region Private Fields
-
-        private readonly Predicate<object> canShutdown = (currentContent) => { return true; };
 
         private readonly Predicate<object> canStart = (currentContent) =>
                                                                {
@@ -93,10 +94,7 @@ namespace Dart
         /// <value>The content of the current.</value>
         public IViewModelBase CurrentContent
         {
-            get
-            {
-                return currentContent;
-            }
+            get => currentContent;
 
             set
             {
@@ -117,10 +115,6 @@ namespace Dart
         /// <value>The plug ins.</value>
         [ImportMany]
         public IEnumerable<IPlugIn> PlugIns { get; set; }
-
-        /// <summary>Gets the quit application.</summary>
-        /// <value>The quit application.</value>
-        public ICommand QuitApplication => new RelayCommand(x => ShowQuitDialog(), canShutdown);
 
         /// <summary>Gets the settings view model.</summary>
         /// <value>The settings view model.</value>
@@ -148,6 +142,29 @@ namespace Dart
             return MemberwiseClone();
         }
 
+        /// <summary>Shows the save dialog.</summary>
+        public void ShowSaveDialog()
+        {
+            var saveFileDialog = new SaveFileDialog
+            {
+                DefaultExt = ".dart",
+                AddExtension = true,
+                CheckPathExists = true,
+                Title = Properties.Resources.Save,
+                Filter = "Dart save games (*.dart)|*.dart",
+                FileName = $"game_{DateTime.Now.Year}_{DateTime.Now.Month}_{DateTime.Now.Day}_{DateTime.Now.Hour}_{DateTime.Now.Minute}_{DateTime.Now.Second}"
+            };
+
+            if (saveFileDialog.ShowDialog() == true)
+            {
+                var instance = new GameInstance(ConfiguredGameOptions);
+                var instanceStream = Persister.Save(instance);
+
+                using var fileStream = new FileStream(saveFileDialog.FileName, FileMode.OpenOrCreate);
+                instanceStream.CopyTo(fileStream);
+            }
+        }
+
         #endregion Public Methods
 
         #region Private Methods
@@ -155,6 +172,36 @@ namespace Dart
         private static INamedTheme GetCurrentTheme()
         {
             return new NamedTheme(ThemeManager.Current.Themes.FirstOrDefault(x => x.BaseColorScheme == Properties.Settings.Default.BaseColorScheme && x.ColorScheme == Properties.Settings.Default.ColorScheme));
+        }
+
+        /// <summary>
+        /// Shows the load dialog.
+        /// </summary>
+        public MainWindowViewModel ShowLoadDialog()
+        {
+            // Create OpenFileDialog
+            var dlg = new OpenFileDialog
+            {
+                // Set filter for file extension and default file extension
+                DefaultExt = ".dart",
+                Filter = "Dart save games (*.dart)|*.dart"
+            };
+
+            // Display OpenFileDialog by calling ShowDialog method
+            var result = dlg.ShowDialog();
+
+            // Get the selected file name and display in a TextBox
+            if (result == true)
+            {
+                // Open document
+                string filename = dlg.FileName;
+                using var fs = new FileStream(filename, FileMode.Open);
+                var gameInstance = Persister.Load(fs);
+                ConfiguredGameOptions = gameInstance.GameOptions;
+                CurrentContent = new DartGameViewModel(this);
+            }
+
+            return this;
         }
 
         /// <summary>Shows the quit dialog.</summary>
@@ -227,9 +274,7 @@ namespace Dart
             ConfiguredGameOptions = CreateCurrentGameOptions();
 
             CurrentContent = new DartGameViewModel(this);
-            //mainWindowViewModel.CurrentContent = new GameOptionsViewModel();
             GameStarted?.Invoke(this, EventArgs.Empty);
-            //HamburgerMenuControl.Content = (DataContext as MainWindowViewModel).CurrentContent;
         }
 
         #endregion Private Methods

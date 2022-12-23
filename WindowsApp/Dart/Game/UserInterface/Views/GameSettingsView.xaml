@@ -14,9 +14,9 @@
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static properies:Resources.Playercount}" Margin="5,5,5,5" />
-        <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding SelectablePlayerCount}" SelectedItem="{Binding SelectedPlayerCount, Mode=TwoWay}" />
+        <ComboBox Grid.Row="0" Grid.Column="1" ItemsSource="{Binding SelectablePlayerCount}" SelectedItem="{Binding SelectedPlayerCount, Mode=TwoWay}" IsSynchronizedWithCurrentItem="True"/>
 
         <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static properies:Resources.Startpoints}" Margin="5,5,5,5" />
-        <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding SelectableStartPoints}" SelectedItem="{Binding SelectedStartPoints, Mode=TwoWay}" />
+        <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding SelectableStartPoints}" SelectedItem="{Binding SelectedStartPoints, Mode=TwoWay}" IsSynchronizedWithCurrentItem="True"/>
     </Grid>
 </UserControl>
