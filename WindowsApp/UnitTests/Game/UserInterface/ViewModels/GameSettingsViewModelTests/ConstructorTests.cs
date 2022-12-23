@@ -7,6 +7,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
 using Dart;
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests.Game.UserInterface.ViewModels.GameSettingsViewModelTests
@@ -28,8 +29,8 @@ namespace UnitTests.Game.UserInterface.ViewModels.GameSettingsViewModelTests
             Assert.IsTrue(new List<int> { 301, 501, 701 }.SequenceEqual(GameSettingsViewModel.SelectableStartPoints));
             Assert.IsTrue(new List<int> { 1, 2, 3, 4, 5, 6, 7, 8 }.SequenceEqual(GameSettingsViewModel.SelectablePlayerCount));
             Assert.IsTrue(new Dictionary<CultureInfo, string> { { new CultureInfo("de-DE"), "Deutsch" }, { new CultureInfo("en-US"), "English" } }.SequenceEqual(gameSettingsViewModel.AvailableLanguages));
-            Assert.IsNull(gameSettingsViewModel.SelectedPlayerCount);
-            Assert.IsNull(gameSettingsViewModel.SelectedStartPoints);
+            gameSettingsViewModel.SelectedPlayerCount.Should().Be("1");
+            gameSettingsViewModel.SelectedStartPoints.Should().Be("301");
         }
 
         /// <summary>Selecteds the player count set correct.</summary>

@@ -142,6 +142,34 @@ namespace Dart
             return MemberwiseClone();
         }
 
+        /// <summary>Shows the load dialog.</summary>
+        public MainWindowViewModel ShowLoadDialog()
+        {
+            // Create OpenFileDialog
+            var dlg = new OpenFileDialog
+            {
+                // Set filter for file extension and default file extension
+                DefaultExt = ".dart",
+                Filter = "Dart save games (*.dart)|*.dart"
+            };
+
+            // Display OpenFileDialog by calling ShowDialog method
+            var result = dlg.ShowDialog();
+
+            // Get the selected file name and display in a TextBox
+            if (result == true)
+            {
+                // Open document
+                string filename = dlg.FileName;
+                using var fs = new FileStream(filename, FileMode.Open);
+                var gameInstance = Persister.Load(fs);
+                ConfiguredGameOptions = gameInstance.GameOptions;
+                CurrentContent = new DartGameViewModel(this);
+            }
+
+            return this;
+        }
+
         /// <summary>Shows the save dialog.</summary>
         public void ShowSaveDialog()
         {
@@ -172,36 +200,6 @@ namespace Dart
         private static INamedTheme GetCurrentTheme()
         {
             return new NamedTheme(ThemeManager.Current.Themes.FirstOrDefault(x => x.BaseColorScheme == Properties.Settings.Default.BaseColorScheme && x.ColorScheme == Properties.Settings.Default.ColorScheme));
-        }
-
-        /// <summary>
-        /// Shows the load dialog.
-        /// </summary>
-        public MainWindowViewModel ShowLoadDialog()
-        {
-            // Create OpenFileDialog
-            var dlg = new OpenFileDialog
-            {
-                // Set filter for file extension and default file extension
-                DefaultExt = ".dart",
-                Filter = "Dart save games (*.dart)|*.dart"
-            };
-
-            // Display OpenFileDialog by calling ShowDialog method
-            var result = dlg.ShowDialog();
-
-            // Get the selected file name and display in a TextBox
-            if (result == true)
-            {
-                // Open document
-                string filename = dlg.FileName;
-                using var fs = new FileStream(filename, FileMode.Open);
-                var gameInstance = Persister.Load(fs);
-                ConfiguredGameOptions = gameInstance.GameOptions;
-                CurrentContent = new DartGameViewModel(this);
-            }
-
-            return this;
         }
 
         /// <summary>Shows the quit dialog.</summary>
