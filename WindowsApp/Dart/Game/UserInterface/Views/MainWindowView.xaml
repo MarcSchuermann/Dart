@@ -64,18 +64,9 @@
                         <Border Grid.Row="0" Margin="-1 0 -1 0" Background="#7A7A7A">
                             <TextBlock x:Name="Header" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="24" Foreground="White" Text="{Binding Label}" />
                         </Border>
-                        <Controls:TransitioningContentControl Grid.Row="1" Content="{Binding}" RestartTransitionOnContentChange="True" Transition="Default">
-                            <Controls:TransitioningContentControl.Resources>
-                                <DataTemplate DataType="{x:Type Controls:HamburgerMenuIconItem}">
-                                    <ContentControl Content="{Binding CurrentContent.Label, Mode=OneWay}" Focusable="True" IsTabStop="False" />
-                                </DataTemplate>
-                            </Controls:TransitioningContentControl.Resources>
-                        </Controls:TransitioningContentControl>
-
+                        <Controls:TransitioningContentControl Grid.Row="1" Content="{Binding}" RestartTransitionOnContentChange="True" Transition="Default" />
                         <StackPanel Grid.Row="2" Orientation="Horizontal" VerticalAlignment="Bottom" HorizontalAlignment="Right">
-                            <Button DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Content="{x:Static properties:Resources.Start}" Command="{Binding StartGame}" CommandParameter="{Binding CurrentContent}" Visibility="{Binding CurrentContent, Converter={StaticResource viewModelTypeToVisibilityConverter}}" Height="30" MinWidth="70" Margin="5,5,5,5" />
-                            <Button DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Content="{x:Static properties:Resources.Exit}" Command="{Binding QuitApplication}" Height="30" MinWidth="70" Margin="5,5,5,5" />
-                            <Button DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Click="Button_Click" />
+                            <Button DataContext="{Binding Path=DataContext, RelativeSource={RelativeSource FindAncestor, AncestorType={x:Type Window}}}" Content="{x:Static properties:Resources.Start}" Command="{Binding StartGame}" CommandParameter="{Binding CurrentContent}" Visibility="{Binding CurrentContent, Converter={StaticResource viewModelTypeToVisibilityConverter}}" Height="30" MinWidth="70" Margin="5,5,5,5" />                            
                         </StackPanel>
                     </Grid>
                 </DataTemplate>

@@ -26,8 +26,8 @@ namespace GameLogicTests.GameTests
 
             var game = new GameProcedure(gameOptions);
 
-            Assert.AreEqual(gameOptions, game.GameOptions);
-            Assert.AreEqual(player, game.CurrentPlayer);
+            Assert.AreEqual(gameOptions, game.Instance.GameOptions);
+            Assert.AreEqual(player, game.Instance.CurrentPlayer);
         }
 
         #endregion Public Methods

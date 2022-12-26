@@ -734,10 +734,6 @@
             <summary>Gets or sets the configured game options.</summary>
             <value>The configured game options.</value>
         </member>
-        <member name="P:Dart.IMainWindowViewModel.QuitApplication">
-            <summary>Gets the quit application.</summary>
-            <value>The quit application.</value>
-        </member>
         <member name="P:Dart.IMainWindowViewModel.SettingsViewModel">
             <summary>Gets the settings view model.</summary>
             <value>The settings view model.</value>
@@ -798,6 +794,11 @@
         <member name="T:Dart.GameSettingsViewModel">
             <summary>The GameSettingsViewModel.</summary>
         </member>
+        <member name="M:Dart.GameSettingsViewModel.#ctor">
+            <summary>
+            Initializes a new instance of the <see cref="T:Dart.GameSettingsViewModel"/> class.
+            </summary>
+        </member>
         <member name="P:Dart.GameSettingsViewModel.SelectablePlayerCount">
             <summary>Gets the selectable player count.</summary>
             <value>The selectable player count.</value>
@@ -841,10 +842,6 @@
             <summary>Gets or sets the plug ins.</summary>
             <value>The plug ins.</value>
         </member>
-        <member name="P:Dart.MainWindowViewModel.QuitApplication">
-            <summary>Gets the quit application.</summary>
-            <value>The quit application.</value>
-        </member>
         <member name="P:Dart.MainWindowViewModel.SettingsViewModel">
             <summary>Gets the settings view model.</summary>
             <value>The settings view model.</value>
@@ -859,6 +856,12 @@
         <member name="M:Dart.MainWindowViewModel.Clone">
             <summary>Creates a new object that is a copy of the current instance.</summary>
             <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="M:Dart.MainWindowViewModel.ShowLoadDialog">
+            <summary>Shows the load dialog.</summary>
+        </member>
+        <member name="M:Dart.MainWindowViewModel.ShowSaveDialog">
+            <summary>Shows the save dialog.</summary>
         </member>
         <member name="M:Dart.MainWindowViewModel.ShowQuitDialog">
             <summary>Shows the quit dialog.</summary>
@@ -1211,6 +1214,11 @@
         <member name="P:Dart.Properties.Resources.RestartInfo">
             <summary>
               Looks up a localized string similar to The application has to be restartet to assume the chang of the language. Restart the application?.
+            </summary>
+        </member>
+        <member name="P:Dart.Properties.Resources.Save">
+            <summary>
+              Looks up a localized string similar to Save....
             </summary>
         </member>
         <member name="P:Dart.Properties.Resources.Settings">

@@ -7,6 +7,7 @@
     <OutputType>WinExe</OutputType>
     <ApplicationIcon>darts.ico</ApplicationIcon>
     <DocumentationFile>Dart.xml</DocumentationFile>
+	<!--<GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>-->
 	<UseWPF>true</UseWPF>
   </PropertyGroup>
 
@@ -20,6 +21,12 @@
 	  </Resource>
 	</ItemGroup>
 
+	<ItemGroup>
+		<AssemblyAttribute Include="System.Runtime.CompilerServices.InternalsVisibleToAttribute">
+			<_Parameter1>UnitTestsDart</_Parameter1>
+		</AssemblyAttribute>
+	</ItemGroup>
+
   <ItemGroup>
     <PackageReference Include="Autofac" Version="6.3.0" />
     <PackageReference Include="Autofac.Configuration" Version="6.0.0" />
@@ -30,8 +37,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="5.0.0" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="5.0.0" />
     <PackageReference Include="NLog" Version="4.7.15" />
-    <PackageReference Include="Schuermann.Darts.Environment" Version="2.0.1-alpha.20220504.6" />
-    <PackageReference Include="Schuermann.Darts.GameCore" Version="2.0.1-alpha.20220504.6" />
+    <PackageReference Include="Schuermann.Darts.Environment" Version="2.0.2-alpha.20221220.12" />
     <PackageReference Include="Svg" Version="3.2.3" />
     <PackageReference Include="Syncfusion.PropertyGrid.WPF" Version="20.1.0.52" />
     <PackageReference Include="System.Buffers" Version="4.5.1" />

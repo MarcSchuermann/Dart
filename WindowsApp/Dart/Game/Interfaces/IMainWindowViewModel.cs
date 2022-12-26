@@ -5,7 +5,6 @@
 // -----------------------------------------------------------------------
 
 using System;
-using System.Windows.Input;
 using Schuermann.Darts.GameCore.Game;
 
 namespace Dart
@@ -26,10 +25,6 @@ namespace Dart
         /// <summary>Gets or sets the configured game options.</summary>
         /// <value>The configured game options.</value>
         IGameOptions ConfiguredGameOptions { get; set; }
-
-        /// <summary>Gets the quit application.</summary>
-        /// <value>The quit application.</value>
-        ICommand QuitApplication { get; }
 
         /// <summary>Gets the settings view model.</summary>
         /// <value>The settings view model.</value>

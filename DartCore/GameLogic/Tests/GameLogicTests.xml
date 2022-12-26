@@ -134,5 +134,20 @@
         <member name="M:GameLogicTests.PlayerTests.ToStringTest.ToStringReturnsName">
             <summary>To the name of the string returns.</summary>
         </member>
+        <member name="T:Schuermann.Darts.GameCore.Tests.PersistTests.LoadSaveTest">
+            <summary>Save and load tests.</summary>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Tests.PersistTests.LoadSaveTest.CreateSaveAndReloadGameCorrect">
+            <summary>Creates the save and reload game correct.</summary>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Tests.PersistTests.LoadSaveTest.CreateSaveAndReloadSinglePlayerComplete">
+            <summary>Creates the save and reload single player complete.</summary>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Tests.PersistTests.LoadSaveTest.SaveWithNull">
+            <summary>Saves the with null.</summary>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Tests.PersistTests.LoadSaveTest.WriteToFile">
+            <summary>Writes to file.</summary>
+        </member>
     </members>
 </doc>

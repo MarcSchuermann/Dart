@@ -180,6 +180,9 @@
   <data name="RestartInfo" xml:space="preserve">
     <value>Um die Änderung der Sprache zu übernehmen muss das Programm neu gestartet werden. Jetzt neu starten?</value>
   </data>
+  <data name="Save" xml:space="preserve">
+    <value>Speichern...</value>
+  </data>
   <data name="Settings" xml:space="preserve">
     <value>Einstellungen</value>
   </data>

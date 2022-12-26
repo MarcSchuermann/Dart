@@ -13,13 +13,9 @@ namespace Schuermann.Darts.GameCore.Game
     {
         #region Public Properties
 
-        /// <summary>Gets the current player.</summary>
-        /// <returns>The current player.</returns>
-        IPlayer CurrentPlayer { get; }
-
-        /// <summary>Gets the game options.</summary>
-        /// <value>The game options.</value>
-        IGameOptions GameOptions { get; }
+        /// <summary>Gets the instance.</summary>
+        /// <value>The instance.</value>
+        public IGameInstance Instance { get; }
 
         #endregion Public Properties
 

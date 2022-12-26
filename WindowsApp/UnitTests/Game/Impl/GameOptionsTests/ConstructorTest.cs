@@ -2,6 +2,7 @@
 //// <copyright>Marc Schürmann</copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
+using System;
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using FluentAssertions;
@@ -21,7 +22,7 @@ namespace UnitTests.Game.Impl.GameOptionsTests
         [TestMethod]
         public void InitializationShouldBeCorrect()
         {
-            var gameOptions = new GameOptions();
+            var gameOptions = new GameOptions(Array.Empty<IPlayer>());
 
             Assert.AreEqual(false, gameOptions.DoubleIn);
             Assert.AreEqual(false, gameOptions.DoubleOut);
