@@ -5,10 +5,11 @@
 // -----------------------------------------------------------------------
 
 using System;
-using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Text.Json;
 using Schuermann.Darts.GameCore.Game;
+using Schuermann.Darts.GameCore.Save.PersistObjects;
 using Schuermann.Darts.GameCore.Save.SerializerOptions;
 
 namespace Schuermann.Darts.GameCore.Save
@@ -29,9 +30,9 @@ namespace Schuermann.Darts.GameCore.Save
 
             stream.Position = 0;
 
-            var options = new JsonSerializerOptions { WriteIndented = true, Converters = { new PlayerConverter(), new GameOptionsConverter(), new DartThrowConverter() } };
+            var options = new JsonSerializerOptions { WriteIndented = true, Converters = { new DartThrowConverter() } };
 
-            return JsonSerializer.Deserialize<GameInstance>(stream, options);
+            return Convert(JsonSerializer.Deserialize<GameInstancePersister>(stream, options));
         }
 
         /// <summary>Saves the specified instance.</summary>
@@ -43,9 +44,9 @@ namespace Schuermann.Darts.GameCore.Save
                 throw new ArgumentNullException(nameof(instance));
 
             var ms = new MemoryStream();
-            var options = new JsonSerializerOptions { WriteIndented = true, Converters = { new PlayerConverter(), new GameOptionsConverter(), new DartThrowConverter() } };
+            var options = new JsonSerializerOptions { WriteIndented = true, Converters = { new DartThrowConverter() } };
 
-            JsonSerializer.Serialize(ms, instance, options);
+            JsonSerializer.Serialize(ms, Convert(instance), options);
 
             ms.Position = 0;
 
@@ -53,5 +54,52 @@ namespace Schuermann.Darts.GameCore.Save
         }
 
         #endregion Public Methods
+
+        #region Private Methods
+
+        private static GameInstancePersister Convert(IGameInstance instance)
+        {
+            return new GameInstancePersister()
+            {
+                GameOption = Convert(instance.GameOptions),
+                CurrentPlayer = Convert(instance.CurrentPlayer)
+            };
+        }
+
+        private static IGameInstance Convert(GameInstancePersister instance)
+        {
+            var players = instance.GameOption.PlayerList.Select(x => Convert(x));
+            var gameOptions = new GameOptions(players);
+            return new GameInstance(gameOptions);
+        }
+
+        private static IPlayer Convert(PlayerPersister player)
+        {
+            return new Player(player.Name, player.StartPoints, player.ThrowHistory);
+        }
+
+        private static PlayerPersister Convert(IPlayer player)
+        {
+            return new PlayerPersister
+            {
+                Name = player.Name,
+                ThrowHistory = player.ThrowHistory,
+                StartPoints = player.StartPoints
+            };
+        }
+
+        private static GameOptionPersister Convert(IGameOptions gameOptions)
+        {
+            return new GameOptionPersister
+            {
+                AllPlayTillZero = gameOptions.AllPlayTillZero,
+                DoubleIn = gameOptions.DoubleIn,
+                DoubleOut = gameOptions.DoubleOut,
+                StartPoints = gameOptions.StartPoints,
+                PlayerList = gameOptions.PlayerList.ToList().Select(x => Convert(x))
+            };
+        }
+
+        #endregion Private Methods
     }
 }

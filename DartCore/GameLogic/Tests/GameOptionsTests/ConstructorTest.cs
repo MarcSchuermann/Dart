@@ -5,6 +5,7 @@
 // -----------------------------------------------------------------------
 
 using System.Collections.Generic;
+using System.Linq;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Schuermann.Darts.GameCore.Game;
@@ -35,7 +36,7 @@ namespace GameLogicTests.GameOptionsTests
         [TestMethod]
         public void SetCorrect()
         {
-            var gameOptions = new GameOptions(new List<IPlayer> { new Player(), new Player(), new Player() })
+            var gameOptions = new GameOptions(new List<IPlayer> { new Player("Wolfi", 1), new Player("Didi", 2), new Player("Klausi", 3) })
             {
                 StartPoints = 123,
                 DoubleOut = true,
@@ -47,7 +48,7 @@ namespace GameLogicTests.GameOptionsTests
             gameOptions.DoubleOut.Should().BeTrue();
             gameOptions.DoubleIn.Should().BeTrue();
             gameOptions.AllPlayTillZero.Should().BeTrue();
-            gameOptions.PlayerList.Count.Should().Be(3);
+            gameOptions.PlayerList.Count().Should().Be(3);
         }
 
         #endregion Public Methods

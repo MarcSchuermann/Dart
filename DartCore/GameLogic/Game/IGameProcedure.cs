@@ -5,11 +5,12 @@
 // -----------------------------------------------------------------------
 
 using Schuermann.Darts.GameCore.Thrown;
+using Schuermann.Darts.GameCore.UndoRedo.Interfaces;
 
 namespace Schuermann.Darts.GameCore.Game
 {
     /// <summary>The logic for a game.</summary>
-    public interface IGameProcedure
+    public interface IGameProcedure : IUndoRedoable
     {
         #region Public Properties
 

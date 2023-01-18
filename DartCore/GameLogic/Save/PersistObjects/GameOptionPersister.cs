@@ -1,37 +1,37 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="IGameOptions.cs" company="Marc Schürmann">
+// <copyright file="GameOptionPersister.cs" company="Marc Schürmann">
 //     Copyright (c) Marc Schürmann. All Rights Reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
 using System.Collections.Generic;
 
-namespace Schuermann.Darts.GameCore.Game
+namespace Schuermann.Darts.GameCore.Save.PersistObjects
 {
-    /// <summary>The game option interface.</summary>
-    public interface IGameOptions
+    /// <summary>Persist the game option.</summary>
+    internal class GameOptionPersister
     {
         #region Public Properties
 
         /// <summary>Gets or sets a value indicating whether [all play till zero].</summary>
         /// <value><c>true</c> if [all play till zero]; otherwise, <c>false</c>.</value>
-        bool AllPlayTillZero { get; set; }
+        public bool AllPlayTillZero { get; set; }
 
         /// <summary>Gets or sets a value indicating whether [double in].</summary>
         /// <value><c>true</c> if [double in]; otherwise, <c>false</c>.</value>
-        bool DoubleIn { get; set; }
+        public bool DoubleIn { get; set; }
 
         /// <summary>Gets or sets a value indicating whether [double out].</summary>
         /// <value><c>true</c> if [double out]; otherwise, <c>false</c>.</value>
-        bool DoubleOut { get; set; }
+        public bool DoubleOut { get; set; }
 
         /// <summary>Gets or sets the player list.</summary>
         /// <value>The player list.</value>
-        IEnumerable<IPlayer> PlayerList { get; }
+        public IEnumerable<PlayerPersister> PlayerList { get; set; }
 
         /// <summary>Gets or sets the start points.</summary>
         /// <value>The start points.</value>
-        int StartPoints { get; set; }
+        public int StartPoints { get; set; }
 
         #endregion Public Properties
     }

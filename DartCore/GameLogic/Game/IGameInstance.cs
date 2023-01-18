@@ -15,11 +15,11 @@ namespace Schuermann.Darts.GameCore.Game
 
         /// <summary>Gets the current player.</summary>
         /// <returns>The current player.</returns>
-        IPlayer CurrentPlayer { get; set; }
+        IPlayer CurrentPlayer { get; }
 
         /// <summary>Gets the game options.</summary>
         /// <value>The game options.</value>
-        IGameOptions GameOptions { get; set; }
+        IGameOptions GameOptions { get; }
 
         #endregion Public Properties
     }

@@ -14,7 +14,7 @@ namespace Schuermann.Darts.GameCore.Game
 
         /// <summary>Initializes a new instance of the <see cref="GameOptions" /> class.</summary>
         /// <param name="playerList">The player list.</param>
-        public GameOptions(IList<IPlayer> playerList)
+        public GameOptions(IEnumerable<IPlayer> playerList)
         {
             PlayerList = playerList;
         }
@@ -37,7 +37,7 @@ namespace Schuermann.Darts.GameCore.Game
 
         /// <summary>Gets or sets the player list.</summary>
         /// <value>The player list.</value>
-        public IList<IPlayer> PlayerList { get; }
+        public IEnumerable<IPlayer> PlayerList { get; }
 
         /// <summary>Gets or sets the start points.</summary>
         /// <value>The start points.</value>

@@ -4,80 +4,203 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System;
 using System.Collections.Generic;
-using System.ComponentModel;
+using System.Linq;
 using Schuermann.Darts.GameCore.Thrown;
+using Schuermann.Darts.GameCore.UndoRedo.Impl.Actions;
+using Schuermann.Darts.GameCore.UndoRedo.Interfaces;
 
 namespace Schuermann.Darts.GameCore.Game
 {
     /// <summary>The Player.</summary>
-    public class Player : IPlayer, INotifyPropertyChanged
+    public class Player : IPlayer, IUndoRedoable, IEquatable<IPlayer>
     {
-        #region Private Fields
-
-        /// <summary>The current score.</summary>
-        private int currentScore;
-
-        #endregion Private Fields
-
         #region Public Constructors
 
         /// <summary>Initializes a new instance of the <see cref="Player" /> class.</summary>
-        public Player()
+        /// <param name="name">The name.</param>
+        /// <param name="startPoints"></param>
+        public Player(string name, uint startPoints)
         {
+            Name = name;
+            StartPoints = startPoints;
             ThrowHistory = new List<IDartThrow>();
         }
 
         #endregion Public Constructors
 
-        #region Public Events
+        #region Internal Constructors
 
-        /// <summary>Occurs when a property value changes.</summary>
-        /// <returns></returns>
-        public event PropertyChangedEventHandler PropertyChanged;
+        /// <summary>Initializes a new instance of the <see cref="Player" /> class.</summary>
+        /// <param name="name">The name.</param>
+        /// <param name="startPoints">The start points.</param>
+        /// <param name="throwHistory">The throw history.</param>
+        internal Player(string name, uint startPoints, IList<IDartThrow> throwHistory)
+        {
+            Name = name;
+            StartPoints = startPoints;
+            ThrowHistory = throwHistory;
+        }
 
-        #endregion Public Events
+        #endregion Internal Constructors
 
         #region Public Properties
 
         /// <summary>Gets or sets the current score.</summary>
         /// <value>The current score.</value>
-        public int CurrentScore
+        public uint CurrentScore
         {
             get
             {
+                var currentScore = StartPoints;
+                foreach (var thrown in ThrowHistory)
+                {
+                    // Only calculate new points when throw result would be 0 or greater
+                    if (currentScore >= (uint)thrown.Points)
+                        currentScore -= (uint)thrown.Points;
+                }
                 return currentScore;
-            }
-            set
-            {
-                currentScore = value;
-                RaisePropertyChanged(nameof(CurrentScore));
             }
         }
 
         /// <summary>Gets or sets the dart count per round.</summary>
         /// <value>The dart count per round.</value>
-        public int DartCountThisRound { get; set; }
+        public int DartCountThisRound => CalculateRoundAndDartCount().Item2;
 
         /// <summary>Gets or sets the name.</summary>
         /// <value>The name.</value>
-        public string Name { get; set; }
+        public string Name { get; }
 
         /// <summary>Gets or sets the points this round.</summary>
         /// <value>The points this round.</value>
-        public int PointsThisRound { get; set; }
+        public int PointsThisRound
+        {
+            get
+            {
+                switch (DartCountThisRound)
+                {
+                    case 0:
+                        return 0;
+
+                    case 1:
+                        return ThrowHistory.Last().Points;
+
+                    case 2:
+                        return ThrowHistory.Last().Points + ThrowHistory[ThrowHistory.Count - 2].Points;
+
+                    default:
+                        return -1;
+                }
+            }
+        }
 
         /// <summary>Gets or sets the round.</summary>
         /// <value>The round.</value>
-        public int Round { get; set; }
+        public int Round => CalculateRoundAndDartCount().Item1;
+
+        /// <summary>Gets the start points.</summary>
+        /// <value>The start points.</value>
+        public uint StartPoints { get; }
 
         /// <summary>Gets or sets the throw history.</summary>
         /// <value>The throw history.</value>
-        public IList<IDartThrow> ThrowHistory { get; set; }
+        public IList<IDartThrow> ThrowHistory { get; internal set; }
 
         #endregion Public Properties
 
+        #region Private Properties
+
+        /// <summary>Gets the redo stack.</summary>
+        /// <value>The redo stack.</value>
+        private Stack<IUndoRedoAction> RedoStack { get; } = new();
+
+        /// <summary>Gets the undo stack.</summary>
+        /// <value>The undo stack.</value>
+        private Stack<IUndoRedoAction> UndoStack { get; } = new();
+
+        #endregion Private Properties
+
         #region Public Methods
+
+        /// <summary>Creates a new object that is a copy of the current instance.</summary>
+        /// <returns>A new object that is a copy of this instance.</returns>
+        public object Clone()
+        {
+            var history = new List<IDartThrow>();
+            foreach (var item in ThrowHistory)
+            {
+                history.Add(item.Clone() as IDartThrow);
+            }
+            return new Player(Name?.Clone()?.ToString(), StartPoints) { ThrowHistory = history };
+        }
+
+        /// <summary>
+        ///    Indicates whether the current object is equal to another object of the same type.
+        /// </summary>
+        /// <param name="other">An object to compare with this object.</param>
+        /// <returns>
+        ///    <see langword="true" /> if the current object is equal to the <paramref name="other"
+        ///    /> parameter; otherwise, <see langword="false" />.
+        /// </returns>
+        public bool Equals(IPlayer other)
+        {
+            if (other == null)
+                return false;
+
+            return string.Equals(Name, other.Name, StringComparison.Ordinal) && Enumerable.SequenceEqual(ThrowHistory, other.ThrowHistory);
+        }
+
+        /// <summary>
+        ///    Determines whether the specified <see cref="System.Object" />, is equal to this
+        ///    instance.
+        /// </summary>
+        /// <param name="obj">
+        ///    The <see cref="System.Object" /> to compare with this instance.
+        /// </param>
+        /// <returns>
+        ///    <c>true</c> if the specified <see cref="System.Object" /> is equal to this instance;
+        ///    otherwise, <c>false</c>.
+        /// </returns>
+        public override bool Equals(object obj)
+        {
+            if (!(obj is IPlayer player))
+                return false;
+
+            return Equals(player);
+        }
+
+        /// <summary>Returns a hash code for this instance.</summary>
+        /// <returns>
+        ///    A hash code for this instance, suitable for use in hashing algorithms and data
+        ///    structures like a hash table.
+        /// </returns>
+        public override int GetHashCode()
+        {
+            return Name.GetHashCode(StringComparison.Ordinal) ^ ThrowHistory.GetHashCode();
+        }
+
+        /// <summary>Redoes this instance.</summary>
+        public void Redo()
+        {
+            if (RedoStack.Count == 0)
+                return;
+
+            var action = RedoStack.Pop();
+            action.Redo();
+        }
+
+        /// <summary>Throws the specified dart throw.</summary>
+        /// <param name="dartThrow">The dart throw.</param>
+        public void Thrown(IDartThrow dartThrow)
+        {
+            if (dartThrow == null)
+                return;
+
+            ThrowHistory.Add(dartThrow);
+
+            UndoStack.Push(new ThrownAction(this, dartThrow));
+        }
 
         /// <summary>Returns a <see cref="string" /> that represents this instance.</summary>
         /// <returns>A <see cref="string" /> that represents this instance.</returns>
@@ -86,17 +209,44 @@ namespace Schuermann.Darts.GameCore.Game
             return Name;
         }
 
+        /// <summary>Undoes this instance.</summary>
+        public void Undo()
+        {
+            if (UndoStack.Count == 0)
+                return;
+
+            var action = UndoStack.Pop();
+            action.Undo();
+            RedoStack.Push(action);
+        }
+
         #endregion Public Methods
 
         #region Private Methods
 
-        /// <summary>Raises the property changed.</summary>
-        /// <param name="propertyName">Name of the property.</param>
-        private void RaisePropertyChanged(string propertyName)
+        private Tuple<int, int> CalculateRoundAndDartCount()
         {
-            PropertyChangedEventHandler handler = PropertyChanged;
+            var roundCounter = 1;
+            var dartPerRoundCounter = 0;
+            var pointsAtThisMoment = (int)StartPoints;
 
-            handler?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+            foreach (var thrown in ThrowHistory)
+            {
+                dartPerRoundCounter++;
+
+                // Throw result would be lower than 0 OR 3 darts per round thrown
+                if (pointsAtThisMoment - thrown.Points < 0 || dartPerRoundCounter >= 3)
+                {
+                    // Go to next round
+                    dartPerRoundCounter = 0;
+                    roundCounter++;
+                }
+
+                if (pointsAtThisMoment - thrown.Points >= 0)
+                    pointsAtThisMoment -= thrown.Points;
+            }
+
+            return new Tuple<int, int>(roundCounter, dartPerRoundCounter);
         }
 
         #endregion Private Methods
