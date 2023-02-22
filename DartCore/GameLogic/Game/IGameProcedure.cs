@@ -10,7 +10,7 @@ using Schuermann.Darts.GameCore.UndoRedo.Interfaces;
 namespace Schuermann.Darts.GameCore.Game
 {
     /// <summary>The logic for a game.</summary>
-    public interface IGameProcedure : IUndoRedoable
+    public interface IGameProcedure : IUndoRedo
     {
         #region Public Properties
 

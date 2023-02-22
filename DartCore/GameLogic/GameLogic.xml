@@ -541,22 +541,13 @@
             <summary>Gets the points.</summary>
             <value>The points.</value>
         </member>
-        <member name="T:Schuermann.Darts.GameCore.UndoRedo.Interfaces.IUndoRedoable">
-            <summary>The undo and redo interface.</summary>
-        </member>
-        <member name="M:Schuermann.Darts.GameCore.UndoRedo.Interfaces.IUndoRedoable.Redo">
-            <summary>Redoes this instance.</summary>
-        </member>
-        <member name="M:Schuermann.Darts.GameCore.UndoRedo.Interfaces.IUndoRedoable.Undo">
-            <summary>Undoes this instance.</summary>
-        </member>
-        <member name="T:Schuermann.Darts.GameCore.UndoRedo.Interfaces.IUndoRedoAction">
+        <member name="T:Schuermann.Darts.GameCore.UndoRedo.Interfaces.IUndoRedo">
             <summary>The undo and redo action.</summary>
         </member>
-        <member name="M:Schuermann.Darts.GameCore.UndoRedo.Interfaces.IUndoRedoAction.Redo">
+        <member name="M:Schuermann.Darts.GameCore.UndoRedo.Interfaces.IUndoRedo.Redo">
             <summary>Redoes this instance.</summary>
         </member>
-        <member name="M:Schuermann.Darts.GameCore.UndoRedo.Interfaces.IUndoRedoAction.Undo">
+        <member name="M:Schuermann.Darts.GameCore.UndoRedo.Interfaces.IUndoRedo.Undo">
             <summary>Undoes this instance.</summary>
         </member>
         <member name="M:Schuermann.Darts.GameCore.Util.PlayerlistUtils.GetPriviousPlayer(System.Collections.Generic.IEnumerable{Schuermann.Darts.GameCore.Game.IPlayer},Schuermann.Darts.GameCore.Game.IPlayer)">

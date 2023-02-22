@@ -14,7 +14,7 @@ using Schuermann.Darts.GameCore.UndoRedo.Interfaces;
 namespace Schuermann.Darts.GameCore.Game
 {
     /// <summary>The Player.</summary>
-    public class Player : IPlayer, IUndoRedoable, IEquatable<IPlayer>
+    public class Player : IPlayer, IUndoRedo, IEquatable<IPlayer>
     {
         #region Public Constructors
 
@@ -113,11 +113,11 @@ namespace Schuermann.Darts.GameCore.Game
 
         /// <summary>Gets the redo stack.</summary>
         /// <value>The redo stack.</value>
-        private Stack<IUndoRedoAction> RedoStack { get; } = new();
+        private Stack<IUndoRedo> RedoStack { get; } = new();
 
         /// <summary>Gets the undo stack.</summary>
         /// <value>The undo stack.</value>
-        private Stack<IUndoRedoAction> UndoStack { get; } = new();
+        private Stack<IUndoRedo> UndoStack { get; } = new();
 
         #endregion Private Properties
 

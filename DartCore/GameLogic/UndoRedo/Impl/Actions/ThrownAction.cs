@@ -11,7 +11,7 @@ using Schuermann.Darts.GameCore.UndoRedo.Interfaces;
 
 namespace Schuermann.Darts.GameCore.UndoRedo.Impl.Actions
 {
-    internal class ThrownAction : IUndoRedoAction
+    internal class ThrownAction : IUndoRedo
     {
         #region Private Fields
 

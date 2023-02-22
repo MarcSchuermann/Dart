@@ -1,13 +1,13 @@
 ﻿// -----------------------------------------------------------------------
-// <copyright file="IUndoRedoable.cs" company="Marc Schürmann">
+// <copyright file="IUndoRedoAction.cs" company="Marc Schürmann">
 //     Copyright (c) Marc Schürmann. All Rights Reserved.
 // </copyright>
 // -----------------------------------------------------------------------
 
 namespace Schuermann.Darts.GameCore.UndoRedo.Interfaces
 {
-    /// <summary>The undo and redo interface.</summary>
-    public interface IUndoRedoable
+    /// <summary>The undo and redo action.</summary>
+    public interface IUndoRedo
     {
         #region Public Methods
 
