@@ -24,11 +24,11 @@ namespace UnitTests.Game.Impl.PlayerTests
         {
             var player = new Player(string.Empty, 66);
 
-            Assert.AreEqual(66, player.CurrentScore);
-            Assert.AreEqual(0, player.DartCountThisRound);
-            Assert.AreEqual(string.Empty, player.Name);
-            Assert.AreEqual(0, player.PointsThisRound);
-            Assert.AreEqual(0, player.Round);
+            player.CurrentScore.Should().Be(66);
+            player.DartCountThisRound.Should().Be(0);
+            player.Name.Should().BeEmpty();
+            player.PointsThisRound.Should().Be(0);
+            player.Round.Should().Be(1);
             player.ThrowHistory.Count.Should().Be(0);
         }
 

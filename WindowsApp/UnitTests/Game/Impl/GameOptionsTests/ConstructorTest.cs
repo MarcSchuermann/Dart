@@ -38,7 +38,8 @@ namespace UnitTests.Game.Impl.GameOptionsTests
             var gameOptions = new GameOptions(new List<IPlayer> { new Player("Detlef", 301), new Player("Dieter", 301) })
             {
                 DoubleIn = true,
-                DoubleOut = true
+                DoubleOut = true,
+                StartPoints = 301,
             };
 
             Assert.AreEqual(true, gameOptions.DoubleIn);
