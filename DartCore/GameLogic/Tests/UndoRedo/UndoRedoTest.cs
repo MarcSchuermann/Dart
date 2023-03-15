@@ -196,6 +196,131 @@ namespace Schuermann.Darts.GameCore.Tests.UndoRedo
             game.Instance.CurrentPlayer.Name.Should().Be("Willy1");
         }
 
+        [TestMethod]
+        public void UndoAndRedoWhenChangePlayer()
+        {
+            var player1 = new Player("Willy1", 100);
+            var player2 = new Player("Willy2", 100);
+
+            var options = new GameOptions(new List<IPlayer> { player1, player2 });
+            var game = new GameProcedure(options);
+
+            game.PlayerThrown(new DartThrow(DartBoardField.One, DartBoardQuantifier.Single));
+
+            player1.CurrentScore.Should().Be(99);
+            player2.CurrentScore.Should().Be(100);
+
+            game.PlayerThrown(new DartThrow(DartBoardField.One, DartBoardQuantifier.Single));
+
+            player1.CurrentScore.Should().Be(98);
+            player2.CurrentScore.Should().Be(100);
+
+            game.PlayerThrown(new DartThrow(DartBoardField.One, DartBoardQuantifier.Single));
+
+            player1.CurrentScore.Should().Be(97);
+            player2.CurrentScore.Should().Be(100);
+
+            game.PlayerThrown(new DartThrow(DartBoardField.One, DartBoardQuantifier.Single));
+
+            player1.CurrentScore.Should().Be(97);
+            player2.CurrentScore.Should().Be(99);
+
+            game.PlayerThrown(new DartThrow(DartBoardField.One, DartBoardQuantifier.Single));
+
+            player1.CurrentScore.Should().Be(97);
+            player2.CurrentScore.Should().Be(98);
+
+            game.PlayerThrown(new DartThrow(DartBoardField.One, DartBoardQuantifier.Single));
+
+            player1.CurrentScore.Should().Be(97);
+            player2.CurrentScore.Should().Be(97);
+
+            game.PlayerThrown(new DartThrow(DartBoardField.One, DartBoardQuantifier.Single));
+
+            player1.CurrentScore.Should().Be(96);
+            player2.CurrentScore.Should().Be(97);
+
+            game.Undo();
+
+            player1.CurrentScore.Should().Be(97);
+            player2.CurrentScore.Should().Be(97);
+
+            game.Undo();
+
+            player1.CurrentScore.Should().Be(97);
+            player2.CurrentScore.Should().Be(98);
+
+            game.Undo();
+
+            player1.CurrentScore.Should().Be(97);
+            player2.CurrentScore.Should().Be(99);
+
+            game.Undo();
+
+            player1.CurrentScore.Should().Be(97);
+            player2.CurrentScore.Should().Be(100);
+
+            game.Undo();
+
+            player1.CurrentScore.Should().Be(98);
+            player2.CurrentScore.Should().Be(100);
+
+            game.Undo();
+
+            player1.CurrentScore.Should().Be(99);
+            player2.CurrentScore.Should().Be(100);
+
+            game.Undo();
+
+            player1.CurrentScore.Should().Be(100);
+            player2.CurrentScore.Should().Be(100);
+
+            game.Undo();
+
+            player1.CurrentScore.Should().Be(100);
+            player2.CurrentScore.Should().Be(100);
+
+            game.Redo();
+
+            player1.CurrentScore.Should().Be(99);
+            player2.CurrentScore.Should().Be(100);
+
+            game.Redo();
+
+            player1.CurrentScore.Should().Be(98);
+            player2.CurrentScore.Should().Be(100);
+
+            game.Redo();
+
+            player1.CurrentScore.Should().Be(97);
+            player2.CurrentScore.Should().Be(100);
+
+            game.Redo();
+
+            player1.CurrentScore.Should().Be(97);
+            player2.CurrentScore.Should().Be(99);
+
+            game.Redo();
+
+            player1.CurrentScore.Should().Be(97);
+            player2.CurrentScore.Should().Be(98);
+
+            game.Redo();
+
+            player1.CurrentScore.Should().Be(97);
+            player2.CurrentScore.Should().Be(97);
+
+            game.Redo();
+
+            player1.CurrentScore.Should().Be(96);
+            player2.CurrentScore.Should().Be(97);
+
+            game.Redo();
+
+            player1.CurrentScore.Should().Be(96);
+            player2.CurrentScore.Should().Be(97);
+        }
+
         #endregion Public Methods
     }
 }

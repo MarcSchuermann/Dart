@@ -6,6 +6,7 @@
 
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.Linq;
 using Schuermann.Darts.GameCore.Thrown;
 using Schuermann.Darts.GameCore.UndoRedo.Interfaces;
 using Schuermann.Darts.GameCore.Util;
@@ -62,6 +63,21 @@ namespace Schuermann.Darts.GameCore.Game
         /// <summary>Redoes this instance.</summary>
         public void Redo()
         {
+            // This is the case where non player has already thrown --> Return current player
+            if (!Instance.GameOptions.PlayerList.Any( p => p.DartCountThisRound != 0) && 
+                Instance.GameOptions.PlayerList.Select(p => p.Round).Distinct().Count() == 1 && 
+                Instance.GameOptions.PlayerList.Select(p => p.Round).Distinct().First() == 1)
+            {
+                ((Player)Instance.CurrentPlayer).Redo();
+                return;
+            }
+
+            if (!Instance.GameOptions.PlayerList.Any(p => p.DartCountThisRound != 0))
+            {
+                ((Player)Instance.CurrentPlayer).Redo();
+                return;
+            }
+
             if (Instance.CurrentPlayer.DartCountThisRound == 0)
             {
                 ((Player)Instance.GameOptions.PlayerList.GetPriviousPlayer(Instance.CurrentPlayer)).Redo();
