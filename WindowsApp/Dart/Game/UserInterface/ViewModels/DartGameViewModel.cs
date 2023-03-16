@@ -3,8 +3,12 @@
 //     Copyright (c) Marc Schürmann. All Rights Reserved.
 // </copyright>
 // -----------------------------------------------------------------------
+using System.Collections.Generic;
+using System.Collections.ObjectModel;
+using System.Linq;
 using System.Windows.Input;
 using Dart.Common.Commands;
+using Dart.Game.Interfaces;
 using Schuermann.Darts.GameCore.Game;
 using Schuermann.Darts.GameCore.Thrown;
 
@@ -25,6 +29,8 @@ namespace Dart
             MainWindowViewModel = owner as IMainWindowViewModel;
 
             Game = new GameProcedure(MainWindowViewModel.ConfiguredGameOptions);
+
+            SetPlayers();
         }
 
         #endregion Public Constructors
@@ -51,6 +57,10 @@ namespace Dart
         /// <value>The main window view model.</value>
         public IMainWindowViewModel MainWindowViewModel { get; set; }
 
+        /// <summary>Gets the players.</summary>
+        /// <value>The players.</value>
+        public IEnumerable<IPlayerViewModel> Players { get; private set; }
+
         #endregion Public Properties
 
         #region Public Methods
@@ -59,8 +69,36 @@ namespace Dart
         public void Thrown()
         {
             Game.PlayerThrown(CurrentPointsUnderMouse);
+
+            UpdatePlayers();
+        }
+
+        /// <summary>Updates this instance.</summary>
+        public void UpdatePlayers()
+        {
+            foreach (var player in Players)
+            {
+                var org = Game.Instance.GameOptions.PlayerList.First(x => x.Name.Equals(player.Name));
+                if (org.CurrentScore != player.CurrentScore)
+                    player.CurrentScore = org.CurrentScore;
+            }
         }
 
         #endregion Public Methods
+
+        #region Private Methods
+
+        /// <summary>Sets the players.</summary>
+        private void SetPlayers()
+        {
+            var players = new ObservableCollection<IPlayerViewModel>();
+            foreach (var player in Game.Instance.GameOptions.PlayerList)
+            {
+                players.Add(new PlayerViewModel(player));
+            }
+            Players = players;
+        }
+
+        #endregion Private Methods
     }
 }

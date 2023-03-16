@@ -215,20 +215,23 @@ namespace Dart
         /// <returns>The current game options.</returns>
         private IGameOptions CreateCurrentGameOptions()
         {
-            var container = ServiceContainer.GetContainer();
-            var gameOptions = container.Resolve<IGameOptions>();
+            var players = new List<IPlayer>();
 
             if (CurrentContent is GameOptionsViewModel currentGameOptionsViewModel)
             {
-                gameOptions.StartPoints = Convert.ToInt16(currentGameOptionsViewModel.GameSettings.SelectedStartPoints);
+                var startPoints = Convert.ToUInt16(currentGameOptionsViewModel.GameSettings.SelectedStartPoints);
 
                 foreach (var player in currentGameOptionsViewModel.PlayerlistViewModel.Playerlist)
                 {
-                    gameOptions.PlayerList.Add(new Player() { Name = player.Name, CurrentScore = gameOptions.StartPoints, Round = 0, DartCountThisRound = 0, PointsThisRound = 0 });
+                    players.Add(new Player(player.Name, startPoints));
                 }
+
+                var gameOptions = new GameOptions(players);
+                gameOptions.StartPoints = startPoints;
+                return gameOptions;
             }
 
-            return gameOptions;
+            return null;
         }
 
         /// <summary>Gets the current settings.</summary>

@@ -38,7 +38,7 @@ namespace UnitTests.Game
         public static Mock<IMainWindowViewModel> GetMainWindowViewModelMock()
         {
             var playerList = new List<IPlayer>();
-            var player = new Player() { Name = "Hannes" };
+            var player = new Player("Hannes", 666);
             playerList.Add(player);
 
             return GetMainWindowViewModelMock(playerList);

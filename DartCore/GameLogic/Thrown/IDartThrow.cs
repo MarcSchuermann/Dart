@@ -9,7 +9,7 @@ using System;
 namespace Schuermann.Darts.GameCore.Thrown
 {
     /// <summary>The dart throw.</summary>
-    public interface IDartThrow : IEquatable<IDartThrow>, IComparable<IDartThrow>
+    public interface IDartThrow : IEquatable<IDartThrow>, IComparable<IDartThrow>, ICloneable
     {
         #region Public Properties
 

@@ -22,7 +22,6 @@ namespace Schuermann.Darts.GameCore.Game
         public GameInstance(IGameOptions gameOptions)
         {
             GameOptions = gameOptions;
-            CurrentPlayer = GameOptions.PlayerList.FirstOrDefault();
         }
 
         #endregion Public Constructors
@@ -30,13 +29,19 @@ namespace Schuermann.Darts.GameCore.Game
         #region Public Properties
 
         /// <summary>Gets the current player.</summary>
-        //[JsonConverter(typeof(Player))]
-        public IPlayer CurrentPlayer { get; set; }
+        public IPlayer CurrentPlayer
+        {
+            get
+            {
+                // TODO keep AllPlayTillZero in mind
+                var minRound = GameOptions.PlayerList.Select(x => x.Round).Min();
+                return GameOptions.PlayerList.FirstOrDefault(x => x.Round.Equals(minRound));
+            }
+        }
 
         /// <summary>Gets the game options.</summary>
         /// <value>The game options.</value>
-        //[JsonConverter(typeof(GameOptions))]
-        public IGameOptions GameOptions { get; set; }
+        public IGameOptions GameOptions { get; private set; }
 
         #endregion Public Properties
 
@@ -48,9 +53,7 @@ namespace Schuermann.Darts.GameCore.Game
         /// </summary>
         public void Dispose()
         {
-            // Dispose of unmanaged resources.
             Dispose(true);
-            // Suppress finalization.
             GC.SuppressFinalize(this);
         }
 
@@ -66,14 +69,7 @@ namespace Schuermann.Darts.GameCore.Game
         protected virtual void Dispose(bool disposing)
         {
             if (disposing)
-            {
-                // dispose managed state (managed objects).
                 GameOptions = null;
-                CurrentPlayer = null;
-            }
-
-            // free unmanaged resources (unmanaged objects) and override a finalizer below. set
-            // large fields to null.
         }
 
         #endregion Protected Methods

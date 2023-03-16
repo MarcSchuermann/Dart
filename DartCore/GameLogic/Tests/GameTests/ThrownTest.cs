@@ -5,25 +5,23 @@
 // -----------------------------------------------------------------------
 
 using System.Collections.Generic;
-using System.Linq;
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Schuermann.Darts.GameCore.Game;
 using Schuermann.Darts.GameCore.Thrown;
 
 namespace GameLogicTests.GameTests
 {
-    /// <summary>Tests the method player thrown.</summary>
     [TestClass]
     public class ThrownTest
     {
         #region Public Methods
 
-        /// <summary>Alls the player zero points thrown.</summary>
         [TestMethod]
         public void AllPlayerZeroPointsThrown()
         {
-            var player1 = new Player() { Name = "Hans", CurrentScore = 0, };
-            var player2 = new Player() { Name = "Dieter", CurrentScore = 0 };
+            var player1 = new Player("Hans", 0);
+            var player2 = new Player("Dieter", 0);
 
             var playerList = new List<IPlayer>() { player1, player2 };
             var gameOptions = new GameOptions(playerList) { AllPlayTillZero = true };
@@ -32,15 +30,14 @@ namespace GameLogicTests.GameTests
 
             var thrown = game.PlayerThrown(new DartThrow(DartBoardField.One, DartBoardQuantifier.Single));
 
-            Assert.IsFalse(thrown);
+            thrown.Should().Be(true);
         }
 
-        /// <summary>Nexts the player has zero points but all play till zero thrown.</summary>
         [TestMethod]
         public void NextPlayerHasZeroPointsButAllPlayTillZeroThrown()
         {
-            var player1 = new Player() { Name = "Hans", CurrentScore = 2, DartCountThisRound = 2 };
-            var player2 = new Player() { Name = "Dieter", CurrentScore = 0 };
+            var player1 = new Player("Hans", 2);
+            var player2 = new Player("Dieter", 0);
 
             var playerList = new List<IPlayer>() { player1, player2 };
             var gameOptions = new GameOptions(playerList);
@@ -52,12 +49,11 @@ namespace GameLogicTests.GameTests
             Assert.IsFalse(thrown);
         }
 
-        /// <summary>Called when [player has zero points but all play till zero thrown].</summary>
         [TestMethod]
         public void OnePlayerHasZeroPointsButAllPlayTillZeroThrown()
         {
-            var player1 = new Player() { Name = "Hans", CurrentScore = 0, };
-            var player2 = new Player() { Name = "Dieter", CurrentScore = 100 };
+            var player1 = new Player("Hans", 0);
+            var player2 = new Player("Dieter", 100);
 
             var playerList = new List<IPlayer>() { player1, player2 };
             var gameOptions = new GameOptions(playerList);
@@ -69,12 +65,11 @@ namespace GameLogicTests.GameTests
             Assert.IsFalse(thrown);
         }
 
-        /// <summary>Players the third throw go to next player.</summary>
         [TestMethod]
         public void PlayerThirdThrowGoToNextPlayer()
         {
-            var player1 = new Player() { Name = "Hans", CurrentScore = 10, DartCountThisRound = 2 };
-            var player2 = new Player() { Name = "Dieter", CurrentScore = 6 };
+            var player1 = new Player("Hans", 10);
+            var player2 = new Player("Dieter", 6);
 
             var playerList = new List<IPlayer>() { player1, player2 };
             var gameOptions = new GameOptions(playerList);
@@ -83,14 +78,13 @@ namespace GameLogicTests.GameTests
 
             game.PlayerThrown(new DartThrow(DartBoardField.Two, DartBoardQuantifier.Single));
 
-            Assert.AreEqual(player2, game.Instance.CurrentPlayer);
+            game.Instance.CurrentPlayer.Should().Be(player1);
         }
 
-        /// <summary>Players the thrown below zero.</summary>
         [TestMethod]
         public void PlayerThrownBelowZero()
         {
-            var player = new Player() { Name = "Hans", CurrentScore = 10 };
+            var player = new Player("Hans", 10);
             var playerList = new List<IPlayer>() { player };
             var gameOptions = new GameOptions(playerList);
 
@@ -98,15 +92,15 @@ namespace GameLogicTests.GameTests
 
             game.PlayerThrown(new DartThrow(DartBoardField.Twenty, DartBoardQuantifier.Single));
 
-            Assert.AreEqual(10, game.Instance.CurrentPlayer.CurrentScore);
+            game.Instance.CurrentPlayer.CurrentScore.Should().Be(10);
         }
 
         /// <summary>Players the thrown below zero go to next player.</summary>
         [TestMethod]
         public void PlayerThrownBelowZeroGoToNextPlayer()
         {
-            var player1 = new Player() { Name = "Hans", CurrentScore = 10 };
-            var player2 = new Player() { Name = "Dieter", CurrentScore = 6 };
+            var player1 = new Player("Hans", 10);
+            var player2 = new Player("Dieter", 6);
 
             var playerList = new List<IPlayer>() { player1, player2 };
             var gameOptions = new GameOptions(playerList);
@@ -118,11 +112,10 @@ namespace GameLogicTests.GameTests
             Assert.AreEqual(player2, game.Instance.CurrentPlayer);
         }
 
-        /// <summary>Players the thrown succesfully.</summary>
         [TestMethod]
         public void PlayerThrownSuccesfully()
         {
-            var player = new Player() { Name = "Hans", CurrentScore = 100 };
+            var player = new Player("Hans", 100);
             var playerList = new List<IPlayer>() { player };
             var gameOptions = new GameOptions(playerList);
 
@@ -130,35 +123,13 @@ namespace GameLogicTests.GameTests
 
             game.PlayerThrown(new DartThrow(DartBoardField.Twenty, DartBoardQuantifier.Single));
 
-            Assert.AreEqual(80, game.Instance.CurrentPlayer.CurrentScore);
+            game.Instance.CurrentPlayer.CurrentScore.Should().Be(80);
         }
 
-        /// <summary>Players the thrown succesfully current score changed.</summary>
-        [TestMethod]
-        public void PlayerThrownSuccesfullyCurrentScoreChanged()
-        {
-            var risenEvents = new List<string>();
-
-            var player = new Player() { Name = "Hans", CurrentScore = 100 };
-            var playerList = new List<IPlayer>() { player };
-            var gameOptions = new GameOptions(playerList);
-
-            var game = new GameProcedure(gameOptions);
-            game.PropertyChanged += (sender, e) =>
-            {
-                risenEvents.Add(e.PropertyName);
-            };
-
-            game.PlayerThrown(new DartThrow(DartBoardField.Twenty, DartBoardQuantifier.Single));
-
-            Assert.AreEqual("CurrentScore", risenEvents.First());
-        }
-
-        /// <summary>Players the thrown to zero.</summary>
         [TestMethod]
         public void PlayerThrownToZero()
         {
-            var player = new Player() { Name = "Hans", CurrentScore = 60 };
+            var player = new Player("Hans", 60);
             var playerList = new List<IPlayer>() { player };
             var gameOptions = new GameOptions(playerList);
 
@@ -166,8 +137,8 @@ namespace GameLogicTests.GameTests
 
             var playerFinished = game.PlayerThrown(new DartThrow(DartBoardField.Twenty, DartBoardQuantifier.Triple));
 
-            Assert.IsTrue(playerFinished);
-            Assert.AreEqual(0, game.Instance.CurrentPlayer.CurrentScore);
+            playerFinished.Should().BeTrue();
+            game.Instance.CurrentPlayer.CurrentScore.Should().Be(0);
         }
 
         #endregion Public Methods

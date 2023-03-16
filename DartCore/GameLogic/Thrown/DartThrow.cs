@@ -122,6 +122,15 @@ namespace Schuermann.Darts.GameCore.Thrown
             return left.Points >= right.Points;
         }
 
+        /// <summary>Creates a new object that is a copy of the current instance.</summary>
+        /// <returns>A new object that is a copy of this instance.</returns>
+        public object Clone()
+        {
+            var field = (DartBoardField)(int)DartBoardField;
+            var quantifier = (DartBoardQuantifier)(int)DartBoardQuantifier;
+            return new DartThrow(field, quantifier);
+        }
+
         /// <summary>Compares to.</summary>
         /// <param name="other">The other.</param>
         /// <returns>The compare value.</returns>

@@ -38,7 +38,7 @@
             <summary>The options for a dart game.</summary>
             <seealso cref="T:Schuermann.Darts.GameCore.Game.IGameOptions" />
         </member>
-        <member name="M:Schuermann.Darts.GameCore.Game.GameOptions.#ctor(System.Collections.Generic.IList{Schuermann.Darts.GameCore.Game.IPlayer})">
+        <member name="M:Schuermann.Darts.GameCore.Game.GameOptions.#ctor(System.Collections.Generic.IEnumerable{Schuermann.Darts.GameCore.Game.IPlayer})">
             <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.GameCore.Game.GameOptions" /> class.</summary>
             <param name="playerList">The player list.</param>
         </member>
@@ -73,17 +73,9 @@
             </summary>
             <param name="gameOptions">The game options.</param>
         </member>
-        <member name="E:Schuermann.Darts.GameCore.Game.GameProcedure.PropertyChanged">
-            <summary>Occurs when a property value changes.</summary>
-            <returns></returns>
-        </member>
         <member name="P:Schuermann.Darts.GameCore.Game.GameProcedure.Instance">
-            <summary>
-            Gets the instance.
-            </summary>
-            <value>
-            The instance.
-            </value>
+            <summary>Gets the instance.</summary>
+            <value>The instance.</value>
         </member>
         <member name="M:Schuermann.Darts.GameCore.Game.GameProcedure.PlayerThrown(Schuermann.Darts.GameCore.Thrown.IDartThrow)">
             <summary>Players the thrown.</summary>
@@ -93,20 +85,11 @@
                zero or rather where below zero.
             </returns>
         </member>
-        <member name="M:Schuermann.Darts.GameCore.Game.GameProcedure.AllPointsAreZero">
-            <summary>All the points are zero.</summary>
-            <returns>True if all players points are zero.</returns>
+        <member name="M:Schuermann.Darts.GameCore.Game.GameProcedure.Redo">
+            <summary>Redoes this instance.</summary>
         </member>
-        <member name="M:Schuermann.Darts.GameCore.Game.GameProcedure.AtLeastOnePlayersPointsAreZero">
-            <summary>At least one players points are zero.</summary>
-            <returns>True or false..</returns>
-        </member>
-        <member name="M:Schuermann.Darts.GameCore.Game.GameProcedure.GoToNextPlayer">
-            <summary>Goes to next player.</summary>
-        </member>
-        <member name="M:Schuermann.Darts.GameCore.Game.GameProcedure.RaisePropertyChanged(System.String)">
-            <summary>Raises the property changed.</summary>
-            <param name="propertyName">Name of the property.</param>
+        <member name="M:Schuermann.Darts.GameCore.Game.GameProcedure.Undo">
+            <summary>Undoes this instance.</summary>
         </member>
         <member name="T:Schuermann.Darts.GameCore.Game.IGameInstance">
             <summary>The instance of a game.</summary>
@@ -180,22 +163,31 @@
             <summary>Gets or sets the round.</summary>
             <value>The round.</value>
         </member>
+        <member name="P:Schuermann.Darts.GameCore.Game.IPlayer.StartPoints">
+            <summary>Gets the start points.</summary>
+            <value>The start points.</value>
+        </member>
         <member name="P:Schuermann.Darts.GameCore.Game.IPlayer.ThrowHistory">
             <summary>Gets or sets the throw history.</summary>
             <value>The throw history.</value>
         </member>
+        <member name="M:Schuermann.Darts.GameCore.Game.IPlayer.Thrown(Schuermann.Darts.GameCore.Thrown.IDartThrow)">
+            <summary>Throws the specified dart throw.</summary>
+            <param name="dartThrow">The dart throw.</param>
+        </member>
         <member name="T:Schuermann.Darts.GameCore.Game.Player">
             <summary>The Player.</summary>
         </member>
-        <member name="F:Schuermann.Darts.GameCore.Game.Player.currentScore">
-            <summary>The current score.</summary>
-        </member>
-        <member name="M:Schuermann.Darts.GameCore.Game.Player.#ctor">
+        <member name="M:Schuermann.Darts.GameCore.Game.Player.#ctor(System.String,System.UInt32)">
             <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.GameCore.Game.Player" /> class.</summary>
+            <param name="name">The name.</param>
+            <param name="startPoints"></param>
         </member>
-        <member name="E:Schuermann.Darts.GameCore.Game.Player.PropertyChanged">
-            <summary>Occurs when a property value changes.</summary>
-            <returns></returns>
+        <member name="M:Schuermann.Darts.GameCore.Game.Player.#ctor(System.String,System.UInt32,System.Collections.Generic.IList{Schuermann.Darts.GameCore.Thrown.IDartThrow})">
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.GameCore.Game.Player" /> class.</summary>
+            <param name="name">The name.</param>
+            <param name="startPoints">The start points.</param>
+            <param name="throwHistory">The throw history.</param>
         </member>
         <member name="P:Schuermann.Darts.GameCore.Game.Player.CurrentScore">
             <summary>Gets or sets the current score.</summary>
@@ -217,17 +209,69 @@
             <summary>Gets or sets the round.</summary>
             <value>The round.</value>
         </member>
+        <member name="P:Schuermann.Darts.GameCore.Game.Player.StartPoints">
+            <summary>Gets the start points.</summary>
+            <value>The start points.</value>
+        </member>
         <member name="P:Schuermann.Darts.GameCore.Game.Player.ThrowHistory">
             <summary>Gets or sets the throw history.</summary>
             <value>The throw history.</value>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.Game.Player.RedoStack">
+            <summary>Gets the redo stack.</summary>
+            <value>The redo stack.</value>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.Game.Player.UndoStack">
+            <summary>Gets the undo stack.</summary>
+            <value>The undo stack.</value>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Game.Player.Clone">
+            <summary>Creates a new object that is a copy of the current instance.</summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Game.Player.Equals(Schuermann.Darts.GameCore.Game.IPlayer)">
+            <summary>
+               Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>
+               <see langword="true" /> if the current object is equal to the <paramref name="other"
+               /> parameter; otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Game.Player.Equals(System.Object)">
+            <summary>
+               Determines whether the specified <see cref="T:System.Object" />, is equal to this
+               instance.
+            </summary>
+            <param name="obj">
+               The <see cref="T:System.Object" /> to compare with this instance.
+            </param>
+            <returns>
+               <c>true</c> if the specified <see cref="T:System.Object" /> is equal to this instance;
+               otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Game.Player.GetHashCode">
+            <summary>Returns a hash code for this instance.</summary>
+            <returns>
+               A hash code for this instance, suitable for use in hashing algorithms and data
+               structures like a hash table.
+            </returns>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Game.Player.Redo">
+            <summary>Redoes this instance.</summary>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Game.Player.Thrown(Schuermann.Darts.GameCore.Thrown.IDartThrow)">
+            <summary>Throws the specified dart throw.</summary>
+            <param name="dartThrow">The dart throw.</param>
         </member>
         <member name="M:Schuermann.Darts.GameCore.Game.Player.ToString">
             <summary>Returns a <see cref="T:System.String" /> that represents this instance.</summary>
             <returns>A <see cref="T:System.String" /> that represents this instance.</returns>
         </member>
-        <member name="M:Schuermann.Darts.GameCore.Game.Player.RaisePropertyChanged(System.String)">
-            <summary>Raises the property changed.</summary>
-            <param name="propertyName">Name of the property.</param>
+        <member name="M:Schuermann.Darts.GameCore.Game.Player.Undo">
+            <summary>Undoes this instance.</summary>
         </member>
         <member name="T:Schuermann.Darts.GameCore.Save.IPersist">
             <summary>Saves or loads the game.</summary>
@@ -254,6 +298,55 @@
             <summary>Saves the specified instance.</summary>
             <param name="instance">The instance.</param>
             <returns></returns>
+        </member>
+        <member name="T:Schuermann.Darts.GameCore.Save.PersistObjects.GameInstancePersister">
+            <summary>Persists the game instance.</summary>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.GameInstancePersister.GameOption">
+            <summary>Gets or sets the game option.</summary>
+            <value>The game option.</value>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.GameInstancePersister.CurrentPlayer">
+            <summary>Gets or sets the player.</summary>
+            <value>The player.</value>
+        </member>
+        <member name="T:Schuermann.Darts.GameCore.Save.PersistObjects.GameOptionPersister">
+            <summary>Persist the game option.</summary>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.GameOptionPersister.AllPlayTillZero">
+            <summary>Gets or sets a value indicating whether [all play till zero].</summary>
+            <value><c>true</c> if [all play till zero]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.GameOptionPersister.DoubleIn">
+            <summary>Gets or sets a value indicating whether [double in].</summary>
+            <value><c>true</c> if [double in]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.GameOptionPersister.DoubleOut">
+            <summary>Gets or sets a value indicating whether [double out].</summary>
+            <value><c>true</c> if [double out]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.GameOptionPersister.PlayerList">
+            <summary>Gets or sets the player list.</summary>
+            <value>The player list.</value>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.GameOptionPersister.StartPoints">
+            <summary>Gets or sets the start points.</summary>
+            <value>The start points.</value>
+        </member>
+        <member name="T:Schuermann.Darts.GameCore.Save.PersistObjects.PlayerPersister">
+            <summary>Persist the plyer istance.</summary>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.PlayerPersister.Name">
+            <summary>Gets or sets the name.</summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.PlayerPersister.StartPoints">
+            <summary>Gets or sets the start points.</summary>
+            <value>The start points.</value>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.PlayerPersister.ThrowHistory">
+            <summary>Gets or sets the throw history.</summary>
+            <value>The throw history.</value>
         </member>
         <member name="T:Schuermann.Darts.GameCore.Thrown.DartBoardField">
             <summary>The dart board fields.</summary>
@@ -393,6 +486,10 @@
             <param name="right">The right.</param>
             <returns>The result of the operator.</returns>
         </member>
+        <member name="M:Schuermann.Darts.GameCore.Thrown.DartThrow.Clone">
+            <summary>Creates a new object that is a copy of the current instance.</summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
         <member name="M:Schuermann.Darts.GameCore.Thrown.DartThrow.CompareTo(Schuermann.Darts.GameCore.Thrown.IDartThrow)">
             <summary>Compares to.</summary>
             <param name="other">The other.</param>
@@ -443,6 +540,21 @@
         <member name="P:Schuermann.Darts.GameCore.Thrown.IDartThrow.Points">
             <summary>Gets the points.</summary>
             <value>The points.</value>
+        </member>
+        <member name="T:Schuermann.Darts.GameCore.UndoRedo.Interfaces.IUndoRedo">
+            <summary>The undo and redo action.</summary>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.UndoRedo.Interfaces.IUndoRedo.Redo">
+            <summary>Redoes this instance.</summary>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.UndoRedo.Interfaces.IUndoRedo.Undo">
+            <summary>Undoes this instance.</summary>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Util.PlayerlistUtils.GetPriviousPlayer(System.Collections.Generic.IEnumerable{Schuermann.Darts.GameCore.Game.IPlayer},Schuermann.Darts.GameCore.Game.IPlayer)">
+            <summary>Gets the privious player.</summary>
+            <param name="players">The players.</param>
+            <param name="player">The player.</param>
+            <returns></returns>
         </member>
     </members>
 </doc>

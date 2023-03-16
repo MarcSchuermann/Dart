@@ -19,10 +19,7 @@ namespace GameLogicTests.PlayerTests
         [TestMethod]
         public void ToStringReturnsName()
         {
-            var player = new Player
-            {
-                Name = "Willy"
-            };
+            var player = new Player("Willy", 301);
 
             Assert.AreEqual("Willy", player.ToString());
         }

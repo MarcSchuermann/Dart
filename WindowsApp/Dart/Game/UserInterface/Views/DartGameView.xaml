@@ -15,7 +15,7 @@
             </Grid>
         </Button>
 
-        <ListView Grid.Column="1" ItemsSource="{Binding MainWindowViewModel.ConfiguredGameOptions.PlayerList}" Width="402">
+        <ListView Grid.Column="1" ItemsSource="{Binding Players}" Width="402" >
             <ListView.View>
                 <GridView>
                     <GridViewColumn Header="Name" DisplayMemberBinding="{Binding Name}" Width="300" />

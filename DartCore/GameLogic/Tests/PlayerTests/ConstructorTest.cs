@@ -4,7 +4,9 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System;
 using System.Collections.Generic;
+using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Schuermann.Darts.GameCore.Game;
 using Schuermann.Darts.GameCore.Thrown;
@@ -22,13 +24,13 @@ namespace GameLogicTests.PlayerTests
         public void InitializationIsCorrect()
         {
             var throwHistory = new List<IDartThrow> { new DartThrow(DartBoardField.One, DartBoardQuantifier.Single), new DartThrow(DartBoardField.Two, DartBoardQuantifier.Single), new DartThrow(DartBoardField.Three, DartBoardQuantifier.Single) };
-            var player = new Player() { CurrentScore = 666, DartCountThisRound = 69, Name = "Hans", PointsThisRound = 26, Round = 123, ThrowHistory = throwHistory };
+            var player = new Player("Hans", 666) { ThrowHistory = throwHistory };
 
-            Assert.AreEqual(666, player.CurrentScore);
-            Assert.AreEqual(69, player.DartCountThisRound);
+            player.CurrentScore.Should().Be(660);
+            Assert.AreEqual(0, player.DartCountThisRound);
             Assert.AreEqual("Hans", player.Name);
-            Assert.AreEqual(26, player.PointsThisRound);
-            Assert.AreEqual(123, player.Round);
+            Assert.AreEqual(0, player.PointsThisRound);
+            Assert.AreEqual(2, player.Round);
             Assert.AreEqual(throwHistory, player.ThrowHistory);
         }
 

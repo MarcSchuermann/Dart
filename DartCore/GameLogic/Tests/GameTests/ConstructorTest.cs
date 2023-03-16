@@ -20,7 +20,7 @@ namespace GameLogicTests.GameTests
         [TestMethod]
         public void InitializedCorrect()
         {
-            var player = new Player() { Name = "Hans" };
+            var player = new Player("Hans", 301);
             var playerList = new List<IPlayer>() { player };
             var gameOptions = new GameOptions(playerList);
 

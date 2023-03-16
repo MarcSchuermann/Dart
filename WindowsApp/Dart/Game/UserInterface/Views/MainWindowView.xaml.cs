@@ -125,12 +125,14 @@ namespace Dart
 
         private void MainWindowView_KeyDown(object sender, KeyEventArgs e)
         {
-            if ((Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl)) && Keyboard.IsKeyDown(Key.S))
+            // Safe
+            if (IsCtrlPressed() && Keyboard.IsKeyDown(Key.S))
             {
-                ((MainWindowViewModel)DataContext).ShowSaveDialog();
+                ((MainWindowViewModel)DataContext)?.ShowSaveDialog();
             }
 
-            if ((Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl)) && Keyboard.IsKeyDown(Key.L))
+            // Load
+            if (IsCtrlPressed() && Keyboard.IsKeyDown(Key.L))
             {
                 var loadedMainWindowViewModel = ((MainWindowViewModel)DataContext).ShowLoadDialog();
 
@@ -140,6 +142,44 @@ namespace Dart
                     HamburgerMenuControl.Content = loadedMainWindowViewModel.CurrentContent;
                 }
             }
+
+            // Undo
+            if (IsCtrlPressed() && Keyboard.IsKeyDown(Key.Z) && !IsShiftPressed())
+            {
+                if (DataContext is MainWindowViewModel mainWindowViewModel)
+                {
+                    if (mainWindowViewModel.CurrentContent is DartGameViewModel dartGameViewModel)
+                    {
+                        dartGameViewModel.Game.Undo();
+                        dartGameViewModel.UpdatePlayers();
+                    }
+                }
+            }
+
+            // Redo
+            if (IsCtrlPressed() && Keyboard.IsKeyDown(Key.Z) && IsShiftPressed())
+            {
+                if (DataContext is MainWindowViewModel mainWindowViewModel)
+                {
+                    if (mainWindowViewModel.CurrentContent is DartGameViewModel dartGameViewModel)
+                    {
+                        dartGameViewModel.Game.Redo();
+                        dartGameViewModel.UpdatePlayers();
+                    }
+                }
+            }
+
+            InvalidateVisual();
+        }
+
+        private static bool IsShiftPressed()
+        {
+            return Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift);
+        }
+
+        private static bool IsCtrlPressed()
+        {
+            return (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl));
         }
 
         private void MainWindowViewModel_GameStarted(object sender, EventArgs e)
