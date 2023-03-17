@@ -16,7 +16,7 @@ namespace Dart
         /// </summary>
         public GameSettingsViewModel()
         {
-            SelectedPlayerCount = SelectablePlayerCount.First().ToString();
+            SelectedPlayerCount = "1";
             SelectedStartPoints = SelectableStartPoints.First().ToString();
         }
         #region Private Fields
@@ -28,10 +28,6 @@ namespace Dart
         #endregion Private Fields
 
         #region Public Properties
-
-        /// <summary>Gets the selectable player count.</summary>
-        /// <value>The selectable player count.</value>
-        public static IList<int> SelectablePlayerCount => new List<int> { 1, 2, 3, 4, 5, 6, 7, 8 };
 
         /// <summary>Gets the selectable start points.</summary>
         /// <value>The selectable start points.</value>

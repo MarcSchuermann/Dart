@@ -27,7 +27,6 @@ namespace UnitTests.Game.UserInterface.ViewModels.GameSettingsViewModelTests
             var gameSettingsViewModel = new GameSettingsViewModel();
 
             Assert.IsTrue(new List<int> { 301, 501, 701 }.SequenceEqual(GameSettingsViewModel.SelectableStartPoints));
-            Assert.IsTrue(new List<int> { 1, 2, 3, 4, 5, 6, 7, 8 }.SequenceEqual(GameSettingsViewModel.SelectablePlayerCount));
             Assert.IsTrue(new Dictionary<CultureInfo, string> { { new CultureInfo("de-DE"), "Deutsch" }, { new CultureInfo("en-US"), "English" } }.SequenceEqual(gameSettingsViewModel.AvailableLanguages));
             gameSettingsViewModel.SelectedPlayerCount.Should().Be("1");
             gameSettingsViewModel.SelectedStartPoints.Should().Be("301");
