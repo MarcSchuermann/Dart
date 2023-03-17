@@ -23,10 +23,6 @@ namespace Schuermann.Darts.GameCore.Game
 
         #region Public Properties
 
-        /// <summary>Gets or sets a value indicating whether [all play till zero].</summary>
-        /// <value><c>true</c> if [all play till zero]; otherwise, <c>false</c>.</value>
-        public bool AllPlayTillZero { get; set; }
-
         /// <summary>Gets or sets a value indicating whether [double in].</summary>
         /// <value><c>true</c> if [double in]; otherwise, <c>false</c>.</value>
         public bool DoubleIn { get; set; }
