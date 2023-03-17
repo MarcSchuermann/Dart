@@ -153,6 +153,42 @@ namespace Dart.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to DoubleIn active.
+        /// </summary>
+        public static string DoubleInActive {
+            get {
+                return ResourceManager.GetString("DoubleInActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DoubleIn deactive.
+        /// </summary>
+        public static string DoubleInDeactive {
+            get {
+                return ResourceManager.GetString("DoubleInDeactive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DoubleOut active.
+        /// </summary>
+        public static string DoubleOutActive {
+            get {
+                return ResourceManager.GetString("DoubleOutActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DoubleOut deactive.
+        /// </summary>
+        public static string DoubleOutDeactive {
+            get {
+                return ResourceManager.GetString("DoubleOutDeactive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to English.
         /// </summary>
         public static string English {

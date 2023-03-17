@@ -141,6 +141,18 @@
   <data name="Dart" xml:space="preserve">
     <value>Dart</value>
   </data>
+  <data name="DoubleInActiv" xml:space="preserve">
+    <value>DoubleIn aktiv</value>
+  </data>
+  <data name="DoubleInDeactive" xml:space="preserve">
+    <value>DoubleIn deaktiv</value>
+  </data>
+  <data name="DoubleOut deactive" xml:space="preserve">
+    <value>DoubleOut deaktiv</value>
+  </data>
+  <data name="DoubleOutActive" xml:space="preserve">
+    <value>DoubleOut aktiv</value>
+  </data>
   <data name="English" xml:space="preserve">
     <value>Englisch</value>
   </data>

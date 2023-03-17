@@ -723,20 +723,28 @@
             <summary>Gets or sets the current application settings.</summary>
             <value>The current application settings.</value>
         </member>
-        <member name="T:Dart.IMainWindowViewModel">
-            <summary>The main window view model interface.</summary>
-            <seealso cref="T:Dart.IViewModelBase" />
+        <member name="T:Dart.Game.Interfaces.IGameSettingsViewModel">
+            <summary>The game settings view model.</summary>
         </member>
-        <member name="E:Dart.IMainWindowViewModel.GameStarted">
-            <summary>Occurs when [game started].</summary>
+        <member name="P:Dart.Game.Interfaces.IGameSettingsViewModel.SelectableStartPoints">
+            <summary>Gets the selectable start points.</summary>
+            <value>The selectable start points.</value>
         </member>
-        <member name="P:Dart.IMainWindowViewModel.ConfiguredGameOptions">
-            <summary>Gets or sets the configured game options.</summary>
-            <value>The configured game options.</value>
+        <member name="P:Dart.Game.Interfaces.IGameSettingsViewModel.DoubleIn">
+            <summary>Gets or sets a value indicating whether [double in].</summary>
+            <value><c>true</c> if [double in]; otherwise, <c>false</c>.</value>
         </member>
-        <member name="P:Dart.IMainWindowViewModel.SettingsViewModel">
-            <summary>Gets the settings view model.</summary>
-            <value>The settings view model.</value>
+        <member name="P:Dart.Game.Interfaces.IGameSettingsViewModel.DoubleOut">
+            <summary>Gets or sets a value indicating whether [double out].</summary>
+            <value><c>true</c> if [double out]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Dart.Game.Interfaces.IGameSettingsViewModel.SelectedPlayerCount">
+            <summary>Gets or sets the selected player count.</summary>
+            <value>The selected player count.</value>
+        </member>
+        <member name="P:Dart.Game.Interfaces.IGameSettingsViewModel.SelectedStartPoints">
+            <summary>Gets or sets the selected start points.</summary>
+            <value>The selected start points.</value>
         </member>
         <member name="T:Dart.Game.Interfaces.IPlayerViewModel">
             <summary>The view model for a player.</summary>
@@ -867,6 +875,21 @@
             InitializeComponent
             </summary>
         </member>
+        <member name="T:Dart.IMainWindowViewModel">
+            <summary>The main window view model interface.</summary>
+            <seealso cref="T:Dart.IViewModelBase" />
+        </member>
+        <member name="E:Dart.IMainWindowViewModel.GameStarted">
+            <summary>Occurs when [game started].</summary>
+        </member>
+        <member name="P:Dart.IMainWindowViewModel.ConfiguredGameOptions">
+            <summary>Gets or sets the configured game options.</summary>
+            <value>The configured game options.</value>
+        </member>
+        <member name="P:Dart.IMainWindowViewModel.SettingsViewModel">
+            <summary>Gets the settings view model.</summary>
+            <value>The settings view model.</value>
+        </member>
         <member name="T:Dart.DartGameViewModel">
             <summary>The DartGameViewModel.</summary>
             <seealso cref="T:Dart.ViewModelBase" />
@@ -935,12 +958,20 @@
         </member>
         <member name="M:Dart.GameSettingsViewModel.#ctor">
             <summary>
-            Initializes a new instance of the <see cref="T:Dart.GameSettingsViewModel"/> class.
+               Initializes a new instance of the <see cref="T:Dart.GameSettingsViewModel" /> class.
             </summary>
         </member>
         <member name="P:Dart.GameSettingsViewModel.SelectableStartPoints">
             <summary>Gets the selectable start points.</summary>
             <value>The selectable start points.</value>
+        </member>
+        <member name="P:Dart.GameSettingsViewModel.DoubleIn">
+            <summary>Gets or sets a value indicating whether [double in].</summary>
+            <value><c>true</c> if [double in]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Dart.GameSettingsViewModel.DoubleOut">
+            <summary>Gets or sets a value indicating whether [double out].</summary>
+            <value><c>true</c> if [double out]; otherwise, <c>false</c>.</value>
         </member>
         <member name="P:Dart.GameSettingsViewModel.SelectedPlayerCount">
             <summary>Gets or sets the selected player count.</summary>
@@ -1159,6 +1190,26 @@
         <member name="P:Dart.Properties.Resources.darts_splashscreen">
             <summary>
               Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:Dart.Properties.Resources.DoubleInActive">
+            <summary>
+              Looks up a localized string similar to DoubleIn active.
+            </summary>
+        </member>
+        <member name="P:Dart.Properties.Resources.DoubleInDeactive">
+            <summary>
+              Looks up a localized string similar to DoubleIn deactive.
+            </summary>
+        </member>
+        <member name="P:Dart.Properties.Resources.DoubleOutActive">
+            <summary>
+              Looks up a localized string similar to DoubleOut active.
+            </summary>
+        </member>
+        <member name="P:Dart.Properties.Resources.DoubleOutDeactive">
+            <summary>
+              Looks up a localized string similar to DoubleOut deactive.
             </summary>
         </member>
         <member name="P:Dart.Properties.Resources.English">
@@ -1467,6 +1518,36 @@
         <member name="M:Game.App.Main">
             <summary>
             Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
             </summary>
         </member>
     </members>
