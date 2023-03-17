@@ -938,10 +938,6 @@
             Initializes a new instance of the <see cref="T:Dart.GameSettingsViewModel"/> class.
             </summary>
         </member>
-        <member name="P:Dart.GameSettingsViewModel.SelectablePlayerCount">
-            <summary>Gets the selectable player count.</summary>
-            <value>The selectable player count.</value>
-        </member>
         <member name="P:Dart.GameSettingsViewModel.SelectableStartPoints">
             <summary>Gets the selectable start points.</summary>
             <value>The selectable start points.</value>
@@ -1130,11 +1126,6 @@
               Looks up a localized string similar to Should changes acceped?.
             </summary>
         </member>
-        <member name="P:Dart.Properties.Resources.AllPlayTillZero">
-            <summary>
-              Looks up a localized string similar to All player play till 0?.
-            </summary>
-        </member>
         <member name="P:Dart.Properties.Resources.Cancel">
             <summary>
               Looks up a localized string similar to Cancel.
@@ -1298,10 +1289,6 @@
         <member name="T:Dart.Settings.ApplicationSettings">
             <summary>The ApplicationSettings.</summary>
         </member>
-        <member name="P:Dart.Settings.ApplicationSettings.AllPlayTillZero">
-            <summary>Gets or sets a value indicating whether [all play till zero].</summary>
-            <value><c>true</c> if [all play till zero]; otherwise, <c>false</c>.</value>
-        </member>
         <member name="P:Dart.Settings.ApplicationSettings.CurrentTheme">
             <summary>Gets or sets the current theme.</summary>
             <value>The current theme.</value>
@@ -1342,10 +1329,6 @@
         </member>
         <member name="T:Dart.Settings.Interfaces.IApplicationSettings">
             <summary>The application settings interface.</summary>
-        </member>
-        <member name="P:Dart.Settings.Interfaces.IApplicationSettings.AllPlayTillZero">
-            <summary>Gets or sets a value indicating whether [all play till zero].</summary>
-            <value><c>true</c> if [all play till zero]; otherwise, <c>false</c>.</value>
         </member>
         <member name="P:Dart.Settings.Interfaces.IApplicationSettings.CurrentTheme">
             <summary>Gets or sets the current theme.</summary>
@@ -1401,10 +1384,6 @@
         <member name="P:Dart.ApplicationSettingsViewModel.Label">
             <summary>Gets the label.</summary>
             <value>The label.</value>
-        </member>
-        <member name="P:Dart.ApplicationSettingsViewModel.AllPlayTillZero">
-            <summary>Gets or sets a value indicating whether [all play till zero].</summary>
-            <value><c>true</c> if [all play till zero]; otherwise, <c>false</c>.</value>
         </member>
         <member name="P:Dart.ApplicationSettingsViewModel.AllThemes">
             <summary>Gets all themes.</summary>
@@ -1488,36 +1467,6 @@
         <member name="M:Game.App.Main">
             <summary>
             Application Entry Point.
-            </summary>
-        </member>
-        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
-            <summary>
-            GeneratedInternalTypeHelper
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
-            <summary>
-            CreateInstance
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            GetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            SetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
-            <summary>
-            CreateDelegate
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
-            <summary>
-            AddEventHandler
             </summary>
         </member>
     </members>

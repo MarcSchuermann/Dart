@@ -126,9 +126,6 @@
   <data name="AcceptChangesInfo" xml:space="preserve">
     <value>Sollen die Änderungen übernommen werden?</value>
   </data>
-  <data name="AllPlayTillZero" xml:space="preserve">
-    <value>Alle Spieler spielen bis 0?</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Abbrechen</value>
   </data>

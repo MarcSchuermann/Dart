@@ -8,7 +8,6 @@
         <TabControl VerticalAlignment="Stretch">
             <TabItem Header="{x:Static properies:Resources.GlobalGameSettings}">
                 <StackPanel>
-                    <CheckBox IsChecked="{Binding AllPlayTillZero}" Content="{x:Static properies:Resources.AllPlayTillZero}" Margin="2,2,0,2" />
                     <CheckBox IsChecked="{Binding ShowUserInterfaceDartBoardData}" Content="{x:Static properies:Resources.ShowUserInterfaceDartBoardData}" Margin="2,2,0,2" />
                 </StackPanel>
             </TabItem>

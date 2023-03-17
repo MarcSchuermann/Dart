@@ -13,7 +13,6 @@
             <RowDefinition Height="30" />
             <RowDefinition Height="40" />
             <RowDefinition Height="40" />
-            <RowDefinition Height="40" />
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static properies:Resources.Playercount}" Margin="5,5,5,5" />
@@ -24,6 +23,5 @@
 
         <mah:ToggleSwitch Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" OffContent="DoubleIn deactiv" OnContent="DoubleIn activ" Margin="20,5,5,5" />
         <mah:ToggleSwitch Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" OffContent="DoubleOut deactiv" OnContent="DoubleOut activ" Margin="20,5,5,5" />
-        <mah:ToggleSwitch Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" OffContent="Ende nach Sieger" OnContent="Alle spielen bis 0 Punkte" Margin="20,5,5,5" />
     </Grid>
 </UserControl>

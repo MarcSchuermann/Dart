@@ -75,17 +75,6 @@ namespace Dart
         /// <value>The label.</value>
         public static string Label => Properties.Resources.Settings;
 
-        /// <summary>Gets or sets a value indicating whether [all play till zero].</summary>
-        /// <value><c>true</c> if [all play till zero]; otherwise, <c>false</c>.</value>
-        public bool AllPlayTillZero
-        {
-            get => CurrentApplicationSettings.AllPlayTillZero;
-            set
-            {
-                CurrentApplicationSettings.AllPlayTillZero = value;
-            }
-        }
-
         /// <summary>Gets all themes.</summary>
         /// <value>All themes.</value>
         public IEnumerable<INamedTheme> AllThemes
@@ -201,7 +190,6 @@ namespace Dart
         {
             Properties.Settings.Default.ShowUserInterfaceDartBoardData = applicationSettings.ShowUserInterfaceDartBoardData;
             Properties.Settings.Default.CurrentCulture = applicationSettings.SelectedCultureInfo;
-            Properties.Settings.Default.AllPlayTillZero = applicationSettings.AllPlayTillZero;
 
             Properties.Settings.Default.BaseColorScheme = CurrentTheme.OriginalTheme.BaseColorScheme;
             Properties.Settings.Default.ColorScheme = CurrentTheme.OriginalTheme.ColorScheme;

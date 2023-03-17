@@ -242,7 +242,6 @@ namespace Dart
             var applicationSettings = container.Resolve<IApplicationSettings>();
             applicationSettings.ShowUserInterfaceDartBoardData = Properties.Settings.Default.ShowUserInterfaceDartBoardData;
             applicationSettings.SelectedCultureInfo = Properties.Settings.Default.CurrentCulture;
-            applicationSettings.AllPlayTillZero = Properties.Settings.Default.AllPlayTillZero;
             applicationSettings.CurrentTheme = GetCurrentTheme();
             return applicationSettings;
         }

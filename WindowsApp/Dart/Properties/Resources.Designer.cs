@@ -88,15 +88,6 @@ namespace Dart.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to All player play till 0?.
-        /// </summary>
-        public static string AllPlayTillZero {
-            get {
-                return ResourceManager.GetString("AllPlayTillZero", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string Cancel {
