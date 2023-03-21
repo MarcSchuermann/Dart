@@ -1,6 +1,8 @@
-﻿// <copyright file="GameOptions.cs" company="Marc Schürmann">
+﻿// -----------------------------------------------------------------------
+// <copyright file="GameOptions.cs" company="Marc Schürmann">
 //     Copyright (c) Marc Schürmann. All Rights Reserved.
 // </copyright>
+// -----------------------------------------------------------------------
 
 using System.Collections.Generic;
 
