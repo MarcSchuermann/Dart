@@ -64,39 +64,7 @@ namespace Schuermann.Darts.GameCore.Game
 
         /// <summary>Gets or sets the current score.</summary>
         /// <value>The current score.</value>
-        public uint CurrentScore
-        {
-            get
-            {
-                var hasThownDoubleField = false;
-                var currentScore = StartPoints;
-                foreach (var thrown in ThrowHistory)
-                {
-                    // Haendle doubleIn
-                    if (!hasThownDoubleField && thrown.DartBoardQuantifier == DartBoardQuantifier.Double)
-                        hasThownDoubleField = true;
-
-                    if (doubleIn && !hasThownDoubleField)
-                        continue;
-
-                    // Haendle doubleOut
-                    if (doubleOut)
-                    {
-                        if (currentScore - thrown.Points < 0 || currentScore - thrown.Points == 1)
-                            continue;
-
-                        if (currentScore - thrown.Points == 0 && thrown.DartBoardQuantifier != DartBoardQuantifier.Double)
-                            continue;
-                    }
-
-                    // Only calculate new points when throw result would be 0 or greater
-                    if (currentScore >= (uint)thrown.Points)
-                        currentScore -= (uint)thrown.Points;
-                }
-
-                return currentScore;
-            }
-        }
+        public uint CurrentScore => CalculateRoundAndDartCount().Item3;
 
         /// <summary>Gets or sets the dart count per round.</summary>
         /// <value>The dart count per round.</value>
@@ -258,17 +226,35 @@ namespace Schuermann.Darts.GameCore.Game
 
         #region Private Methods
 
-        private Tuple<int, int> CalculateRoundAndDartCount()
+        private Tuple<int, int, uint> CalculateRoundAndDartCount()
         {
             var roundCounter = 1;
             var dartPerRoundCounter = 0;
-            var pointsAtThisMoment = (int)StartPoints;
+            var pointsAtThisMoment = StartPoints;
+            var hasThownDoubleField = false;
 
             foreach (var thrown in ThrowHistory)
             {
                 dartPerRoundCounter++;
 
-                // Handle special case for double out
+                // Haendle doubleIn
+                if (doubleIn)
+                {
+                    if (!hasThownDoubleField && thrown.DartBoardQuantifier == DartBoardQuantifier.Double)
+                        hasThownDoubleField = true;
+
+                    if (doubleIn && !hasThownDoubleField)
+                    {
+                        if (dartPerRoundCounter >= 3)
+                        {
+                            dartPerRoundCounter = 0;
+                            roundCounter++;
+                        }
+                        continue;
+                    }
+                }
+
+                // Handle double out
                 if (doubleOut)
                 {
                     if (pointsAtThisMoment - thrown.Points == 1)
@@ -286,10 +272,6 @@ namespace Schuermann.Darts.GameCore.Game
                     }
                 }
 
-                // Zero points --> finish
-                if (pointsAtThisMoment - thrown.Points == 0)
-                    continue;
-
                 // Throw result would be lower than 0
                 if (pointsAtThisMoment - thrown.Points < 0)
                 {
@@ -298,7 +280,12 @@ namespace Schuermann.Darts.GameCore.Game
                     continue;
                 }
 
-                pointsAtThisMoment -= thrown.Points;
+                // Calculate new points
+                pointsAtThisMoment -= (uint)thrown.Points;
+
+                // Zero points --> finish
+                if (pointsAtThisMoment == 0)
+                    continue;
 
                 // 3 darts per round thrown
                 if (dartPerRoundCounter >= 3)
@@ -308,7 +295,7 @@ namespace Schuermann.Darts.GameCore.Game
                 }
             }
 
-            return new Tuple<int, int>(roundCounter, dartPerRoundCounter);
+            return new Tuple<int, int, uint>(roundCounter, dartPerRoundCounter, pointsAtThisMoment);
         }
 
         #endregion Private Methods
