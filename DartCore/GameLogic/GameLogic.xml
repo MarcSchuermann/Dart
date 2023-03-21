@@ -175,6 +175,13 @@
             <param name="name">The name.</param>
             <param name="startPoints"></param>
         </member>
+        <member name="M:Schuermann.Darts.GameCore.Game.Player.#ctor(System.String,System.UInt32,System.Boolean,System.Boolean)">
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.GameCore.Game.Player" /> class.</summary>
+            <param name="name">The name.</param>
+            <param name="startPoints">The start points.</param>
+            <param name="doubleIn">if set to <c>true</c> [double in].</param>
+            <param name="doubleOut">if set to <c>true</c> [double out].</param>
+        </member>
         <member name="M:Schuermann.Darts.GameCore.Game.Player.#ctor(System.String,System.UInt32,System.Collections.Generic.IList{Schuermann.Darts.GameCore.Thrown.IDartThrow})">
             <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.GameCore.Game.Player" /> class.</summary>
             <param name="name">The name.</param>

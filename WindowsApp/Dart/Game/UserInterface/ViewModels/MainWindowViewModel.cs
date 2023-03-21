@@ -228,6 +228,8 @@ namespace Dart
 
                 var gameOptions = new GameOptions(players);
                 gameOptions.StartPoints = startPoints;
+                gameOptions.DoubleIn = currentGameOptionsViewModel.GameSettings.DoubleIn;
+                gameOptions.DoubleOut = currentGameOptionsViewModel.GameSettings.DoubleOut;
                 return gameOptions;
             }
 

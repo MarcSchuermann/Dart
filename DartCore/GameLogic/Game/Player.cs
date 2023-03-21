@@ -16,16 +16,31 @@ namespace Schuermann.Darts.GameCore.Game
     /// <summary>The Player.</summary>
     public class Player : IPlayer, IUndoRedo, IEquatable<IPlayer>
     {
+        #region Private Fields
+
+        private readonly bool doubleIn;
+        private readonly bool doubleOut;
+
+        #endregion Private Fields
+
         #region Public Constructors
 
         /// <summary>Initializes a new instance of the <see cref="Player" /> class.</summary>
         /// <param name="name">The name.</param>
         /// <param name="startPoints"></param>
-        public Player(string name, uint startPoints)
+        public Player(string name, uint startPoints) : this(name, startPoints, new List<IDartThrow>())
         {
-            Name = name;
-            StartPoints = startPoints;
-            ThrowHistory = new List<IDartThrow>();
+        }
+
+        /// <summary>Initializes a new instance of the <see cref="Player" /> class.</summary>
+        /// <param name="name">The name.</param>
+        /// <param name="startPoints">The start points.</param>
+        /// <param name="doubleIn">if set to <c>true</c> [double in].</param>
+        /// <param name="doubleOut">if set to <c>true</c> [double out].</param>
+        public Player(string name, uint startPoints, bool doubleIn, bool doubleOut) : this(name, startPoints, new List<IDartThrow>())
+        {
+            this.doubleIn = doubleIn;
+            this.doubleOut = doubleOut;
         }
 
         #endregion Public Constructors
@@ -53,13 +68,32 @@ namespace Schuermann.Darts.GameCore.Game
         {
             get
             {
+                var hasThownDoubleField = false;
                 var currentScore = StartPoints;
                 foreach (var thrown in ThrowHistory)
                 {
+                    // Haendle doubleIn
+                    if (!hasThownDoubleField && thrown.DartBoardQuantifier == DartBoardQuantifier.Double)
+                        hasThownDoubleField = true;
+
+                    if (doubleIn && !hasThownDoubleField)
+                        continue;
+
+                    // Haendle doubleOut
+                    if (doubleOut)
+                    {
+                        if (currentScore - thrown.Points < 0 || currentScore - thrown.Points == 1)
+                            continue;
+
+                        if (currentScore - thrown.Points == 0 && thrown.DartBoardQuantifier != DartBoardQuantifier.Double)
+                            continue;
+                    }
+
                     // Only calculate new points when throw result would be 0 or greater
                     if (currentScore >= (uint)thrown.Points)
                         currentScore -= (uint)thrown.Points;
                 }
+
                 return currentScore;
             }
         }
@@ -234,16 +268,44 @@ namespace Schuermann.Darts.GameCore.Game
             {
                 dartPerRoundCounter++;
 
-                // Throw result would be lower than 0 OR 3 darts per round thrown
-                if (pointsAtThisMoment - thrown.Points < 0 || dartPerRoundCounter >= 3)
+                // Handle special case for double out
+                if (doubleOut)
                 {
-                    // Go to next round
+                    if (pointsAtThisMoment - thrown.Points == 1)
+                    {
+                        dartPerRoundCounter = 0;
+                        roundCounter++;
+                        continue;
+                    }
+
+                    if (pointsAtThisMoment - thrown.Points == 0 && thrown.DartBoardQuantifier != DartBoardQuantifier.Double)
+                    {
+                        dartPerRoundCounter = 0;
+                        roundCounter++;
+                        continue;
+                    }
+                }
+
+                // Zero points --> finish
+                if (pointsAtThisMoment - thrown.Points == 0)
+                    continue;
+
+                // Throw result would be lower than 0
+                if (pointsAtThisMoment - thrown.Points < 0)
+                {
+                    dartPerRoundCounter = 0;
+                    roundCounter++;
+                    continue;
+                }
+
+                pointsAtThisMoment -= thrown.Points;
+
+                // 3 darts per round thrown
+                if (dartPerRoundCounter >= 3)
+                {
                     dartPerRoundCounter = 0;
                     roundCounter++;
                 }
-
-                if (pointsAtThisMoment - thrown.Points >= 0)
-                    pointsAtThisMoment -= thrown.Points;
             }
 
             return new Tuple<int, int>(roundCounter, dartPerRoundCounter);

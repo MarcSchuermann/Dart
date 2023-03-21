@@ -33,7 +33,6 @@ namespace Schuermann.Darts.GameCore.Game
         {
             get
             {
-                // TODO keep AllPlayTillZero in mind
                 var minRound = GameOptions.PlayerList.Select(x => x.Round).Min();
                 return GameOptions.PlayerList.FirstOrDefault(x => x.Round.Equals(minRound));
             }

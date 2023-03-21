@@ -33,10 +33,6 @@ namespace Dart
 
         #region Public Properties
 
-        /// <summary>Gets the selectable start points.</summary>
-        /// <value>The selectable start points.</value>
-        public IList<int> SelectableStartPoints => new List<int> { 301, 501, 701 };
-
         /// <summary>Gets or sets a value indicating whether [double in].</summary>
         /// <value><c>true</c> if [double in]; otherwise, <c>false</c>.</value>
         public bool DoubleIn { get; set; }
@@ -44,6 +40,10 @@ namespace Dart
         /// <summary>Gets or sets a value indicating whether [double out].</summary>
         /// <value><c>true</c> if [double out]; otherwise, <c>false</c>.</value>
         public bool DoubleOut { get; set; }
+
+        /// <summary>Gets the selectable start points.</summary>
+        /// <value>The selectable start points.</value>
+        public IList<int> SelectableStartPoints => new List<int> { 301, 501, 701 };
 
         /// <summary>Gets or sets the selected player count.</summary>
         /// <value>The selected player count.</value>

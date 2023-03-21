@@ -961,10 +961,6 @@
                Initializes a new instance of the <see cref="T:Dart.GameSettingsViewModel" /> class.
             </summary>
         </member>
-        <member name="P:Dart.GameSettingsViewModel.SelectableStartPoints">
-            <summary>Gets the selectable start points.</summary>
-            <value>The selectable start points.</value>
-        </member>
         <member name="P:Dart.GameSettingsViewModel.DoubleIn">
             <summary>Gets or sets a value indicating whether [double in].</summary>
             <value><c>true</c> if [double in]; otherwise, <c>false</c>.</value>
@@ -972,6 +968,10 @@
         <member name="P:Dart.GameSettingsViewModel.DoubleOut">
             <summary>Gets or sets a value indicating whether [double out].</summary>
             <value><c>true</c> if [double out]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Dart.GameSettingsViewModel.SelectableStartPoints">
+            <summary>Gets the selectable start points.</summary>
+            <value>The selectable start points.</value>
         </member>
         <member name="P:Dart.GameSettingsViewModel.SelectedPlayerCount">
             <summary>Gets or sets the selected player count.</summary>

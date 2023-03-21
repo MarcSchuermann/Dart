@@ -125,5 +125,29 @@
         <member name="M:Schuermann.Darts.GameCore.Tests.UndoRedo.UndoRedoTest.UndoForPlayerCount1">
             <summary>Undoes for player.</summary>
         </member>
+        <member name="T:Schuermann.Darts.GameCore.Tests.Utils.GameUtils">
+            <summary>Utils for the game.</summary>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Tests.Utils.GameUtils.SetupGame(System.Collections.Generic.IList{Schuermann.Darts.GameCore.Game.IPlayer})">
+            <summary>Setups the game.</summary>
+            <param name="players">The players.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Schuermann.Darts.GameCore.Tests.Utils.PlayerUtils">
+            <summary>Utils for the player.</summary>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Tests.Utils.PlayerUtils.Validate(Schuermann.Darts.GameCore.Game.IPlayer,System.UInt32)">
+            <summary>Validates the specified expected score.</summary>
+            <param name="player">The player.</param>
+            <param name="expectedScore">The expected score.</param>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Tests.Utils.PlayerUtils.Validate(Schuermann.Darts.GameCore.Game.IPlayer,System.UInt32,System.Int32,System.Int32,System.Int32)">
+            <summary>Validates the specified expected score.</summary>
+            <param name="player">The player.</param>
+            <param name="expectedScore">The expected score.</param>
+            <param name="expectedThrowHistoryCount">The expected throw history count.</param>
+            <param name="expectedRound">The expected round.</param>
+            <param name="expectedDartCountThisRound">The expected dart count this round.</param>
+        </member>
     </members>
 </doc>
