@@ -220,10 +220,12 @@ namespace Dart
             if (CurrentContent is GameOptionsViewModel currentGameOptionsViewModel)
             {
                 var startPoints = Convert.ToUInt16(currentGameOptionsViewModel.GameSettings.SelectedStartPoints);
+                var doubleIn = currentGameOptionsViewModel.GameSettings.DoubleIn;
+                var doubleOut = currentGameOptionsViewModel.GameSettings.DoubleIn;
 
                 foreach (var player in currentGameOptionsViewModel.PlayerlistViewModel.Playerlist)
                 {
-                    players.Add(new Player(player.Name, startPoints));
+                    players.Add(new Player(player.Name, startPoints, doubleIn, doubleOut));
                 }
 
                 var gameOptions = new GameOptions(players);
