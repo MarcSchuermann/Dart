@@ -10,6 +10,10 @@
     <AnalysisLevel>none</AnalysisLevel>
   </PropertyGroup>
 
+  <PropertyGroup>
+    <NoWarn>1701;1702;1591</NoWarn>
+  </PropertyGroup>
+
   <ItemGroup>
     <Compile Remove="GameLogicUnitTests\**" />
     <EmbeddedResource Remove="GameLogicUnitTests\**" />

@@ -20,20 +20,6 @@ namespace UnitTests.Game
         #region Public Methods
 
         /// <summary>Gets the main window view model mock.</summary>
-        /// <param name="playerlist">The player list.</param>
-        /// <returns>The mock.</returns>
-        public static Mock<IMainWindowViewModel> GetMainWindowViewModelMock(List<IPlayer> playerlist)
-        {
-            var mainWindowViewModelMock = new Mock<IMainWindowViewModel>();
-            var configuredGameOptions = new Mock<IGameOptions>();
-
-            configuredGameOptions.SetupGet(x => x.PlayerList).Returns(playerlist);
-            mainWindowViewModelMock.SetupGet(x => x.ConfiguredGameOptions).Returns(configuredGameOptions.Object);
-
-            return mainWindowViewModelMock;
-        }
-
-        /// <summary>Gets the main window view model mock.</summary>
         /// <returns>The mock.</returns>
         public static Mock<IMainWindowViewModel> GetMainWindowViewModelMock()
         {
@@ -48,7 +34,7 @@ namespace UnitTests.Game
         /// <param name="playerlist">The player list.</param>
         /// <param name="allPlayTillZero">if set to <c>true</c> [all play till zero].</param>
         /// <returns>The mock.</returns>
-        public static Mock<IMainWindowViewModel> GetMainWindowViewModelMock(List<IPlayer> playerlist, bool allPlayTillZero)
+        public static Mock<IMainWindowViewModel> GetMainWindowViewModelMock(List<IPlayer> playerlist)
         {
             var mainWindowViewModelMock = new Mock<IMainWindowViewModel>();
             var configuredGameOptions = new Mock<IGameOptions>();
@@ -57,7 +43,6 @@ namespace UnitTests.Game
             mainWindowViewModelMock.SetupGet(x => x.ConfiguredGameOptions).Returns(configuredGameOptions.Object);
 
             var currentApplicationSettings = new Mock<IApplicationSettings>();
-            currentApplicationSettings.SetupGet(x => x.AllPlayTillZero).Returns(allPlayTillZero);
 
             var applicationSettingsViewModel = new Mock<IApplicationSettingsViewModel>();
             applicationSettingsViewModel.SetupGet(x => x.CurrentApplicationSettings).Returns(currentApplicationSettings.Object);

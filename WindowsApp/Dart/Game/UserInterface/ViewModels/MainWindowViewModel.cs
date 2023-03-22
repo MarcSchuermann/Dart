@@ -220,14 +220,18 @@ namespace Dart
             if (CurrentContent is GameOptionsViewModel currentGameOptionsViewModel)
             {
                 var startPoints = Convert.ToUInt16(currentGameOptionsViewModel.GameSettings.SelectedStartPoints);
+                var doubleIn = currentGameOptionsViewModel.GameSettings.DoubleIn;
+                var doubleOut = currentGameOptionsViewModel.GameSettings.DoubleIn;
 
                 foreach (var player in currentGameOptionsViewModel.PlayerlistViewModel.Playerlist)
                 {
-                    players.Add(new Player(player.Name, startPoints));
+                    players.Add(new Player(player.Name, startPoints, doubleIn, doubleOut));
                 }
 
                 var gameOptions = new GameOptions(players);
                 gameOptions.StartPoints = startPoints;
+                gameOptions.DoubleIn = currentGameOptionsViewModel.GameSettings.DoubleIn;
+                gameOptions.DoubleOut = currentGameOptionsViewModel.GameSettings.DoubleOut;
                 return gameOptions;
             }
 
@@ -242,7 +246,6 @@ namespace Dart
             var applicationSettings = container.Resolve<IApplicationSettings>();
             applicationSettings.ShowUserInterfaceDartBoardData = Properties.Settings.Default.ShowUserInterfaceDartBoardData;
             applicationSettings.SelectedCultureInfo = Properties.Settings.Default.CurrentCulture;
-            applicationSettings.AllPlayTillZero = Properties.Settings.Default.AllPlayTillZero;
             applicationSettings.CurrentTheme = GetCurrentTheme();
             return applicationSettings;
         }

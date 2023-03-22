@@ -24,7 +24,7 @@ namespace GameLogicTests.GameTests
             var player2 = new Player("Dieter", 0);
 
             var playerList = new List<IPlayer>() { player1, player2 };
-            var gameOptions = new GameOptions(playerList) { AllPlayTillZero = true };
+            var gameOptions = new GameOptions(playerList);
 
             var game = new GameProcedure(gameOptions);
 

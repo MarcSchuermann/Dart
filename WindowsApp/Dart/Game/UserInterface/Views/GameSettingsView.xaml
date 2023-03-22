@@ -5,18 +5,23 @@
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="100"/>
+            <ColumnDefinition Width="150"/>
             <ColumnDefinition Width="100" />
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="30"/>
             <RowDefinition Height="30" />
+            <RowDefinition Height="40" />
+            <RowDefinition Height="40" />
         </Grid.RowDefinitions>
 
         <TextBlock Grid.Row="0" Grid.Column="0" Text="{x:Static properies:Resources.Playercount}" Margin="5,5,5,5" />
-        <mah:NumericUpDown Minimum="0" Maximum="8" Interval="1" Grid.Row="0" Grid.Column="1" Margin="2" Value="{Binding SelectedPlayerCount, Mode=TwoWay}"/>
+        <mah:NumericUpDown Minimum="1" Maximum="8" Interval="1" Grid.Row="0" Grid.Column="1" Margin="2" Value="{Binding SelectedPlayerCount, Mode=TwoWay}"/>
 
         <TextBlock Grid.Row="1" Grid.Column="0" Text="{x:Static properies:Resources.Startpoints}" Margin="5,5,5,5" />
         <ComboBox Grid.Row="1" Grid.Column="1" ItemsSource="{Binding SelectableStartPoints}" SelectedItem="{Binding SelectedStartPoints, Mode=TwoWay}" IsSynchronizedWithCurrentItem="True" Margin="2"/>
+
+        <mah:ToggleSwitch IsOn="{Binding DoubleIn}" Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" OffContent="{x:Static properies:Resources.DoubleInDeactive}" OnContent="{x:Static properies:Resources.DoubleInActive}" Margin="20,5,5,5" />
+        <mah:ToggleSwitch IsOn="{Binding DoubleOut}" Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" OffContent="{x:Static properies:Resources.DoubleOutDeactive}" OnContent="{x:Static properies:Resources.DoubleOutActive}" Margin="20,5,5,5" />
     </Grid>
 </UserControl>

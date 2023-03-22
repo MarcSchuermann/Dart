@@ -28,8 +28,8 @@ namespace UnitTests.Settings.ApplicationSettingsTests
         [TestMethod]
         public void ReturnFalseWhenCompareThreeProperty()
         {
-            var applicationSettings = new ApplicationSettings() { SelectedCultureInfo = new CultureInfo("de-DE"), AllPlayTillZero = false, ShowUserInterfaceDartBoardData = true };
-            var applicationSettingsToComplare = new ApplicationSettings() { SelectedCultureInfo = new CultureInfo("en-US"), AllPlayTillZero = true, ShowUserInterfaceDartBoardData = false };
+            var applicationSettings = new ApplicationSettings() { SelectedCultureInfo = new CultureInfo("de-DE"), ShowUserInterfaceDartBoardData = true };
+            var applicationSettingsToComplare = new ApplicationSettings() { SelectedCultureInfo = new CultureInfo("en-US"), ShowUserInterfaceDartBoardData = false };
 
             Assert.IsFalse(applicationSettings.Equals(applicationSettingsToComplare));
         }
@@ -67,7 +67,7 @@ namespace UnitTests.Settings.ApplicationSettingsTests
         [TestMethod]
         public void ReturnFalseWhenComparingEqualsOperator()
         {
-            var applicationSettings1 = new ApplicationSettings() { ShowUserInterfaceDartBoardData = true, AllPlayTillZero = false, SelectedCultureInfo = new CultureInfo("de-DE") };
+            var applicationSettings1 = new ApplicationSettings() { ShowUserInterfaceDartBoardData = true, SelectedCultureInfo = new CultureInfo("de-DE") };
             var applicationSettings2 = new ApplicationSettings();
 
             Assert.IsFalse(applicationSettings1 == applicationSettings2);
@@ -86,7 +86,7 @@ namespace UnitTests.Settings.ApplicationSettingsTests
         [TestMethod]
         public void ReturnFalseWhenComparingUnequalsOperator()
         {
-            var applicationSettings1 = new ApplicationSettings() { ShowUserInterfaceDartBoardData = true, AllPlayTillZero = false, SelectedCultureInfo = new CultureInfo("de-DE") };
+            var applicationSettings1 = new ApplicationSettings() { ShowUserInterfaceDartBoardData = true, SelectedCultureInfo = new CultureInfo("de-DE") };
             var applicationSettings2 = new ApplicationSettings();
 
             Assert.IsTrue(applicationSettings1 != applicationSettings2);
@@ -116,8 +116,8 @@ namespace UnitTests.Settings.ApplicationSettingsTests
         [TestMethod]
         public void ReturnTrueWhenCompareWithThreeProperty()
         {
-            var applicationSettings = new ApplicationSettings() { ShowUserInterfaceDartBoardData = true, AllPlayTillZero = false, SelectedCultureInfo = new CultureInfo("de-DE") };
-            var applicationSettingsToComplare = new ApplicationSettings() { ShowUserInterfaceDartBoardData = true, SelectedCultureInfo = new CultureInfo("de-DE"), AllPlayTillZero = false };
+            var applicationSettings = new ApplicationSettings() { ShowUserInterfaceDartBoardData = true, SelectedCultureInfo = new CultureInfo("de-DE") };
+            var applicationSettingsToComplare = new ApplicationSettings() { ShowUserInterfaceDartBoardData = true, SelectedCultureInfo = new CultureInfo("de-DE") };
 
             Assert.IsTrue(applicationSettings.Equals(applicationSettingsToComplare));
         }
@@ -126,8 +126,8 @@ namespace UnitTests.Settings.ApplicationSettingsTests
         [TestMethod]
         public void ReturnTrueWhenComparingEqualsOperator()
         {
-            var applicationSettings1 = new ApplicationSettings() { ShowUserInterfaceDartBoardData = true, AllPlayTillZero = false, SelectedCultureInfo = new CultureInfo("de-DE") };
-            var applicationSettings2 = new ApplicationSettings() { ShowUserInterfaceDartBoardData = true, AllPlayTillZero = false, SelectedCultureInfo = new CultureInfo("de-DE") };
+            var applicationSettings1 = new ApplicationSettings() { ShowUserInterfaceDartBoardData = true, SelectedCultureInfo = new CultureInfo("de-DE") };
+            var applicationSettings2 = new ApplicationSettings() { ShowUserInterfaceDartBoardData = true, SelectedCultureInfo = new CultureInfo("de-DE") };
 
             Assert.IsTrue(applicationSettings1 == applicationSettings2);
         }
@@ -136,8 +136,8 @@ namespace UnitTests.Settings.ApplicationSettingsTests
         [TestMethod]
         public void ReturnTrueWhenComparingUnequalsOperator()
         {
-            var applicationSettings1 = new ApplicationSettings() { ShowUserInterfaceDartBoardData = true, AllPlayTillZero = false, SelectedCultureInfo = new CultureInfo("de-DE") };
-            var applicationSettings2 = new ApplicationSettings() { ShowUserInterfaceDartBoardData = true, AllPlayTillZero = false, SelectedCultureInfo = new CultureInfo("de-DE") };
+            var applicationSettings1 = new ApplicationSettings() { ShowUserInterfaceDartBoardData = true, SelectedCultureInfo = new CultureInfo("de-DE") };
+            var applicationSettings2 = new ApplicationSettings() { ShowUserInterfaceDartBoardData = true, SelectedCultureInfo = new CultureInfo("de-DE") };
 
             Assert.IsFalse(applicationSettings1 != applicationSettings2);
         }

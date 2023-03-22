@@ -28,7 +28,6 @@ namespace GameLogicTests.GameOptionsTests
             gameOptions.StartPoints.Should().Be(0);
             gameOptions.DoubleOut.Should().BeFalse();
             gameOptions.DoubleIn.Should().BeFalse();
-            gameOptions.AllPlayTillZero.Should().BeFalse();
             gameOptions.PlayerList.Should().BeEmpty();
         }
 
@@ -41,13 +40,11 @@ namespace GameLogicTests.GameOptionsTests
                 StartPoints = 123,
                 DoubleOut = true,
                 DoubleIn = true,
-                AllPlayTillZero = true
             };
 
             gameOptions.StartPoints.Should().Be(123);
             gameOptions.DoubleOut.Should().BeTrue();
             gameOptions.DoubleIn.Should().BeTrue();
-            gameOptions.AllPlayTillZero.Should().BeTrue();
             gameOptions.PlayerList.Count().Should().Be(3);
         }
 

@@ -126,9 +126,6 @@
   <data name="AcceptChangesInfo" xml:space="preserve">
     <value>Should changes acceped?</value>
   </data>
-  <data name="AllPlayTillZero" xml:space="preserve">
-    <value>All player play till 0?</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Cancel</value>
   </data>
@@ -150,6 +147,18 @@
   </data>
   <data name="darts_splashscreen" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\darts_splashscreen.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="DoubleInActive" xml:space="preserve">
+    <value>DoubleIn active</value>
+  </data>
+  <data name="DoubleInDeactive" xml:space="preserve">
+    <value>DoubleIn deactive</value>
+  </data>
+  <data name="DoubleOutActive" xml:space="preserve">
+    <value>DoubleOut active</value>
+  </data>
+  <data name="DoubleOutDeactive" xml:space="preserve">
+    <value>DoubleOut deactive</value>
   </data>
   <data name="English" xml:space="preserve">
     <value>English</value>

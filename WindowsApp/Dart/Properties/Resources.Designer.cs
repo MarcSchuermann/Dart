@@ -88,15 +88,6 @@ namespace Dart.Properties {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to All player play till 0?.
-        /// </summary>
-        public static string AllPlayTillZero {
-            get {
-                return ResourceManager.GetString("AllPlayTillZero", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Cancel.
         /// </summary>
         public static string Cancel {
@@ -158,6 +149,42 @@ namespace Dart.Properties {
             get {
                 object obj = ResourceManager.GetObject("darts_splashscreen", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DoubleIn active.
+        /// </summary>
+        public static string DoubleInActive {
+            get {
+                return ResourceManager.GetString("DoubleInActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DoubleIn deactive.
+        /// </summary>
+        public static string DoubleInDeactive {
+            get {
+                return ResourceManager.GetString("DoubleInDeactive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DoubleOut active.
+        /// </summary>
+        public static string DoubleOutActive {
+            get {
+                return ResourceManager.GetString("DoubleOutActive", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DoubleOut deactive.
+        /// </summary>
+        public static string DoubleOutDeactive {
+            get {
+                return ResourceManager.GetString("DoubleOutDeactive", resourceCulture);
             }
         }
         

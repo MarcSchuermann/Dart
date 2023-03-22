@@ -2,9 +2,7 @@
 	<PropertyGroup>
 		<Authors>Marc Schuermann</Authors>
 		<Company>Marc Schuermann</Company>
-		<Version>2.0.2</Version>
+		<Version>2.0.3</Version>
 		<Copyright>Copyright by Marc Schuermann</Copyright>
-		<AnalysisMode>AllEnabledByDefault</AnalysisMode>
-		<EnforceCodeStyleInBuild>true</EnforceCodeStyleInBuild>
 	</PropertyGroup>
 </Project>

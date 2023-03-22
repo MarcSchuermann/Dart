@@ -92,7 +92,6 @@ namespace Schuermann.Darts.GameCore.Save
         {
             return new GameOptionPersister
             {
-                AllPlayTillZero = gameOptions.AllPlayTillZero,
                 DoubleIn = gameOptions.DoubleIn,
                 DoubleOut = gameOptions.DoubleOut,
                 StartPoints = gameOptions.StartPoints,

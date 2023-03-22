@@ -5,37 +5,45 @@
 // -----------------------------------------------------------------------
 using System.Collections.Generic;
 using System.Linq;
+using Dart.Game.Interfaces;
 
 namespace Dart
 {
     /// <summary>The GameSettingsViewModel.</summary>
-    public class GameSettingsViewModel : ViewModelBase
+    public class GameSettingsViewModel : ViewModelBase, IGameSettingsViewModel
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="GameSettingsViewModel"/> class.
-        /// </summary>
-        public GameSettingsViewModel()
-        {
-            SelectedPlayerCount = SelectablePlayerCount.First().ToString();
-            SelectedStartPoints = SelectableStartPoints.First().ToString();
-        }
         #region Private Fields
 
         private string selectedPlayerCount;
 
-        private string selectedStartPoints;
-
         #endregion Private Fields
+
+        #region Public Constructors
+
+        /// <summary>
+        ///    Initializes a new instance of the <see cref="GameSettingsViewModel" /> class.
+        /// </summary>
+        public GameSettingsViewModel()
+        {
+            SelectedPlayerCount = "1";
+            SelectedStartPoints = SelectableStartPoints.First().ToString();
+        }
+
+        #endregion Public Constructors
 
         #region Public Properties
 
-        /// <summary>Gets the selectable player count.</summary>
-        /// <value>The selectable player count.</value>
-        public static IList<int> SelectablePlayerCount => new List<int> { 1, 2, 3, 4, 5, 6, 7, 8 };
+        /// <summary>Gets or sets a value indicating whether [double in].</summary>
+        /// <value><c>true</c> if [double in]; otherwise, <c>false</c>.</value>
+        public bool DoubleIn { get; set; }
+
+        /// <summary>Gets or sets a value indicating whether [double out].</summary>
+        /// <value><c>true</c> if [double out]; otherwise, <c>false</c>.</value>
+        public bool DoubleOut { get; set; }
 
         /// <summary>Gets the selectable start points.</summary>
         /// <value>The selectable start points.</value>
-        public static IList<int> SelectableStartPoints => new List<int> { 301, 501, 701 };
+        public IList<int> SelectableStartPoints => new List<int> { 301, 501, 701 };
 
         /// <summary>Gets or sets the selected player count.</summary>
         /// <value>The selected player count.</value>
@@ -51,15 +59,7 @@ namespace Dart
 
         /// <summary>Gets or sets the selected start points.</summary>
         /// <value>The selected start points.</value>
-        public string SelectedStartPoints
-        {
-            get => selectedStartPoints;
-            set
-            {
-                selectedStartPoints = value;
-                RaisePropertyChanged(nameof(SelectedStartPoints));
-            }
-        }
+        public string SelectedStartPoints { get; set; }
 
         #endregion Public Properties
     }

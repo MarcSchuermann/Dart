@@ -42,10 +42,6 @@
             <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.GameCore.Game.GameOptions" /> class.</summary>
             <param name="playerList">The player list.</param>
         </member>
-        <member name="P:Schuermann.Darts.GameCore.Game.GameOptions.AllPlayTillZero">
-            <summary>Gets or sets a value indicating whether [all play till zero].</summary>
-            <value><c>true</c> if [all play till zero]; otherwise, <c>false</c>.</value>
-        </member>
         <member name="P:Schuermann.Darts.GameCore.Game.GameOptions.DoubleIn">
             <summary>Gets or sets a value indicating whether [double in].</summary>
             <value><c>true</c> if [double in]; otherwise, <c>false</c>.</value>
@@ -104,10 +100,6 @@
         </member>
         <member name="T:Schuermann.Darts.GameCore.Game.IGameOptions">
             <summary>The game option interface.</summary>
-        </member>
-        <member name="P:Schuermann.Darts.GameCore.Game.IGameOptions.AllPlayTillZero">
-            <summary>Gets or sets a value indicating whether [all play till zero].</summary>
-            <value><c>true</c> if [all play till zero]; otherwise, <c>false</c>.</value>
         </member>
         <member name="P:Schuermann.Darts.GameCore.Game.IGameOptions.DoubleIn">
             <summary>Gets or sets a value indicating whether [double in].</summary>
@@ -182,6 +174,13 @@
             <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.GameCore.Game.Player" /> class.</summary>
             <param name="name">The name.</param>
             <param name="startPoints"></param>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Game.Player.#ctor(System.String,System.UInt32,System.Boolean,System.Boolean)">
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.GameCore.Game.Player" /> class.</summary>
+            <param name="name">The name.</param>
+            <param name="startPoints">The start points.</param>
+            <param name="doubleIn">if set to <c>true</c> [double in].</param>
+            <param name="doubleOut">if set to <c>true</c> [double out].</param>
         </member>
         <member name="M:Schuermann.Darts.GameCore.Game.Player.#ctor(System.String,System.UInt32,System.Collections.Generic.IList{Schuermann.Darts.GameCore.Thrown.IDartThrow})">
             <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.GameCore.Game.Player" /> class.</summary>
@@ -312,10 +311,6 @@
         </member>
         <member name="T:Schuermann.Darts.GameCore.Save.PersistObjects.GameOptionPersister">
             <summary>Persist the game option.</summary>
-        </member>
-        <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.GameOptionPersister.AllPlayTillZero">
-            <summary>Gets or sets a value indicating whether [all play till zero].</summary>
-            <value><c>true</c> if [all play till zero]; otherwise, <c>false</c>.</value>
         </member>
         <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.GameOptionPersister.DoubleIn">
             <summary>Gets or sets a value indicating whether [double in].</summary>

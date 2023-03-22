@@ -23,9 +23,6 @@
     <Setting Name="ShowUserInterfaceDartBoardData" Type="System.Boolean" Scope="User">
       <Value Profile="(Default)">False</Value>
     </Setting>
-    <Setting Name="AllPlayTillZero" Type="System.Boolean" Scope="User">
-      <Value Profile="(Default)">False</Value>
-    </Setting>
     <Setting Name="BaseColorScheme" Type="System.String" Scope="User">
       <Value Profile="(Default)">Light</Value>
     </Setting>

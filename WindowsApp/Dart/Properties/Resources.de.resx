@@ -126,9 +126,6 @@
   <data name="AcceptChangesInfo" xml:space="preserve">
     <value>Sollen die Änderungen übernommen werden?</value>
   </data>
-  <data name="AllPlayTillZero" xml:space="preserve">
-    <value>Alle Spieler spielen bis 0?</value>
-  </data>
   <data name="Cancel" xml:space="preserve">
     <value>Abbrechen</value>
   </data>
@@ -143,6 +140,18 @@
   </data>
   <data name="Dart" xml:space="preserve">
     <value>Dart</value>
+  </data>
+  <data name="DoubleInActiv" xml:space="preserve">
+    <value>DoubleIn aktiv</value>
+  </data>
+  <data name="DoubleInDeactive" xml:space="preserve">
+    <value>DoubleIn deaktiv</value>
+  </data>
+  <data name="DoubleOut deactive" xml:space="preserve">
+    <value>DoubleOut deaktiv</value>
+  </data>
+  <data name="DoubleOutActive" xml:space="preserve">
+    <value>DoubleOut aktiv</value>
   </data>
   <data name="English" xml:space="preserve">
     <value>Englisch</value>
