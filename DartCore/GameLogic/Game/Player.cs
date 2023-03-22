@@ -19,6 +19,7 @@ namespace Schuermann.Darts.GameCore.Game
         #region Private Fields
 
         private readonly bool doubleIn;
+
         private readonly bool doubleOut;
 
         #endregion Private Fields
@@ -56,6 +57,7 @@ namespace Schuermann.Darts.GameCore.Game
             Name = name;
             StartPoints = startPoints;
             ThrowHistory = throwHistory;
+            Id = Guid.NewGuid();
         }
 
         #endregion Internal Constructors
@@ -69,6 +71,10 @@ namespace Schuermann.Darts.GameCore.Game
         /// <summary>Gets or sets the dart count per round.</summary>
         /// <value>The dart count per round.</value>
         public int DartCountThisRound => CalculateRoundAndDartCount().Item2;
+
+        /// <summary>Gets the identifier.</summary>
+        /// <value>The identifier.</value>
+        public Guid Id { get; }
 
         /// <summary>Gets or sets the name.</summary>
         /// <value>The name.</value>

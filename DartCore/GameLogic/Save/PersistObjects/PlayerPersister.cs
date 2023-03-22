@@ -4,6 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System;
 using System.Collections.Generic;
 using Schuermann.Darts.GameCore.Thrown;
 
@@ -13,6 +14,10 @@ namespace Schuermann.Darts.GameCore.Save.PersistObjects
     internal class PlayerPersister
     {
         #region Public Properties
+
+        /// <summary>Gets or sets the identifier.</summary>
+        /// <value>The identifier.</value>
+        public Guid Id { get; set; }
 
         /// <summary>Gets or sets the name.</summary>
         /// <value>The name.</value>

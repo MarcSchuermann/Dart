@@ -62,7 +62,7 @@ namespace Schuermann.Darts.GameCore.Save
             return new GameInstancePersister()
             {
                 GameOption = Convert(instance.GameOptions),
-                CurrentPlayer = Convert(instance.CurrentPlayer)
+                CurrentPlayer = instance.CurrentPlayer.Id,
             };
         }
 
@@ -82,6 +82,7 @@ namespace Schuermann.Darts.GameCore.Save
         {
             return new PlayerPersister
             {
+                Id = player.Id,
                 Name = player.Name,
                 ThrowHistory = player.ThrowHistory,
                 StartPoints = player.StartPoints

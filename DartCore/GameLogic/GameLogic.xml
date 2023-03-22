@@ -143,6 +143,10 @@
             <summary>Gets or sets the dart count per round.</summary>
             <value>The dart count per round.</value>
         </member>
+        <member name="P:Schuermann.Darts.GameCore.Game.IPlayer.Id">
+            <summary>Gets the identifier.</summary>
+            <value>The identifier.</value>
+        </member>
         <member name="P:Schuermann.Darts.GameCore.Game.IPlayer.Name">
             <summary>Gets or sets the name.</summary>
             <value>The name.</value>
@@ -195,6 +199,10 @@
         <member name="P:Schuermann.Darts.GameCore.Game.Player.DartCountThisRound">
             <summary>Gets or sets the dart count per round.</summary>
             <value>The dart count per round.</value>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.Game.Player.Id">
+            <summary>Gets the identifier.</summary>
+            <value>The identifier.</value>
         </member>
         <member name="P:Schuermann.Darts.GameCore.Game.Player.Name">
             <summary>Gets or sets the name.</summary>
@@ -330,6 +338,10 @@
         </member>
         <member name="T:Schuermann.Darts.GameCore.Save.PersistObjects.PlayerPersister">
             <summary>Persist the plyer istance.</summary>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.PlayerPersister.Id">
+            <summary>Gets or sets the identifier.</summary>
+            <value>The identifier.</value>
         </member>
         <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.PlayerPersister.Name">
             <summary>Gets or sets the name.</summary>
