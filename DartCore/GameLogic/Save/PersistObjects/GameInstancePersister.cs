@@ -4,6 +4,8 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System;
+
 namespace Schuermann.Darts.GameCore.Save.PersistObjects
 {
     /// <summary>Persists the game instance.</summary>
@@ -17,7 +19,7 @@ namespace Schuermann.Darts.GameCore.Save.PersistObjects
 
         /// <summary>Gets or sets the player.</summary>
         /// <value>The player.</value>
-        public PlayerPersister CurrentPlayer { get; set; }
+        public Guid CurrentPlayer { get; set; }
 
         #endregion Public Properties
     }

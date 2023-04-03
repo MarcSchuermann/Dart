@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Schuermann.Darts.GameCore.Game;
@@ -14,13 +15,19 @@ namespace Schuermann.Darts.GameCore.Tests.PersistTests
     [TestClass]
     public class LoadSaveTest
     {
+        #region Private Fields
+
+        private string pattern = @"([a-z0-9]{8}[-][a-z0-9]{4}[-][a-z0-9]{4}[-][a-z0-9]{4}[-][a-z0-9]{12})";
+
+        #endregion Private Fields
+
         #region Public Methods
 
         /// <summary>Creates the save and reload game correct.</summary>
         [TestMethod]
         public void CreateSaveAndReloadGameCorrect()
         {
-            var players = new List<IPlayer> { new Player("Willi", 123), new Player("Hans", 666)};
+            var players = new List<IPlayer> { new Player("Willi", 123), new Player("Hans", 666) };
             var gameOptions = new GameOptions(players);
             var gameInstance = new GameInstance(gameOptions);
             var stream = Persister.Save(gameInstance);
@@ -37,7 +44,7 @@ namespace Schuermann.Darts.GameCore.Tests.PersistTests
         [TestMethod]
         public void CreateSaveAndReloadSinglePlayerComplete()
         {
-            var players = new List<IPlayer> { new Player("Ralf", 666)};
+            var players = new List<IPlayer> { new Player("Ralf", 666) };
             var gameOptions = new GameOptions(players);
             var gameInstance = new GameInstance(gameOptions);
             var gameProcedure = new GameProcedure(gameOptions);
@@ -72,7 +79,7 @@ namespace Schuermann.Darts.GameCore.Tests.PersistTests
         [TestMethod]
         public void WriteToFile()
         {
-            var players = new List<IPlayer> { new Player("Ralf", 666)};
+            var players = new List<IPlayer> { new Player("Ralf", 666) };
             var gameOptions = new GameOptions(players);
             var gameInstance = new GameInstance(gameOptions);
             var gameProcedure = new GameProcedure(gameOptions);
@@ -92,9 +99,28 @@ namespace Schuermann.Darts.GameCore.Tests.PersistTests
 
             var readFile = File.ReadAllText(path);
 
-            readFile.Should().Be("{\r\n  \"GameOption\": {\r\n    \"DoubleIn\": false,\r\n    \"DoubleOut\": false,\r\n    \"PlayerList\": [\r\n      {\r\n        \"Name\": \"Ralf\",\r\n        \"StartPoints\": 666,\r\n        \"ThrowHistory\": [\r\n          {\r\n            \"DartBoardField\": 2,\r\n            \"DartBoardQuantifier\": 1,\r\n            \"Points\": 2\r\n          },\r\n          {\r\n            \"DartBoardField\": 14,\r\n            \"DartBoardQuantifier\": 3,\r\n            \"Points\": 42\r\n          }\r\n        ]\r\n      }\r\n    ],\r\n    \"StartPoints\": 0\r\n  },\r\n  \"CurrentPlayer\": {\r\n    \"Name\": \"Ralf\",\r\n    \"StartPoints\": 666,\r\n    \"ThrowHistory\": [\r\n      {\r\n        \"DartBoardField\": 2,\r\n        \"DartBoardQuantifier\": 1,\r\n        \"Points\": 2\r\n      },\r\n      {\r\n        \"DartBoardField\": 14,\r\n        \"DartBoardQuantifier\": 3,\r\n        \"Points\": 42\r\n      }\r\n    ]\r\n  }\r\n}");
+            var updated = RemoveId(readFile);
+
+            updated.Should().Be("{\r\n  \"GameOption\": {\r\n    \"DoubleIn\": false,\r\n    \"DoubleOut\": false,\r\n    \"PlayerList\": [\r\n      {\r\n        \"Id\": \"\",\r\n        \"Name\": \"Ralf\",\r\n        \"StartPoints\": 666,\r\n        \"ThrowHistory\": [\r\n          {\r\n            \"DartBoardField\": 2,\r\n            \"DartBoardQuantifier\": 1,\r\n            \"Points\": 2\r\n          },\r\n          {\r\n            \"DartBoardField\": 14,\r\n            \"DartBoardQuantifier\": 3,\r\n            \"Points\": 42\r\n          }\r\n        ]\r\n      }\r\n    ],\r\n    \"StartPoints\": 0\r\n  },\r\n  \"CurrentPlayer\": \"\"\r\n}");
         }
 
         #endregion Public Methods
+
+        #region Private Methods
+
+        private string RemoveId(string toUpdate)
+        {
+            var retVal = string.Empty;
+            var matchCollection = Regex.Matches(toUpdate, pattern);
+
+            foreach (var match in matchCollection)
+            {
+                retVal = toUpdate.Replace(match.ToString(), string.Empty);
+            }
+
+            return retVal;
+        }
+
+        #endregion Private Methods
     }
 }

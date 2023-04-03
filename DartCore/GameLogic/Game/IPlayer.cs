@@ -21,6 +21,10 @@ namespace Schuermann.Darts.GameCore.Game
         /// <value>The dart count per round.</value>
         int DartCountThisRound { get; }
 
+        /// <summary>Gets the identifier.</summary>
+        /// <value>The identifier.</value>
+        Guid Id { get; }
+
         /// <summary>Gets or sets the name.</summary>
         /// <value>The name.</value>
         string Name { get; }
