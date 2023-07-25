@@ -2,11 +2,11 @@
 //// <copyright>Marc Schürmann</copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
-using Environment.Themes;
 using System;
 using System.Windows.Media;
+using Schuermann.Darts.Environment.Themes;
 
-namespace Charts
+namespace Schuermann.Darts.Charts.Themes
 {
     public class Styles
     {

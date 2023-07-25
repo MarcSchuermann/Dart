@@ -2,27 +2,44 @@
 //// <copyright>Marc Schürmann</copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
+using System;
 using System.Collections.Generic;
 using System.Linq;
-using GameLogic.DartThrow;
-using GameLogic.GameOptions;
-using GameLogic.Player;
+using Schuermann.Darts.GameCore.Game;
+using Schuermann.Darts.GameCore.Thrown;
 
-namespace TestWindow
+namespace TestApp
 {
     public class MyPlayer : IPlayer
     {
         #region Public Properties
 
-        public int CurrentScore { get; set; }
+        public uint CurrentScore { get; set; }
         public int DartCountThisRound { get; set; }
+        public Guid Id => new();
         public string Name { get; set; }
         public int PointsThisRound { get; set; }
         public int Round { get; set; }
+        public uint StartPoints => 301;
         public IList<IDartThrow> ThrowHistory { get; set; }
 
-        public override string ToString() => Name;
         #endregion Public Properties
+
+        #region Public Methods
+
+        public object Clone()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Thrown(IDartThrow dartThrow)
+        {
+            throw new NotImplementedException();
+        }
+
+        public override string ToString() => Name;
+
+        #endregion Public Methods
     }
 
     public class TestData : IGameOptions
@@ -32,30 +49,15 @@ namespace TestWindow
         public bool AllPlayTillZero { get; set; }
         public bool DoubleIn { get; set; }
         public bool DoubleOut { get; set; }
-        public IList<IPlayer> PlayerList { get => CreatePlayerList(); set { } }
+        public IEnumerable<IPlayer> PlayerList
+        { get => CreatePlayerList(); set { } }
 
-        public int StartPoints { get => 301; set { } }
+        public int StartPoints
+        { get => 301; set { } }
 
         #endregion Public Properties
 
         #region Private Methods
-
-        private IList<IPlayer> CreatePlayerList()
-        {
-            var retVal = new List<IPlayer>();
-
-            retVal.Add(new MyPlayer() { Name = "Homer", ThrowHistory = CreateHistory1().ToList() });
-            retVal.Add(new MyPlayer() { Name = "Marge", ThrowHistory = CreateHistory2().ToList() });
-            retVal.Add(new MyPlayer() { Name = "Bart", ThrowHistory = CreateHistory3().ToList() });
-            retVal.Add(new MyPlayer() { Name = "Lisa", ThrowHistory = CreateHistory4().ToList() });
-            retVal.Add(new MyPlayer() { Name = "Maggy", ThrowHistory = CreateHistory5().ToList() });
-            retVal.Add(new MyPlayer() { Name = "Snowball II", ThrowHistory = CreateHistory6().ToList() });
-            retVal.Add(new MyPlayer() { Name = "Moe", ThrowHistory = CreateHistory7().ToList() });
-            retVal.Add(new MyPlayer() { Name = "Mr. Burns", ThrowHistory = CreateHistory8().ToList() });
-
-            return retVal;
-        }
-
 
         private IEnumerable<IDartThrow> CreateHistory1()
         {
@@ -112,7 +114,7 @@ namespace TestWindow
             yield return new DartThrow(DartBoardField.Five, DartBoardQuantifier.Triple);
             yield return new DartThrow(DartBoardField.Ten, DartBoardQuantifier.Single);
         }
-        
+
         private IEnumerable<IDartThrow> CreateHistory7()
         {
             yield return new DartThrow(DartBoardField.Bullseye, DartBoardQuantifier.Double);
@@ -135,6 +137,21 @@ namespace TestWindow
             yield return new DartThrow(DartBoardField.Seven, DartBoardQuantifier.Single);
         }
 
+        private IList<IPlayer> CreatePlayerList()
+        {
+            var retVal = new List<IPlayer>();
+
+            retVal.Add(new MyPlayer() { Name = "Homer", ThrowHistory = CreateHistory1().ToList() });
+            retVal.Add(new MyPlayer() { Name = "Marge", ThrowHistory = CreateHistory2().ToList() });
+            retVal.Add(new MyPlayer() { Name = "Bart", ThrowHistory = CreateHistory3().ToList() });
+            retVal.Add(new MyPlayer() { Name = "Lisa", ThrowHistory = CreateHistory4().ToList() });
+            retVal.Add(new MyPlayer() { Name = "Maggy", ThrowHistory = CreateHistory5().ToList() });
+            retVal.Add(new MyPlayer() { Name = "Snowball II", ThrowHistory = CreateHistory6().ToList() });
+            retVal.Add(new MyPlayer() { Name = "Moe", ThrowHistory = CreateHistory7().ToList() });
+            retVal.Add(new MyPlayer() { Name = "Mr. Burns", ThrowHistory = CreateHistory8().ToList() });
+
+            return retVal;
+        }
 
         #endregion Private Methods
     }

@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 16
-VisualStudioVersion = 16.0.29609.76
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32901.215
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Charts", "Charts\Charts.csproj", "{CC2C5C30-E7C9-456E-8666-7BC2EA340234}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schuermann.Darts.Charts", "Schuermann.Darts.Charts\Schuermann.Darts.Charts.csproj", "{EB95254C-5DC9-4339-B98B-D3EAA0D74AE5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TestWindow", "TestWindow\TestWindow.csproj", "{B7826D59-2DE1-4A8A-8F92-40418FBC3D2C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestApp", "TestApp\TestApp.csproj", "{B8378B33-1AEE-4D53-8C90-E26E8B98B9A5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,31 +13,19 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{CC2C5C30-E7C9-456E-8666-7BC2EA340234}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{CC2C5C30-E7C9-456E-8666-7BC2EA340234}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{CC2C5C30-E7C9-456E-8666-7BC2EA340234}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{CC2C5C30-E7C9-456E-8666-7BC2EA340234}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B7826D59-2DE1-4A8A-8F92-40418FBC3D2C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B7826D59-2DE1-4A8A-8F92-40418FBC3D2C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B7826D59-2DE1-4A8A-8F92-40418FBC3D2C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B7826D59-2DE1-4A8A-8F92-40418FBC3D2C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB95254C-5DC9-4339-B98B-D3EAA0D74AE5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB95254C-5DC9-4339-B98B-D3EAA0D74AE5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB95254C-5DC9-4339-B98B-D3EAA0D74AE5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB95254C-5DC9-4339-B98B-D3EAA0D74AE5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B8378B33-1AEE-4D53-8C90-E26E8B98B9A5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B8378B33-1AEE-4D53-8C90-E26E8B98B9A5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B8378B33-1AEE-4D53-8C90-E26E8B98B9A5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B8378B33-1AEE-4D53-8C90-E26E8B98B9A5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9FACF16E-96F5-43D5-B788-AAAE11C318E8}
-	EndGlobalSection
-	GlobalSection(TeamFoundationVersionControl) = preSolution
-		SccNumberOfProjects = 3
-		SccEnterpriseProvider = {4CA58AB2-18FA-4F8D-95D4-32DDF27D184C}
-		SccTeamFoundationServer = https://marcschuermann.visualstudio.com/
-		SccLocalPath0 = .
-		SccProjectUniqueName1 = Charts\\Charts.csproj
-		SccProjectName1 = Charts
-		SccLocalPath1 = Charts
-		SccProjectUniqueName2 = TestWindow\\TestWindow.csproj
-		SccProjectName2 = TestWindow
-		SccLocalPath2 = TestWindow
 	EndGlobalSection
 EndGlobal

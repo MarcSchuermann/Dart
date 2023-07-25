@@ -8,6 +8,7 @@ using System;
 using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
+using System.Linq;
 using System.Windows.Input;
 using ControlzEx.Theming;
 using Dart.Tools;
@@ -169,12 +170,41 @@ namespace Dart
                 }
             }
 
+            // Open PlugIns
+            if (DataContext is MainWindowViewModel mainWindowViewModel2)
+            {
+                mainWindowViewModel2.LoadPlugIns();
+                for (var i = 0; i <= mainWindowViewModel2.PlugIns.Count(); i++)
+                {
+                    if (IsCtrlPressed() && Keyboard.IsKeyDown(Key.E) && IsNumberPressed(i))
+                        if (mainWindowViewModel2.PlugIns.Count() > i)
+                            mainWindowViewModel2.PlugIns.ElementAt(i).PlugInCommand.OnExecute();
+                }
+            }
+
             InvalidateVisual();
         }
 
         private static bool IsShiftPressed()
         {
             return Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift);
+        }
+
+        private static bool IsNumberPressed(int number)
+        {
+            if (number == 0)
+                return Keyboard.IsKeyDown(Key.D0);
+
+            if (number == 1)
+                return Keyboard.IsKeyDown(Key.D1);
+
+            if (number == 2)
+                return Keyboard.IsKeyDown(Key.D2);
+
+            if (number == 3)
+                return Keyboard.IsKeyDown(Key.D4);
+
+            return false;
         }
 
         private static bool IsCtrlPressed()

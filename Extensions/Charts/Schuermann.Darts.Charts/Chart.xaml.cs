@@ -2,19 +2,20 @@
 //// <copyright>Marc Schürmann</copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
-using System.Threading;
-using System.Windows.Controls;
-using Environment;
-using GameLogic.GameOptions;
 
-namespace Charts
+using System.Windows;
+using System.Windows.Controls;
+using Schuermann.Darts.Environment.EnvironmentProps;
+using Schuermann.Darts.GameCore.Game;
+
+namespace Schuermann.Darts.Charts
 {
     /// <summary>Interaction logic for Chart.xaml</summary>
     public partial class Chart : UserControl
     {
         #region Public Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="Chart"/> class.</summary>
+        /// <summary>Initializes a new instance of the <see cref="Chart" /> class.</summary>
         /// <param name="gameOptions">The game options.</param>
         public Chart(IGameOptions gameOptions, IProperties properties)
         {

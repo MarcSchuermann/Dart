@@ -5,11 +5,11 @@
 using System.ComponentModel.Composition;
 using System.Windows;
 using System.Windows.Controls;
-using Environment;
-using Environment.Extensibility;
-using GameLogic.GameOptions;
+using Schuermann.Darts.Environment.EnvironmentProps;
+using Schuermann.Darts.Environment.Extensibility;
+using Schuermann.Darts.GameCore.Game;
 
-namespace Charts
+namespace Schuermann.Darts.Charts
 {
     /// <summary></summary>
     /// <seealso cref="Environment.Extensibility.IPlugIn"/>

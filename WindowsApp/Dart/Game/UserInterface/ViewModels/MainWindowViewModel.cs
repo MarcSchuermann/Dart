@@ -113,7 +113,7 @@ namespace Dart
 
         /// <summary>Gets or sets the plug ins.</summary>
         /// <value>The plug ins.</value>
-        [ImportMany]
+        [ImportMany(AllowRecomposition = true)]
         public IEnumerable<IPlugIn> PlugIns { get; set; }
 
         /// <summary>Gets the settings view model.</summary>
@@ -250,12 +250,12 @@ namespace Dart
             return applicationSettings;
         }
 
-        private void LoadPlugIns()
+        internal void LoadPlugIns()
         {
             try
             {
                 // TODO: Make path configurabel and setable via command line. And compile charts with the new core assemblies.
-                var catalog = new DirectoryCatalog(@"D:\_tf\Dart\Dev\Extensions\Charts\Charts\bin\Debug\");
+                var catalog = new DirectoryCatalog(@"D:\_gitHub\Dart\Extensions\Charts\Schuermann.Darts.Charts\bin\Debug\net6.0-windows");
                 var container = new CompositionContainer(catalog);
                 CurrentProperties = new Schuermann.Darts.Environment.EnvironmentProps.Properties(SettingsViewModel.CurrentApplicationSettings.CurrentTheme.OriginalTheme.Name, SettingsViewModel.CurrentApplicationSettings.SelectedCultureInfo);
 

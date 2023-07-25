@@ -2,21 +2,21 @@
 //// <copyright>Marc Schürmann</copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
-using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
-using Environment;
-using GameLogic.DartThrow;
-using GameLogic.GameOptions;
-using GameLogic.Player;
-using LiveCharts;
-using LiveCharts.Defaults;
-using LiveCharts.Wpf;
+using LiveChartsCore;
+using LiveChartsCore.Defaults;
+using LiveChartsCore.Kernel.Sketches;
+using LiveChartsCore.SkiaSharpView;
+using Schuermann.Darts.Charts.Themes;
+using Schuermann.Darts.Environment.EnvironmentProps;
+using Schuermann.Darts.GameCore.Game;
+using Schuermann.Darts.GameCore.Thrown;
 
-namespace Charts
+namespace Schuermann.Darts.Charts
 {
     /// <summary>The context of the charts.</summary>
-    /// <seealso cref="System.ComponentModel.INotifyPropertyChanged"/>
+    /// <seealso cref="INotifyPropertyChanged"/>
     public class ChartDataContext : INotifyPropertyChanged
     {
         #region Private Fields
@@ -73,7 +73,7 @@ namespace Charts
 
         /// <summary>Gets the point history series collection.</summary>
         /// <value>The point history series collection.</value>
-        public SeriesCollection PointHistorySeriesCollection => GetPointHistorySeries();
+        public ISeries[] PointHistorySeriesCollection => GetPointHistorySeries();
 
         /// <summary>Gets the properties.</summary>
         /// <value>The properties.</value>
@@ -81,11 +81,11 @@ namespace Charts
 
         /// <summary>Gets the single field series collection.</summary>
         /// <value>The single field series collection.</value>
-        public SeriesCollection SingleFieldSeriesCollection => GetSingleFieldSeries();
+        public ISeries[] SingleFieldSeriesCollection => GetSingleFieldSeries();
 
         /// <summary>Gets the throw history series collection.</summary>
         /// <value>The throw history series collection.</value>
-        public SeriesCollection ThrowHistorySeriesCollection => GetThrowHistorySeries();
+        public ISeries[] ThrowHistorySeriesCollection => GetThrowHistorySeries();
 
         #endregion Public Properties
 
@@ -105,10 +105,10 @@ namespace Charts
                 }
             }
 
-            return retVal;
+            return new Dictionary<IDartThrow, int>(retVal.OrderBy(x => x.Key.DartBoardField).ThenBy(y => y.Key.DartBoardQuantifier));
         }
 
-        private IChartValues CalculatePointValues(int startPoints, IList<int> throwHistory)
+        private IEnumerable<int> CalculatePointValues(int startPoints, IList<int> throwHistory)
         {
             var retVal = new List<int>
             {
@@ -121,27 +121,27 @@ namespace Charts
                 retVal.Add(currentPoints -= thrown);
             }
 
-            return new ChartValues<int>(retVal);
+            return new List<int>(retVal);
         }
 
-        private SeriesCollection GetPointHistorySeries()
+        private ISeries[] GetPointHistorySeries()
         {
-            var retVal = new SeriesCollection();
+            var retVal = new List<LineSeries<int>>();
 
             if (GameOptions == null)
-                return retVal;
+                return retVal.ToArray();
 
             foreach (var player in GameOptions.PlayerList)
             {
-                retVal.Add(new LineSeries
+                retVal.Add(new LineSeries<int>()
                 {
-                    Title = player.Name,
+                    Name = player.Name,
                     Values = CalculatePointValues(GameOptions.StartPoints, GetPointValues(player.ThrowHistory)),
-                    PointGeometry = DefaultGeometries.Diamond
+                    //PointGeometry = DefaultGeometries.Diamond
                 });
             }
 
-            return retVal;
+            return retVal.ToArray();
         }
 
         private IList<int> GetPointValues(IList<IDartThrow> dartThrows)
@@ -149,50 +149,52 @@ namespace Charts
             return dartThrows.Select(x => x.Points).ToList();
         }
 
-        private SeriesCollection GetSingleFieldSeries()
+        private ISeries[] GetSingleFieldSeries()
         {
-            var retVal = new SeriesCollection();
+            var retVal = new List<PieSeries<int>>();
 
             if (GameOptions == null)
-                return retVal;
+                return retVal.ToArray();
 
             if (Player == null)
                 Player = GameOptions.PlayerList.First();
 
-            IDictionary<IDartThrow, int> fieldCount = CalcuateFieldCount(Player.ThrowHistory);
+            var fieldCount = CalcuateFieldCount(Player.ThrowHistory);
 
             foreach (var field in fieldCount)
             {
-                retVal.Add(new PieSeries
+                retVal.Add(new PieSeries<int>
                 {
-                    Title = $"{field.Key.DartBoardQuantifier} {field.Key.DartBoardField}",
-                    Values = new ChartValues<ObservableValue> { new ObservableValue(field.Value) },
-                    DataLabels = true
+                    Name = $"{field.Key.DartBoardQuantifier} {field.Key.DartBoardField}",
+                    Values = new List<int>{ field.Value },
+                    InnerRadius = 250,
+                    //Values = new ChartValues<ObservableValue> { new ObservableValue(field.Value) },
+                    //DataLabels = true
                 });
             }
 
-            return retVal;
+            return retVal.ToArray();
         }
 
-        private SeriesCollection GetThrowHistorySeries()
+        private ISeries[] GetThrowHistorySeries()
         {
-            var retVal = new SeriesCollection();
+            var retVal = new List<ColumnSeries<int>>();
 
             if (GameOptions == null)
-                return retVal;
+                return retVal.ToArray();
 
             foreach (var player in GameOptions.PlayerList)
             {
-                retVal.Add(new ColumnSeries
+                retVal.Add(new ColumnSeries<int>
                 {
-                    Title = player.Name,
-                    Values = new ChartValues<int>(GetPointValues(player.ThrowHistory)),
-                    PointGeometry = DefaultGeometries.Diamond,
-                    MaxColumnWidth = double.PositiveInfinity
+                    Name = player.Name,
+                    Values = GetPointValues(player.ThrowHistory),
+                    //PointGeometry = DefaultGeometries.Diamond,
+                    //MaxColumnWidth = double.PositiveInfinity
                 });
             }
 
-            return retVal;
+            return retVal.ToArray();
         }
 
         private void OnPropertyChanged(string propertyName)
