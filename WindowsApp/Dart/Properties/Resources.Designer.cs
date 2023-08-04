@@ -198,6 +198,15 @@ namespace Dart.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Opps! Something went wrong, sorry!.
+        /// </summary>
+        public static string ExceptionCatchWindowHeader {
+            get {
+                return ResourceManager.GetString("ExceptionCatchWindowHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exit.
         /// </summary>
         public static string Exit {
