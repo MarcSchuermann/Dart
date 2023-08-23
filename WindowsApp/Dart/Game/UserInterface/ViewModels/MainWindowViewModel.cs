@@ -262,8 +262,7 @@ namespace Dart
       /// <returns>The current applications settings.</returns>
       private IApplicationSettings GetSettings()
       {
-         var container = ServiceContainer.GetContainer();
-         var applicationSettings = container.Resolve<IApplicationSettings>();
+         var applicationSettings = ServiceContainer.GetContainer().Resolve<IApplicationSettings>();
          applicationSettings.ShowUserInterfaceDartBoardData = Properties.Settings.Default.ShowUserInterfaceDartBoardData;
          applicationSettings.SelectedCultureInfo = Properties.Settings.Default.CurrentCulture;
          applicationSettings.CurrentTheme = GetCurrentTheme();

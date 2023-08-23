@@ -5,15 +5,21 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
         Title="ExceptionCatchWindow" Height="450" Width="800">
-    <Grid>
-        <Grid.RowDefinitions>
-            <RowDefinition Height="40" />
-            <RowDefinition Height="40" />
-            <RowDefinition />
-        </Grid.RowDefinitions>
+   <Grid>
+      <Grid.RowDefinitions>
+         <RowDefinition Height="40" />
+         <RowDefinition Height="40" />
+         <RowDefinition Height="40" />
+         <RowDefinition />
+      </Grid.RowDefinitions>
 
-        <Label Grid.Row="0" Name="header" />
-        <Label Grid.Row="1" Name="message" />
-        <TextBox Grid.Row="2" Name="callStack" />
-    </Grid>
+      <Label Grid.Row="0" Name="header" />
+      <Label Grid.Row="1" Name="message" />
+      <TextBlock Grid.Row="2" Name="zipPath">
+         <Hyperlink NavigateUri="http://www.google.com" RequestNavigate="Hyperlink_RequestNavigate" Name="zipPathHyperlink">
+            <TextBlock Name="zipPathHyperlinkText" />
+            </Hyperlink>
+      </TextBlock>
+      <TextBox Grid.Row="3" Name="callStack" />
+   </Grid>
 </Window>

@@ -5,18 +5,29 @@
 // -----------------------------------------------------------------------
 
 using System;
+using System.Diagnostics;
 using System.IO;
 using System.Windows;
+using System.Windows.Navigation;
+using Autofac;
+using Dart.Common;
+using Dart.Tools.Logging;
 using Dart.Tools.ScreenShot;
 using Dart.Tools.Zip;
-using NLog.Targets;
-using NLog;
+using Microsoft.Extensions.Logging;
+using Serilog;
 
 namespace Dart.Tools.ExceptionHandling
 {
    /// <summary>Interaction logic for ExceptionCatchWindow.xaml</summary>
    public partial class ExceptionCatchWindow : Window
    {
+      #region Private Fields
+
+      private string zipFile;
+
+      #endregion Private Fields
+
       #region Public Constructors
 
       /// <summary>
@@ -27,8 +38,8 @@ namespace Dart.Tools.ExceptionHandling
       /// </param>
       public ExceptionCatchWindow(UnhandledExceptionEventArgs e)
       {
-         var path = "D:/tmp";
-         
+         var path = Path.GetTempPath();
+
          var screenshotPath = Path.Combine(path, $"dart_error_{DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss")}.jpeg");
          ScreenCapture.TakeScreenshot(screenshotPath);
 
@@ -36,33 +47,48 @@ namespace Dart.Tools.ExceptionHandling
 
          header.Content = Properties.Resources.ExceptionCatchWindowHeader;
 
+         var logProvider = ServiceContainer.GetContainer().Resolve<ILogProvider>();
+
          if (e.ExceptionObject is Exception exception)
          {
             message.Content = exception.Message;
             callStack.Text = exception.StackTrace;
+
+            var logger = logProvider.GetLogger(exception.Source);
+            logger.LogError(exception, exception.Message, exception.StackTrace);
          }
 
-         var logFile = GetLogFile();
+         var logFile = GetLogFile(logProvider);
 
-         Archiver.Create(path, new[] { screenshotPath, logFile });
-      }
+         Log.CloseAndFlush();
 
-      private string GetLogFile()
-      {
-         if (LogManager.Configuration == null)
-            return string.Empty;
-         
-         var fileTarget = (FileTarget)LogManager.Configuration.FindTargetByName("dart.log");
-         // Need to set timestamp here if filename uses date. 
-         // For example - filename="${basedir}/logs/${shortdate}/trace.log"
-         var logEventInfo = new LogEventInfo { TimeStamp = DateTime.Now };
-         string fileName = fileTarget.FileName.Render(logEventInfo);
-         if (File.Exists(fileName))
-            return fileName;
+         zipFile = Archiver.Create(path, new[] { screenshotPath, logFile });
 
-         return string.Empty;
+         zipPathHyperlinkText.Text = zipFile;
+
+         if (File.Exists(screenshotPath))
+            File.Delete(screenshotPath);
       }
 
       #endregion Public Constructors
+
+      #region Private Methods
+
+      private static string GetLogFile(ILogProvider logProvider)
+      {
+         return logProvider != null ? logProvider.LogFile : string.Empty;
+      }
+
+      private void Hyperlink_RequestNavigate(object sender, RequestNavigateEventArgs e)
+      {
+         var startInfo = new ProcessStartInfo();
+         startInfo.FileName = "explorer.exe";
+         startInfo.Arguments = "/select,\"" + zipFile + "\"";
+
+         Process.Start(startInfo);
+         e.Handled = true;
+      }
+
+      #endregion Private Methods
    }
 }

@@ -15,8 +15,10 @@ namespace Dart.Tools.Zip
    {
       #region Public Methods
 
-      public static void Create(string path, IEnumerable<string> filesToInclude)
+      public static string Create(string path, IEnumerable<string> filesToInclude)
       {
+         var zipPath = string.Empty;
+
          using (var memoryStream = new MemoryStream())
          {
             using (var archive = new ZipArchive(memoryStream, ZipArchiveMode.Create, true))
@@ -28,13 +30,15 @@ namespace Dart.Tools.Zip
                }
             }
 
-            string zipPath = Path.Combine(path, $"dart_error_{DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss")}.zip");
+            zipPath = Path.Combine(path, $"dart_error_{DateTime.Now.ToString("yyyy_MM_dd_HH_mm_ss")}.zip");
             using (var fileStream = new FileStream(zipPath, FileMode.OpenOrCreate))
             {
                memoryStream.Seek(0, SeekOrigin.Begin);
                memoryStream.CopyTo(fileStream);
             }
          }
+
+         return zipPath;
       }
 
       #endregion Public Methods

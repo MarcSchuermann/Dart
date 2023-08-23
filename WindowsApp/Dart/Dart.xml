@@ -1103,8 +1103,7 @@
         <member name="M:Dart.MainWindowView.OnClosing(System.ComponentModel.CancelEventArgs)">
             <summary>Raises the <see cref="E:System.Windows.Window.Closing" /> event.</summary>
             <param name="e">
-               A <see cref="T:System.ComponentModel.CancelEventArgs" /> that contains the event
-               data.
+               A <see cref="T:System.ComponentModel.CancelEventArgs" /> that contains the event data.
             </param>
         </member>
         <member name="M:Dart.MainWindowView.InitializeComponent">
@@ -1528,6 +1527,44 @@
         </member>
         <member name="M:Dart.Tools.IconSetter.SetProgramsIcon">
             <summary>Sets the programs icon.</summary>
+        </member>
+        <member name="T:Dart.Tools.Logging.ILogProvider">
+            <summary>The logger provider</summary>
+        </member>
+        <member name="P:Dart.Tools.Logging.ILogProvider.LogFile">
+            <summary>Gets the log file.</summary>
+            <value>The log file.</value>
+        </member>
+        <member name="M:Dart.Tools.Logging.ILogProvider.GetLogger``1">
+            <summary>Gets the logger.</summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Dart.Tools.Logging.ILogProvider.GetLogger(System.String)">
+            <summary>Gets the logger.</summary>
+            <param name="category">The category.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Dart.Tools.Logging.LogProvider">
+            <summary>The logger provider.</summary>
+            <seealso cref="T:Dart.Tools.Logging.ILogProvider" />
+        </member>
+        <member name="M:Dart.Tools.Logging.LogProvider.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:Dart.Tools.Logging.LogProvider" /> class.</summary>
+        </member>
+        <member name="P:Dart.Tools.Logging.LogProvider.LogFile">
+            <summary>Gets the log file.</summary>
+            <value>The log file.</value>
+        </member>
+        <member name="M:Dart.Tools.Logging.LogProvider.GetLogger``1">
+            <summary>Gets the logger.</summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Dart.Tools.Logging.LogProvider.GetLogger(System.String)">
+            <summary>Gets the logger.</summary>
+            <param name="category">The category.</param>
+            <returns></returns>
         </member>
         <member name="T:Game.App">
             <summary>
