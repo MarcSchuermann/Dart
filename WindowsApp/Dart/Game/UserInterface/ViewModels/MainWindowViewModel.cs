@@ -202,7 +202,11 @@ namespace Dart
          try
          {
             // TODO: Make path configurabel and setable via command line. And compile charts with the new core assemblies.
-            var catalog = new DirectoryCatalog(@"D:\_gitHub\Dart\Extensions\Charts\Schuermann.Darts.Charts\bin\Debug\net6.0-windows", "Schuermann.Darts.*.dll");
+            // D:\_gitHub\Dart\Extensions\Charts\TestApp\bin\Debug\net6.0-windows
+            var file = Path.Combine(@"D:/_gitHub/Dart/Extensions/Charts/Schuermann.Darts.Charts/bin/Debug/net6.0-windows/", "Schuermann.Darts.Charts.dll");
+            var exist = File.Exists(file);
+
+            var catalog = new DirectoryCatalog(@"D:\_gitHub\Dart\Extensions\Charts\TestApp\bin\Debug\net6.0-windows\", "Schuermann*"); // D:\_gitHub\Dart\Extensions\Charts\Schuermann.Darts.Charts\bin\Debug\net6.0-windows // PlugIns\
             var container = new CompositionContainer(catalog);
             CurrentProperties = new Schuermann.Darts.Environment.EnvironmentProps.Properties(SettingsViewModel.CurrentApplicationSettings.CurrentTheme.OriginalTheme.Name, SettingsViewModel.CurrentApplicationSettings.SelectedCultureInfo);
 

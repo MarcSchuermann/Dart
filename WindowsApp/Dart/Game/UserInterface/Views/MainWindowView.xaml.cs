@@ -9,11 +9,14 @@ using System.ComponentModel;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
+using System.Reflection.Metadata;
+using System.Reflection;
 using System.Windows.Input;
 using ControlzEx.Theming;
 using Dart.Tools;
 using Dart.Tools.ExceptionHandling;
 using MahApps.Metro.Controls;
+using Schuermann.Darts.Environment.Extensibility;
 
 namespace Dart
 {
@@ -219,7 +222,22 @@ namespace Dart
             {
                if (IsCtrlPressed() && Keyboard.IsKeyDown(Key.E) && IsNumberPressed(i))
                   if (mainWindowViewModel2.PlugIns.Count() > i)
+                  {
                      mainWindowViewModel2.PlugIns.ElementAt(i).PlugInCommand.OnExecute();
+                     //var asm = Assembly.LoadFrom("D:\\_gitHub\\Dart\\Extensions\\Charts\\Schuermann.Darts.Charts\\bin\\Debug\\net6.0-windows\\Schuermann.Darts.Charts.dll");
+                     //var types = asm.GetTypes();
+
+                     //foreach (var type in types)
+                     //{
+                     //   var xxx = new TypeFilter((t, _) => true);
+                     //   var typeList = type.FindInterfaces(xxx, typeof(IPlugIn));
+                     //   if (typeList.Length > 0)
+                     //   {
+                     //      var ai = Activator.CreateInstance(type) as IPlugIn;
+                     //      //AddIns.Add(ai);
+                     //   }
+                     //}
+                  }
             }
          }
 

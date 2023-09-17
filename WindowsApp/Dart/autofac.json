@@ -21,6 +21,24 @@
          ],
          "injectProperties": true,
          "instanceScope": "SingleInstance"
+      },
+      {
+         "type": "Schuermann.Darts.GameCore.Game.GameProcedure, Schuermann.Darts.GameCore",
+         "services": [
+            {
+               "type": "Schuermann.Darts.GameCore.Game.IGameProcedure, Schuermann.Darts.GameCore"
+            }
+         ],
+         "injectProperties": true
+      },
+      {
+         "type": "Schuermann.Darts.GameCore.Game.GameOptions, Schuermann.Darts.GameCore",
+         "services": [
+            {
+               "type": "Schuermann.Darts.GameCore.Game.IGameOptions, Schuermann.Darts.GameCore"
+            }
+         ],
+         "injectProperties": true
       }
    ]
 }
