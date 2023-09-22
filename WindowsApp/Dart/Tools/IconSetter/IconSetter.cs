@@ -9,6 +9,7 @@ using System.IO;
 using System.Reflection;
 using Autofac;
 using Dart.Common;
+using Dart.Common.Logger;
 using Dart.Tools.Logging;
 using Microsoft.Extensions.Logging;
 using Microsoft.Win32;
@@ -49,8 +50,7 @@ namespace Dart.Tools
          }
          catch (Exception ex)
          {
-            var logProvider = ServiceContainer.GetContainer().Resolve<ILogProvider>();
-            var logger = logProvider.GetLogger(nameof(IconSetter));
+            var logger = LoggerUtils.GetLogger(nameof(IconSetter));
             logger.LogError(ex, ex.Message, ex.StackTrace);
          }
       }

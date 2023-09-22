@@ -18,8 +18,10 @@ using Autofac;
 using ControlzEx.Theming;
 using Dart.Common;
 using Dart.Common.Commands;
+using Dart.Common.Logger;
 using Dart.Common.Theme;
 using Dart.Settings.Interfaces;
+using Microsoft.Extensions.Logging;
 using Microsoft.Win32;
 using Schuermann.Darts.Environment.EnvironmentProps;
 using Schuermann.Darts.Environment.Extensibility;
@@ -202,18 +204,17 @@ namespace Dart
          try
          {
             // TODO: Make path configurabel and setable via command line. And compile charts with the new core assemblies.
-            // D:\_gitHub\Dart\Extensions\Charts\TestApp\bin\Debug\net6.0-windows
             var file = Path.Combine(@"D:/_gitHub/Dart/Extensions/Charts/Schuermann.Darts.Charts/bin/Debug/net6.0-windows/", "Schuermann.Darts.Charts.dll");
-            var exist = File.Exists(file);
 
-            var catalog = new DirectoryCatalog(@"D:\_gitHub\Dart\Extensions\Charts\TestApp\bin\Debug\net6.0-windows\", "Schuermann*"); // D:\_gitHub\Dart\Extensions\Charts\Schuermann.Darts.Charts\bin\Debug\net6.0-windows // PlugIns\
+            var catalog = new DirectoryCatalog(@"D:\_gitHub\Dart\Extensions\Charts\Schuermann.Darts.Charts\bin\Debug\net6.0-windows\");
             var container = new CompositionContainer(catalog);
             CurrentProperties = new Schuermann.Darts.Environment.EnvironmentProps.Properties(SettingsViewModel.CurrentApplicationSettings.CurrentTheme.OriginalTheme.Name, SettingsViewModel.CurrentApplicationSettings.SelectedCultureInfo);
 
             container.ComposeParts(this);
          }
-         catch (Exception)
+         catch (Exception e)
          {
+            LoggerUtils.GetLogger<MainWindowViewModel>().LogError(e, "Error when loading plugins");
          }
       }
 

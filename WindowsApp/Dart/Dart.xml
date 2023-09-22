@@ -506,6 +506,21 @@
             <summary>Raises the property changed.</summary>
             <param name="propertyName">Name of the property.</param>
         </member>
+        <member name="T:Dart.Common.UserInterface.PlugInsDialog.PlugInsDialog">
+            <summary>Interaction logic for PlugInsDialog.xaml</summary>
+            <summary>
+            PlugInsDialog
+            </summary>
+        </member>
+        <member name="M:Dart.Common.UserInterface.PlugInsDialog.PlugInsDialog.#ctor(System.Collections.Generic.IEnumerable{Schuermann.Darts.Environment.Extensibility.IPlugIn})">
+            <summary>Initializes a new instance of the <see cref="T:Dart.Common.UserInterface.PlugInsDialog.PlugInsDialog" /> class.</summary>
+            <param name="plugIns">The plug ins.</param>
+        </member>
+        <member name="M:Dart.Common.UserInterface.PlugInsDialog.PlugInsDialog.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:Dart.DartBoardConstants">
             <summary>The Store.</summary>
         </member>

@@ -11,6 +11,7 @@ using System.Windows.Input;
 using Autofac;
 using Dart.Common;
 using Dart.Common.Commands;
+using Dart.Common.Logger;
 using Dart.Game.Interfaces;
 using Dart.Tools.Logging;
 using Microsoft.Extensions.Logging;
@@ -73,10 +74,8 @@ namespace Dart
       /// <summary>Thrown this instance.</summary>
       public void Thrown()
       {
-         var container = ServiceContainer.GetContainer();
-         var logProvider = container.Resolve<ILogProvider>();
-         logProvider.GetLogger<DartGameViewModel>().LogInformation($"{Game.Instance.CurrentPlayer.Name} throws {CurrentPointsUnderMouse}");
-
+         LoggerUtils.GetLogger<DartGameViewModel>().LogInformation($"{Game.Instance.CurrentPlayer.Name} throws {CurrentPointsUnderMouse}");
+         
          Game.PlayerThrown(CurrentPointsUnderMouse);
 
          UpdatePlayers();
