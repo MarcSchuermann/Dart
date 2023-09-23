@@ -193,8 +193,14 @@
   <data name="LanguageSelection" xml:space="preserve">
     <value>Language selection</value>
   </data>
+  <data name="Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
   <data name="Playercount" xml:space="preserve">
     <value>Playercount:</value>
+  </data>
+  <data name="PlugInsDialogTitel" xml:space="preserve">
+    <value>Loaded plugins</value>
   </data>
   <data name="Reset" xml:space="preserve">
     <value>Reset</value>

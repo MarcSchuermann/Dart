@@ -177,8 +177,14 @@
   <data name="LanguageSelection" xml:space="preserve">
     <value>Sprachauswahl</value>
   </data>
+  <data name="Ok" xml:space="preserve">
+    <value>OK</value>
+  </data>
   <data name="Playercount" xml:space="preserve">
     <value>Spieleranzahl:</value>
+  </data>
+  <data name="PlugInsDialogTitel" xml:space="preserve">
+    <value>Geladene PlugIns</value>
   </data>
   <data name="Reset" xml:space="preserve">
     <value>Zurücksetzen</value>

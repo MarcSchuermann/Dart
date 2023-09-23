@@ -291,11 +291,29 @@ namespace Dart.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        public static string Ok {
+            get {
+                return ResourceManager.GetString("Ok", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Playercount:.
         /// </summary>
         public static string Playercount {
             get {
                 return ResourceManager.GetString("Playercount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Loaded plugins.
+        /// </summary>
+        public static string PlugInsDialogTitel {
+            get {
+                return ResourceManager.GetString("PlugInsDialogTitel", resourceCulture);
             }
         }
         

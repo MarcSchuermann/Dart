@@ -25,7 +25,7 @@ namespace Dart.Common.UserInterface.PlugInsDialog
 
          foreach (var plugIn in plugIns)
          {
-            PlugIns.Items.Add($"Strg + e + {plugIns.ToList().IndexOf(plugIn)} {plugIn.Name}");
+            PlugIns.Items.Add($"Strg + e + {plugIns.ToList().IndexOf(plugIn)}: {plugIn.Name}");
          }
       }
 
