@@ -4,32 +4,40 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System;
 using Schuermann.Darts.GameCore.Thrown;
 using Schuermann.Darts.GameCore.UndoRedo.Interfaces;
 
 namespace Schuermann.Darts.GameCore.Game
 {
-    /// <summary>The logic for a game.</summary>
-    public interface IGameProcedure : IUndoRedo
-    {
-        #region Public Properties
+   /// <summary>The logic for a game.</summary>
+   public interface IGameProcedure : IUndoRedo
+   {
+      #region Public Events
 
-        /// <summary>Gets the instance.</summary>
-        /// <value>The instance.</value>
-        public IGameInstance Instance { get; }
+      /// <summary>Occurs when [standings changed].</summary>
+      event EventHandler StandingsChanged;
 
-        #endregion Public Properties
+      #endregion Public Events
 
-        #region Public Methods
+      #region Public Properties
 
-        /// <summary>Players the thrown.</summary>
-        /// <param name="pointsThrown">The points thrown from the current player.</param>
-        /// <returns>
-        ///    True if the remaining points are zero. False if the remaining points are more than
-        ///    zero or rather where below zero.
-        /// </returns>
-        bool PlayerThrown(IDartThrow pointsThrown);
+      /// <summary>Gets the instance.</summary>
+      /// <value>The instance.</value>
+      public IGameInstance Instance { get; }
 
-        #endregion Public Methods
-    }
+      #endregion Public Properties
+
+      #region Public Methods
+
+      /// <summary>Players the thrown.</summary>
+      /// <param name="pointsThrown">The points thrown from the current player.</param>
+      /// <returns>
+      ///    True if the remaining points are zero. False if the remaining points are more than zero
+      ///    or rather were below zero.
+      /// </returns>
+      bool PlayerThrown(IDartThrow pointsThrown);
+
+      #endregion Public Methods
+   }
 }

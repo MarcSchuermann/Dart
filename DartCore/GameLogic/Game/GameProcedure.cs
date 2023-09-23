@@ -4,101 +4,113 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using System.Collections.Generic;
+using System;
 using System.ComponentModel;
 using System.Linq;
 using Schuermann.Darts.GameCore.Thrown;
-using Schuermann.Darts.GameCore.UndoRedo.Interfaces;
 using Schuermann.Darts.GameCore.Util;
 
 namespace Schuermann.Darts.GameCore.Game
 {
-    /// <summary>The game instance.</summary>
-    /// <seealso cref="IGameProcedure" />
-    /// <seealso cref="INotifyPropertyChanged" />
-    public class GameProcedure : IGameProcedure
-    {
-        #region Public Constructors
+   /// <summary>The game instance.</summary>
+   /// <seealso cref="IGameProcedure" />
+   /// <seealso cref="INotifyPropertyChanged" />
+   public class GameProcedure : IGameProcedure
+   {
+      #region Public Constructors
 
-        /// <summary>
-        ///    Initializes a new instance of the <see cref="GameProcedure" /> class.
-        /// </summary>
-        /// <param name="gameOptions">The game options.</param>
-        public GameProcedure(IGameOptions gameOptions)
-        {
-            Instance = new GameInstance(gameOptions);
-        }
+      /// <summary>Initializes a new instance of the <see cref="GameProcedure" /> class.</summary>
+      /// <param name="gameOptions">The game options.</param>
+      public GameProcedure(IGameOptions gameOptions)
+      {
+         Instance = new GameInstance(gameOptions);
+      }
 
-        #endregion Public Constructors
+      #endregion Public Constructors
 
-        #region Public Properties
+      #region Public Events
 
-        /// <summary>Gets the instance.</summary>
-        /// <value>The instance.</value>
-        public IGameInstance Instance { get; }
+      /// <summary>Occurs when [player thrown].</summary>
+      public event EventHandler StandingsChanged;
 
-        #endregion Public Properties
+      #endregion Public Events
 
-        #region Public Methods
+      #region Public Properties
 
-        /// <summary>Players the thrown.</summary>
-        /// <param name="pointsThrown">The points thrown from the current player.</param>
-        /// <returns>
-        ///    True if the remaining points are zero. False if the remaining points are more than
-        ///    zero or rather where below zero.
-        /// </returns>
-        public bool PlayerThrown(IDartThrow pointsThrown)
-        {
-            if (pointsThrown == null)
-                return Instance.CurrentPlayer.CurrentScore == 0;
+      /// <summary>Gets the instance.</summary>
+      /// <value>The instance.</value>
+      public IGameInstance Instance { get; }
 
-            Instance.CurrentPlayer.Thrown(pointsThrown);
+      #endregion Public Properties
 
-            if (Instance.CurrentPlayer.CurrentScore == 0)
-                return true;
+      #region Public Methods
 
-            return false;
-        }
+      /// <summary>Players the thrown.</summary>
+      /// <param name="pointsThrown">The points thrown from the current player.</param>
+      /// <returns>
+      ///    True if the remaining points are zero. False if the remaining points are more than zero
+      ///    or rather where below zero.
+      /// </returns>
+      public bool PlayerThrown(IDartThrow pointsThrown)
+      {
+         if (pointsThrown == null)
+            return Instance.CurrentPlayer.CurrentScore == 0;
 
-        /// <summary>Redoes this instance.</summary>
-        public void Redo()
-        {
-            // This is the case where non player has already thrown --> Return current player
-            if (!Instance.GameOptions.PlayerList.Any( p => p.DartCountThisRound != 0) && 
-                Instance.GameOptions.PlayerList.Select(p => p.Round).Distinct().Count() == 1 && 
-                Instance.GameOptions.PlayerList.Select(p => p.Round).Distinct().First() == 1)
-            {
-                ((Player)Instance.CurrentPlayer).Redo();
-                return;
-            }
+         Instance.CurrentPlayer.Thrown(pointsThrown);
 
-            if (!Instance.GameOptions.PlayerList.Any(p => p.DartCountThisRound != 0))
-            {
-                ((Player)Instance.CurrentPlayer).Redo();
-                return;
-            }
+         StandingsChanged?.Invoke(this, EventArgs.Empty);
 
-            if (Instance.CurrentPlayer.DartCountThisRound == 0)
-            {
-                ((Player)Instance.GameOptions.PlayerList.GetPriviousPlayer(Instance.CurrentPlayer)).Redo();
-                return;
-            }
+         if (Instance.CurrentPlayer.CurrentScore == 0)
+            return true;
 
+         return false;
+      }
+
+      /// <summary>Redoes this instance.</summary>
+      public void Redo()
+      {
+         // This is the case where non player has already thrown --> Return current player
+         if (!Instance.GameOptions.PlayerList.Any(p => p.DartCountThisRound != 0) &&
+             Instance.GameOptions.PlayerList.Select(p => p.Round).Distinct().Count() == 1 &&
+             Instance.GameOptions.PlayerList.Select(p => p.Round).Distinct().First() == 1)
+         {
             ((Player)Instance.CurrentPlayer).Redo();
-        }
+            StandingsChanged?.Invoke(this, EventArgs.Empty);
+            return;
+         }
 
-        /// <summary>Undoes this instance.</summary>
-        public void Undo()
-        {
-            if (Instance.CurrentPlayer.DartCountThisRound == 0)
-            {
-                ((Player)Instance.GameOptions.PlayerList.GetPriviousPlayer(Instance.CurrentPlayer)).Undo();
-                return;
-            }
+         if (!Instance.GameOptions.PlayerList.Any(p => p.DartCountThisRound != 0))
+         {
+            ((Player)Instance.CurrentPlayer).Redo();
+            StandingsChanged?.Invoke(this, EventArgs.Empty);
+            return;
+         }
 
-            ((Player)Instance.CurrentPlayer).Undo();
-        }
+         if (Instance.CurrentPlayer.DartCountThisRound == 0)
+         {
+            ((Player)Instance.GameOptions.PlayerList.GetPriviousPlayer(Instance.CurrentPlayer)).Redo();
+            StandingsChanged?.Invoke(this, EventArgs.Empty);
+            return;
+         }
 
-        #endregion Public Methods
-    }
+         ((Player)Instance.CurrentPlayer).Redo();
+         StandingsChanged?.Invoke(this, EventArgs.Empty);
+      }
+
+      /// <summary>Undoes this instance.</summary>
+      public void Undo()
+      {
+         if (Instance.CurrentPlayer.DartCountThisRound == 0)
+         {
+            ((Player)Instance.GameOptions.PlayerList.GetPriviousPlayer(Instance.CurrentPlayer)).Undo();
+            StandingsChanged?.Invoke(this, EventArgs.Empty);
+            return;
+         }
+
+          ((Player)Instance.CurrentPlayer).Undo();
+         StandingsChanged?.Invoke(this, EventArgs.Empty);
+      }
+
+      #endregion Public Methods
+   }
 }
