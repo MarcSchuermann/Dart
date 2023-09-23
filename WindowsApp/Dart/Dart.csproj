@@ -38,7 +38,7 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0-preview.7.23375.6" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0-preview.7.23375.6" />
-    <PackageReference Include="Schuermann.Darts.Environment" Version="2.0.3-alpha.20230403.1" />
+    <PackageReference Include="Schuermann.Darts.Environment" Version="2.0.3-alpha.20230923.8" />
     <PackageReference Include="Serilog.Exceptions" Version="8.4.0" />
     <PackageReference Include="Serilog.Extensions.Hosting" Version="7.0.0" />
     <PackageReference Include="Serilog.Settings.AppSettings" Version="2.2.3-dev-00066" />

@@ -676,6 +676,10 @@
             <summary>Initializes a new instance of the <see cref="T:Dart.ThrowInfo" /> class.</summary>
             <param name="dartBoardElement">The dart board.</param>
         </member>
+        <member name="P:Dart.ThrowInfo.DartBoard">
+            <summary>Gets the dart board.</summary>
+            <value>The dart board.</value>
+        </member>
         <member name="P:Dart.ThrowInfo.GetCurrentAngle">
             <summary>Gets the current angle.</summary>
             <returns>The angle.</returns>
@@ -795,13 +799,15 @@
             </summary>
         </member>
         <member name="M:Dart.Game.UserInterface.Views.DartGameView.#ctor">
-            <summary>
-               Initializes a new instance of the <see cref="T:Dart.Game.UserInterface.Views.DartGameView" /> class.
-            </summary>
+            <summary>Initializes a new instance of the <see cref="T:Dart.Game.UserInterface.Views.DartGameView" /> class.</summary>
         </member>
         <member name="P:Dart.Game.UserInterface.Views.DartGameView.CurrentPoints">
             <summary>Gets the current points.</summary>
             <value>The current points.</value>
+        </member>
+        <member name="P:Dart.Game.UserInterface.Views.DartGameView.DartBoard">
+            <summary>Gets the dart board.</summary>
+            <value>The dart board.</value>
         </member>
         <member name="M:Dart.Game.UserInterface.Views.DartGameView.DartBoardMouseLeave(System.Object,System.Windows.Input.MouseEventArgs)">
             <summary>Handles the MouseLeave event of the DartBoard control.</summary>
@@ -826,9 +832,6 @@
             <param name="sender">The sender.</param>
             <param name="actuallyMousePosition">The actually mouse position.</param>
             <param name="actuallyPoints">The actually points.</param>
-        </member>
-        <member name="M:Dart.Game.UserInterface.Views.DartGameView.ShowDevUiData">
-            <summary>Shows the development UI data.</summary>
         </member>
         <member name="M:Dart.Game.UserInterface.Views.DartGameView.InitializeComponent">
             <summary>
@@ -1527,21 +1530,52 @@
             InitializeComponent
             </summary>
         </member>
-        <member name="T:Dart.Tools.DevelopmentPropertiesView">
-            <summary>Interaction logic for DartBoardData.</summary>
-            <summary>
-            DevelopmentPropertiesView
-            </summary>
+        <member name="E:Dart.Tools.DartBoardData.DartBoard.ValuesChanged">
+            <summary>Occurs when [values changed].</summary>
         </member>
-        <member name="M:Dart.Tools.DevelopmentPropertiesView.#ctor">
-            <summary>
-            Initializes a new instance of the <see cref="T:Dart.Tools.DevelopmentPropertiesView"/> class.
-            </summary>
+        <member name="P:Dart.Tools.DartBoardData.DartBoard.CurrentAngle">
+            <summary>Gets the current angle.</summary>
+            <value>The current angle.</value>
         </member>
-        <member name="M:Dart.Tools.DevelopmentPropertiesView.InitializeComponent">
-            <summary>
-            InitializeComponent
-            </summary>
+        <member name="P:Dart.Tools.DartBoardData.DartBoard.CurrentDistanceBetweenMouseAndCenter">
+            <summary>Gets the current distance between mouse and center.</summary>
+            <value>The current distance between mouse and center.</value>
+        </member>
+        <member name="P:Dart.Tools.DartBoardData.DartBoard.CurrentMousePosition">
+            <summary>Gets the current mouse position.</summary>
+            <value>The current mouse position.</value>
+        </member>
+        <member name="P:Dart.Tools.DartBoardData.DartBoard.DartBoardCenter">
+            <summary>Gets the dart board center.</summary>
+            <value>The dart board center.</value>
+        </member>
+        <member name="P:Dart.Tools.DartBoardData.DartBoard.Height">
+            <summary>Gets the height.</summary>
+            <value>The height.</value>
+        </member>
+        <member name="P:Dart.Tools.DartBoardData.DartBoard.IsDouble">
+            <summary>Gets a value indicating whether this instance is double.</summary>
+            <value><c>true</c> if this instance is double; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Dart.Tools.DartBoardData.DartBoard.IsSingle">
+            <summary>Gets a value indicating whether this instance is single.</summary>
+            <value><c>true</c> if this instance is single; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Dart.Tools.DartBoardData.DartBoard.IsTriple">
+            <summary>Gets a value indicating whether this instance is triple.</summary>
+            <value><c>true</c> if this instance is triple; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Dart.Tools.DartBoardData.DartBoard.PointsAtMousePosition">
+            <summary>Gets the points at mouse position.</summary>
+            <value>The points at mouse position.</value>
+        </member>
+        <member name="P:Dart.Tools.DartBoardData.DartBoard.Width">
+            <summary>Gets the width.</summary>
+            <value>The width.</value>
+        </member>
+        <member name="M:Dart.Tools.DartBoardData.DartBoard.Update(Dart.ThrowInfo)">
+            <summary>Updates the specified throw information.</summary>
+            <param name="throwInfo">The throw information.</param>
         </member>
         <member name="T:Dart.Tools.ExceptionHandling.ExceptionCatchWindow">
             <summary>Interaction logic for ExceptionCatchWindow.xaml</summary>
