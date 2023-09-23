@@ -5,7 +5,6 @@
 // -----------------------------------------------------------------------
 
 using System;
-using System.Drawing;
 using Schuermann.Darts.GameCore.Thrown;
 
 namespace Schuermann.Darts.GameCore.UI
@@ -32,11 +31,11 @@ namespace Schuermann.Darts.GameCore.UI
 
       /// <summary>Gets the current mouse position.</summary>
       /// <value>The current mouse position.</value>
-      Point CurrentMousePosition { get; }
+      Tuple<int, int> CurrentMousePosition { get; }
 
       /// <summary>Gets the dart board center.</summary>
       /// <value>The dart board center.</value>
-      Point DartBoardCenter { get; }
+      Tuple<int, int> DartBoardCenter { get; }
 
       /// <summary>Gets the height.</summary>
       /// <value>The height.</value>
