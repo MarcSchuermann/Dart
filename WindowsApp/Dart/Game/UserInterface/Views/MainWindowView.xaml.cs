@@ -12,6 +12,7 @@ using System.Linq;
 using System.Windows.Input;
 using ControlzEx.Theming;
 using Dart.Common.UserInterface.PlugInsDialog;
+using Dart.Common.Utils;
 using Dart.Tools;
 using Dart.Tools.ExceptionHandling;
 using MahApps.Metro.Controls;
@@ -78,33 +79,6 @@ namespace Dart
 
       #region Private Methods
 
-      private static bool IsCtrlPressed()
-      {
-         return (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl));
-      }
-
-      private static bool IsNumberPressed(int number)
-      {
-         if (number == 0)
-            return Keyboard.IsKeyDown(Key.D0);
-
-         if (number == 1)
-            return Keyboard.IsKeyDown(Key.D1);
-
-         if (number == 2)
-            return Keyboard.IsKeyDown(Key.D2);
-
-         if (number == 3)
-            return Keyboard.IsKeyDown(Key.D4);
-
-         return false;
-      }
-
-      private static bool IsShiftPressed()
-      {
-         return Keyboard.IsKeyDown(Key.LeftShift) || Keyboard.IsKeyDown(Key.RightShift);
-      }
-
       private void AppDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
       {
          var exceptionCatchWindow = new ExceptionCatchWindow(e);
@@ -168,70 +142,73 @@ namespace Dart
 
       private void MainWindowView_KeyDown(object sender, KeyEventArgs e)
       {
+         if (!(DataContext is MainWindowViewModel mainWindowViewModel))
+            return;
+
          // Safe
-         if (IsCtrlPressed() && Keyboard.IsKeyDown(Key.S))
+         if (KeyboardUtils.IsCtrlPressed() && Keyboard.IsKeyDown(Key.S))
          {
-            ((MainWindowViewModel)DataContext)?.ShowSaveDialog();
+            mainWindowViewModel.ShowSaveDialog();
+            return;
          }
 
          // Load
-         if (IsCtrlPressed() && Keyboard.IsKeyDown(Key.L))
+         if (KeyboardUtils.IsCtrlPressed() && Keyboard.IsKeyDown(Key.L))
          {
-            var loadedMainWindowViewModel = ((MainWindowViewModel)DataContext).ShowLoadDialog();
+            var loadedMainWindowViewModel = mainWindowViewModel.ShowLoadDialog();
 
-            if (DataContext is MainWindowViewModel mainWindowViewModel)
-            {
-               mainWindowViewModel.CurrentContent = loadedMainWindowViewModel.CurrentContent;
-               HamburgerMenuControl.Content = loadedMainWindowViewModel.CurrentContent;
-            }
+            mainWindowViewModel.CurrentContent = loadedMainWindowViewModel.CurrentContent;
+            HamburgerMenuControl.Content = loadedMainWindowViewModel.CurrentContent;
+
+            return;
          }
 
          // Undo
-         if (IsCtrlPressed() && Keyboard.IsKeyDown(Key.Z) && !IsShiftPressed())
+         if (KeyboardUtils.IsCtrlPressed() && Keyboard.IsKeyDown(Key.Z) && !KeyboardUtils.IsShiftPressed())
          {
-            if (DataContext is MainWindowViewModel mainWindowViewModel)
+            if (mainWindowViewModel.CurrentContent is DartGameViewModel dartGameViewModel)
             {
-               if (mainWindowViewModel.CurrentContent is DartGameViewModel dartGameViewModel)
-               {
-                  dartGameViewModel.Game.Undo();
-                  dartGameViewModel.UpdatePlayers();
-               }
+               dartGameViewModel.Game.Undo();
+               dartGameViewModel.UpdatePlayers();
             }
+
+            return;
          }
 
          // Redo
-         if (IsCtrlPressed() && Keyboard.IsKeyDown(Key.Z) && IsShiftPressed())
+         if (KeyboardUtils.IsCtrlPressed() && Keyboard.IsKeyDown(Key.Z) && KeyboardUtils.IsShiftPressed())
          {
-            if (DataContext is MainWindowViewModel mainWindowViewModel)
+            if (mainWindowViewModel.CurrentContent is DartGameViewModel dartGameViewModel)
             {
-               if (mainWindowViewModel.CurrentContent is DartGameViewModel dartGameViewModel)
-               {
-                  dartGameViewModel.Game.Redo();
-                  dartGameViewModel.UpdatePlayers();
-               }
+               dartGameViewModel.Game.Redo();
+               dartGameViewModel.UpdatePlayers();
             }
+
+            return;
          }
 
-         if (DataContext is MainWindowViewModel mainWindowViewModel2)
+         // Open PlugIn Window
+         if (KeyboardUtils.IsCtrlPressed() && Keyboard.IsKeyDown(Key.E) && Keyboard.IsKeyDown(Key.A))
          {
-            mainWindowViewModel2.LoadPlugIns();
+            mainWindowViewModel.LoadPlugIns();
 
-            // Open PlugIn Window
-            if (IsCtrlPressed() && Keyboard.IsKeyDown(Key.E) && Keyboard.IsKeyDown(Key.A))
-            {
-               var plugInsDialog = new PlugInsDialog(mainWindowViewModel2.PlugIns);
-               plugInsDialog.ShowDialog();
-            }
+            var plugInsDialog = new PlugInsDialog(mainWindowViewModel.PlugIns);
+            plugInsDialog.ShowDialog();
 
-            // Open PlugIns
-            for (var i = 0; i <= mainWindowViewModel2.PlugIns.Count(); i++)
+            return;
+         }
+
+         // Open PlugIns
+         if (KeyboardUtils.IsCtrlPressed() && Keyboard.IsKeyDown(Key.E) && KeyboardUtils.IsNumberPressed())
+         {
+            for (var i = 0; i <= mainWindowViewModel.PlugIns.Count(); i++)
             {
-               if (IsCtrlPressed() && Keyboard.IsKeyDown(Key.E) && IsNumberPressed(i))
+               if (KeyboardUtils.IsNumberPressed(i))
                {
-                  if (mainWindowViewModel2.PlugIns.Count() > i)
+                  if (mainWindowViewModel.PlugIns.Count() > i)
                   {
-                     mainWindowViewModel2.PlugIns.ElementAt(i).GameOptions = mainWindowViewModel2.ConfiguredGameOptions;
-                     mainWindowViewModel2.PlugIns.ElementAt(i).PlugInCommand.OnExecute();
+                     mainWindowViewModel.PlugIns.ElementAt(i).GameOptions = mainWindowViewModel.ConfiguredGameOptions;
+                     mainWindowViewModel.PlugIns.ElementAt(i).PlugInCommand.OnExecute();
                   }
                }
             }

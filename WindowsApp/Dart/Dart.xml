@@ -521,6 +521,21 @@
             InitializeComponent
             </summary>
         </member>
+        <member name="M:Dart.Common.Utils.KeyboardUtils.IsCtrlPressed">
+            <summary>Determines whether [is control pressed].</summary>
+            <returns><c>true</c> if [is control pressed]; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Dart.Common.Utils.KeyboardUtils.IsNumberPressed(System.Int32)">
+            <summary>Determines whether [is number pressed] [the specified number].</summary>
+            <param name="number">The number.</param>
+            <returns>
+               <c>true</c> if [is number pressed] [the specified number]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Dart.Common.Utils.KeyboardUtils.IsShiftPressed">
+            <summary>Determines whether [is shift pressed].</summary>
+            <returns><c>true</c> if [is shift pressed]; otherwise, <c>false</c>.</returns>
+        </member>
         <member name="T:Dart.DartBoardConstants">
             <summary>The Store.</summary>
         </member>
