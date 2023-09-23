@@ -31,11 +31,11 @@ namespace Schuermann.Darts.GameCore.UI
 
       /// <summary>Gets the current mouse position.</summary>
       /// <value>The current mouse position.</value>
-      Tuple<int, int> CurrentMousePosition { get; }
+      Tuple<double, double> CurrentMousePosition { get; }
 
       /// <summary>Gets the dart board center.</summary>
       /// <value>The dart board center.</value>
-      Tuple<int, int> DartBoardCenter { get; }
+      Tuple<double, double> DartBoardCenter { get; }
 
       /// <summary>Gets the height.</summary>
       /// <value>The height.</value>
