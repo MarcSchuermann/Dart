@@ -136,6 +136,13 @@
                or rather were below zero.
             </returns>
         </member>
+        <member name="T:Schuermann.Darts.GameCore.Game.IGameProvider">
+            <summary>The game instance provider.</summary>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.Game.IGameProvider.Game">
+            <summary>Gets the game.</summary>
+            <value>The game.</value>
+        </member>
         <member name="T:Schuermann.Darts.GameCore.Game.IPlayer">
             <summary>The player interface.</summary>
         </member>
