@@ -5,7 +5,7 @@
 // -----------------------------------------------------------------------
 
 using System.Globalization;
-using Schuermann.Darts.GameCore.Themes;
+using Schuermann.Dart.Core.Themes;
 
 namespace Schuermann.Dart.Core.EnvironmentProps
 {

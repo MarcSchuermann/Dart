@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Schuermann.Darts.GameCore.Tests</name>
+        <name>Schuermann.Dart.Core.Tests</name>
     </assembly>
     <members>
         <member name="T:GameLogicTests.DartThrowTests.CompareToTest">
@@ -148,6 +148,60 @@
             <param name="expectedThrowHistoryCount">The expected throw history count.</param>
             <param name="expectedRound">The expected round.</param>
             <param name="expectedDartCountThisRound">The expected dart count this round.</param>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Tests.PlugInCommandTests.ConstructorTests">
+            <summary>The constructor test.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.PlugInCommandTests.ConstructorTests.InitCorrect">
+            <summary>Initializes the correct.</summary>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Tests.PropertiesTests.ConstructorTest">
+            <summary>Constructor tests.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.PropertiesTests.ConstructorTest.InitCorrect">
+            <summary>Initializes the correct.</summary>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Tests.ThemesTests.ConstructorTest">
+            <summary>The constructor test.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.ThemesTests.ConstructorTest.InitCorrect">
+            <summary>Initializes the correct.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.ThemesTests.ConstructorTest.InitCorrectDefault">
+            <summary>Initializes the correct default.</summary>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Tests.ThemesTests.ThemeConverterTests">
+            <summary>The converter tests.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.ThemesTests.ThemeConverterTests.ConvertCorrectTest">
+            <summary>Converts the correct test.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.ThemesTests.ThemeConverterTests.ConvertFailedWithEmptyBaseTheme">
+            <summary>Converts the failed with empty base theme.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.ThemesTests.ThemeConverterTests.ConvertFailedWithEmptyBaseThemeAndColorSchema">
+            <summary>Converts the failed with empty base theme and color schema.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.ThemesTests.ThemeConverterTests.ConvertFailedWithEmptyBaseThemeButSetColorSchema">
+            <summary>Converts the failed with empty base theme but set color schema.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.ThemesTests.ThemeConverterTests.ConvertFailedWithEmptyColorSchema">
+            <summary>Converts the failed with empty color schema.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.ThemesTests.ThemeConverterTests.ConvertFailedWithEmptyColorSchemaButSetBaseTheme">
+            <summary>Converts the failed with empty color schema but set base theme.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.ThemesTests.ThemeConverterTests.ConvertFailedWithNotCorrectBaseTheme">
+            <summary>Converts the failed with not correct base theme.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.ThemesTests.ThemeConverterTests.ConvertFailedWithNotCorrectColorSchema">
+            <summary>Converts the failed with not correct color schema.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.ThemesTests.ThemeConverterTests.ConvertFailedWithNull">
+            <summary>Converts the failed with null.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.ThemesTests.ThemeConverterTests.ConvertFailedWithToMuchEntries">
+            <summary>Converts the failed with to much entries.</summary>
         </member>
     </members>
 </doc>

@@ -7,7 +7,7 @@ variables:
 - name: BuildConfiguration
   value: release
 - name: Solution
-  value: DartCore/DartCore.sln
+  value: Core/Schuermann.Dart.Core.sln
 
 parameters:
 - name: publishNuget
@@ -36,13 +36,13 @@ steps:
     targetType: 'inline'
     script: |
       Get-ChildItem '$(Build.SourcesDirectory)' -Recurse
-      Get-Content $(Build.SourcesDirectory)/DartCore/DartCore.Build.targets
+      Get-Content $(Build.SourcesDirectory)/Dart.Build.targets
 
-      [xml]$targetsFile = Get-Content -Path $(Build.SourcesDirectory)/DartCore/DartCore.Build.targets
+      [xml]$targetsFile = Get-Content -Path $(Build.SourcesDirectory)/Dart.Build.targets
       Get-ChildItem '$(Build.SourcesDirectory)' -Recurse
-      Get-Content $(Build.SourcesDirectory)/DartCore/DartCore.Build.targets
+      Get-Content $(Build.SourcesDirectory)/Dart.Build.targets
 
-      [xml]$targetsFile = Get-Content -Path $(Build.SourcesDirectory)/DartCore/DartCore.Build.targets
+      [xml]$targetsFile = Get-Content -Path $(Build.SourcesDirectory)/Dart.Build.targets
       $version = $targetsFile.Project.PropertyGroup.Version
       Write-Host "readVersion is $version"
       if ($version -Match " ")
@@ -123,34 +123,21 @@ steps:
   displayName: 'NuGet push'
   inputs:
     command: push
-    packagesToPush: '$(Build.BinariesDirectory)/**/Schuermann.Darts.*.nupkg'
+    packagesToPush: '$(Build.BinariesDirectory)/**/Schuermann.Dart.*.nupkg'
     publishVstsFeed: 'c05ca382-95eb-43eb-af0a-00b109382f26'
     allowPackageConflicts: true
 
-# --- Create docu for environment ---
-- task: DocFxTask@0
-  displayName: 'Create DocFx Documentation Environment'
-  inputs:
-    solution: '$(System.DefaultWorkingDirectory)/DartCore/Environment/docfx.json'
-
-# --- Copy docu for environment ---
-- task: CopyFiles@2
-  displayName: 'Copy Files to: $(build.artifactstagingdirectory)/docu/Environment/'
-  inputs:
-    SourceFolder: '$(System.DefaultWorkingDirectory)/DartCore/Environment/_site'
-    TargetFolder: '$(build.artifactstagingdirectory)/docu/Environment/'
-
 # --- Create docu for game logic ---
 - task: DocFxTask@0
-  displayName: 'Create DocFx Documentation GameLogic'
+  displayName: 'Create DocFx Documentation Schuermann.Dart.Core'
   inputs:
-    solution: '$(System.DefaultWorkingDirectory)/DartCore/GameLogic/docfx.json'
+    solution: '$(System.DefaultWorkingDirectory)/Core/Schuermann.Dart.Core/docfx.json'
 
 # --- Copy docu for game logic ---
 - task: CopyFiles@2
   displayName: 'Copy Files to: $(build.artifactstagingdirectory)/docu/GameLogic/'
   inputs:
-    SourceFolder: '$(System.DefaultWorkingDirectory)/DartCore/GameLogic/_site'
+    SourceFolder: '$(System.DefaultWorkingDirectory)/Core/Schuermann.Dart.Core/_site'
     TargetFolder: '$(build.artifactstagingdirectory)/docu/GameLogic/'
 
 # --- Copy all BinariesDirectory to staging directory ---

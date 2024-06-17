@@ -7,9 +7,8 @@
 using System;
 using System.Diagnostics;
 using System.Globalization;
-using Schuermann.Dart.Core.Themes;
 
-namespace Schuermann.Darts.GameCore.Themes
+namespace Schuermann.Dart.Core.Themes
 {
    /// <summary>The theme converter.</summary>
    public static class ThemeConverter
