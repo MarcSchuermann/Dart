@@ -6,12 +6,12 @@
 
 using System;
 using System.Collections.Generic;
-using Schuermann.Darts.GameCore.Thrown;
+using Schuermann.Dart.Core.Thrown;
 
 namespace Schuermann.Darts.GameCore.Save.PersistObjects
 {
-    /// <summary>Persist the plyer istance.</summary>
-    internal class PlayerPersister
+   /// <summary>Persist the plyer istance.</summary>
+   internal class PlayerPersister
     {
         #region Public Properties
 

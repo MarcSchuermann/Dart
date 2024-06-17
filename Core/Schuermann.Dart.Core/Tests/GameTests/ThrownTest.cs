@@ -7,12 +7,13 @@
 using System.Collections.Generic;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Schuermann.Dart.Core.Game;
+using Schuermann.Dart.Core.Thrown;
 using Schuermann.Darts.GameCore.Game;
-using Schuermann.Darts.GameCore.Thrown;
 
 namespace GameLogicTests.GameTests
 {
-    [TestClass]
+   [TestClass]
     public class ThrownTest
     {
         #region Public Methods

@@ -6,12 +6,12 @@
 
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Schuermann.Darts.GameCore.Thrown;
+using Schuermann.Dart.Core.Thrown;
 
 namespace GameLogicTests.DartThrowTests
 {
-    /// <summary>Tests the ToString method.</summary>
-    [TestClass]
+   /// <summary>Tests the ToString method.</summary>
+   [TestClass]
     public class ToStringTest
     {
         #region Public Methods

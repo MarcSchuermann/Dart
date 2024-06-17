@@ -6,11 +6,11 @@
 
 using System.Collections.Generic;
 using System.Linq;
-using Schuermann.Darts.GameCore.Game;
+using Schuermann.Dart.Core.Game;
 
 namespace Schuermann.Darts.GameCore.Util
 {
-    internal static class PlayerlistUtils
+   internal static class PlayerlistUtils
     {
         #region Public Methods
 

@@ -5,7 +5,7 @@
 // -----------------------------------------------------------------------
 
 using System;
-using Schuermann.Darts.GameCore.Thrown;
+using Schuermann.Dart.Core.Thrown;
 using Schuermann.Darts.GameCore.UndoRedo.Interfaces;
 
 namespace Schuermann.Darts.GameCore.Game

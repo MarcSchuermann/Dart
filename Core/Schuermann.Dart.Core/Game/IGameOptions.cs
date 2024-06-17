@@ -5,11 +5,12 @@
 // -----------------------------------------------------------------------
 
 using System.Collections.Generic;
+using Schuermann.Dart.Core.Game;
 
 namespace Schuermann.Darts.GameCore.Game
 {
-    /// <summary>The game option interface.</summary>
-    public interface IGameOptions
+   /// <summary>The game option interface.</summary>
+   public interface IGameOptions
     {
         #region Public Properties
 

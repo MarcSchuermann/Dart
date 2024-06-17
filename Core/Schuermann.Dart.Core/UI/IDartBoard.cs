@@ -5,7 +5,7 @@
 // -----------------------------------------------------------------------
 
 using System;
-using Schuermann.Darts.GameCore.Thrown;
+using Schuermann.Dart.Core.Thrown;
 
 namespace Schuermann.Darts.GameCore.UI
 {

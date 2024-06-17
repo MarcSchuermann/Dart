@@ -7,7 +7,8 @@
 using System;
 using System.ComponentModel;
 using System.Linq;
-using Schuermann.Darts.GameCore.Thrown;
+using Schuermann.Dart.Core.Game;
+using Schuermann.Dart.Core.Thrown;
 using Schuermann.Darts.GameCore.Util;
 
 namespace Schuermann.Darts.GameCore.Game

@@ -5,13 +5,13 @@
 // -----------------------------------------------------------------------
 
 using System;
-using Schuermann.Darts.GameCore.Game;
-using Schuermann.Darts.GameCore.Thrown;
+using Schuermann.Dart.Core.Game;
+using Schuermann.Dart.Core.Thrown;
 using Schuermann.Darts.GameCore.UndoRedo.Interfaces;
 
 namespace Schuermann.Darts.GameCore.UndoRedo.Impl.Actions
 {
-    internal class ThrownAction : IUndoRedo
+   internal class ThrownAction : IUndoRedo
     {
         #region Private Fields
 

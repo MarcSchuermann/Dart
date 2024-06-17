@@ -6,12 +6,12 @@
 
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Schuermann.Darts.GameCore.Thrown;
+using Schuermann.Dart.Core.Thrown;
 
 namespace GameLogicTests.DartThrowTests
 {
-    /// <summary>Tests the method CompareTo.</summary>
-    [TestClass]
+   /// <summary>Tests the method CompareTo.</summary>
+   [TestClass]
     public class CompareToTest
     {
         #region Public Methods

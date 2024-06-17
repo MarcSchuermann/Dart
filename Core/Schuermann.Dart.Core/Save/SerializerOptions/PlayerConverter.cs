@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Schuermann.Darts.GameCore.Game;
+using Schuermann.Dart.Core.Game;
 
 namespace Schuermann.Darts.GameCore.Save.SerializerOptions
 {
-    internal class PlayerConverter : JsonConverter<IPlayer>
+   internal class PlayerConverter : JsonConverter<IPlayer>
     {
         #region Public Methods
 

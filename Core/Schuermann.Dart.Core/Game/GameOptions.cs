@@ -5,42 +5,43 @@
 // -----------------------------------------------------------------------
 
 using System.Collections.Generic;
+using Schuermann.Darts.GameCore.Game;
 
-namespace Schuermann.Darts.GameCore.Game
+namespace Schuermann.Dart.Core.Game
 {
-    /// <summary>The options for a dart game.</summary>
-    /// <seealso cref="IGameOptions" />
-    public class GameOptions : IGameOptions
-    {
-        #region Public Constructors
+   /// <summary>The options for a dart game.</summary>
+   /// <seealso cref="IGameOptions" />
+   public class GameOptions : IGameOptions
+   {
+      #region Public Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="GameOptions" /> class.</summary>
-        /// <param name="playerList">The player list.</param>
-        public GameOptions(IEnumerable<IPlayer> playerList)
-        {
-            PlayerList = playerList;
-        }
+      /// <summary>Initializes a new instance of the <see cref="GameOptions" /> class.</summary>
+      /// <param name="playerList">The player list.</param>
+      public GameOptions(IEnumerable<IPlayer> playerList)
+      {
+         PlayerList = playerList;
+      }
 
-        #endregion Public Constructors
+      #endregion Public Constructors
 
-        #region Public Properties
+      #region Public Properties
 
-        /// <summary>Gets or sets a value indicating whether [double in].</summary>
-        /// <value><c>true</c> if [double in]; otherwise, <c>false</c>.</value>
-        public bool DoubleIn { get; set; }
+      /// <summary>Gets or sets a value indicating whether [double in].</summary>
+      /// <value><c>true</c> if [double in]; otherwise, <c>false</c>.</value>
+      public bool DoubleIn { get; set; }
 
-        /// <summary>Gets or sets a value indicating whether [double out].</summary>
-        /// <value><c>true</c> if [double out]; otherwise, <c>false</c>.</value>
-        public bool DoubleOut { get; set; }
+      /// <summary>Gets or sets a value indicating whether [double out].</summary>
+      /// <value><c>true</c> if [double out]; otherwise, <c>false</c>.</value>
+      public bool DoubleOut { get; set; }
 
-        /// <summary>Gets or sets the player list.</summary>
-        /// <value>The player list.</value>
-        public IEnumerable<IPlayer> PlayerList { get; }
+      /// <summary>Gets or sets the player list.</summary>
+      /// <value>The player list.</value>
+      public IEnumerable<IPlayer> PlayerList { get; }
 
-        /// <summary>Gets or sets the start points.</summary>
-        /// <value>The start points.</value>
-        public int StartPoints { get; set; }
+      /// <summary>Gets or sets the start points.</summary>
+      /// <value>The start points.</value>
+      public int StartPoints { get; set; }
 
-        #endregion Public Properties
-    }
+      #endregion Public Properties
+   }
 }

@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Schuermann.Darts.GameCore.Thrown;
+using Schuermann.Dart.Core.Thrown;
 
 namespace Schuermann.Darts.GameCore.Save.SerializerOptions
 {
-    internal class DartThrowConverter : JsonConverter<IDartThrow>
+   internal class DartThrowConverter : JsonConverter<IDartThrow>
     {
         #region Public Methods
 

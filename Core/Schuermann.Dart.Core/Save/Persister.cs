@@ -8,15 +8,16 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Text.Json;
+using Schuermann.Dart.Core.Game;
 using Schuermann.Darts.GameCore.Game;
 using Schuermann.Darts.GameCore.Save.PersistObjects;
 using Schuermann.Darts.GameCore.Save.SerializerOptions;
 
 namespace Schuermann.Darts.GameCore.Save
 {
-    /// <summary>Persist the current came instance.</summary>
-    /// <seealso cref="Schuermann.Darts.GameCore.Save.IPersist" />
-    public static class Persister
+   /// <summary>Persist the current came instance.</summary>
+   /// <seealso cref="Schuermann.Darts.GameCore.Save.IPersist" />
+   public static class Persister
     {
         #region Public Methods
 

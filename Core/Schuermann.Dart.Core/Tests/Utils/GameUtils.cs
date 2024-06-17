@@ -5,12 +5,13 @@
 // -----------------------------------------------------------------------
 
 using System.Collections.Generic;
+using Schuermann.Dart.Core.Game;
 using Schuermann.Darts.GameCore.Game;
 
 namespace Schuermann.Darts.GameCore.Tests.Utils
 {
-    /// <summary>Utils for the game.</summary>
-    internal static class GameUtils
+   /// <summary>Utils for the game.</summary>
+   internal static class GameUtils
     {
         #region Public Methods
 

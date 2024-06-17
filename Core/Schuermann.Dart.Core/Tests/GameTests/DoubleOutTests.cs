@@ -7,13 +7,14 @@
 using System.Collections.Generic;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Schuermann.Dart.Core.Game;
+using Schuermann.Dart.Core.Thrown;
 using Schuermann.Darts.GameCore.Game;
 using Schuermann.Darts.GameCore.Tests.Utils;
-using Schuermann.Darts.GameCore.Thrown;
 
 namespace Schuermann.Darts.GameCore.Tests.GameTests
 {
-    [TestClass]
+   [TestClass]
     public class DoubleOutTests
     {
         #region Public Methods

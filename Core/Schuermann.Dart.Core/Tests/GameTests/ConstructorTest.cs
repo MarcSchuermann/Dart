@@ -6,12 +6,13 @@
 
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Schuermann.Dart.Core.Game;
 using Schuermann.Darts.GameCore.Game;
 
 namespace GameLogicTests.GameTests
 {
-    /// <summary>Tests the constructor.</summary>
-    [TestClass]
+   /// <summary>Tests the constructor.</summary>
+   [TestClass]
     public class ConstructorTest
     {
         #region Public Methods

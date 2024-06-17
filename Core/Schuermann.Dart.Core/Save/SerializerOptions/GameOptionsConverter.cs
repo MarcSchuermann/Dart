@@ -5,11 +5,12 @@ using System.Text;
 using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
+using Schuermann.Dart.Core.Game;
 using Schuermann.Darts.GameCore.Game;
 
 namespace Schuermann.Darts.GameCore.Save.SerializerOptions
 {
-    internal class GameOptionsConverter : JsonConverter<IGameOptions>
+   internal class GameOptionsConverter : JsonConverter<IGameOptions>
     {
         public override IGameOptions Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
         {

@@ -6,25 +6,25 @@
 
 using System;
 
-namespace Schuermann.Darts.GameCore.Thrown
+namespace Schuermann.Dart.Core.Thrown
 {
-    /// <summary>The dart throw.</summary>
-    public interface IDartThrow : IEquatable<IDartThrow>, IComparable<IDartThrow>, ICloneable
-    {
-        #region Public Properties
+   /// <summary>The dart throw.</summary>
+   public interface IDartThrow : IEquatable<IDartThrow>, IComparable<IDartThrow>, ICloneable
+   {
+      #region Public Properties
 
-        /// <summary>Gets the dart board field.</summary>
-        /// <value>The dart board field.</value>
-        DartBoardField DartBoardField { get; }
+      /// <summary>Gets the dart board field.</summary>
+      /// <value>The dart board field.</value>
+      DartBoardField DartBoardField { get; }
 
-        /// <summary>Gets the dart board quantifier.</summary>
-        /// <value>The dart board quantifier.</value>
-        DartBoardQuantifier DartBoardQuantifier { get; }
+      /// <summary>Gets the dart board quantifier.</summary>
+      /// <value>The dart board quantifier.</value>
+      DartBoardQuantifier DartBoardQuantifier { get; }
 
-        /// <summary>Gets the points.</summary>
-        /// <value>The points.</value>
-        int Points { get; }
+      /// <summary>Gets the points.</summary>
+      /// <value>The points.</value>
+      int Points { get; }
 
-        #endregion Public Properties
-    }
+      #endregion Public Properties
+   }
 }

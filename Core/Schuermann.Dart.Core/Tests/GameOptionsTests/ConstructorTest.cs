@@ -8,8 +8,8 @@ using System.Collections.Generic;
 using System.Linq;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Schuermann.Darts.GameCore.Game;
-using Schuermann.Darts.GameCore.Thrown;
+using Schuermann.Dart.Core.Game;
+using Schuermann.Dart.Core.Thrown;
 
 namespace GameLogicTests.GameOptionsTests
 {

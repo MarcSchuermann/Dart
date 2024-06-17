@@ -5,14 +5,15 @@ using System.Linq;
 using System.Text.RegularExpressions;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Schuermann.Dart.Core.Game;
+using Schuermann.Dart.Core.Thrown;
 using Schuermann.Darts.GameCore.Game;
 using Schuermann.Darts.GameCore.Save;
-using Schuermann.Darts.GameCore.Thrown;
 
 namespace Schuermann.Darts.GameCore.Tests.PersistTests
 {
-    /// <summary>Save and load tests.</summary>
-    [TestClass]
+   /// <summary>Save and load tests.</summary>
+   [TestClass]
     public class LoadSaveTest
     {
         #region Private Fields

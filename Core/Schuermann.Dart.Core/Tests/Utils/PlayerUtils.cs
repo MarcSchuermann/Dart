@@ -5,12 +5,12 @@
 // -----------------------------------------------------------------------
 
 using FluentAssertions;
-using Schuermann.Darts.GameCore.Game;
+using Schuermann.Dart.Core.Game;
 
 namespace Schuermann.Darts.GameCore.Tests.Utils
 {
-    /// <summary>Utils for the player.</summary>
-    internal static class PlayerUtils
+   /// <summary>Utils for the player.</summary>
+   internal static class PlayerUtils
     {
         #region Public Methods
 
