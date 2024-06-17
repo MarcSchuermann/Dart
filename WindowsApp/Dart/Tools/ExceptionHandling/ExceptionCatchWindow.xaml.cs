@@ -9,7 +9,6 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Navigation;
-using Autofac;
 using Dart.Common;
 using Dart.Tools.Logging;
 using Dart.Tools.ScreenShot;
@@ -47,15 +46,15 @@ namespace Dart.Tools.ExceptionHandling
 
          header.Content = Properties.Resources.ExceptionCatchWindowHeader;
 
-         var logProvider = ServiceContainer.GetContainer().Resolve<ILogProvider>();
+         ILogProvider logProvider = null;//ServiceContainer.GetContainer().Resolve<ILogProvider>();
 
          if (e.ExceptionObject is Exception exception)
          {
             message.Content = exception.Message;
             callStack.Text = exception.StackTrace;
 
-            var logger = logProvider.GetLogger(exception.Source);
-            logger.LogError(exception, exception.Message, exception.StackTrace);
+            var logger = logProvider?.GetLogger(exception.Source);
+            logger?.LogError(exception, exception.Message, exception.StackTrace);
          }
 
          var logFile = GetLogFile(logProvider);

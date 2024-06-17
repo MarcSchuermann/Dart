@@ -4,21 +4,21 @@
 
 using System;
 using System.Windows.Media;
-using Schuermann.Darts.Environment.Themes;
+using Schuermann.Darts.GameCore.Themes;
 
 namespace Schuermann.Darts.Charts.Themes
 {
-    public class Styles
+   public class Styles
     {
         #region Private Fields
 
-        private readonly Theme theme;
+        private readonly ITheme theme;
 
         #endregion Private Fields
 
         #region Public Constructors
 
-        public Styles(Theme theme)
+        public Styles(ITheme theme)
         {
             this.theme = theme;
         }

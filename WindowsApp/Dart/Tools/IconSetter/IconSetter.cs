@@ -7,7 +7,6 @@
 using System;
 using System.IO;
 using System.Reflection;
-using Autofac;
 using Dart.Common;
 using Dart.Common.Logger;
 using Dart.Tools.Logging;

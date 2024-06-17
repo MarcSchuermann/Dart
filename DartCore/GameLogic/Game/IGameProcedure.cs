@@ -13,13 +13,6 @@ namespace Schuermann.Darts.GameCore.Game
    /// <summary>The logic for a game.</summary>
    public interface IGameProcedure : IUndoRedo
    {
-      #region Public Events
-
-      /// <summary>Occurs when [standings changed].</summary>
-      event EventHandler StandingsChanged;
-
-      #endregion Public Events
-
       #region Public Properties
 
       /// <summary>Gets the instance.</summary>

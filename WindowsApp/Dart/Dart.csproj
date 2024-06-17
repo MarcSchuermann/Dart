@@ -1,14 +1,12 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-    <!--<RootNamespace>Dart</RootNamespace>-->
-    <!--<AssemblyName>Dart</AssemblyName>-->
     <TargetFramework>net6.0-windows</TargetFramework>
     <OutputType>WinExe</OutputType>
     <ApplicationIcon>darts.ico</ApplicationIcon>
     <DocumentationFile>Dart.xml</DocumentationFile>
-	<!--<GenerateSerializationAssemblies>On</GenerateSerializationAssemblies>-->
 	<UseWPF>true</UseWPF>
+	<Configurations>Debug;Release;Develop</Configurations>
   </PropertyGroup>
 
 	<ItemGroup>
@@ -28,8 +26,6 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Autofac" Version="6.3.0" />
-    <PackageReference Include="Autofac.Configuration" Version="6.0.0" />
     <PackageReference Include="ControlzEx" Version="6.0.0" />
     <PackageReference Include="Fizzler" Version="1.2.0" />
     <PackageReference Include="MahApps.Metro" Version="3.0.0-alpha0457" />
@@ -38,7 +34,6 @@
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="7.0.0" />
     <PackageReference Include="Microsoft.Extensions.Logging" Version="8.0.0-preview.7.23375.6" />
     <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="8.0.0-preview.7.23375.6" />
-    <PackageReference Include="Schuermann.Darts.Environment" Version="2.0.3-alpha.20230923.8" />
     <PackageReference Include="Serilog.Exceptions" Version="8.4.0" />
     <PackageReference Include="Serilog.Extensions.Hosting" Version="7.0.0" />
     <PackageReference Include="Serilog.Settings.AppSettings" Version="2.2.3-dev-00066" />
@@ -56,6 +51,15 @@
     <PackageReference Include="System.ValueTuple" Version="4.5.0" />
   </ItemGroup>
 
+	<ItemGroup Condition="$(Configuration)!=Develop">
+		<PackageReference Include="Schuermann.Darts.Environment" Version="2.0.3-alpha.20231001.2" />
+	</ItemGroup>
+
+	<ItemGroup Condition="$(Configuration)==Develop">
+		<ProjectReference Include="..\..\DartCore\GameLogic\Schuermann.Darts.GameCore.csproj" />
+		<ProjectReference Include="..\..\DartCore\Environment\Schuermann.Darts.Environment.csproj" />
+	</ItemGroup>	  
+		 
   <ItemGroup>
     <Compile Update="Properties\Resources.Designer.cs">
       <DesignTime>True</DesignTime>
@@ -80,9 +84,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Update="autofac.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
     <None Update="darts.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -103,37 +104,5 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
   </ItemGroup>
-
-  <!--<ItemGroup>-->
-    <!-- App.xaml -->
-    <!--<ApplicationDefinition Include="App.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </ApplicationDefinition>-->
-
-    <!-- XAML elements -->
-    <!--<Page Include="**\*.xaml" Exclude="App.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </Page>-->
-    <!--<None Remove="Resources\dartboard.png" />
-    <Resource Include="Resources\dartboard.png">
-      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
-    </Resource>
-    <Compile Update="**\*.xaml.cs" SubType="Code" DependentUpon="%(Filename)" />-->
-
-    <!-- Resources -->
-    <!--<EmbeddedResource Update="Properties\Resources.resx" Generator="ResXFileCodeGenerator" LastGenOutput="Resources.Designer.cs" />
-    <Compile Update="Properties\Resources.Designer.cs" AutoGen="True" DependentUpon="Resources.resx" DesignTime="True" />
-    <None Update="autofac.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
-    <None Update="NLog.config">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>-->
-
-    <!-- Settings -->
-    <!--<None Update="Properties\Settings.settings" Generator="SettingsSingleFileGenerator" LastGenOutput="Settings.Designer.cs" />
-    <Compile Update="Properties\Settings.Designer.cs" AutoGen="True" DependentUpon="Settings.settings" />
-  </ItemGroup>-->
+	
 </Project>

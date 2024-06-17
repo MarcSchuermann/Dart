@@ -4,39 +4,8 @@
         <name>Schuermann.Darts.Environment</name>
     </assembly>
     <members>
-        <member name="T:Schuermann.Darts.Environment.EnvironmentProps.IProperties">
-            <summary>The properties.</summary>
-        </member>
-        <member name="P:Schuermann.Darts.Environment.EnvironmentProps.IProperties.Culture">
-            <summary>Gets the culture.</summary>
-            <value>The culture.</value>
-        </member>
-        <member name="P:Schuermann.Darts.Environment.EnvironmentProps.IProperties.Theme">
-            <summary>Gets the theme.</summary>
-            <value>The theme.</value>
-        </member>
-        <member name="T:Schuermann.Darts.Environment.EnvironmentProps.Properties">
-            <summary>The properties of the environment like the culture or the theme.</summary>
-        </member>
-        <member name="M:Schuermann.Darts.Environment.EnvironmentProps.Properties.#ctor(System.String,System.Globalization.CultureInfo)">
-            <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.Environment.EnvironmentProps.Properties" /> class.</summary>
-            <param name="theme">The theme.</param>
-            <param name="culture">The culture.</param>
-        </member>
-        <member name="P:Schuermann.Darts.Environment.EnvironmentProps.Properties.Culture">
-            <summary>Gets the culture.</summary>
-            <value>The culture.</value>
-        </member>
-        <member name="P:Schuermann.Darts.Environment.EnvironmentProps.Properties.Theme">
-            <summary>Gets the theme.</summary>
-            <value>The theme.</value>
-        </member>
         <member name="T:Schuermann.Darts.Environment.Extensibility.IPlugIn">
             <summary>The plug in interface.</summary>
-        </member>
-        <member name="P:Schuermann.Darts.Environment.Extensibility.IPlugIn.GameOptions">
-            <summary>Gets or sets the game options.</summary>
-            <value>The game options.</value>
         </member>
         <member name="P:Schuermann.Darts.Environment.Extensibility.IPlugIn.Name">
             <summary>Gets the name.</summary>
@@ -45,10 +14,6 @@
         <member name="P:Schuermann.Darts.Environment.Extensibility.IPlugIn.PlugInCommand">
             <summary>Gets the plug in command.</summary>
             <value>The plug in command.</value>
-        </member>
-        <member name="P:Schuermann.Darts.Environment.Extensibility.IPlugIn.Properties">
-            <summary>Gets or sets the properties.</summary>
-            <value>The properties.</value>
         </member>
         <member name="T:Schuermann.Darts.Environment.Extensibility.IPlugInCommand">
             <summary>The plug in command.</summary>
@@ -100,120 +65,6 @@
         </member>
         <member name="P:Schuermann.Darts.Environment.Extensibility.PlugInCommand.PlugIn">
             <inheritdoc />
-        </member>
-        <member name="T:Schuermann.Darts.Environment.Themes.BaseTheme">
-            <summary>The base theme. Light or dark.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.BaseTheme.dark">
-            <summary>The dark.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.BaseTheme.light">
-            <summary>The light.</summary>
-        </member>
-        <member name="T:Schuermann.Darts.Environment.Themes.ColorSchema">
-            <summary>The color.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.red">
-            <summary>The red.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.green">
-            <summary>The green.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.blue">
-            <summary>The blue.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.purple">
-            <summary>The purple.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.orange">
-            <summary>The orange.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.lime">
-            <summary>The lime.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.emerald">
-            <summary>The emerald.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.teal">
-            <summary>The teal.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.cyan">
-            <summary>The cyan.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.cobalt">
-            <summary>The cobalt.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.indigo">
-            <summary>The indigo.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.violet">
-            <summary>The violet.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.pink">
-            <summary>The pink.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.magenta">
-            <summary>The magenta.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.crimson">
-            <summary>The crimson.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.amber">
-            <summary>The amber.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.yellow">
-            <summary>The yellow.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.brown">
-            <summary>The brown.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.olive">
-            <summary>The olive.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.steel">
-            <summary>The steel.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.mauve">
-            <summary>The mauve.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.taupe">
-            <summary>The taupe.</summary>
-        </member>
-        <member name="F:Schuermann.Darts.Environment.Themes.ColorSchema.sienna">
-            <summary>The sienna.</summary>
-        </member>
-        <member name="T:Schuermann.Darts.Environment.Themes.Theme">
-            <summary>The theme.</summary>
-        </member>
-        <member name="M:Schuermann.Darts.Environment.Themes.Theme.#ctor">
-            <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.Environment.Themes.Theme" /> class.</summary>
-        </member>
-        <member name="M:Schuermann.Darts.Environment.Themes.Theme.#ctor(Schuermann.Darts.Environment.Themes.BaseTheme,Schuermann.Darts.Environment.Themes.ColorSchema)">
-            <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.Environment.Themes.Theme" /> class.</summary>
-            <param name="baseTheme">The base theme.</param>
-            <param name="colorSchema">The color schema.</param>
-        </member>
-        <member name="P:Schuermann.Darts.Environment.Themes.Theme.BaseTheme">
-            <summary>Gets the base theme.</summary>
-            <value>The base theme.</value>
-        </member>
-        <member name="P:Schuermann.Darts.Environment.Themes.Theme.ColorSchema">
-            <summary>Gets the color schema.</summary>
-            <value>The color schema.</value>
-        </member>
-        <member name="T:Schuermann.Darts.Environment.Themes.ThemeConverter">
-            <summary>The theme converter.</summary>
-        </member>
-        <member name="M:Schuermann.Darts.Environment.Themes.ThemeConverter.Convert(System.String)">
-            <summary>Converts the specified theme.</summary>
-            <param name="theme">The theme.</param>
-            <returns>The converted theme.</returns>
-        </member>
-        <member name="M:Schuermann.Darts.Environment.Themes.ThemeConverter.Convert(System.String,System.String)">
-            <summary>Converts the specified base theme.</summary>
-            <param name="baseTheme">The base theme.</param>
-            <param name="colorSchema">The color schema.</param>
-            <returns>The converted theme.</returns>
         </member>
     </members>
 </doc>

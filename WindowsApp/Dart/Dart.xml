@@ -215,12 +215,9 @@
                The raise can execute changed action.
             </param>
         </member>
-        <member name="T:Dart.Common.ServiceContainer">
-            <summary>The container to get public services.</summary>
-        </member>
-        <member name="M:Dart.Common.ServiceContainer.GetContainer">
-            <summary>Gets the container.</summary>
-            <returns>The build container instance.</returns>
+        <member name="P:Dart.Common.PlugIns.PlugInLoader.PlugIns">
+            <summary>Gets or sets the plug ins.</summary>
+            <value>The plug ins.</value>
         </member>
         <member name="T:Dart.Common.Splashscreen.SplashScreen">
             <summary>The splash screen.</summary>

@@ -59,7 +59,7 @@ namespace Dart.Game.UserInterface.Views
       private void DartBoardMouseLeave(object sender, MouseEventArgs e)
       {
          var adornerLayer = AdornerLayer.GetAdornerLayer((System.Windows.Media.Visual)sender);
-         adornerLayer.Remove(adorner);
+         adornerLayer?.Remove(adorner);
       }
 
       /// <summary>Handles the MouseMove event of the DartBoard control.</summary>

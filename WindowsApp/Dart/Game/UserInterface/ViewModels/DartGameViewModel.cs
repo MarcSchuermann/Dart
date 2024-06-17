@@ -4,16 +4,16 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.ComponentModel.Composition;
 using System.Linq;
 using System.Windows.Input;
-using Autofac;
 using Dart.Common;
 using Dart.Common.Commands;
 using Dart.Common.Logger;
 using Dart.Game.Interfaces;
-using Dart.Tools.Logging;
 using Microsoft.Extensions.Logging;
 using Schuermann.Darts.GameCore.Game;
 using Schuermann.Darts.GameCore.Thrown;
@@ -22,15 +22,22 @@ namespace Dart
 {
    /// <summary>The DartGameViewModel.</summary>
    /// <seealso cref="Dart.ViewModelBase" />
-   public class DartGameViewModel : ViewModelBase
+   //[Export(typeof(IGameProvider))]
+   //[PartCreationPolicy(CreationPolicy.Shared)]
+   public class DartGameViewModel : ViewModelBase, IGameProvider
    {
-      #region Public Constructors
+        #region Public Constructors
 
-      /// <summary>
-      ///    Initializes a new instance of the <see cref="DartGameViewModel" /> class.
-      /// </summary>
-      /// <param name="owner">The owner.</param>
-      public DartGameViewModel(IViewModelBase owner)
+        public DartGameViewModel()
+        {
+            
+        }
+
+        /// <summary>
+        ///    Initializes a new instance of the <see cref="DartGameViewModel" /> class.
+        /// </summary>
+        /// <param name="owner">The owner.</param>
+        public DartGameViewModel(IViewModelBase owner)
       {
          MainWindowViewModel = owner as IMainWindowViewModel;
 
@@ -57,6 +64,7 @@ namespace Dart
 
       /// <summary>Gets the game.</summary>
       /// <value>The game.</value>
+      [Export(typeof(IGameProcedure))]
       public IGameProcedure Game { get; }
 
       /// <summary>Gets or sets the main window view model.</summary>
@@ -74,7 +82,7 @@ namespace Dart
       /// <summary>Thrown this instance.</summary>
       public void Thrown()
       {
-         LoggerUtils.GetLogger<DartGameViewModel>().LogInformation($"{Game.Instance.CurrentPlayer.Name} throws {CurrentPointsUnderMouse}");
+         //LoggerUtils.GetLogger<DartGameViewModel>().LogInformation($"{Game.Instance.CurrentPlayer.Name} throws {CurrentPointsUnderMouse}");
          
          Game.PlayerThrown(CurrentPointsUnderMouse);
 

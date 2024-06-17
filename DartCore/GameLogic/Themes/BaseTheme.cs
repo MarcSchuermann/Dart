@@ -4,15 +4,15 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Schuermann.Darts.Environment.Themes
+namespace Schuermann.Darts.GameCore.Themes
 {
-    /// <summary>The base theme. Light or dark.</summary>
-    public enum BaseTheme
-    {
-        /// <summary>The dark.</summary>
-        dark,
+   /// <summary>The base theme. Light or dark.</summary>
+   public enum BaseTheme
+   {
+      /// <summary>The dark.</summary>
+      dark,
 
-        /// <summary>The light.</summary>
-        light,
-    }
+      /// <summary>The light.</summary>
+      light,
+   }
 }

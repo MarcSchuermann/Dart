@@ -28,13 +28,6 @@ namespace Schuermann.Darts.GameCore.Game
 
       #endregion Public Constructors
 
-      #region Public Events
-
-      /// <summary>Occurs when [player thrown].</summary>
-      public event EventHandler StandingsChanged;
-
-      #endregion Public Events
-
       #region Public Properties
 
       /// <summary>Gets the instance.</summary>
@@ -58,7 +51,7 @@ namespace Schuermann.Darts.GameCore.Game
 
          Instance.CurrentPlayer.Thrown(pointsThrown);
 
-         StandingsChanged?.Invoke(this, EventArgs.Empty);
+         Instance.InvokeStandingsChanged(this);
 
          if (Instance.CurrentPlayer.CurrentScore == 0)
             return true;
@@ -75,26 +68,26 @@ namespace Schuermann.Darts.GameCore.Game
              Instance.GameOptions.PlayerList.Select(p => p.Round).Distinct().First() == 1)
          {
             ((Player)Instance.CurrentPlayer).Redo();
-            StandingsChanged?.Invoke(this, EventArgs.Empty);
+            Instance.InvokeStandingsChanged(this);
             return;
          }
 
          if (!Instance.GameOptions.PlayerList.Any(p => p.DartCountThisRound != 0))
          {
             ((Player)Instance.CurrentPlayer).Redo();
-            StandingsChanged?.Invoke(this, EventArgs.Empty);
+            Instance.InvokeStandingsChanged(this);
             return;
          }
 
          if (Instance.CurrentPlayer.DartCountThisRound == 0)
          {
             ((Player)Instance.GameOptions.PlayerList.GetPriviousPlayer(Instance.CurrentPlayer)).Redo();
-            StandingsChanged?.Invoke(this, EventArgs.Empty);
+            Instance.InvokeStandingsChanged(this);
             return;
          }
 
          ((Player)Instance.CurrentPlayer).Redo();
-         StandingsChanged?.Invoke(this, EventArgs.Empty);
+         Instance.InvokeStandingsChanged(this);
       }
 
       /// <summary>Undoes this instance.</summary>
@@ -103,12 +96,12 @@ namespace Schuermann.Darts.GameCore.Game
          if (Instance.CurrentPlayer.DartCountThisRound == 0)
          {
             ((Player)Instance.GameOptions.PlayerList.GetPriviousPlayer(Instance.CurrentPlayer)).Undo();
-            StandingsChanged?.Invoke(this, EventArgs.Empty);
+            Instance.InvokeStandingsChanged(this);
             return;
          }
 
           ((Player)Instance.CurrentPlayer).Undo();
-         StandingsChanged?.Invoke(this, EventArgs.Empty);
+         Instance.InvokeStandingsChanged(this);
       }
 
       #endregion Public Methods

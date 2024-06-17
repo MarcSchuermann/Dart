@@ -4,15 +4,27 @@
         <name>Schuermann.Darts.GameCore</name>
     </assembly>
     <members>
+        <member name="T:Schuermann.Darts.GameCore.EnvironmentProps.IProperties">
+            <summary>The properties.</summary>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.EnvironmentProps.IProperties.Culture">
+            <summary>Gets the culture.</summary>
+            <value>The culture.</value>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.EnvironmentProps.IProperties.Theme">
+            <summary>Gets the theme.</summary>
+            <value>The theme.</value>
+        </member>
         <member name="T:Schuermann.Darts.GameCore.Game.GameInstance">
             <summary>The instance.</summary>
             <seealso cref="T:Schuermann.Darts.GameCore.Game.IGameInstance" />
         </member>
         <member name="M:Schuermann.Darts.GameCore.Game.GameInstance.#ctor(Schuermann.Darts.GameCore.Game.IGameOptions)">
-            <summary>
-               Initializes a new instance of the <see cref="T:Schuermann.Darts.GameCore.Game.GameInstance" /> class.
-            </summary>
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.GameCore.Game.GameInstance" /> class.</summary>
             <param name="gameOptions">The game options.</param>
+        </member>
+        <member name="E:Schuermann.Darts.GameCore.Game.GameInstance.StandingsChanged">
+            <summary>Occurs when [player thrown].</summary>
         </member>
         <member name="P:Schuermann.Darts.GameCore.Game.GameInstance.CurrentPlayer">
             <summary>Gets the current player.</summary>
@@ -26,6 +38,10 @@
                Performs application-defined tasks associated with freeing, releasing, or resetting
                unmanaged resources.
             </summary>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Game.GameInstance.InvokeStandingsChanged(Schuermann.Darts.GameCore.Game.IGameProcedure)">
+            <summary>Invokes the standings changed.</summary>
+            <param name="gameProcedure">The game procedure.</param>
         </member>
         <member name="M:Schuermann.Darts.GameCore.Game.GameInstance.Dispose(System.Boolean)">
             <summary>Releases unmanaged and - optionally - managed resources.</summary>
@@ -67,9 +83,6 @@
             <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.GameCore.Game.GameProcedure" /> class.</summary>
             <param name="gameOptions">The game options.</param>
         </member>
-        <member name="E:Schuermann.Darts.GameCore.Game.GameProcedure.StandingsChanged">
-            <summary>Occurs when [player thrown].</summary>
-        </member>
         <member name="P:Schuermann.Darts.GameCore.Game.GameProcedure.Instance">
             <summary>Gets the instance.</summary>
             <value>The instance.</value>
@@ -91,6 +104,9 @@
         <member name="T:Schuermann.Darts.GameCore.Game.IGameInstance">
             <summary>The instance of a game.</summary>
         </member>
+        <member name="E:Schuermann.Darts.GameCore.Game.IGameInstance.StandingsChanged">
+            <summary>Occurs when [standings changed].</summary>
+        </member>
         <member name="P:Schuermann.Darts.GameCore.Game.IGameInstance.CurrentPlayer">
             <summary>Gets the current player.</summary>
             <returns>The current player.</returns>
@@ -98,6 +114,9 @@
         <member name="P:Schuermann.Darts.GameCore.Game.IGameInstance.GameOptions">
             <summary>Gets the game options.</summary>
             <value>The game options.</value>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Game.IGameInstance.InvokeStandingsChanged(Schuermann.Darts.GameCore.Game.IGameProcedure)">
+            <summary>Invokes the standings changed.</summary>
         </member>
         <member name="T:Schuermann.Darts.GameCore.Game.IGameOptions">
             <summary>The game option interface.</summary>
@@ -120,9 +139,6 @@
         </member>
         <member name="T:Schuermann.Darts.GameCore.Game.IGameProcedure">
             <summary>The logic for a game.</summary>
-        </member>
-        <member name="E:Schuermann.Darts.GameCore.Game.IGameProcedure.StandingsChanged">
-            <summary>Occurs when [standings changed].</summary>
         </member>
         <member name="P:Schuermann.Darts.GameCore.Game.IGameProcedure.Instance">
             <summary>Gets the instance.</summary>
@@ -365,6 +381,153 @@
         <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.PlayerPersister.ThrowHistory">
             <summary>Gets or sets the throw history.</summary>
             <value>The throw history.</value>
+        </member>
+        <member name="T:Schuermann.Darts.GameCore.Service.DartService">
+            <summary>The dart service.</summary>
+            <seealso cref="T:Schuermann.Darts.GameCore.Service.IDartService" />
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Service.DartService.#ctor(Schuermann.Darts.GameCore.Game.IGameInstance,Schuermann.Darts.GameCore.Game.IGameOptions,Schuermann.Darts.GameCore.EnvironmentProps.IProperties)">
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.GameCore.Service.DartService" /> class.</summary>
+            <param name="gameInstance">The game instance.</param>
+            <param name="gameOptions">The game options.</param>
+            <param name="properties">The properties.</param>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Service.DartService.GetGameInstance">
+            <summary>Gets the game instance.</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Service.DartService.GetGameOptions">
+            <summary>Gets the game options.</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Service.DartService.GetProperties">
+            <summary>Gets the properties.</summary>
+            <returns></returns>
+        </member>
+        <member name="T:Schuermann.Darts.GameCore.Themes.BaseTheme">
+            <summary>The base theme. Light or dark.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.BaseTheme.dark">
+            <summary>The dark.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.BaseTheme.light">
+            <summary>The light.</summary>
+        </member>
+        <member name="T:Schuermann.Darts.GameCore.Themes.ColorSchema">
+            <summary>The color.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.ColorSchema.red">
+            <summary>The red.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.ColorSchema.green">
+            <summary>The green.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.ColorSchema.blue">
+            <summary>The blue.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.ColorSchema.purple">
+            <summary>The purple.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.ColorSchema.orange">
+            <summary>The orange.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.ColorSchema.lime">
+            <summary>The lime.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.ColorSchema.emerald">
+            <summary>The emerald.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.ColorSchema.teal">
+            <summary>The teal.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.ColorSchema.cyan">
+            <summary>The cyan.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.ColorSchema.cobalt">
+            <summary>The cobalt.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.ColorSchema.indigo">
+            <summary>The indigo.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.ColorSchema.violet">
+            <summary>The violet.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.ColorSchema.pink">
+            <summary>The pink.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.ColorSchema.magenta">
+            <summary>The magenta.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.ColorSchema.crimson">
+            <summary>The crimson.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.ColorSchema.amber">
+            <summary>The amber.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.ColorSchema.yellow">
+            <summary>The yellow.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.ColorSchema.brown">
+            <summary>The brown.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.ColorSchema.olive">
+            <summary>The olive.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.ColorSchema.steel">
+            <summary>The steel.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.ColorSchema.mauve">
+            <summary>The mauve.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.ColorSchema.taupe">
+            <summary>The taupe.</summary>
+        </member>
+        <member name="F:Schuermann.Darts.GameCore.Themes.ColorSchema.sienna">
+            <summary>The sienna.</summary>
+        </member>
+        <member name="T:Schuermann.Darts.GameCore.Themes.ITheme">
+            <summary>The Theme.</summary>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.Themes.ITheme.BaseTheme">
+            <summary>Gets the base theme.</summary>
+            <value>The base theme.</value>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.Themes.ITheme.ColorSchema">
+            <summary>Gets the color schema.</summary>
+            <value>The color schema.</value>
+        </member>
+        <member name="T:Schuermann.Darts.GameCore.Themes.Theme">
+            <summary>The theme.</summary>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Themes.Theme.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.GameCore.Themes.Theme" /> class.</summary>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Themes.Theme.#ctor(Schuermann.Darts.GameCore.Themes.BaseTheme,Schuermann.Darts.GameCore.Themes.ColorSchema)">
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.GameCore.Themes.Theme" /> class.</summary>
+            <param name="baseTheme">The base theme.</param>
+            <param name="colorSchema">The color schema.</param>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.Themes.Theme.BaseTheme">
+            <summary>Gets the base theme.</summary>
+            <value>The base theme.</value>
+        </member>
+        <member name="P:Schuermann.Darts.GameCore.Themes.Theme.ColorSchema">
+            <summary>Gets the color schema.</summary>
+            <value>The color schema.</value>
+        </member>
+        <member name="T:Schuermann.Darts.GameCore.Themes.ThemeConverter">
+            <summary>The theme converter.</summary>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Themes.ThemeConverter.Convert(System.String)">
+            <summary>Converts the specified theme.</summary>
+            <param name="theme">The theme.</param>
+            <returns>The converted theme.</returns>
+        </member>
+        <member name="M:Schuermann.Darts.GameCore.Themes.ThemeConverter.Convert(System.String,System.String)">
+            <summary>Converts the specified base theme.</summary>
+            <param name="baseTheme">The base theme.</param>
+            <param name="colorSchema">The color schema.</param>
+            <returns>The converted theme.</returns>
         </member>
         <member name="T:Schuermann.Darts.GameCore.Thrown.DartBoardField">
             <summary>The dart board fields.</summary>
@@ -619,6 +782,22 @@
             <param name="players">The players.</param>
             <param name="player">The player.</param>
             <returns></returns>
+        </member>
+        <member name="T:Schuermann.Darts.Environment.EnvironmentProps.Properties">
+            <summary>The properties of the environment like the culture or the theme.</summary>
+        </member>
+        <member name="M:Schuermann.Darts.Environment.EnvironmentProps.Properties.#ctor(System.String,System.Globalization.CultureInfo)">
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.Environment.EnvironmentProps.Properties" /> class.</summary>
+            <param name="theme">The theme.</param>
+            <param name="culture">The culture.</param>
+        </member>
+        <member name="P:Schuermann.Darts.Environment.EnvironmentProps.Properties.Culture">
+            <summary>Gets the culture.</summary>
+            <value>The culture.</value>
+        </member>
+        <member name="P:Schuermann.Darts.Environment.EnvironmentProps.Properties.Theme">
+            <summary>Gets the theme.</summary>
+            <value>The theme.</value>
         </member>
     </members>
 </doc>

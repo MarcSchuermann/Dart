@@ -14,19 +14,19 @@ using System.Linq;
 using System.Threading;
 using System.Windows;
 using System.Windows.Input;
-using Autofac;
 using ControlzEx.Theming;
-using Dart.Common;
 using Dart.Common.Commands;
 using Dart.Common.Logger;
+using Dart.Common.PlugIns;
 using Dart.Common.Theme;
+using Dart.Settings;
 using Dart.Settings.Interfaces;
-using Microsoft.Extensions.Logging;
 using Microsoft.Win32;
-using Schuermann.Darts.Environment.EnvironmentProps;
 using Schuermann.Darts.Environment.Extensibility;
+using Schuermann.Darts.GameCore.EnvironmentProps;
 using Schuermann.Darts.GameCore.Game;
 using Schuermann.Darts.GameCore.Save;
+using Schuermann.Darts.GameCore.Service;
 
 namespace Dart
 {
@@ -34,6 +34,15 @@ namespace Dart
    public class MainWindowViewModel : ViewModelBase, IMainWindowViewModel, ICloneable
    {
       #region Private Fields
+
+#if (Configuration == Develop)
+      private string path = @"D:\_gitHub\Dart\Extensions\Charts\Schuermann.Darts.Charts\bin\Develop\net6.0-windows";
+#else
+            string path = @"D:\_gitHub\Dart\Extensions\Charts\Schuermann.Darts.Charts\bin\Debug\net6.0-windows\";
+#endif
+
+
+
 
       private readonly Predicate<object> canStart = (currentContent) =>
                                                                {
@@ -56,8 +65,9 @@ namespace Dart
                                                                };
 
       private IViewModelBase currentContent;
-
+      
       #endregion Private Fields
+
 
       #region Public Constructors
 
@@ -73,7 +83,10 @@ namespace Dart
 
          SetCulture(SettingsViewModel.CurrentApplicationSettings.SelectedCultureInfo);
 
-         LoadPlugIns();
+         CurrentProperties = new Schuermann.Darts.Environment.EnvironmentProps.Properties(SettingsViewModel.CurrentApplicationSettings.CurrentTheme.OriginalTheme.Name, SettingsViewModel.CurrentApplicationSettings.SelectedCultureInfo);
+
+         var plugInLoader = new PlugInLoader(path);
+         PlugIns = plugInLoader.LoadPlugIns(null, ConfiguredGameOptions, CurrentProperties);         
       }
 
       #endregion Public Constructors
@@ -89,7 +102,7 @@ namespace Dart
 
       /// <summary>Gets or sets the configured game options.</summary>
       /// <value>The configured game options.</value>
-      [Export(typeof(IGameOptions))]
+      //[Export(typeof(IGameOptions))]
       public IGameOptions ConfiguredGameOptions { get; set; }
 
       /// <summary>Gets or sets the content of the current.</summary>
@@ -110,12 +123,12 @@ namespace Dart
 
       /// <summary>Gets the properties.</summary>
       /// <value>The properties.</value>
-      [Export(typeof(IProperties))]
+      //[Export(typeof(IProperties))]
       public IProperties CurrentProperties { get; private set; }
 
       /// <summary>Gets or sets the plug ins.</summary>
       /// <value>The plug ins.</value>
-      [ImportMany(AllowRecomposition = true)]
+      //[ImportMany(AllowRecomposition = true)]
       public IEnumerable<IPlugIn> PlugIns { get; set; }
 
       /// <summary>Gets the settings view model.</summary>
@@ -197,29 +210,6 @@ namespace Dart
 
       #endregion Public Methods
 
-      #region Internal Methods
-
-      internal void LoadPlugIns()
-      {
-         try
-         {
-            // TODO: Make path configurabel and setable via command line. And compile charts with the new core assemblies.
-            var file = Path.Combine(@"D:/_gitHub/Dart/Extensions/Charts/Schuermann.Darts.Charts/bin/Debug/net6.0-windows/", "Schuermann.Darts.Charts.dll");
-
-            var catalog = new DirectoryCatalog(@"D:\_gitHub\Dart\Extensions\Charts\Schuermann.Darts.Charts\bin\Debug\net6.0-windows\");
-            var container = new CompositionContainer(catalog);
-            CurrentProperties = new Schuermann.Darts.Environment.EnvironmentProps.Properties(SettingsViewModel.CurrentApplicationSettings.CurrentTheme.OriginalTheme.Name, SettingsViewModel.CurrentApplicationSettings.SelectedCultureInfo);
-
-            container.ComposeParts(this);
-         }
-         catch (Exception e)
-         {
-            LoggerUtils.GetLogger<MainWindowViewModel>().LogError(e, "Error when loading plugins");
-         }
-      }
-
-      #endregion Internal Methods
-
       #region Private Methods
 
       private static INamedTheme GetCurrentTheme()
@@ -267,7 +257,7 @@ namespace Dart
       /// <returns>The current applications settings.</returns>
       private IApplicationSettings GetSettings()
       {
-         var applicationSettings = ServiceContainer.GetContainer().Resolve<IApplicationSettings>();
+         IApplicationSettings applicationSettings = new ApplicationSettings(); ;//ServiceContainer.GetContainer().Resolve<IApplicationSettings>();
          applicationSettings.ShowUserInterfaceDartBoardData = Properties.Settings.Default.ShowUserInterfaceDartBoardData;
          applicationSettings.SelectedCultureInfo = Properties.Settings.Default.CurrentCulture;
          applicationSettings.CurrentTheme = GetCurrentTheme();
@@ -286,6 +276,13 @@ namespace Dart
          ConfiguredGameOptions = CreateCurrentGameOptions();
 
          CurrentContent = new DartGameViewModel(this);
+
+         CurrentProperties = new Schuermann.Darts.Environment.EnvironmentProps.Properties(SettingsViewModel.CurrentApplicationSettings.CurrentTheme.OriginalTheme.Name, SettingsViewModel.CurrentApplicationSettings.SelectedCultureInfo);
+
+         var plugInLoader = new PlugInLoader(path);
+         var dartGameViewModel = (CurrentContent as DartGameViewModel);
+         PlugIns = plugInLoader.LoadPlugIns(dartGameViewModel.Game.Instance, dartGameViewModel.Game.Instance.GameOptions, CurrentProperties);
+
          GameStarted?.Invoke(this, EventArgs.Empty);
       }
 

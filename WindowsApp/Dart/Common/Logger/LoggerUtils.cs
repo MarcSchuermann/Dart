@@ -4,7 +4,6 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using Autofac;
 using Dart.Tools.Logging;
 using Microsoft.Extensions.Logging;
 
@@ -16,18 +15,20 @@ namespace Dart.Common.Logger
 
       public static ILogger GetLogger<T>()
       {
-         var container = ServiceContainer.GetContainer();
-         var logProvider = container.Resolve<ILogProvider>();
-         var logger = logProvider.GetLogger<T>();
-         return logger;
+         return null;
+         //var container = ServiceContainer.GetContainer();
+         //var logProvider = container.Resolve<ILogProvider>();
+         //var logger = logProvider.GetLogger<T>();
+         //return logger;
       }
 
       public static ILogger GetLogger(string name)
       {
-         var container = ServiceContainer.GetContainer();
-         var logProvider = container.Resolve<ILogProvider>();
-         var logger = logProvider.GetLogger(name);
-         return logger;
+         return null;
+         //var container = ServiceContainer.GetContainer();
+         //var logProvider = container.Resolve<ILogProvider>();
+         //var logger = logProvider.GetLogger(name);
+         //return logger;
       }
 
       #endregion Public Methods

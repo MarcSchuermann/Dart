@@ -6,10 +6,12 @@
 
 using System;
 using System.ComponentModel;
-using System.Diagnostics.CodeAnalysis;
+using System.ComponentModel.Composition.Hosting;
+using System.ComponentModel.Composition;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Input;
+using System.Xml.Linq;
 using ControlzEx.Theming;
 using Dart.Common.UserInterface.PlugInsDialog;
 using Dart.Common.Utils;
@@ -22,7 +24,6 @@ namespace Dart
    /// <summary>The MainWindow.</summary>
    /// <seealso cref="System.Windows.Window" />
    /// <seealso cref="System.Windows.Markup.IComponentConnector" />
-   [ExcludeFromCodeCoverage]
    public partial class MainWindowView : MetroWindow
    {
       #region Public Constructors
@@ -52,6 +53,27 @@ namespace Dart
             mainWindowViewModel.GameStarted += MainWindowViewModel_GameStarted;
 
             KeyDown += MainWindowView_KeyDown;
+         }
+
+         //InitMef();
+      }
+
+      private void InitMef()
+      {
+         try
+         {
+            // An aggregate catalog that combines multiple catalogs.
+            var catalog = new AggregateCatalog();
+            // Adds all the parts found in the same assembly as the Program class.
+            catalog.Catalogs.Add(new AssemblyCatalog(typeof(MainWindowView).Assembly));
+
+            // Create the CompositionContainer with the parts in the catalog.
+            var _container = new CompositionContainer(catalog);
+            _container.ComposeParts(this);
+         }
+         catch (CompositionException compositionException)
+         {
+            Console.WriteLine(compositionException.ToString());
          }
       }
 
@@ -190,7 +212,8 @@ namespace Dart
          // Open PlugIn Window
          if (KeyboardUtils.IsCtrlPressed() && Keyboard.IsKeyDown(Key.E) && Keyboard.IsKeyDown(Key.A))
          {
-            mainWindowViewModel.LoadPlugIns();
+            DartGameViewModel dartGameViewModel = new DartGameViewModel(mainWindowViewModel);
+            //mainWindowViewModel.LoadPlugIns();
 
             var plugInsDialog = new PlugInsDialog(mainWindowViewModel.PlugIns);
             plugInsDialog.ShowDialog();
@@ -207,7 +230,7 @@ namespace Dart
                {
                   if (mainWindowViewModel.PlugIns.Count() > i)
                   {
-                     mainWindowViewModel.PlugIns.ElementAt(i).GameOptions = mainWindowViewModel.ConfiguredGameOptions;
+                     //mainWindowViewModel.PlugIns.ElementAt(i).GameOptions = mainWindowViewModel.ConfiguredGameOptions;
                      mainWindowViewModel.PlugIns.ElementAt(i).PlugInCommand.OnExecute();
                   }
                }

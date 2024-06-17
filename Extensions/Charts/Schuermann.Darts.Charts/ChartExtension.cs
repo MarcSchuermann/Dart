@@ -5,89 +5,100 @@
 using System.ComponentModel.Composition;
 using System.Windows;
 using System.Windows.Controls;
-using Schuermann.Darts.Environment.EnvironmentProps;
 using Schuermann.Darts.Environment.Extensibility;
-using Schuermann.Darts.GameCore.Game;
+using Schuermann.Darts.GameCore.Service;
 
 namespace Schuermann.Darts.Charts
 {
-    /// <summary></summary>
-    /// <seealso cref="Environment.Extensibility.IPlugIn"/>
-    [Export(typeof(IPlugIn))]
-    public class ChartExtension : IPlugIn
-    {
-        #region Public Constructors
+   /// <summary></summary>
+   /// <seealso cref="Environment.Extensibility.IPlugIn" />
+   [Export(typeof(IPlugIn))]
+   public class ChartExtension : IPlugIn
+   {
+      private readonly IDartService dartService;
+      #region Public Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="ChartExtension"/> class.</summary>
-        /// <param name="gameOptions">The game options.</param>
-        /// <param name="properties">The properties.</param>
-        [ImportingConstructor]
-        public ChartExtension(IGameOptions gameOptions, IProperties properties)
-        {
-            GameOptions = gameOptions;
-            Properties = properties;
-            PlugInCommand = new PlugInCommand(this, ShowChartExtension, false, true);
-        }
+      /// <summary>
+      ///    Initializes a new instance of the <see cref="ChartExtension" /> class.
+      /// </summary>
+      /// <param name="gameOptions">The game options.</param>
+      /// <param name="properties">The properties.</param>
+      [ImportingConstructor]
+      public ChartExtension(IDartService dartService)
+      {
+         this.dartService = dartService;
+         PlugInCommand = new PlugInCommand(this, ShowChartExtension, false, true);
+      }
 
-        #endregion Public Constructors
+      #endregion Public Constructors
 
-        #region Public Properties
 
-        public IGameOptions GameOptions { get; set; }
+      #region Public Properties
 
-        /// <summary>Gets the name.</summary>
-        /// <value>The name.</value>
-        public string Name => "Charts";
+      /// <summary>Gets the name.</summary>
+      /// <value>The name.</value>
+      public string Name => "Charts";
 
-        /// <summary>Gets the plug in command.</summary>
-        /// <value>The plug in command.</value>
-        public IPlugInCommand PlugInCommand { get; }// => CreatePlugInCommand();
+      /// <summary>Gets the plug in command.</summary>
+      /// <value>The plug in command.</value>
+      public IPlugInCommand PlugInCommand { get; }
 
-        public IProperties Properties { get; set; }
+      #endregion Public Properties
 
-        #endregion Public Properties
+      #region Public Methods
 
-        #region Public Methods
+      /// <summary>
+      ///    Indicates whether the current object is equal to another object of the same type.
+      /// </summary>
+      /// <param name="other">An object to compare with this object.</param>
+      /// <returns>
+      ///    <see langword="true" /> if the current object is equal to the <paramref name="other" />
+      ///    parameter; otherwise, <see langword="false" />.
+      /// </returns>
+      public bool Equals(IPlugIn other)
+      {
+         return other?.Name == Name;
+      }
 
-        /// <summary>Indicates whether the current object is equal to another object of the same type.</summary>
-        /// <param name="other">An object to compare with this object.</param>
-        /// <returns><see langword="true"/> if the current object is equal to the <paramref name="other"/> parameter; otherwise, <see langword="false"/>.</returns>
-        public bool Equals(IPlugIn other)
-        {
-            return other?.Name == Name;
-        }
+      /// <summary>
+      ///    Determines whether the specified <see cref="object" />, is equal to this instance.
+      /// </summary>
+      /// <param name="obj">The <see cref="object" /> to compare with this instance.</param>
+      /// <returns>
+      ///    <c>true</c> if the specified <see cref="object" /> is equal to this instance;
+      ///    otherwise, <c>false</c>.
+      /// </returns>
+      public override bool Equals(object obj)
+      {
+         return obj is IPlugIn plugIn ? Equals(plugIn) : false;
+      }
 
-        /// <summary>Determines whether the specified <see cref="object"/>, is equal to this instance.</summary>
-        /// <param name="obj">The <see cref="object"/> to compare with this instance.</param>
-        /// <returns><c>true</c> if the specified <see cref="object"/> is equal to this instance; otherwise, <c>false</c>.</returns>
-        public override bool Equals(object obj)
-        {
-            return obj is IPlugIn plugIn ? Equals(plugIn) : false;
-        }
+      /// <summary>Returns a hash code for this instance.</summary>
+      /// <returns>
+      ///    A hash code for this instance, suitable for use in hashing algorithms and data
+      ///    structures like a hash table.
+      /// </returns>
+      public override int GetHashCode() => Name.GetHashCode();
 
-        /// <summary>Returns a hash code for this instance.</summary>
-        /// <returns>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</returns>
-        public override int GetHashCode() => Name.GetHashCode();
+      /// <summary>Converts to string.</summary>
+      /// <returns>A <see cref="string" /> that represents this instance.</returns>
+      public override string ToString() => Name;
 
-        /// <summary>Converts to string.</summary>
-        /// <returns>A <see cref="string"/> that represents this instance.</returns>
-        public override string ToString() => Name;
+      #endregion Public Methods
 
-        #endregion Public Methods
+      #region Private Methods
 
-        #region Private Methods
+      private void ShowChartExtension()
+      {
+         var window = new Window();
+         var grid = new Grid();
 
-        private void ShowChartExtension()
-        {
-            var window = new Window();
-            var grid = new Grid();
+         grid.Children.Add(new Chart(dartService.GetGameInstance(), dartService.GetProperties()));
+         window.Content = grid;
 
-            grid.Children.Add(new Chart(GameOptions, Properties));
-            window.Content = grid;
+         window.Show();
+      }
 
-            window.Show();
-        }
-
-        #endregion Private Methods
-    }
+      #endregion Private Methods
+   }
 }

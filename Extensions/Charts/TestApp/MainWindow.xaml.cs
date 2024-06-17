@@ -11,7 +11,7 @@ namespace TestApp
         public MainWindow()
         {
             InitializeComponent();
-            myGrid.Children.Add(new Schuermann.Darts.Charts.Chart(new TestData(), new Schuermann.Darts.Environment.EnvironmentProps.Properties("DARK.Orange", new System.Globalization.CultureInfo("en-US"))));
+            myGrid.Children.Add(new Schuermann.Darts.Charts.Chart(new TestData(), new Schuermann.Darts.Environment.EnvironmentProps.Properties("DARK.Orange", new System.Globalization.CultureInfo("en-US")), null));
         }
 
         #endregion Public Constructors
