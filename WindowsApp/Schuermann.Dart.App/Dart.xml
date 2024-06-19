@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <doc>
     <assembly>
-        <name>Dart</name>
+        <name>Schuermann.Dart.App</name>
     </assembly>
     <members>
         <member name="T:Dart.Common.Commands.EventArgs`1">
@@ -509,7 +509,7 @@
             PlugInsDialog
             </summary>
         </member>
-        <member name="M:Dart.Common.UserInterface.PlugInsDialog.PlugInsDialog.#ctor(System.Collections.Generic.IEnumerable{Schuermann.Darts.Environment.Extensibility.IPlugIn})">
+        <member name="M:Dart.Common.UserInterface.PlugInsDialog.PlugInsDialog.#ctor(System.Collections.Generic.IEnumerable{Schuermann.Dart.Core.Extensibility.IPlugIn})">
             <summary>Initializes a new instance of the <see cref="T:Dart.Common.UserInterface.PlugInsDialog.PlugInsDialog" /> class.</summary>
             <param name="plugIns">The plug ins.</param>
         </member>
@@ -1103,7 +1103,7 @@
             </summary>
             <param name="name">The name.</param>
         </member>
-        <member name="M:Dart.PlayerViewModel.#ctor(Schuermann.Darts.GameCore.Game.IPlayer)">
+        <member name="M:Dart.PlayerViewModel.#ctor(Schuermann.Dart.Core.Game.IPlayer)">
             <summary>
                Initializes a new instance of the <see cref="T:Dart.PlayerViewModel" /> class.
             </summary>

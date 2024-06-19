@@ -6,8 +6,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.ComponentModel.Composition;
-using System.ComponentModel.Composition.Hosting;
 using System.Globalization;
 using System.IO;
 using System.Linq;
@@ -16,17 +14,15 @@ using System.Windows;
 using System.Windows.Input;
 using ControlzEx.Theming;
 using Dart.Common.Commands;
-using Dart.Common.Logger;
 using Dart.Common.PlugIns;
 using Dart.Common.Theme;
 using Dart.Settings;
 using Dart.Settings.Interfaces;
 using Microsoft.Win32;
-using Schuermann.Darts.Environment.Extensibility;
-using Schuermann.Darts.GameCore.EnvironmentProps;
-using Schuermann.Darts.GameCore.Game;
+using Schuermann.Dart.Core.Game;
 using Schuermann.Darts.GameCore.Save;
-using Schuermann.Darts.GameCore.Service;
+using Schuermann.Dart.Core.EnvironmentProps;
+using Schuermann.Dart.Core.Extensibility;
 
 namespace Dart
 {
@@ -83,7 +79,7 @@ namespace Dart
 
          SetCulture(SettingsViewModel.CurrentApplicationSettings.SelectedCultureInfo);
 
-         CurrentProperties = new Schuermann.Darts.Environment.EnvironmentProps.Properties(SettingsViewModel.CurrentApplicationSettings.CurrentTheme.OriginalTheme.Name, SettingsViewModel.CurrentApplicationSettings.SelectedCultureInfo);
+         CurrentProperties = new Schuermann.Dart.Core.EnvironmentProps.Properties(SettingsViewModel.CurrentApplicationSettings.CurrentTheme.OriginalTheme.Name, SettingsViewModel.CurrentApplicationSettings.SelectedCultureInfo);
 
          var plugInLoader = new PlugInLoader(path);
          PlugIns = plugInLoader.LoadPlugIns(null, ConfiguredGameOptions, CurrentProperties);         
@@ -277,7 +273,7 @@ namespace Dart
 
          CurrentContent = new DartGameViewModel(this);
 
-         CurrentProperties = new Schuermann.Darts.Environment.EnvironmentProps.Properties(SettingsViewModel.CurrentApplicationSettings.CurrentTheme.OriginalTheme.Name, SettingsViewModel.CurrentApplicationSettings.SelectedCultureInfo);
+         CurrentProperties = new Schuermann.Dart.Core.EnvironmentProps.Properties(SettingsViewModel.CurrentApplicationSettings.CurrentTheme.OriginalTheme.Name, SettingsViewModel.CurrentApplicationSettings.SelectedCultureInfo);
 
          var plugInLoader = new PlugInLoader(path);
          var dartGameViewModel = (CurrentContent as DartGameViewModel);

@@ -4,7 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Schuermann.Darts.GameCore.Game
+namespace Schuermann.Dart.Core.Game
 {
    /// <summary>The game instance provider.</summary>
    public interface IGameProvider

@@ -6,12 +6,11 @@
 
 using System;
 using System.Linq;
-using Schuermann.Dart.Core.Game;
 
-namespace Schuermann.Darts.GameCore.Game
+namespace Schuermann.Dart.Core.Game
 {
    /// <summary>The instance.</summary>
-   /// <seealso cref="Schuermann.Darts.GameCore.Game.IGameInstance" />
+   /// <seealso cref="IGameInstance" />
    public class GameInstance : IGameInstance
    {
       #region Public Constructors

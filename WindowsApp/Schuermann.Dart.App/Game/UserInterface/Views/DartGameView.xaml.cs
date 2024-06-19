@@ -10,7 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
 using Dart.Tools.DartBoardData;
-using Schuermann.Darts.GameCore.Thrown;
+using Schuermann.Dart.Core.Thrown;
 using Schuermann.Darts.GameCore.UI;
 
 namespace Dart.Game.UserInterface.Views

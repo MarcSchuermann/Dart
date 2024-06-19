@@ -4,14 +4,12 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using System;
 using System.ComponentModel;
 using System.Linq;
-using Schuermann.Dart.Core.Game;
 using Schuermann.Dart.Core.Thrown;
-using Schuermann.Darts.GameCore.Util;
+using Schuermann.Dart.Core.Util;
 
-namespace Schuermann.Darts.GameCore.Game
+namespace Schuermann.Dart.Core.Game
 {
    /// <summary>The game instance.</summary>
    /// <seealso cref="IGameProcedure" />

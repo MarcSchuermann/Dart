@@ -5,7 +5,7 @@
 // -----------------------------------------------------------------------
 
 using Dart.Game.Interfaces;
-using Schuermann.Darts.GameCore.Game;
+using Schuermann.Dart.Core.Game;
 
 namespace Dart
 {

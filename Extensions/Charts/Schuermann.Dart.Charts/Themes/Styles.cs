@@ -2,9 +2,8 @@
 //// <copyright>Marc Schürmann</copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
-using System;
 using System.Windows.Media;
-using Schuermann.Darts.GameCore.Themes;
+using Schuermann.Dart.Core.Themes;
 
 namespace Schuermann.Darts.Charts.Themes
 {

@@ -8,30 +8,30 @@ using System.Collections.Generic;
 using System.Linq;
 using Schuermann.Dart.Core.Game;
 
-namespace Schuermann.Darts.GameCore.Util
+namespace Schuermann.Dart.Core.Util
 {
    internal static class PlayerlistUtils
-    {
-        #region Public Methods
+   {
+      #region Public Methods
 
-        /// <summary>Gets the privious player.</summary>
-        /// <param name="players">The players.</param>
-        /// <param name="player">The player.</param>
-        /// <returns></returns>
-        public static IPlayer GetPriviousPlayer(this IEnumerable<IPlayer> players, IPlayer player)
-        {
-            var playerList = players.ToList();
-            var index = playerList.IndexOf(player);
+      /// <summary>Gets the privious player.</summary>
+      /// <param name="players">The players.</param>
+      /// <param name="player">The player.</param>
+      /// <returns></returns>
+      public static IPlayer GetPriviousPlayer(this IEnumerable<IPlayer> players, IPlayer player)
+      {
+         var playerList = players.ToList();
+         var index = playerList.IndexOf(player);
 
-            if (index == -1)
-                return player;
+         if (index == -1)
+            return player;
 
-            if (index - 1 >= 0)
-                return playerList[index - 1];
+         if (index - 1 >= 0)
+            return playerList[index - 1];
 
-            return playerList.Last();
-        }
+         return playerList.Last();
+      }
 
-        #endregion Public Methods
-    }
+      #endregion Public Methods
+   }
 }

@@ -7,7 +7,7 @@
 using System;
 using Schuermann.Dart.Core.Game;
 using Schuermann.Dart.Core.Thrown;
-using Schuermann.Darts.GameCore.UndoRedo.Interfaces;
+using Schuermann.Dart.Core.UndoRedo.Interfaces;
 
 namespace Schuermann.Darts.GameCore.UndoRedo.Impl.Actions
 {

@@ -4,19 +4,19 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-namespace Schuermann.Darts.GameCore.UndoRedo.Interfaces
+namespace Schuermann.Dart.Core.UndoRedo.Interfaces
 {
-    /// <summary>The undo and redo action.</summary>
-    public interface IUndoRedo
-    {
-        #region Public Methods
+   /// <summary>The undo and redo action.</summary>
+   public interface IUndoRedo
+   {
+      #region Public Methods
 
-        /// <summary>Redoes this instance.</summary>
-        void Redo();
+      /// <summary>Redoes this instance.</summary>
+      void Redo();
 
-        /// <summary>Undoes this instance.</summary>
-        void Undo();
+      /// <summary>Undoes this instance.</summary>
+      void Undo();
 
-        #endregion Public Methods
-    }
+      #endregion Public Methods
+   }
 }

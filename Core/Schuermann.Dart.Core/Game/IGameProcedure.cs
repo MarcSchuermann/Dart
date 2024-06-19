@@ -4,11 +4,10 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using System;
 using Schuermann.Dart.Core.Thrown;
-using Schuermann.Darts.GameCore.UndoRedo.Interfaces;
+using Schuermann.Dart.Core.UndoRedo.Interfaces;
 
-namespace Schuermann.Darts.GameCore.Game
+namespace Schuermann.Dart.Core.Game
 {
    /// <summary>The logic for a game.</summary>
    public interface IGameProcedure : IUndoRedo

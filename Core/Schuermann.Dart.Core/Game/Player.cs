@@ -8,8 +8,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Schuermann.Dart.Core.Thrown;
+using Schuermann.Dart.Core.UndoRedo.Interfaces;
 using Schuermann.Darts.GameCore.UndoRedo.Impl.Actions;
-using Schuermann.Darts.GameCore.UndoRedo.Interfaces;
 
 namespace Schuermann.Dart.Core.Game
 {

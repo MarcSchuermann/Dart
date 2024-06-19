@@ -4,7 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using Schuermann.Darts.GameCore.Themes;
+using Schuermann.Dart.Core.Themes;
 
 namespace Schuermann.Dart.Core.Themes
 {

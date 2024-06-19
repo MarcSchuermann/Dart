@@ -5,7 +5,7 @@
 // -----------------------------------------------------------------------
 
 using System.Collections.Generic;
-using Schuermann.Darts.GameCore.Game;
+using Schuermann.Dart.Core.Game;
 
 namespace Schuermann.Dart.Core.Game
 {

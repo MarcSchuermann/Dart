@@ -2,13 +2,11 @@
 //// <copyright>Marc Schürmann</copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
-using System.Windows;
 using System.Windows.Controls;
-using LiveChartsCore;
-using Schuermann.Darts.GameCore.EnvironmentProps;
-using Schuermann.Darts.GameCore.Game;
+using Schuermann.Dart.Core.Game;
+using Schuermann.Dart.Core.EnvironmentProps;
 
-namespace Schuermann.Darts.Charts
+namespace Schuermann.Dart.Charts
 {
    /// <summary>Interaction logic for Chart.xaml</summary>
    public partial class Chart : UserControl

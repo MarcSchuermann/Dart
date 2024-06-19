@@ -5,7 +5,7 @@
 // -----------------------------------------------------------------------
 
 using System;
-using Schuermann.Darts.GameCore.Game;
+using Schuermann.Dart.Core.Game;
 
 namespace Dart
 {

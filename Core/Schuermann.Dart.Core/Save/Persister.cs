@@ -9,7 +9,7 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 using Schuermann.Dart.Core.Game;
-using Schuermann.Darts.GameCore.Game;
+using Schuermann.Dart.Core.Game;
 using Schuermann.Darts.GameCore.Save.PersistObjects;
 using Schuermann.Darts.GameCore.Save.SerializerOptions;
 

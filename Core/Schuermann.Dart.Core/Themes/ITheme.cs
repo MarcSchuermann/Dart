@@ -4,9 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using Schuermann.Dart.Core.Themes;
-
-namespace Schuermann.Darts.GameCore.Themes
+namespace Schuermann.Dart.Core.Themes
 {
    /// <summary>The Theme.</summary>
    public interface ITheme

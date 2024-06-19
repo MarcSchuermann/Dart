@@ -15,15 +15,13 @@ using Dart.Common.Commands;
 using Dart.Common.Logger;
 using Dart.Game.Interfaces;
 using Microsoft.Extensions.Logging;
-using Schuermann.Darts.GameCore.Game;
-using Schuermann.Darts.GameCore.Thrown;
+using Schuermann.Dart.Core.Game;
+using Schuermann.Dart.Core.Thrown;
 
 namespace Dart
 {
    /// <summary>The DartGameViewModel.</summary>
    /// <seealso cref="Dart.ViewModelBase" />
-   //[Export(typeof(IGameProvider))]
-   //[PartCreationPolicy(CreationPolicy.Shared)]
    public class DartGameViewModel : ViewModelBase, IGameProvider
    {
         #region Public Constructors

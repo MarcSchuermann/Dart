@@ -11,11 +11,12 @@ using LiveChartsCore.SkiaSharpView.Drawing;
 using LiveChartsCore.SkiaSharpView.Painting;
 using Schuermann.Darts.Charts.Themes;
 using Schuermann.Darts.Charts.Utils;
-using Schuermann.Darts.GameCore.Game;
-using Schuermann.Darts.GameCore.Themes;
-using Schuermann.Darts.GameCore.Thrown;
+using Schuermann.Dart.Core.Game;
+using Schuermann.Dart.Core.Themes;
+using Schuermann.Dart.Core.Thrown;
+using Schuermann.Darts.Charts;
 
-namespace Schuermann.Darts.Charts
+namespace Schuermann.Dart.Charts
 {
    /// <summary>The context of the charts.</summary>
    /// <seealso cref="INotifyPropertyChanged" />
@@ -203,7 +204,7 @@ namespace Schuermann.Darts.Charts
          return retVal;
       }
 
-      private void GameProcedure_StandingsChanged(object? sender, EventArgs e)
+      private void GameProcedure_StandingsChanged(object sender, EventArgs e)
       {
          if (sender is IGameProcedure game)
          {

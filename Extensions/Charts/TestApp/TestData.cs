@@ -5,154 +5,199 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using Schuermann.Darts.GameCore.Game;
-using Schuermann.Darts.GameCore.Thrown;
+using Schuermann.Dart.Core.Game;
+using Schuermann.Dart.Core.Thrown;
 
 namespace TestApp
 {
-    public class MyPlayer : IPlayer
-    {
-        #region Public Properties
+   public class MyPlayer : IPlayer
+   {
+      #region Public Properties
 
-        public uint CurrentScore { get; set; }
-        public int DartCountThisRound { get; set; }
-        public Guid Id => new();
-        public string Name { get; set; }
-        public int PointsThisRound { get; set; }
-        public int Round { get; set; }
-        public uint StartPoints => 301;
-        public IList<IDartThrow> ThrowHistory { get; set; }
+      public uint CurrentScore { get; set; }
+      public int DartCountThisRound { get; set; }
+      public Guid Id => new();
+      public string Name { get; set; }
+      public int PointsThisRound { get; set; }
+      public int Round { get; set; }
+      public uint StartPoints => 301;
+      public IList<IDartThrow> ThrowHistory { get; set; }
 
-        #endregion Public Properties
+      #endregion Public Properties
 
-        #region Public Methods
+      #region Public Methods
 
-        public object Clone()
-        {
-            throw new NotImplementedException();
-        }
+      public object Clone()
+      {
+         throw new NotImplementedException();
+      }
 
-        public void Thrown(IDartThrow dartThrow)
-        {
-            throw new NotImplementedException();
-        }
+      public void Thrown(IDartThrow dartThrow)
+      {
+         throw new NotImplementedException();
+      }
 
-        public override string ToString() => Name;
+      public override string ToString() => Name;
 
-        #endregion Public Methods
-    }
+      #endregion Public Methods
+   }
 
-    public class TestData : IGameOptions
-    {
-        #region Public Properties
+   public class TestData : IGameOptions
+   {
+      #region Public Properties
 
-        public bool AllPlayTillZero { get; set; }
-        public bool DoubleIn { get; set; }
-        public bool DoubleOut { get; set; }
-        public IEnumerable<IPlayer> PlayerList
-        { get => CreatePlayerList(); set { } }
+      public bool AllPlayTillZero { get; set; }
+      public bool DoubleIn { get; set; }
+      public bool DoubleOut { get; set; }
 
-        public int StartPoints
-        { get => 301; set { } }
+      public IEnumerable<IPlayer> PlayerList
+      { get => CreatePlayerList(); set { } }
 
-        #endregion Public Properties
+      public int StartPoints
+      { get => 301; set { } }
 
-        #region Private Methods
+      #endregion Public Properties
 
-        private IEnumerable<IDartThrow> CreateHistory1()
-        {
-            yield return new DartThrow(DartBoardField.Five, DartBoardQuantifier.Single);
-            yield return new DartThrow(DartBoardField.Eighteen, DartBoardQuantifier.Double);
-            yield return new DartThrow(DartBoardField.Nine, DartBoardQuantifier.Triple);
-            yield return new DartThrow(DartBoardField.Two, DartBoardQuantifier.Single);
-            yield return new DartThrow(DartBoardField.Three, DartBoardQuantifier.Double);
-        }
+      #region Private Methods
 
-        private IEnumerable<IDartThrow> CreateHistory2()
-        {
-            yield return new DartThrow(DartBoardField.Three, DartBoardQuantifier.Single);
-            yield return new DartThrow(DartBoardField.Twelve, DartBoardQuantifier.Single);
-            yield return new DartThrow(DartBoardField.Zero, DartBoardQuantifier.Single);
-            yield return new DartThrow(DartBoardField.Two, DartBoardQuantifier.Double);
-            yield return new DartThrow(DartBoardField.Four, DartBoardQuantifier.Single);
-        }
+      private IEnumerable<IDartThrow> CreateHistory1()
+      {
+         yield return new DartThrow(DartBoardField.Five, DartBoardQuantifier.Single);
+         yield return new DartThrow(DartBoardField.Eighteen, DartBoardQuantifier.Double);
+         yield return new DartThrow(DartBoardField.Nine, DartBoardQuantifier.Triple);
+         yield return new DartThrow(DartBoardField.Two, DartBoardQuantifier.Single);
+         yield return new DartThrow(DartBoardField.Three, DartBoardQuantifier.Double);
+      }
 
-        private IEnumerable<IDartThrow> CreateHistory3()
-        {
-            yield return new DartThrow(DartBoardField.Eighteen, DartBoardQuantifier.Single);
-            yield return new DartThrow(DartBoardField.Bullseye, DartBoardQuantifier.Triple);
-            yield return new DartThrow(DartBoardField.Eleven, DartBoardQuantifier.Single);
-            yield return new DartThrow(DartBoardField.Fourteen, DartBoardQuantifier.Single);
-            yield return new DartThrow(DartBoardField.Two, DartBoardQuantifier.Triple);
-        }
+      private IEnumerable<IDartThrow> CreateHistory2()
+      {
+         yield return new DartThrow(DartBoardField.Three, DartBoardQuantifier.Single);
+         yield return new DartThrow(DartBoardField.Twelve, DartBoardQuantifier.Single);
+         yield return new DartThrow(DartBoardField.Zero, DartBoardQuantifier.Single);
+         yield return new DartThrow(DartBoardField.Two, DartBoardQuantifier.Double);
+         yield return new DartThrow(DartBoardField.Four, DartBoardQuantifier.Single);
+      }
 
-        private IEnumerable<IDartThrow> CreateHistory4()
-        {
-            yield return new DartThrow(DartBoardField.Three, DartBoardQuantifier.Double);
-            yield return new DartThrow(DartBoardField.Ten, DartBoardQuantifier.Triple);
-            yield return new DartThrow(DartBoardField.Seven, DartBoardQuantifier.Double);
-            yield return new DartThrow(DartBoardField.One, DartBoardQuantifier.Triple);
-            yield return new DartThrow(DartBoardField.Seventeen, DartBoardQuantifier.Triple);
-        }
+      private IEnumerable<IDartThrow> CreateHistory3()
+      {
+         yield return new DartThrow(DartBoardField.Eighteen, DartBoardQuantifier.Single);
+         yield return new DartThrow(DartBoardField.Bullseye, DartBoardQuantifier.Triple);
+         yield return new DartThrow(DartBoardField.Eleven, DartBoardQuantifier.Single);
+         yield return new DartThrow(DartBoardField.Fourteen, DartBoardQuantifier.Single);
+         yield return new DartThrow(DartBoardField.Two, DartBoardQuantifier.Triple);
+      }
 
-        private IEnumerable<IDartThrow> CreateHistory5()
-        {
-            yield return new DartThrow(DartBoardField.Three, DartBoardQuantifier.Double);
-            yield return new DartThrow(DartBoardField.Ten, DartBoardQuantifier.Single);
-            yield return new DartThrow(DartBoardField.One, DartBoardQuantifier.Single);
-            yield return new DartThrow(DartBoardField.Zero, DartBoardQuantifier.Triple);
-            yield return new DartThrow(DartBoardField.Five, DartBoardQuantifier.Triple);
-            yield return new DartThrow(DartBoardField.Ten, DartBoardQuantifier.Single);
-        }
+      private IEnumerable<IDartThrow> CreateHistory4()
+      {
+         yield return new DartThrow(DartBoardField.Three, DartBoardQuantifier.Double);
+         yield return new DartThrow(DartBoardField.Ten, DartBoardQuantifier.Triple);
+         yield return new DartThrow(DartBoardField.Seven, DartBoardQuantifier.Double);
+         yield return new DartThrow(DartBoardField.One, DartBoardQuantifier.Triple);
+         yield return new DartThrow(DartBoardField.Seventeen, DartBoardQuantifier.Triple);
+      }
 
-        private IEnumerable<IDartThrow> CreateHistory6()
-        {
-            yield return new DartThrow(DartBoardField.Three, DartBoardQuantifier.Double);
-            yield return new DartThrow(DartBoardField.Three, DartBoardQuantifier.Single);
-            yield return new DartThrow(DartBoardField.Three, DartBoardQuantifier.Single);
-            yield return new DartThrow(DartBoardField.Three, DartBoardQuantifier.Double);
-            yield return new DartThrow(DartBoardField.Five, DartBoardQuantifier.Triple);
-            yield return new DartThrow(DartBoardField.Ten, DartBoardQuantifier.Single);
-        }
+      private IEnumerable<IDartThrow> CreateHistory5()
+      {
+         yield return new DartThrow(DartBoardField.Three, DartBoardQuantifier.Double);
+         yield return new DartThrow(DartBoardField.Ten, DartBoardQuantifier.Single);
+         yield return new DartThrow(DartBoardField.One, DartBoardQuantifier.Single);
+         yield return new DartThrow(DartBoardField.Zero, DartBoardQuantifier.Triple);
+         yield return new DartThrow(DartBoardField.Five, DartBoardQuantifier.Triple);
+         yield return new DartThrow(DartBoardField.Ten, DartBoardQuantifier.Single);
+      }
 
-        private IEnumerable<IDartThrow> CreateHistory7()
-        {
-            yield return new DartThrow(DartBoardField.Bullseye, DartBoardQuantifier.Double);
-            yield return new DartThrow(DartBoardField.Bullseye, DartBoardQuantifier.Double);
-            yield return new DartThrow(DartBoardField.Bullseye, DartBoardQuantifier.Double);
-            yield return new DartThrow(DartBoardField.Bullseye, DartBoardQuantifier.Double);
-            yield return new DartThrow(DartBoardField.Bullseye, DartBoardQuantifier.Double);
-            yield return new DartThrow(DartBoardField.Bullseye, DartBoardQuantifier.Double);
-            yield return new DartThrow(DartBoardField.Bullseye, DartBoardQuantifier.Double);
-        }
+      private IEnumerable<IDartThrow> CreateHistory6()
+      {
+         yield return new DartThrow(DartBoardField.Three, DartBoardQuantifier.Double);
+         yield return new DartThrow(DartBoardField.Three, DartBoardQuantifier.Single);
+         yield return new DartThrow(DartBoardField.Three, DartBoardQuantifier.Single);
+         yield return new DartThrow(DartBoardField.Three, DartBoardQuantifier.Double);
+         yield return new DartThrow(DartBoardField.Five, DartBoardQuantifier.Triple);
+         yield return new DartThrow(DartBoardField.Ten, DartBoardQuantifier.Single);
+      }
 
-        private IEnumerable<IDartThrow> CreateHistory8()
-        {
-            yield return new DartThrow(DartBoardField.One, DartBoardQuantifier.Single);
-            yield return new DartThrow(DartBoardField.Two, DartBoardQuantifier.Single);
-            yield return new DartThrow(DartBoardField.Three, DartBoardQuantifier.Single);
-            yield return new DartThrow(DartBoardField.Four, DartBoardQuantifier.Single);
-            yield return new DartThrow(DartBoardField.Five, DartBoardQuantifier.Single);
-            yield return new DartThrow(DartBoardField.Six, DartBoardQuantifier.Single);
-            yield return new DartThrow(DartBoardField.Seven, DartBoardQuantifier.Single);
-        }
+      private IEnumerable<IDartThrow> CreateHistory7()
+      {
+         yield return new DartThrow(DartBoardField.Bullseye, DartBoardQuantifier.Double);
+         yield return new DartThrow(DartBoardField.Bullseye, DartBoardQuantifier.Double);
+         yield return new DartThrow(DartBoardField.Bullseye, DartBoardQuantifier.Double);
+         yield return new DartThrow(DartBoardField.Bullseye, DartBoardQuantifier.Double);
+         yield return new DartThrow(DartBoardField.Bullseye, DartBoardQuantifier.Double);
+         yield return new DartThrow(DartBoardField.Bullseye, DartBoardQuantifier.Double);
+         yield return new DartThrow(DartBoardField.Bullseye, DartBoardQuantifier.Double);
+      }
 
-        private IList<IPlayer> CreatePlayerList()
-        {
-            var retVal = new List<IPlayer>();
+      private IEnumerable<IDartThrow> CreateHistory8()
+      {
+         yield return new DartThrow(DartBoardField.One, DartBoardQuantifier.Single);
+         yield return new DartThrow(DartBoardField.Two, DartBoardQuantifier.Single);
+         yield return new DartThrow(DartBoardField.Three, DartBoardQuantifier.Single);
+         yield return new DartThrow(DartBoardField.Four, DartBoardQuantifier.Single);
+         yield return new DartThrow(DartBoardField.Five, DartBoardQuantifier.Single);
+         yield return new DartThrow(DartBoardField.Six, DartBoardQuantifier.Single);
+         yield return new DartThrow(DartBoardField.Seven, DartBoardQuantifier.Single);
+      }
 
-            retVal.Add(new MyPlayer() { Name = "Homer", ThrowHistory = CreateHistory1().ToList() });
-            retVal.Add(new MyPlayer() { Name = "Marge", ThrowHistory = CreateHistory2().ToList() });
-            retVal.Add(new MyPlayer() { Name = "Bart", ThrowHistory = CreateHistory3().ToList() });
-            retVal.Add(new MyPlayer() { Name = "Lisa", ThrowHistory = CreateHistory4().ToList() });
-            retVal.Add(new MyPlayer() { Name = "Maggy", ThrowHistory = CreateHistory5().ToList() });
-            retVal.Add(new MyPlayer() { Name = "Snowball II", ThrowHistory = CreateHistory6().ToList() });
-            retVal.Add(new MyPlayer() { Name = "Moe", ThrowHistory = CreateHistory7().ToList() });
-            retVal.Add(new MyPlayer() { Name = "Mr. Burns", ThrowHistory = CreateHistory8().ToList() });
+      private IList<IPlayer> CreatePlayerList()
+      {
+         var retVal = new List<IPlayer>();
 
-            return retVal;
-        }
+         retVal.Add(new MyPlayer() { Name = "Homer", ThrowHistory = CreateHistory1().ToList() });
+         retVal.Add(new MyPlayer() { Name = "Marge", ThrowHistory = CreateHistory2().ToList() });
+         retVal.Add(new MyPlayer() { Name = "Bart", ThrowHistory = CreateHistory3().ToList() });
+         retVal.Add(new MyPlayer() { Name = "Lisa", ThrowHistory = CreateHistory4().ToList() });
+         retVal.Add(new MyPlayer() { Name = "Maggy", ThrowHistory = CreateHistory5().ToList() });
+         retVal.Add(new MyPlayer() { Name = "Snowball II", ThrowHistory = CreateHistory6().ToList() });
+         retVal.Add(new MyPlayer() { Name = "Moe", ThrowHistory = CreateHistory7().ToList() });
+         retVal.Add(new MyPlayer() { Name = "Mr. Burns", ThrowHistory = CreateHistory8().ToList() });
 
-        #endregion Private Methods
-    }
+         return retVal;
+      }
+
+      #endregion Private Methods
+   }
+
+   public class TestInstance : IGameInstance
+   {
+      #region Private Fields
+
+      private IGameOptions gameOptions;
+
+      #endregion Private Fields
+
+      #region Public Constructors
+
+      public TestInstance()
+      {
+         gameOptions = new TestData();
+      }
+
+      #endregion Public Constructors
+
+      #region Public Events
+
+      public event EventHandler StandingsChanged;
+
+      #endregion Public Events
+
+      #region Public Properties
+
+      public IPlayer CurrentPlayer => gameOptions.PlayerList.First();
+
+      public IGameOptions GameOptions => gameOptions;
+
+      #endregion Public Properties
+
+      #region Public Methods
+
+      public void Dispose()
+      {
+      }
+
+      public void InvokeStandingsChanged(IGameProcedure gameProcedure)
+      {
+      }
+
+      #endregion Public Methods
+   }
 }

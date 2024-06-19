@@ -6,7 +6,7 @@ using System.Text.Json;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 using Schuermann.Dart.Core.Game;
-using Schuermann.Darts.GameCore.Game;
+using Schuermann.Dart.Core.Game;
 
 namespace Schuermann.Darts.GameCore.Save.SerializerOptions
 {

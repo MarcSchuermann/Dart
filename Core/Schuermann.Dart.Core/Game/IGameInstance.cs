@@ -5,9 +5,8 @@
 // -----------------------------------------------------------------------
 
 using System;
-using Schuermann.Dart.Core.Game;
 
-namespace Schuermann.Darts.GameCore.Game
+namespace Schuermann.Dart.Core.Game
 {
    /// <summary>The instance of a game.</summary>
    public interface IGameInstance : IDisposable

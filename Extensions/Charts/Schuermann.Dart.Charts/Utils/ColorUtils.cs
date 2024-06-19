@@ -5,7 +5,7 @@
 using LiveChartsCore.Drawing;
 using LiveChartsCore.SkiaSharpView.Drawing;
 using LiveChartsCore.SkiaSharpView.Painting;
-using Schuermann.Darts.GameCore.Thrown;
+using Schuermann.Dart.Core.Thrown;
 
 namespace Schuermann.Darts.Charts.Utils
 {

@@ -8,7 +8,7 @@ using System.Diagnostics.CodeAnalysis;
 using System.Linq;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Schuermann.Darts.GameCore.Game;
+using Schuermann.Dart.Core.Game;
 
 namespace UnitTests.Game.Impl.GameOptionsTests
 {

@@ -5,7 +5,7 @@
 // -----------------------------------------------------------------------
 
 using Schuermann.Dart.Core.EnvironmentProps;
-using Schuermann.Darts.GameCore.Game;
+using Schuermann.Dart.Core.Game;
 
 namespace Schuermann.Darts.GameCore.Service
 {

@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Schuermann.Darts.Charts\Schuermann.Darts.Charts.csproj" />
+    <ProjectReference Include="..\Schuermann.Dart.Charts\Schuermann.Dart.Charts.csproj" />
   </ItemGroup>
 
 </Project>

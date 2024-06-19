@@ -22,12 +22,11 @@
   </ItemGroup>
 
 	<ItemGroup Condition="$(Configuration)!=Develop">
-		<PackageReference Include="Schuermann.Darts.Environment" Version="2.0.3-alpha.20231001.2" />
+		<PackageReference Include="Schuermann.Dart.Core" Version="2.0.3-alpha.20231001.2" />
 	</ItemGroup>
 
 	<ItemGroup Condition="$(Configuration)==Develop">
-		<ProjectReference Include="..\..\..\DartCore\GameLogic\Schuermann.Darts.GameCore.csproj" />
-		<ProjectReference Include="..\..\..\DartCore\Environment\Schuermann.Darts.Environment.csproj" />
+		<ProjectReference Include="..\..\..\Core\Schuermann.Dart.Core\Schuermann.Dart.Core.csproj" />
 	</ItemGroup>
 
 	<ItemGroup>

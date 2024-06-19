@@ -8,7 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows;
 using MahApps.Metro.Controls;
-using Schuermann.Darts.Environment.Extensibility;
+using Schuermann.Dart.Core.Extensibility;
 
 namespace Dart.Common.UserInterface.PlugInsDialog
 {

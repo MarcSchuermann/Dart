@@ -5,10 +5,10 @@
 using System.ComponentModel.Composition;
 using System.Windows;
 using System.Windows.Controls;
-using Schuermann.Darts.Environment.Extensibility;
+using Schuermann.Dart.Core.Extensibility;
 using Schuermann.Darts.GameCore.Service;
 
-namespace Schuermann.Darts.Charts
+namespace Schuermann.Dart.Charts
 {
    /// <summary></summary>
    /// <seealso cref="Environment.Extensibility.IPlugIn" />

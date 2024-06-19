@@ -8,13 +8,13 @@ using System;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
 using Dart.Common.Logger;
-using Schuermann.Darts.Environment.Extensibility;
-using Schuermann.Darts.GameCore.EnvironmentProps;
-using Schuermann.Darts.GameCore.Game;
+using Schuermann.Dart.Core.Game;
 using Schuermann.Darts.GameCore.Service;
 
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
+using Schuermann.Dart.Core.Extensibility;
+using Schuermann.Dart.Core.EnvironmentProps;
 
 namespace Dart.Common.PlugIns
 {
