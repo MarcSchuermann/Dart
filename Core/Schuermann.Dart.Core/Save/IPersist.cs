@@ -7,22 +7,22 @@
 using System.IO;
 using Schuermann.Dart.Core.Game;
 
-namespace Schuermann.Darts.GameCore.Save
+namespace Schuermann.Dart.Core.Save
 {
-    /// <summary>Saves or loads the game.</summary>
-    public interface IPersist
-    {
-        #region Public Methods
+   /// <summary>Saves or loads the game.</summary>
+   public interface IPersist
+   {
+      #region Public Methods
 
-        /// <summary>Loads the specified stream.</summary>
-        /// <param name="stream">The stream.</param>
-        IGameInstance Load(Stream stream);
+      /// <summary>Loads the specified stream.</summary>
+      /// <param name="stream">The stream.</param>
+      IGameInstance Load(Stream stream);
 
-        /// <summary>Saves the specified instance.</summary>
-        /// <param name="instance">The instance.</param>
-        /// <returns></returns>
-        Stream Save(IGameInstance instance);
+      /// <summary>Saves the specified instance.</summary>
+      /// <param name="instance">The instance.</param>
+      /// <returns></returns>
+      Stream Save(IGameInstance instance);
 
-        #endregion Public Methods
-    }
+      #endregion Public Methods
+   }
 }

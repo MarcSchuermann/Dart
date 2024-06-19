@@ -7,7 +7,6 @@
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Schuermann.Dart.Core.Game;
-using Schuermann.Darts.GameCore.Game;
 
 namespace GameLogicTests.GameTests
 {

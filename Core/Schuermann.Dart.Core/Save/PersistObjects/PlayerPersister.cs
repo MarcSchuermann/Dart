@@ -8,29 +8,29 @@ using System;
 using System.Collections.Generic;
 using Schuermann.Dart.Core.Thrown;
 
-namespace Schuermann.Darts.GameCore.Save.PersistObjects
+namespace Schuermann.Dart.Core.Save.PersistObjects
 {
    /// <summary>Persist the plyer istance.</summary>
    internal class PlayerPersister
-    {
-        #region Public Properties
+   {
+      #region Public Properties
 
-        /// <summary>Gets or sets the identifier.</summary>
-        /// <value>The identifier.</value>
-        public Guid Id { get; set; }
+      /// <summary>Gets or sets the identifier.</summary>
+      /// <value>The identifier.</value>
+      public Guid Id { get; set; }
 
-        /// <summary>Gets or sets the name.</summary>
-        /// <value>The name.</value>
-        public string Name { get; set; }
+      /// <summary>Gets or sets the name.</summary>
+      /// <value>The name.</value>
+      public string Name { get; set; }
 
-        /// <summary>Gets or sets the start points.</summary>
-        /// <value>The start points.</value>
-        public uint StartPoints { get; set; }
+      /// <summary>Gets or sets the start points.</summary>
+      /// <value>The start points.</value>
+      public uint StartPoints { get; set; }
 
-        /// <summary>Gets or sets the throw history.</summary>
-        /// <value>The throw history.</value>
-        public IList<IDartThrow> ThrowHistory { get; set; }
+      /// <summary>Gets or sets the throw history.</summary>
+      /// <value>The throw history.</value>
+      public IList<IDartThrow> ThrowHistory { get; set; }
 
-        #endregion Public Properties
-    }
+      #endregion Public Properties
+   }
 }

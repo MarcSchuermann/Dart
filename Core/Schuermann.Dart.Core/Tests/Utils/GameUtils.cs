@@ -6,7 +6,6 @@
 
 using System.Collections.Generic;
 using Schuermann.Dart.Core.Game;
-using Schuermann.Darts.GameCore.Game;
 
 namespace Schuermann.Darts.GameCore.Tests.Utils
 {

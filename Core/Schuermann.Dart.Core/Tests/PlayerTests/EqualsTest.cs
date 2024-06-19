@@ -9,7 +9,6 @@ using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Schuermann.Dart.Core.Game;
 using Schuermann.Dart.Core.Thrown;
-using Schuermann.Darts.GameCore.Game;
 
 namespace Schuermann.Darts.GameCore.Tests.PlayerTests
 {

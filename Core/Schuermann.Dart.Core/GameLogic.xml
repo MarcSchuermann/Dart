@@ -385,6 +385,81 @@
         <member name="M:Schuermann.Dart.Core.Game.Player.Undo">
             <summary>Undoes this instance.</summary>
         </member>
+        <member name="T:Schuermann.Dart.Core.Save.IPersist">
+            <summary>Saves or loads the game.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Save.IPersist.Load(System.IO.Stream)">
+            <summary>Loads the specified stream.</summary>
+            <param name="stream">The stream.</param>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Save.IPersist.Save(Schuermann.Dart.Core.Game.IGameInstance)">
+            <summary>Saves the specified instance.</summary>
+            <param name="instance">The instance.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Save.Persister">
+            <summary>Persist the current came instance.</summary>
+            <seealso cref="T:Schuermann.Dart.Core.Save.IPersist" />
+        </member>
+        <member name="M:Schuermann.Dart.Core.Save.Persister.Load(System.IO.Stream)">
+            <summary>Loads the specified stream.</summary>
+            <param name="stream">The stream.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Save.Persister.Save(Schuermann.Dart.Core.Game.IGameInstance)">
+            <summary>Saves the specified instance.</summary>
+            <param name="instance">The instance.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Save.PersistObjects.GameInstancePersister">
+            <summary>Persists the game instance.</summary>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Save.PersistObjects.GameInstancePersister.CurrentPlayer">
+            <summary>Gets or sets the player.</summary>
+            <value>The player.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Save.PersistObjects.GameInstancePersister.GameOption">
+            <summary>Gets or sets the game option.</summary>
+            <value>The game option.</value>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Save.PersistObjects.GameOptionPersister">
+            <summary>Persist the game option.</summary>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Save.PersistObjects.GameOptionPersister.DoubleIn">
+            <summary>Gets or sets a value indicating whether [double in].</summary>
+            <value><c>true</c> if [double in]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Save.PersistObjects.GameOptionPersister.DoubleOut">
+            <summary>Gets or sets a value indicating whether [double out].</summary>
+            <value><c>true</c> if [double out]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Save.PersistObjects.GameOptionPersister.PlayerList">
+            <summary>Gets or sets the player list.</summary>
+            <value>The player list.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Save.PersistObjects.GameOptionPersister.StartPoints">
+            <summary>Gets or sets the start points.</summary>
+            <value>The start points.</value>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Save.PersistObjects.PlayerPersister">
+            <summary>Persist the plyer istance.</summary>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Save.PersistObjects.PlayerPersister.Id">
+            <summary>Gets or sets the identifier.</summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Save.PersistObjects.PlayerPersister.Name">
+            <summary>Gets or sets the name.</summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Save.PersistObjects.PlayerPersister.StartPoints">
+            <summary>Gets or sets the start points.</summary>
+            <value>The start points.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Save.PersistObjects.PlayerPersister.ThrowHistory">
+            <summary>Gets or sets the throw history.</summary>
+            <value>The throw history.</value>
+        </member>
         <member name="T:Schuermann.Dart.Core.Themes.BaseTheme">
             <summary>The base theme. Light or dark.</summary>
         </member>
@@ -717,81 +792,6 @@
             <param name="players">The players.</param>
             <param name="player">The player.</param>
             <returns></returns>
-        </member>
-        <member name="T:Schuermann.Darts.GameCore.Save.IPersist">
-            <summary>Saves or loads the game.</summary>
-        </member>
-        <member name="M:Schuermann.Darts.GameCore.Save.IPersist.Load(System.IO.Stream)">
-            <summary>Loads the specified stream.</summary>
-            <param name="stream">The stream.</param>
-        </member>
-        <member name="M:Schuermann.Darts.GameCore.Save.IPersist.Save(Schuermann.Dart.Core.Game.IGameInstance)">
-            <summary>Saves the specified instance.</summary>
-            <param name="instance">The instance.</param>
-            <returns></returns>
-        </member>
-        <member name="T:Schuermann.Darts.GameCore.Save.Persister">
-            <summary>Persist the current came instance.</summary>
-            <seealso cref="T:Schuermann.Darts.GameCore.Save.IPersist" />
-        </member>
-        <member name="M:Schuermann.Darts.GameCore.Save.Persister.Load(System.IO.Stream)">
-            <summary>Loads the specified stream.</summary>
-            <param name="stream">The stream.</param>
-            <returns></returns>
-        </member>
-        <member name="M:Schuermann.Darts.GameCore.Save.Persister.Save(Schuermann.Dart.Core.Game.IGameInstance)">
-            <summary>Saves the specified instance.</summary>
-            <param name="instance">The instance.</param>
-            <returns></returns>
-        </member>
-        <member name="T:Schuermann.Darts.GameCore.Save.PersistObjects.GameInstancePersister">
-            <summary>Persists the game instance.</summary>
-        </member>
-        <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.GameInstancePersister.GameOption">
-            <summary>Gets or sets the game option.</summary>
-            <value>The game option.</value>
-        </member>
-        <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.GameInstancePersister.CurrentPlayer">
-            <summary>Gets or sets the player.</summary>
-            <value>The player.</value>
-        </member>
-        <member name="T:Schuermann.Darts.GameCore.Save.PersistObjects.GameOptionPersister">
-            <summary>Persist the game option.</summary>
-        </member>
-        <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.GameOptionPersister.DoubleIn">
-            <summary>Gets or sets a value indicating whether [double in].</summary>
-            <value><c>true</c> if [double in]; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.GameOptionPersister.DoubleOut">
-            <summary>Gets or sets a value indicating whether [double out].</summary>
-            <value><c>true</c> if [double out]; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.GameOptionPersister.PlayerList">
-            <summary>Gets or sets the player list.</summary>
-            <value>The player list.</value>
-        </member>
-        <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.GameOptionPersister.StartPoints">
-            <summary>Gets or sets the start points.</summary>
-            <value>The start points.</value>
-        </member>
-        <member name="T:Schuermann.Darts.GameCore.Save.PersistObjects.PlayerPersister">
-            <summary>Persist the plyer istance.</summary>
-        </member>
-        <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.PlayerPersister.Id">
-            <summary>Gets or sets the identifier.</summary>
-            <value>The identifier.</value>
-        </member>
-        <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.PlayerPersister.Name">
-            <summary>Gets or sets the name.</summary>
-            <value>The name.</value>
-        </member>
-        <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.PlayerPersister.StartPoints">
-            <summary>Gets or sets the start points.</summary>
-            <value>The start points.</value>
-        </member>
-        <member name="P:Schuermann.Darts.GameCore.Save.PersistObjects.PlayerPersister.ThrowHistory">
-            <summary>Gets or sets the throw history.</summary>
-            <value>The throw history.</value>
         </member>
         <member name="T:Schuermann.Darts.GameCore.Service.DartService">
             <summary>The dart service.</summary>

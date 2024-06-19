@@ -9,98 +9,97 @@ using System.IO;
 using System.Linq;
 using System.Text.Json;
 using Schuermann.Dart.Core.Game;
-using Schuermann.Dart.Core.Game;
-using Schuermann.Darts.GameCore.Save.PersistObjects;
-using Schuermann.Darts.GameCore.Save.SerializerOptions;
+using Schuermann.Dart.Core.Save.PersistObjects;
+using Schuermann.Dart.Core.Save.SerializerOptions;
 
-namespace Schuermann.Darts.GameCore.Save
+namespace Schuermann.Dart.Core.Save
 {
    /// <summary>Persist the current came instance.</summary>
-   /// <seealso cref="Schuermann.Darts.GameCore.Save.IPersist" />
+   /// <seealso cref="IPersist" />
    public static class Persister
-    {
-        #region Public Methods
+   {
+      #region Public Methods
 
-        /// <summary>Loads the specified stream.</summary>
-        /// <param name="stream">The stream.</param>
-        /// <returns></returns>
-        public static IGameInstance Load(Stream stream)
-        {
-            if (stream == null)
-                throw new ArgumentNullException(nameof(stream));
+      /// <summary>Loads the specified stream.</summary>
+      /// <param name="stream">The stream.</param>
+      /// <returns></returns>
+      public static IGameInstance Load(Stream stream)
+      {
+         if (stream == null)
+            throw new ArgumentNullException(nameof(stream));
 
-            stream.Position = 0;
+         stream.Position = 0;
 
-            var options = new JsonSerializerOptions { WriteIndented = true, Converters = { new DartThrowConverter() } };
+         var options = new JsonSerializerOptions { WriteIndented = true, Converters = { new DartThrowConverter() } };
 
-            return Convert(JsonSerializer.Deserialize<GameInstancePersister>(stream, options));
-        }
+         return Convert(JsonSerializer.Deserialize<GameInstancePersister>(stream, options));
+      }
 
-        /// <summary>Saves the specified instance.</summary>
-        /// <param name="instance">The instance.</param>
-        /// <returns></returns>
-        public static Stream Save(IGameInstance instance)
-        {
-            if (instance == null)
-                throw new ArgumentNullException(nameof(instance));
+      /// <summary>Saves the specified instance.</summary>
+      /// <param name="instance">The instance.</param>
+      /// <returns></returns>
+      public static Stream Save(IGameInstance instance)
+      {
+         if (instance == null)
+            throw new ArgumentNullException(nameof(instance));
 
-            var ms = new MemoryStream();
-            var options = new JsonSerializerOptions { WriteIndented = true, Converters = { new DartThrowConverter() } };
+         var ms = new MemoryStream();
+         var options = new JsonSerializerOptions { WriteIndented = true, Converters = { new DartThrowConverter() } };
 
-            JsonSerializer.Serialize(ms, Convert(instance), options);
+         JsonSerializer.Serialize(ms, Convert(instance), options);
 
-            ms.Position = 0;
+         ms.Position = 0;
 
-            return ms;
-        }
+         return ms;
+      }
 
-        #endregion Public Methods
+      #endregion Public Methods
 
-        #region Private Methods
+      #region Private Methods
 
-        private static GameInstancePersister Convert(IGameInstance instance)
-        {
-            return new GameInstancePersister()
-            {
-                GameOption = Convert(instance.GameOptions),
-                CurrentPlayer = instance.CurrentPlayer.Id,
-            };
-        }
+      private static GameInstancePersister Convert(IGameInstance instance)
+      {
+         return new GameInstancePersister()
+         {
+            GameOption = Convert(instance.GameOptions),
+            CurrentPlayer = instance.CurrentPlayer.Id,
+         };
+      }
 
-        private static IGameInstance Convert(GameInstancePersister instance)
-        {
-            var players = instance.GameOption.PlayerList.Select(x => Convert(x));
-            var gameOptions = new GameOptions(players);
-            return new GameInstance(gameOptions);
-        }
+      private static IGameInstance Convert(GameInstancePersister instance)
+      {
+         var players = instance.GameOption.PlayerList.Select(x => Convert(x));
+         var gameOptions = new GameOptions(players);
+         return new GameInstance(gameOptions);
+      }
 
-        private static IPlayer Convert(PlayerPersister player)
-        {
-            return new Player(player.Name, player.StartPoints, player.ThrowHistory);
-        }
+      private static IPlayer Convert(PlayerPersister player)
+      {
+         return new Player(player.Name, player.StartPoints, player.ThrowHistory);
+      }
 
-        private static PlayerPersister Convert(IPlayer player)
-        {
-            return new PlayerPersister
-            {
-                Id = player.Id,
-                Name = player.Name,
-                ThrowHistory = player.ThrowHistory,
-                StartPoints = player.StartPoints
-            };
-        }
+      private static PlayerPersister Convert(IPlayer player)
+      {
+         return new PlayerPersister
+         {
+            Id = player.Id,
+            Name = player.Name,
+            ThrowHistory = player.ThrowHistory,
+            StartPoints = player.StartPoints
+         };
+      }
 
-        private static GameOptionPersister Convert(IGameOptions gameOptions)
-        {
-            return new GameOptionPersister
-            {
-                DoubleIn = gameOptions.DoubleIn,
-                DoubleOut = gameOptions.DoubleOut,
-                StartPoints = gameOptions.StartPoints,
-                PlayerList = gameOptions.PlayerList.ToList().Select(x => Convert(x))
-            };
-        }
+      private static GameOptionPersister Convert(IGameOptions gameOptions)
+      {
+         return new GameOptionPersister
+         {
+            DoubleIn = gameOptions.DoubleIn,
+            DoubleOut = gameOptions.DoubleOut,
+            StartPoints = gameOptions.StartPoints,
+            PlayerList = gameOptions.PlayerList.ToList().Select(x => Convert(x))
+         };
+      }
 
-        #endregion Private Methods
-    }
+      #endregion Private Methods
+   }
 }

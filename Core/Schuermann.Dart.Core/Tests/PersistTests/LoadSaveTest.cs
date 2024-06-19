@@ -6,9 +6,8 @@ using System.Text.RegularExpressions;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Schuermann.Dart.Core.Game;
+using Schuermann.Dart.Core.Save;
 using Schuermann.Dart.Core.Thrown;
-using Schuermann.Darts.GameCore.Game;
-using Schuermann.Darts.GameCore.Save;
 
 namespace Schuermann.Darts.GameCore.Tests.PersistTests
 {
@@ -102,7 +101,7 @@ namespace Schuermann.Darts.GameCore.Tests.PersistTests
 
             var updated = RemoveId(readFile);
 
-            updated.Should().Be("{\r\n  \"GameOption\": {\r\n    \"DoubleIn\": false,\r\n    \"DoubleOut\": false,\r\n    \"PlayerList\": [\r\n      {\r\n        \"Id\": \"\",\r\n        \"Name\": \"Ralf\",\r\n        \"StartPoints\": 666,\r\n        \"ThrowHistory\": [\r\n          {\r\n            \"DartBoardField\": 2,\r\n            \"DartBoardQuantifier\": 1,\r\n            \"Points\": 2\r\n          },\r\n          {\r\n            \"DartBoardField\": 14,\r\n            \"DartBoardQuantifier\": 3,\r\n            \"Points\": 42\r\n          }\r\n        ]\r\n      }\r\n    ],\r\n    \"StartPoints\": 0\r\n  },\r\n  \"CurrentPlayer\": \"\"\r\n}");
+            updated.Should().Be("{\r\n  \"CurrentPlayer\": \"\",\r\n  \"GameOption\": {\r\n    \"DoubleIn\": false,\r\n    \"DoubleOut\": false,\r\n    \"PlayerList\": [\r\n      {\r\n        \"Id\": \"\",\r\n        \"Name\": \"Ralf\",\r\n        \"StartPoints\": 666,\r\n        \"ThrowHistory\": [\r\n          {\r\n            \"DartBoardField\": 2,\r\n            \"DartBoardQuantifier\": 1,\r\n            \"Points\": 2\r\n          },\r\n          {\r\n            \"DartBoardField\": 14,\r\n            \"DartBoardQuantifier\": 3,\r\n            \"Points\": 42\r\n          }\r\n        ]\r\n      }\r\n    ],\r\n    \"StartPoints\": 0\r\n  }\r\n}");
         }
 
         #endregion Public Methods
