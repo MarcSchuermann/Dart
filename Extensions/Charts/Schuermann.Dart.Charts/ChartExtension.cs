@@ -15,7 +15,12 @@ namespace Schuermann.Dart.Charts
    [Export(typeof(IPlugIn))]
    public class ChartExtension : IPlugIn
    {
-      private readonly IDartService dartService;
+      #region Private Fields
+
+      private readonly IThrowGameService dartService;
+
+      #endregion Private Fields
+
       #region Public Constructors
 
       /// <summary>
@@ -24,14 +29,13 @@ namespace Schuermann.Dart.Charts
       /// <param name="gameOptions">The game options.</param>
       /// <param name="properties">The properties.</param>
       [ImportingConstructor]
-      public ChartExtension(IDartService dartService)
+      public ChartExtension(IThrowGameService dartService)
       {
          this.dartService = dartService;
          PlugInCommand = new PlugInCommand(this, ShowChartExtension, false, true);
       }
 
       #endregion Public Constructors
-
 
       #region Public Properties
 

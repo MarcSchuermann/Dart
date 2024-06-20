@@ -10,7 +10,7 @@ using Schuermann.Dart.Core.Game;
 namespace Schuermann.Dart.Core.Service
 {
    /// <summary>The dart serivce.</summary>
-   public interface IDartService
+   public interface IThrowGameService : IService
    {
       #region Public Methods
 

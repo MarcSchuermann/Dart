@@ -10,8 +10,8 @@ using Schuermann.Dart.Core.Game;
 namespace Schuermann.Dart.Core.Service
 {
    /// <summary>The dart service.</summary>
-   /// <seealso cref="IDartService" />
-   public class DartService : IDartService
+   /// <seealso cref="IThrowGameService" />
+   public class ThrowGameService : IThrowGameService
    {
       #region Private Fields
 
@@ -23,11 +23,13 @@ namespace Schuermann.Dart.Core.Service
 
       #region Public Constructors
 
-      /// <summary>Initializes a new instance of the <see cref="DartService" /> class.</summary>
+      /// <summary>
+      ///    Initializes a new instance of the <see cref="ThrowGameService" /> class.
+      /// </summary>
       /// <param name="gameInstance">The game instance.</param>
       /// <param name="gameOptions">The game options.</param>
       /// <param name="properties">The properties.</param>
-      public DartService(IGameInstance gameInstance, IGameOptions gameOptions, IProperties properties)
+      public ThrowGameService(IGameInstance gameInstance, IGameOptions gameOptions, IProperties properties)
       {
          this.gameInstance = gameInstance;
          this.gameOptions = gameOptions;
@@ -35,6 +37,14 @@ namespace Schuermann.Dart.Core.Service
       }
 
       #endregion Public Constructors
+
+      #region Public Properties
+
+      /// <summary>Gets the name.</summary>
+      /// <value>The name.</value>
+      public string Name => nameof(ThrowGameService);
+
+      #endregion Public Properties
 
       #region Public Methods
 

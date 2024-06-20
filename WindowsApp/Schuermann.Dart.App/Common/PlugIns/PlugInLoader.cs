@@ -38,8 +38,8 @@ namespace Schuermann.Dart.App.Common.PlugIns
 
       #region Public Properties
 
-      [Export(typeof(IDartService))]
-      public IDartService DartService { get; set; }
+      [Export(typeof(IThrowGameService))]
+      public IThrowGameService DartService { get; set; }
 
       /// <summary>Gets or sets the plug ins.</summary>
       /// <value>The plug ins.</value>
@@ -56,7 +56,7 @@ namespace Schuermann.Dart.App.Common.PlugIns
          {
             var catalog = new AggregateCatalog();
 
-            DartService = new DartService(gameInstance, gameOptions, properties);
+            DartService = new ThrowGameService(gameInstance, gameOptions, properties);
 
             var dirCatalog = new DirectoryCatalog(plugInDirectory);
             catalog.Catalogs.Add(dirCatalog);

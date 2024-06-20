@@ -462,7 +462,7 @@
         </member>
         <member name="T:Schuermann.Dart.Core.Service.DartService">
             <summary>The dart service.</summary>
-            <seealso cref="T:Schuermann.Dart.Core.Service.IDartService" />
+            <seealso cref="T:Schuermann.Dart.Core.Service.IThrowGameService" />
         </member>
         <member name="M:Schuermann.Dart.Core.Service.DartService.#ctor(Schuermann.Dart.Core.Game.IGameInstance,Schuermann.Dart.Core.Game.IGameOptions,Schuermann.Dart.Core.EnvironmentProps.IProperties)">
             <summary>Initializes a new instance of the <see cref="T:Schuermann.Dart.Core.Service.DartService" /> class.</summary>
@@ -482,18 +482,18 @@
             <summary>Gets the properties.</summary>
             <returns></returns>
         </member>
-        <member name="T:Schuermann.Dart.Core.Service.IDartService">
+        <member name="T:Schuermann.Dart.Core.Service.IThrowGameService">
             <summary>The dart serivce.</summary>
         </member>
-        <member name="M:Schuermann.Dart.Core.Service.IDartService.GetGameInstance">
+        <member name="M:Schuermann.Dart.Core.Service.IThrowGameService.GetGameInstance">
             <summary>Gets the game instance.</summary>
             <returns></returns>
         </member>
-        <member name="M:Schuermann.Dart.Core.Service.IDartService.GetGameOptions">
+        <member name="M:Schuermann.Dart.Core.Service.IThrowGameService.GetGameOptions">
             <summary>Gets the game options.</summary>
             <returns></returns>
         </member>
-        <member name="M:Schuermann.Dart.Core.Service.IDartService.GetProperties">
+        <member name="M:Schuermann.Dart.Core.Service.IThrowGameService.GetProperties">
             <summary>Gets the properties.</summary>
             <returns></returns>
         </member>
