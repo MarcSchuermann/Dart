@@ -6,23 +6,23 @@
 
 using System.Windows.Controls;
 
-namespace Dart.Game.UserInterface.Views
+namespace Schuermann.Dart.App.Game.UserInterface.Views
 {
-    /// <summary>The GameOptionsView.</summary>
-    /// <seealso cref="UserControl" />
-    /// <seealso cref="System.Windows.Markup.IComponentConnector" />
-    public partial class GameOptionsView : UserControl
-    {
-        #region Public Constructors
+   /// <summary>The GameOptionsView.</summary>
+   /// <seealso cref="UserControl" />
+   /// <seealso cref="System.Windows.Markup.IComponentConnector" />
+   public partial class GameOptionsView : UserControl
+   {
+      #region Public Constructors
 
-        /// <summary>
-        ///    Initializes a new instance of the <see cref="GameOptionsView" /> class.
-        /// </summary>
-        public GameOptionsView()
-        {
-            InitializeComponent();
-        }
+      /// <summary>
+      ///    Initializes a new instance of the <see cref="GameOptionsView" /> class.
+      /// </summary>
+      public GameOptionsView()
+      {
+         InitializeComponent();
+      }
 
-        #endregion Public Constructors
-    }
+      #endregion Public Constructors
+   }
 }

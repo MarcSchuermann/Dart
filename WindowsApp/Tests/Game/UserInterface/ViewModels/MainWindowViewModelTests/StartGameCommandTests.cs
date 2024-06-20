@@ -2,14 +2,14 @@
 //// <copyright>Marc Schürmann</copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
-using Dart;
-using Dart.Common.UserInterface.Helper;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Schuermann.Dart.App.Common.UserInterface.Helper;
+using Schuermann.Dart.App.Game.UserInterface.ViewModels;
 
 namespace UnitTests.Game.UserInterface.ViewModels.MainWindowViewModelTests
 {
-    /// <summary>The StartGameCommandTests.</summary>
-    [TestClass]
+   /// <summary>The StartGameCommandTests.</summary>
+   [TestClass]
     public class StartGameCommandTests
     {
         #region Public Methods

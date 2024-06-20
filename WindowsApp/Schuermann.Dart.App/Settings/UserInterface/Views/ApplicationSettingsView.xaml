@@ -1,8 +1,8 @@
-﻿<UserControl x:Class="Dart.ApplicationSettingsView"
+﻿<UserControl x:Class="Schuermann.Dart.App.Settings.UserInterface.Views.ApplicationSettingsView"
         x:Name="Settings"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:properies="clr-namespace:Dart.Properties">
+             xmlns:properies="clr-namespace:Schuermann.Dart.App.Properties">
 
     <Grid>
         <TabControl VerticalAlignment="Stretch">

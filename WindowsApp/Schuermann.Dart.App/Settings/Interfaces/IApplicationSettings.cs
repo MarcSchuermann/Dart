@@ -5,40 +5,40 @@
 // -----------------------------------------------------------------------
 
 using System.Globalization;
-using Dart.Common.Theme;
+using Schuermann.Dart.App.Common.Theme;
 
-namespace Dart.Settings.Interfaces
+namespace Schuermann.Dart.App.Settings.Interfaces
 {
-    /// <summary>The application settings interface.</summary>
-    public interface IApplicationSettings
-    {
-        #region Public Properties
+   /// <summary>The application settings interface.</summary>
+   public interface IApplicationSettings
+   {
+      #region Public Properties
 
-        /// <summary>Gets or sets the current theme.</summary>
-        /// <value>The current theme.</value>
-        INamedTheme CurrentTheme { get; set; }
+      /// <summary>Gets or sets the current theme.</summary>
+      /// <value>The current theme.</value>
+      INamedTheme CurrentTheme { get; set; }
 
-        /// <summary>Gets or sets the selected culture information.</summary>
-        /// <value>The selected culture information.</value>
-        CultureInfo SelectedCultureInfo { get; set; }
+      /// <summary>Gets or sets the selected culture information.</summary>
+      /// <value>The selected culture information.</value>
+      CultureInfo SelectedCultureInfo { get; set; }
 
-        /// <summary>
-        ///    Gets or sets a value indicating whether [show user interface dart board data].
-        /// </summary>
-        /// <value>
-        ///    <c>true</c> if [show user interface dart board data]; otherwise, <c>false</c>.
-        /// </value>
-        bool ShowUserInterfaceDartBoardData { get; set; }
+      /// <summary>
+      ///    Gets or sets a value indicating whether [show user interface dart board data].
+      /// </summary>
+      /// <value>
+      ///    <c>true</c> if [show user interface dart board data]; otherwise, <c>false</c>.
+      /// </value>
+      bool ShowUserInterfaceDartBoardData { get; set; }
 
-        #endregion Public Properties
+      #endregion Public Properties
 
-        #region Public Methods
+      #region Public Methods
 
-        /// <summary>Equals the specified to compare.</summary>
-        /// <param name="settingsToCompare">To compare.</param>
-        /// <returns>True or false.</returns>
-        bool Equals(IApplicationSettings settingsToCompare);
+      /// <summary>Equals the specified to compare.</summary>
+      /// <param name="settingsToCompare">To compare.</param>
+      /// <returns>True or false.</returns>
+      bool Equals(IApplicationSettings settingsToCompare);
 
-        #endregion Public Methods
-    }
+      #endregion Public Methods
+   }
 }

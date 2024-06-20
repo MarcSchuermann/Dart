@@ -4,16 +4,16 @@
 
 using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
-using Dart;
-using Dart.Settings.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using Schuermann.Dart.App.Game.Interfaces;
+using Schuermann.Dart.App.Settings.Interfaces;
 using Schuermann.Dart.Core.Game;
 
 namespace UnitTests.Game
 {
-    /// <summary>The unit test base.</summary>
-    [TestClass]
+   /// <summary>The unit test base.</summary>
+   [TestClass]
     [ExcludeFromCodeCoverage]
     public class TestBase
     {

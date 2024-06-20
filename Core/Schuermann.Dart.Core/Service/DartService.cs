@@ -7,10 +7,10 @@
 using Schuermann.Dart.Core.EnvironmentProps;
 using Schuermann.Dart.Core.Game;
 
-namespace Schuermann.Darts.GameCore.Service
+namespace Schuermann.Dart.Core.Service
 {
    /// <summary>The dart service.</summary>
-   /// <seealso cref="Schuermann.Darts.GameCore.Service.IDartService" />
+   /// <seealso cref="IDartService" />
    public class DartService : IDartService
    {
       #region Private Fields

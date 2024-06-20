@@ -9,39 +9,39 @@ using Schuermann.Dart.Core.Game;
 using Schuermann.Dart.Core.Thrown;
 using Schuermann.Dart.Core.UndoRedo.Interfaces;
 
-namespace Schuermann.Darts.GameCore.UndoRedo.Impl.Actions
+namespace Schuermann.Dart.Core.UndoRedo.Impl.Actions
 {
    internal class ThrownAction : IUndoRedo
-    {
-        #region Private Fields
+   {
+      #region Private Fields
 
-        private readonly IPlayer player;
-        private readonly IDartThrow thrownPoints;
+      private readonly IPlayer player;
+      private readonly IDartThrow thrownPoints;
 
-        #endregion Private Fields
+      #endregion Private Fields
 
-        #region Public Constructors
+      #region Public Constructors
 
-        public ThrownAction(IPlayer player, IDartThrow thrownPoints)
-        {
-            this.player = player;
-            this.thrownPoints = thrownPoints;
-        }
+      public ThrownAction(IPlayer player, IDartThrow thrownPoints)
+      {
+         this.player = player;
+         this.thrownPoints = thrownPoints;
+      }
 
-        #endregion Public Constructors
+      #endregion Public Constructors
 
-        #region Public Methods
+      #region Public Methods
 
-        public void Redo()
-        {
-            player.ThrowHistory.Add(thrownPoints);
-        }
+      public void Redo()
+      {
+         player.ThrowHistory.Add(thrownPoints);
+      }
 
-        public void Undo()
-        {
-            player.ThrowHistory.RemoveAt(player.ThrowHistory.Count - 1);
-        }
+      public void Undo()
+      {
+         player.ThrowHistory.RemoveAt(player.ThrowHistory.Count - 1);
+      }
 
-        #endregion Public Methods
-    }
+      #endregion Public Methods
+   }
 }

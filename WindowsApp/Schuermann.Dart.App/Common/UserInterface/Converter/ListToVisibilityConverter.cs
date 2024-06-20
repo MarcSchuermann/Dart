@@ -8,47 +8,48 @@ using System;
 using System.Globalization;
 using System.Windows;
 using System.Windows.Data;
-using Dart.Common.UserInterface.Helper;
+using Schuermann.Dart.App.Common.UserInterface.Helper;
+using Schuermann.Dart.App.Game.UserInterface.ViewModels;
 
-namespace Dart.Common.UserInterface.Converter
+namespace Schuermann.Dart.App.Common.UserInterface.Converter
 {
-    /// <summary>The ListToVisibilityConverter.</summary>
-    /// <seealso cref="IValueConverter" />
-    public class ListToVisibilityConverter : IValueConverter
-    {
-        #region Public Methods
+   /// <summary>The ListToVisibilityConverter.</summary>
+   /// <seealso cref="IValueConverter" />
+   public class ListToVisibilityConverter : IValueConverter
+   {
+      #region Public Methods
 
-        /// <summary>Converts a value.</summary>
-        /// <param name="value">The value produced by the binding source.</param>
-        /// <param name="targetType">The type of the binding target property.</param>
-        /// <param name="parameter">The converter parameter to use.</param>
-        /// <param name="culture">The culture to use in the converter.</param>
-        /// <returns>
-        ///    A converted value. If the method returns null, the valid null value is used.
-        /// </returns>
-        public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            var playerlist = value as ItemsChangeObservableCollection<PlayerViewModel>;
+      /// <summary>Converts a value.</summary>
+      /// <param name="value">The value produced by the binding source.</param>
+      /// <param name="targetType">The type of the binding target property.</param>
+      /// <param name="parameter">The converter parameter to use.</param>
+      /// <param name="culture">The culture to use in the converter.</param>
+      /// <returns>
+      ///    A converted value. If the method returns null, the valid null value is used.
+      /// </returns>
+      public object Convert(object value, Type targetType, object parameter, CultureInfo culture)
+      {
+         var playerlist = value as ItemsChangeObservableCollection<PlayerViewModel>;
 
-            if (playerlist == null || playerlist.Count == 0)
-                return Visibility.Hidden;
+         if (playerlist == null || playerlist.Count == 0)
+            return Visibility.Hidden;
 
-            return Visibility.Visible;
-        }
+         return Visibility.Visible;
+      }
 
-        /// <summary>Converts a value.</summary>
-        /// <param name="value">The value that is produced by the binding target.</param>
-        /// <param name="targetType">The type to convert to.</param>
-        /// <param name="parameter">The converter parameter to use.</param>
-        /// <param name="culture">The culture to use in the converter.</param>
-        /// <returns>
-        ///    A converted value. If the method returns null, the valid null value is used.
-        /// </returns>
-        public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
-        {
-            return null;
-        }
+      /// <summary>Converts a value.</summary>
+      /// <param name="value">The value that is produced by the binding target.</param>
+      /// <param name="targetType">The type to convert to.</param>
+      /// <param name="parameter">The converter parameter to use.</param>
+      /// <param name="culture">The culture to use in the converter.</param>
+      /// <returns>
+      ///    A converted value. If the method returns null, the valid null value is used.
+      /// </returns>
+      public object ConvertBack(object value, Type targetType, object parameter, CultureInfo culture)
+      {
+         return null;
+      }
 
-        #endregion Public Methods
-    }
+      #endregion Public Methods
+   }
 }

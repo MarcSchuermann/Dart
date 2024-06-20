@@ -9,14 +9,13 @@ using System.Diagnostics;
 using System.IO;
 using System.Windows;
 using System.Windows.Navigation;
-using Dart.Common;
 using Dart.Tools.Logging;
-using Dart.Tools.ScreenShot;
-using Dart.Tools.Zip;
 using Microsoft.Extensions.Logging;
+using Schuermann.Dart.App.Tools.Screenshot;
+using Schuermann.Dart.App.Tools.Zip;
 using Serilog;
 
-namespace Dart.Tools.ExceptionHandling
+namespace Schuermann.Dart.App.Tools.ExceptionHandling
 {
    /// <summary>Interaction logic for ExceptionCatchWindow.xaml</summary>
    public partial class ExceptionCatchWindow : Window

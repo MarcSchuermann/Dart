@@ -9,12 +9,11 @@ using LiveChartsCore.Kernel.Sketches;
 using LiveChartsCore.SkiaSharpView;
 using LiveChartsCore.SkiaSharpView.Drawing;
 using LiveChartsCore.SkiaSharpView.Painting;
-using Schuermann.Darts.Charts.Themes;
-using Schuermann.Darts.Charts.Utils;
+using Schuermann.Dart.Charts.Themes;
+using Schuermann.Dart.Charts.Utils;
 using Schuermann.Dart.Core.Game;
 using Schuermann.Dart.Core.Themes;
 using Schuermann.Dart.Core.Thrown;
-using Schuermann.Darts.Charts;
 
 namespace Schuermann.Dart.Charts
 {

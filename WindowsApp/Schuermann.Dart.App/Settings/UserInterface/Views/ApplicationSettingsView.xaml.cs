@@ -7,50 +7,51 @@
 using System.ComponentModel;
 using System.Windows.Controls;
 using ControlzEx.Theming;
+using Schuermann.Dart.App.Settings.UserInterface.ViewModels;
 
-namespace Dart
+namespace Schuermann.Dart.App.Settings.UserInterface.Views
 {
-    /// <summary>Interaction logic for SettingsView.</summary>
-    public partial class ApplicationSettingsView
-    {
-        #region Public Constructors
+   /// <summary>Interaction logic for SettingsView.</summary>
+   public partial class ApplicationSettingsView
+   {
+      #region Public Constructors
 
-        /// <summary>
-        ///    Initializes a new instance of the <see cref="ApplicationSettingsView" /> class.
-        /// </summary>
-        public ApplicationSettingsView()
-        {
-            InitializeComponent();
-        }
+      /// <summary>
+      ///    Initializes a new instance of the <see cref="ApplicationSettingsView" /> class.
+      /// </summary>
+      public ApplicationSettingsView()
+      {
+         InitializeComponent();
+      }
 
-        #endregion Public Constructors
+      #endregion Public Constructors
 
-        #region Private Methods
+      #region Private Methods
 
-        private void ApplicationSettingsViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
-        {
-            SetTheme(sender);
-        }
+      private void ApplicationSettingsViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
+      {
+         SetTheme(sender);
+      }
 
-        private void SelectedThemeChanged(object sender, SelectionChangedEventArgs e)
-        {
-            if (DataContext is not ApplicationSettingsViewModel applicationSettingsViewModel)
-                return;
+      private void SelectedThemeChanged(object sender, SelectionChangedEventArgs e)
+      {
+         if (DataContext is not ApplicationSettingsViewModel applicationSettingsViewModel)
+            return;
 
-            applicationSettingsViewModel.PropertyChanged += ApplicationSettingsViewModel_PropertyChanged;
+         applicationSettingsViewModel.PropertyChanged += ApplicationSettingsViewModel_PropertyChanged;
 
-            SetTheme(sender);
-        }
+         SetTheme(sender);
+      }
 
-        private void SetTheme(object sender)
-        {
-            if (sender is ApplicationSettingsViewModel applicationSettingsViewModel)
-            {
-                ThemeManager.Current.ChangeTheme(this, applicationSettingsViewModel.CurrentTheme.OriginalTheme);
-                applicationSettingsViewModel.Accept();
-            }
-        }
+      private void SetTheme(object sender)
+      {
+         if (sender is ApplicationSettingsViewModel applicationSettingsViewModel)
+         {
+            ThemeManager.Current.ChangeTheme(this, applicationSettingsViewModel.CurrentTheme.OriginalTheme);
+            applicationSettingsViewModel.Accept();
+         }
+      }
 
-        #endregion Private Methods
-    }
+      #endregion Private Methods
+   }
 }

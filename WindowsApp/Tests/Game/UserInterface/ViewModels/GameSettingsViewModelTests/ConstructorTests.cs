@@ -6,9 +6,9 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
-using Dart;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Schuermann.Dart.App.Game.UserInterface.ViewModels;
 
 namespace UnitTests.Game.UserInterface.ViewModels.GameSettingsViewModelTests
 {

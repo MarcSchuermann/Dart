@@ -8,23 +8,23 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.Windows;
 
-namespace Dart.Tools.ScreenShot
+namespace Schuermann.Dart.App.Tools.Screenshot
 {
-    internal class ScreenCapture
-    {
-        #region Public Methods
+   internal class ScreenCapture
+   {
+      #region Public Methods
 
-        public static void TakeScreenshot(string file)
-        {
-            using var bitmap = new Bitmap((int)SystemParameters.VirtualScreenWidth, (int)SystemParameters.VirtualScreenHeight);
-            using (var g = Graphics.FromImage(bitmap))
-            {
-                g.CopyFromScreen((int)SystemParameters.VirtualScreenLeft, (int)SystemParameters.VirtualScreenTop, 0, 0, bitmap.Size, CopyPixelOperation.SourceCopy);
-            }
+      public static void TakeScreenshot(string file)
+      {
+         using var bitmap = new Bitmap((int)SystemParameters.VirtualScreenWidth, (int)SystemParameters.VirtualScreenHeight);
+         using (var g = Graphics.FromImage(bitmap))
+         {
+            g.CopyFromScreen((int)SystemParameters.VirtualScreenLeft, (int)SystemParameters.VirtualScreenTop, 0, 0, bitmap.Size, CopyPixelOperation.SourceCopy);
+         }
 
-            bitmap.Save(file, ImageFormat.Jpeg);
-        }
+         bitmap.Save(file, ImageFormat.Jpeg);
+      }
 
-        #endregion Public Methods
-    }
+      #endregion Public Methods
+   }
 }

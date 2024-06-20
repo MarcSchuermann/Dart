@@ -7,7 +7,7 @@
 using System;
 using Schuermann.Dart.Core.Thrown;
 
-namespace Schuermann.Darts.GameCore.UI
+namespace Schuermann.Dart.Core.UI
 {
    /// <summary>Geometrie and current values of the dard board.</summary>
    public interface IDartBoard

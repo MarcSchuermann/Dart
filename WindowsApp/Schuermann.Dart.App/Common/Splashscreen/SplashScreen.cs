@@ -6,58 +6,58 @@
 
 using System.Threading;
 
-namespace Dart.Common.Splashscreen
+namespace Schuermann.Dart.App.Common.Splashscreen
 {
-    /// <summary>The splash screen.</summary>
-    public class SplashScreen
-    {
-        #region Private Fields
+   /// <summary>The splash screen.</summary>
+   public class SplashScreen
+   {
+      #region Private Fields
 
-        private static SplashScreenWindow splashScreenWindow;
+      private static SplashScreenWindow splashScreenWindow;
 
-        #endregion Private Fields
+      #endregion Private Fields
 
-        #region Public Methods
+      #region Public Methods
 
-        /// <summary>Hides the splash screen.</summary>
-        /// <param name="immediately">if set to <c>true</c> [immediately].</param>
-        public static void HideSplashScreen(bool immediately = false)
-        {
-            splashScreenWindow?.StartClose(immediately);
-        }
+      /// <summary>Hides the splash screen.</summary>
+      /// <param name="immediately">if set to <c>true</c> [immediately].</param>
+      public static void HideSplashScreen(bool immediately = false)
+      {
+         splashScreenWindow?.StartClose(immediately);
+      }
 
-        /// <summary>Shows the splash screen.</summary>
-        public static void ShowSplashScreen()
-        {
-            if (splashScreenWindow != null)
-                return;
+      /// <summary>Shows the splash screen.</summary>
+      public static void ShowSplashScreen()
+      {
+         if (splashScreenWindow != null)
+            return;
 
-            var thread = new Thread(StartShowSplashScreen);
-            thread.SetApartmentState(ApartmentState.STA);
-            thread.Start();
-        }
+         var thread = new Thread(StartShowSplashScreen);
+         thread.SetApartmentState(ApartmentState.STA);
+         thread.Start();
+      }
 
-        #endregion Public Methods
+      #endregion Public Methods
 
-        #region Internal Methods
+      #region Internal Methods
 
-        /// <summary>Updates the progress information.</summary>
-        /// <param name="progressInfoText">The progress information text.</param>
-        internal static void UpdateProgress(string progressInfoText)
-        {
-            splashScreenWindow?.UpdateProgress(progressInfoText);
-        }
+      /// <summary>Updates the progress information.</summary>
+      /// <param name="progressInfoText">The progress information text.</param>
+      internal static void UpdateProgress(string progressInfoText)
+      {
+         splashScreenWindow?.UpdateProgress(progressInfoText);
+      }
 
-        #endregion Internal Methods
+      #endregion Internal Methods
 
-        #region Private Methods
+      #region Private Methods
 
-        private static void StartShowSplashScreen()
-        {
-            splashScreenWindow = new SplashScreenWindow { Opacity = 0 };
-            splashScreenWindow.ShowDialog();
-        }
+      private static void StartShowSplashScreen()
+      {
+         splashScreenWindow = new SplashScreenWindow { Opacity = 0 };
+         splashScreenWindow.ShowDialog();
+      }
 
-        #endregion Private Methods
-    }
+      #endregion Private Methods
+   }
 }

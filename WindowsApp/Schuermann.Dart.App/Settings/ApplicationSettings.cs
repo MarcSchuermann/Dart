@@ -6,13 +6,13 @@
 
 using System;
 using System.Globalization;
-using Dart.Common.Theme;
-using Dart.Settings.Interfaces;
+using Schuermann.Dart.App.Common.Theme;
+using Schuermann.Dart.App.Settings.Interfaces;
 
 namespace Dart.Settings
 {
-    /// <summary>The ApplicationSettings.</summary>
-    public class ApplicationSettings : IEquatable<IApplicationSettings>, IApplicationSettings
+   /// <summary>The ApplicationSettings.</summary>
+   public class ApplicationSettings : IEquatable<IApplicationSettings>, IApplicationSettings
     {
         #region Public Properties
 

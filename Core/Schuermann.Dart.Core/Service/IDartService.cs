@@ -7,7 +7,7 @@
 using Schuermann.Dart.Core.EnvironmentProps;
 using Schuermann.Dart.Core.Game;
 
-namespace Schuermann.Darts.GameCore.Service
+namespace Schuermann.Dart.Core.Service
 {
    /// <summary>The dart serivce.</summary>
    public interface IDartService

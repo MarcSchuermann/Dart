@@ -3,7 +3,7 @@
     {
       "src": [
         {
-          "files": [ "**/Schuermann.Darts.GameCore.csproj" ],
+         "files": [ "**/Schuermann.Dart.Core.csproj" ],
           "exclude": [ "**/bin/**", "**/obj/**" ]
         }
       ],

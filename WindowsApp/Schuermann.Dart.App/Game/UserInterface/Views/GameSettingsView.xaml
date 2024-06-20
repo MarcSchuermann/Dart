@@ -1,7 +1,7 @@
-﻿<UserControl x:Class="Dart.Game.UserInterface.Views.GameSettingsView"
+﻿<UserControl x:Class="Schuermann.Dart.App.Game.UserInterface.Views.GameSettingsView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-             xmlns:properies="clr-namespace:Dart.Properties" xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls">
+             xmlns:properies="clr-namespace:Schuermann.Dart.App.Properties" xmlns:mah="http://metro.mahapps.com/winfx/xaml/controls">
 
     <Grid>
         <Grid.ColumnDefinitions>

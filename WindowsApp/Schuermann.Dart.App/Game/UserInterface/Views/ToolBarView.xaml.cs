@@ -4,23 +4,21 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using System.Diagnostics.CodeAnalysis;
 using System.Windows.Controls;
 
-namespace Dart
+namespace Schuermann.Dart.App.Game.UserInterface.Views
 {
-    /// <summary>Interaction logic for ToolBarView.</summary>
-    [ExcludeFromCodeCoverage]
-    public partial class ToolBarView : UserControl
-    {
-        #region Public Constructors
+   /// <summary>Interaction logic for ToolBarView.</summary>
+   public partial class ToolBarView : UserControl
+   {
+      #region Public Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="ToolBarView"/> class.</summary>
-        public ToolBarView()
-        {
-            InitializeComponent();
-        }
+      /// <summary>Initializes a new instance of the <see cref="ToolBarView"/> class.</summary>
+      public ToolBarView()
+      {
+         InitializeComponent();
+      }
 
-        #endregion Public Constructors
-    }
+      #endregion Public Constructors
+   }
 }

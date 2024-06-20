@@ -9,81 +9,81 @@ using System.Reflection;
 using System.Windows;
 using System.Windows.Media.Animation;
 
-namespace Dart.Common.Splashscreen
+namespace Schuermann.Dart.App.Common.Splashscreen
 {
-    /// <summary>Interaction logic for SplashScreenWindow.xaml.</summary>
-    public partial class SplashScreenWindow : Window
-    {
-        #region Public Constructors
+   /// <summary>Interaction logic for SplashScreenWindow.xaml.</summary>
+   public partial class SplashScreenWindow : Window
+   {
+      #region Public Constructors
 
-        /// <summary>
-        ///    Initializes a new instance of the <see cref="SplashScreenWindow" /> class.
-        /// </summary>
-        public SplashScreenWindow()
-        {
-            InitializeComponent();
-            DataContext = this;
-            versionText.Text = GetAssemblyVersion();
-        }
+      /// <summary>
+      ///    Initializes a new instance of the <see cref="SplashScreenWindow" /> class.
+      /// </summary>
+      public SplashScreenWindow()
+      {
+         InitializeComponent();
+         DataContext = this;
+         versionText.Text = GetAssemblyVersion();
+      }
 
-        #endregion Public Constructors
+      #endregion Public Constructors
 
-        #region Internal Methods
+      #region Internal Methods
 
-        /// <summary>Starts the close.</summary>
-        /// <param name="immediate">if set to <c>true</c> [immediate].</param>
-        internal void StartClose(bool immediate)
-        {
-            if (!CheckAccess())
-            {
-                Dispatcher.BeginInvoke(new Action(() => StartClose(immediate)));
-                return;
-            }
+      /// <summary>Starts the close.</summary>
+      /// <param name="immediate">if set to <c>true</c> [immediate].</param>
+      internal void StartClose(bool immediate)
+      {
+         if (!CheckAccess())
+         {
+            Dispatcher.BeginInvoke(new Action(() => StartClose(immediate)));
+            return;
+         }
 
-            var storyboard = TryFindResource("fadeOut") as Storyboard;
-            if (immediate || storyboard == null)
-            {
-                Close();
-            }
-            else
-            {
-                storyboard.Completed += (o, args) => Close();
-                storyboard.Begin();
-            }
-        }
+         var storyboard = TryFindResource("fadeOut") as Storyboard;
+         if (immediate || storyboard == null)
+         {
+            Close();
+         }
+         else
+         {
+            storyboard.Completed += (o, args) => Close();
+            storyboard.Begin();
+         }
+      }
 
-        /// <summary>Updates the progress.</summary>
-        /// <param name="progressText">The progress text.</param>
-        internal void UpdateProgress(string progressText)
-        {
-            if (!CheckAccess())
-            {
-                Dispatcher.BeginInvoke(new Action(() => UpdateProgress(progressText)));
-                return;
-            }
+      /// <summary>Updates the progress.</summary>
+      /// <param name="progressText">The progress text.</param>
+      internal void UpdateProgress(string progressText)
+      {
+         if (!CheckAccess())
+         {
+            Dispatcher.BeginInvoke(new Action(() => UpdateProgress(progressText)));
+            return;
+         }
 
-            //// progressTextBlock.Text = progressText;
-        }
+         //// progressTextBlock.Text = progressText;
+      }
 
-        #endregion Internal Methods
+      #endregion Internal Methods
 
-        #region Private Methods
+      #region Private Methods
 
-        private string GetAssemblyVersion()
-        {
-            string version = Assembly.GetExecutingAssembly()?.GetName()?.Version?.ToString();
+      private string GetAssemblyVersion()
+      {
+         string version = Assembly.GetExecutingAssembly()?.GetName()?.Version?.ToString();
 
-            if (string.IsNullOrEmpty(version))
-                return string.Empty;
+         if (string.IsNullOrEmpty(version))
+            return string.Empty;
 
-            return $"{Dart.Properties.Resources.Version}: {version}";
-        }
+         return $"{Properties.Resources.Version}: {version}";
+      }
 
-        private void OnWindowMouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
-        {
-            StartClose(false);
-        }
+      private void OnWindowMouseDoubleClick(object sender, System.Windows.Input.MouseButtonEventArgs e)
+      {
+         StartClose(false);
+      }
 
-        #endregion Private Methods
-    }
+      #endregion Private Methods
+   }
 }

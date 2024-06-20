@@ -3,75 +3,77 @@
 //     Copyright (c) Marc Schürmann. All Rights Reserved.
 // </copyright>
 // -----------------------------------------------------------------------
-namespace Dart
+using Schuermann.Dart.App.Common.UserInterface.ViewModels;
+
+namespace Schuermann.Dart.App.Game.UserInterface.ViewModels
 {
-    /// <summary>The GameOptionsViewModel.</summary>
-    public class GameOptionsViewModel : ViewModelBase
-    {
-        #region Private Fields
+   /// <summary>The GameOptionsViewModel.</summary>
+   public class GameOptionsViewModel : ViewModelBase
+   {
+      #region Private Fields
 
-        private GameSettingsViewModel gameSettings;
+      private GameSettingsViewModel gameSettings;
 
-        private PlayerlistViewModel playerlistViewModel;
+      private PlayerlistViewModel playerlistViewModel;
 
-        #endregion Private Fields
+      #endregion Private Fields
 
-        #region Public Constructors
+      #region Public Constructors
 
-        /// <summary>
-        ///    Initializes a new instance of the <see cref="GameOptionsViewModel" /> class.
-        /// </summary>
-        public GameOptionsViewModel()
-        {
-            GameSettings = new GameSettingsViewModel();
-            PlayerlistViewModel = new PlayerlistViewModel(GameSettings);
-        }
+      /// <summary>
+      ///    Initializes a new instance of the <see cref="GameOptionsViewModel" /> class.
+      /// </summary>
+      public GameOptionsViewModel()
+      {
+         GameSettings = new GameSettingsViewModel();
+         PlayerlistViewModel = new PlayerlistViewModel(GameSettings);
+      }
 
-        #endregion Public Constructors
+      #endregion Public Constructors
 
-        #region Public Properties
+      #region Public Properties
 
-        /// <summary>Gets or sets the game settings.</summary>
-        /// <value>The game settings.</value>
-        public GameSettingsViewModel GameSettings
-        {
-            get
-            {
-                return gameSettings;
-            }
+      /// <summary>Gets or sets the game settings.</summary>
+      /// <value>The game settings.</value>
+      public GameSettingsViewModel GameSettings
+      {
+         get
+         {
+            return gameSettings;
+         }
 
-            set
-            {
-                if (gameSettings == value)
-                    return;
+         set
+         {
+            if (gameSettings == value)
+               return;
 
-                gameSettings = value;
-                RaisePropertyChanged(nameof(GameSettings));
-            }
-        }
+            gameSettings = value;
+            RaisePropertyChanged(nameof(GameSettings));
+         }
+      }
 
-        /// <summary>Gets the label.</summary>
-        /// <value>The label.</value>
-        public string Label => Properties.Resources.Throwgame;
+      /// <summary>Gets the label.</summary>
+      /// <value>The label.</value>
+      public string Label => Properties.Resources.Throwgame;
 
-        /// <summary>Gets or sets the player list view model.</summary>
-        /// <value>The player list view model.</value>
-        public PlayerlistViewModel PlayerlistViewModel
-        {
-            get
-            {
-                return playerlistViewModel;
-            }
-            set
-            {
-                if (playerlistViewModel == value)
-                    return;
+      /// <summary>Gets or sets the player list view model.</summary>
+      /// <value>The player list view model.</value>
+      public PlayerlistViewModel PlayerlistViewModel
+      {
+         get
+         {
+            return playerlistViewModel;
+         }
+         set
+         {
+            if (playerlistViewModel == value)
+               return;
 
-                playerlistViewModel = value;
-                RaisePropertyChanged(nameof(PlayerlistViewModel));
-            }
-        }
+            playerlistViewModel = value;
+            RaisePropertyChanged(nameof(PlayerlistViewModel));
+         }
+      }
 
-        #endregion Public Properties
-    }
+      #endregion Public Properties
+   }
 }

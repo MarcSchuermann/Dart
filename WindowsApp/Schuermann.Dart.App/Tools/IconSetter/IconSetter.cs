@@ -8,10 +8,10 @@ using System;
 using System.IO;
 using System.Reflection;
 using Dart.Common;
-using Dart.Common.Logger;
 using Dart.Tools.Logging;
 using Microsoft.Extensions.Logging;
 using Microsoft.Win32;
+using Schuermann.Dart.App.Common.Logger;
 
 namespace Dart.Tools
 {

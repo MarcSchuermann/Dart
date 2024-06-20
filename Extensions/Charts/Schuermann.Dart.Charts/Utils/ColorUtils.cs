@@ -7,7 +7,7 @@ using LiveChartsCore.SkiaSharpView.Drawing;
 using LiveChartsCore.SkiaSharpView.Painting;
 using Schuermann.Dart.Core.Thrown;
 
-namespace Schuermann.Darts.Charts.Utils
+namespace Schuermann.Dart.Charts.Utils
 {
    internal static class ColorUtils
    {
@@ -28,7 +28,7 @@ namespace Schuermann.Darts.Charts.Utils
                if (key.DartBoardQuantifier == DartBoardQuantifier.Triple)
                   return new SolidColorPaint(SkiaSharp.SKColor.Parse("#8FF0"));
                break;
-               // Dark Yellow
+            // Dark Yellow
             case DartBoardField.Two:
                if (key.DartBoardQuantifier == DartBoardQuantifier.Single)
                   return new SolidColorPaint(SkiaSharp.SKColor.Parse("#CCFFD700"));
@@ -261,7 +261,7 @@ namespace Schuermann.Darts.Charts.Utils
 
       #region Private Methods
 
-      public static  IPaint<SkiaSharpDrawingContext> GetFillFromIndex(int index)
+      public static IPaint<SkiaSharpDrawingContext> GetFillFromIndex(int index)
       {
          index += 1;
 

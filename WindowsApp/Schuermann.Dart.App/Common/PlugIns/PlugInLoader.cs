@@ -7,16 +7,17 @@
 using System;
 using System.ComponentModel.Composition;
 using System.ComponentModel.Composition.Hosting;
-using Dart.Common.Logger;
 using Schuermann.Dart.Core.Game;
-using Schuermann.Darts.GameCore.Service;
 
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using Schuermann.Dart.Core.Extensibility;
 using Schuermann.Dart.Core.EnvironmentProps;
+using Schuermann.Dart.Core.Service;
+using Schuermann.Dart.App.Game.UserInterface.ViewModels;
+using Schuermann.Dart.App.Common.Logger;
 
-namespace Dart.Common.PlugIns
+namespace Schuermann.Dart.App.Common.PlugIns
 {
    internal class PlugInLoader
    {

@@ -460,6 +460,43 @@
             <summary>Gets or sets the throw history.</summary>
             <value>The throw history.</value>
         </member>
+        <member name="T:Schuermann.Dart.Core.Service.DartService">
+            <summary>The dart service.</summary>
+            <seealso cref="T:Schuermann.Dart.Core.Service.IDartService" />
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.DartService.#ctor(Schuermann.Dart.Core.Game.IGameInstance,Schuermann.Dart.Core.Game.IGameOptions,Schuermann.Dart.Core.EnvironmentProps.IProperties)">
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Dart.Core.Service.DartService" /> class.</summary>
+            <param name="gameInstance">The game instance.</param>
+            <param name="gameOptions">The game options.</param>
+            <param name="properties">The properties.</param>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.DartService.GetGameInstance">
+            <summary>Gets the game instance.</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.DartService.GetGameOptions">
+            <summary>Gets the game options.</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.DartService.GetProperties">
+            <summary>Gets the properties.</summary>
+            <returns></returns>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Service.IDartService">
+            <summary>The dart serivce.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.IDartService.GetGameInstance">
+            <summary>Gets the game instance.</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.IDartService.GetGameOptions">
+            <summary>Gets the game options.</summary>
+            <returns></returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.IDartService.GetProperties">
+            <summary>Gets the properties.</summary>
+            <returns></returns>
+        </member>
         <member name="T:Schuermann.Dart.Core.Themes.BaseTheme">
             <summary>The base theme. Light or dark.</summary>
         </member>
@@ -778,6 +815,52 @@
             <summary>Gets the points.</summary>
             <value>The points.</value>
         </member>
+        <member name="T:Schuermann.Dart.Core.UI.IDartBoard">
+            <summary>Geometrie and current values of the dard board.</summary>
+        </member>
+        <member name="E:Schuermann.Dart.Core.UI.IDartBoard.ValuesChanged">
+            <summary>Occurs when [values changed].</summary>
+        </member>
+        <member name="P:Schuermann.Dart.Core.UI.IDartBoard.CurrentAngle">
+            <summary>Gets the current angle.</summary>
+            <value>The current angle.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.UI.IDartBoard.CurrentDistanceBetweenMouseAndCenter">
+            <summary>Gets the current distance between mouse and center.</summary>
+            <value>The current distance between mouse and center.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.UI.IDartBoard.CurrentMousePosition">
+            <summary>Gets the current mouse position.</summary>
+            <value>The current mouse position.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.UI.IDartBoard.DartBoardCenter">
+            <summary>Gets the dart board center.</summary>
+            <value>The dart board center.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.UI.IDartBoard.Height">
+            <summary>Gets the height.</summary>
+            <value>The height.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.UI.IDartBoard.IsDouble">
+            <summary>Gets a value indicating whether this instance is double.</summary>
+            <value><c>true</c> if this instance is double; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.UI.IDartBoard.IsSingle">
+            <summary>Gets a value indicating whether this instance is single.</summary>
+            <value><c>true</c> if this instance is single; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.UI.IDartBoard.IsTriple">
+            <summary>Gets a value indicating whether this instance is triple.</summary>
+            <value><c>true</c> if this instance is triple; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.UI.IDartBoard.PointsAtMousePosition">
+            <summary>Gets the points at mouse position.</summary>
+            <value>The points at mouse position.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.UI.IDartBoard.Width">
+            <summary>Gets the width.</summary>
+            <value>The width.</value>
+        </member>
         <member name="T:Schuermann.Dart.Core.UndoRedo.Interfaces.IUndoRedo">
             <summary>The undo and redo action.</summary>
         </member>
@@ -792,89 +875,6 @@
             <param name="players">The players.</param>
             <param name="player">The player.</param>
             <returns></returns>
-        </member>
-        <member name="T:Schuermann.Darts.GameCore.Service.DartService">
-            <summary>The dart service.</summary>
-            <seealso cref="T:Schuermann.Darts.GameCore.Service.IDartService" />
-        </member>
-        <member name="M:Schuermann.Darts.GameCore.Service.DartService.#ctor(Schuermann.Dart.Core.Game.IGameInstance,Schuermann.Dart.Core.Game.IGameOptions,Schuermann.Dart.Core.EnvironmentProps.IProperties)">
-            <summary>Initializes a new instance of the <see cref="T:Schuermann.Darts.GameCore.Service.DartService" /> class.</summary>
-            <param name="gameInstance">The game instance.</param>
-            <param name="gameOptions">The game options.</param>
-            <param name="properties">The properties.</param>
-        </member>
-        <member name="M:Schuermann.Darts.GameCore.Service.DartService.GetGameInstance">
-            <summary>Gets the game instance.</summary>
-            <returns></returns>
-        </member>
-        <member name="M:Schuermann.Darts.GameCore.Service.DartService.GetGameOptions">
-            <summary>Gets the game options.</summary>
-            <returns></returns>
-        </member>
-        <member name="M:Schuermann.Darts.GameCore.Service.DartService.GetProperties">
-            <summary>Gets the properties.</summary>
-            <returns></returns>
-        </member>
-        <member name="T:Schuermann.Darts.GameCore.Service.IDartService">
-            <summary>The dart serivce.</summary>
-        </member>
-        <member name="M:Schuermann.Darts.GameCore.Service.IDartService.GetGameInstance">
-            <summary>Gets the game instance.</summary>
-            <returns></returns>
-        </member>
-        <member name="M:Schuermann.Darts.GameCore.Service.IDartService.GetGameOptions">
-            <summary>Gets the game options.</summary>
-            <returns></returns>
-        </member>
-        <member name="M:Schuermann.Darts.GameCore.Service.IDartService.GetProperties">
-            <summary>Gets the properties.</summary>
-            <returns></returns>
-        </member>
-        <member name="T:Schuermann.Darts.GameCore.UI.IDartBoard">
-            <summary>Geometrie and current values of the dard board.</summary>
-        </member>
-        <member name="E:Schuermann.Darts.GameCore.UI.IDartBoard.ValuesChanged">
-            <summary>Occurs when [values changed].</summary>
-        </member>
-        <member name="P:Schuermann.Darts.GameCore.UI.IDartBoard.CurrentAngle">
-            <summary>Gets the current angle.</summary>
-            <value>The current angle.</value>
-        </member>
-        <member name="P:Schuermann.Darts.GameCore.UI.IDartBoard.CurrentDistanceBetweenMouseAndCenter">
-            <summary>Gets the current distance between mouse and center.</summary>
-            <value>The current distance between mouse and center.</value>
-        </member>
-        <member name="P:Schuermann.Darts.GameCore.UI.IDartBoard.CurrentMousePosition">
-            <summary>Gets the current mouse position.</summary>
-            <value>The current mouse position.</value>
-        </member>
-        <member name="P:Schuermann.Darts.GameCore.UI.IDartBoard.DartBoardCenter">
-            <summary>Gets the dart board center.</summary>
-            <value>The dart board center.</value>
-        </member>
-        <member name="P:Schuermann.Darts.GameCore.UI.IDartBoard.Height">
-            <summary>Gets the height.</summary>
-            <value>The height.</value>
-        </member>
-        <member name="P:Schuermann.Darts.GameCore.UI.IDartBoard.IsDouble">
-            <summary>Gets a value indicating whether this instance is double.</summary>
-            <value><c>true</c> if this instance is double; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="P:Schuermann.Darts.GameCore.UI.IDartBoard.IsSingle">
-            <summary>Gets a value indicating whether this instance is single.</summary>
-            <value><c>true</c> if this instance is single; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="P:Schuermann.Darts.GameCore.UI.IDartBoard.IsTriple">
-            <summary>Gets a value indicating whether this instance is triple.</summary>
-            <value><c>true</c> if this instance is triple; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="P:Schuermann.Darts.GameCore.UI.IDartBoard.PointsAtMousePosition">
-            <summary>Gets the points at mouse position.</summary>
-            <value>The points at mouse position.</value>
-        </member>
-        <member name="P:Schuermann.Darts.GameCore.UI.IDartBoard.Width">
-            <summary>Gets the width.</summary>
-            <value>The width.</value>
         </member>
     </members>
 </doc>

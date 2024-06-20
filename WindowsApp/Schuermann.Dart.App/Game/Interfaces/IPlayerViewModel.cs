@@ -6,22 +6,22 @@
 
 using System.ComponentModel;
 
-namespace Dart.Game.Interfaces
+namespace Schuermann.Dart.App.Game.Interfaces
 {
-    /// <summary>The view model for a player.</summary>
-    /// <seealso cref="System.ComponentModel.INotifyPropertyChanged" />
-    public interface IPlayerViewModel : INotifyPropertyChanged
-    {
-        #region Public Properties
+   /// <summary>The view model for a player.</summary>
+   /// <seealso cref="INotifyPropertyChanged" />
+   public interface IPlayerViewModel : INotifyPropertyChanged
+   {
+      #region Public Properties
 
-        /// <summary>Gets or sets the current score.</summary>
-        /// <value>The current score.</value>
-        uint CurrentScore { get; set; }
+      /// <summary>Gets or sets the current score.</summary>
+      /// <value>The current score.</value>
+      uint CurrentScore { get; set; }
 
-        /// <summary>Gets the name.</summary>
-        /// <value>The name.</value>
-        string Name { get; }
+      /// <summary>Gets the name.</summary>
+      /// <value>The name.</value>
+      string Name { get; }
 
-        #endregion Public Properties
-    }
+      #endregion Public Properties
+   }
 }

@@ -4,38 +4,36 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Windows.Input;
-using Dart.Common;
-using Dart.Common.Commands;
-using Dart.Common.Logger;
-using Dart.Game.Interfaces;
-using Microsoft.Extensions.Logging;
+using Schuermann.Dart.App.Common.Commands;
+using Schuermann.Dart.App.Common.UserInterface.Interfaces;
+using Schuermann.Dart.App.Common.UserInterface.ViewModels;
+using Schuermann.Dart.App.Game.Interfaces;
 using Schuermann.Dart.Core.Game;
 using Schuermann.Dart.Core.Thrown;
 
-namespace Dart
+namespace Schuermann.Dart.App.Game.UserInterface.ViewModels
 {
    /// <summary>The DartGameViewModel.</summary>
-   /// <seealso cref="Dart.ViewModelBase" />
+   /// <seealso cref="ViewModelBase" />
    public class DartGameViewModel : ViewModelBase, IGameProvider
    {
-        #region Public Constructors
+      #region Public Constructors
 
-        public DartGameViewModel()
-        {
-            
-        }
+      public DartGameViewModel()
+      {
 
-        /// <summary>
-        ///    Initializes a new instance of the <see cref="DartGameViewModel" /> class.
-        /// </summary>
-        /// <param name="owner">The owner.</param>
-        public DartGameViewModel(IViewModelBase owner)
+      }
+
+      /// <summary>
+      ///    Initializes a new instance of the <see cref="DartGameViewModel" /> class.
+      /// </summary>
+      /// <param name="owner">The owner.</param>
+      public DartGameViewModel(IViewModelBase owner)
       {
          MainWindowViewModel = owner as IMainWindowViewModel;
 
@@ -81,7 +79,7 @@ namespace Dart
       public void Thrown()
       {
          //LoggerUtils.GetLogger<DartGameViewModel>().LogInformation($"{Game.Instance.CurrentPlayer.Name} throws {CurrentPointsUnderMouse}");
-         
+
          Game.PlayerThrown(CurrentPointsUnderMouse);
 
          UpdatePlayers();

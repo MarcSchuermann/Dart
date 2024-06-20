@@ -7,30 +7,31 @@
 using System.Collections.Generic;
 using System.Globalization;
 using Dart.Common.UserInterface.Helper;
+using Schuermann.Dart.App.Common.UserInterface.Interfaces;
 
-namespace Dart
+namespace Schuermann.Dart.App.Common.UserInterface.ViewModels
 {
-    /// <summary>The NotifyPropertyChanged.</summary>
-    /// <seealso cref="System.ComponentModel.INotifyPropertyChanged" />
-    public class ViewModelBase : NotifyPropertyChanged, IViewModelBase
-    {
-        #region Public Properties
+   /// <summary>The NotifyPropertyChanged.</summary>
+   /// <seealso cref="System.ComponentModel.INotifyPropertyChanged" />
+   public class ViewModelBase : NotifyPropertyChanged, IViewModelBase
+   {
+      #region Public Properties
 
-        /// <summary>Gets the available languages.</summary>
-        /// <value>The available languages.</value>
-        public Dictionary<CultureInfo, string> AvailableLanguages
-        {
-            get
-            {
-                var availableLanguages = new Dictionary<CultureInfo, string>();
+      /// <summary>Gets the available languages.</summary>
+      /// <value>The available languages.</value>
+      public Dictionary<CultureInfo, string> AvailableLanguages
+      {
+         get
+         {
+            var availableLanguages = new Dictionary<CultureInfo, string>();
 
-                availableLanguages.Add(new CultureInfo("de-DE"), "Deutsch");
-                availableLanguages.Add(new CultureInfo("en-US"), "English");
+            availableLanguages.Add(new CultureInfo("de-DE"), "Deutsch");
+            availableLanguages.Add(new CultureInfo("en-US"), "English");
 
-                return availableLanguages;
-            }
-        }
+            return availableLanguages;
+         }
+      }
 
-        #endregion Public Properties
-    }
+      #endregion Public Properties
+   }
 }

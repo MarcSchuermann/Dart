@@ -8,12 +8,14 @@ using System.Globalization;
 using System.Linq;
 using Dart;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Schuermann.Dart.App.Game.UserInterface.ViewModels;
+using Schuermann.Dart.App.Settings.UserInterface.ViewModels;
 
 namespace UnitTests.Game.UserInterface.ViewModels.MainWindowViewModelTests
 {
-    /// <summary>The constructor tests.</summary>
-    /// <seealso cref="UnitTests.Game.TestBase" />
-    [TestClass]
+   /// <summary>The constructor tests.</summary>
+   /// <seealso cref="UnitTests.Game.TestBase" />
+   [TestClass]
     [ExcludeFromCodeCoverage]
     public class ConstructorTests
     {

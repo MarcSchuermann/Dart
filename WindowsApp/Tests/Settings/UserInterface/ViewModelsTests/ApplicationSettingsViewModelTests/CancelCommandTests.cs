@@ -4,15 +4,15 @@
 
 using System;
 using System.Diagnostics.CodeAnalysis;
-using Dart;
-using Dart.Settings.Interfaces;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
+using Schuermann.Dart.App.Settings.Interfaces;
+using Schuermann.Dart.App.Settings.UserInterface.ViewModels;
 
 namespace UnitTests.Settings.UserInterface.ViewModelsTests.ApplicationSettingsViewModelTests
 {
-    /// <summary>Tests the cancel command.</summary>
-    [TestClass]
+   /// <summary>Tests the cancel command.</summary>
+   [TestClass]
     [ExcludeFromCodeCoverage]
     public class CancelCommandTests
     {

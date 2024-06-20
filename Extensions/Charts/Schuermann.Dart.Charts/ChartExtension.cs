@@ -6,7 +6,7 @@ using System.ComponentModel.Composition;
 using System.Windows;
 using System.Windows.Controls;
 using Schuermann.Dart.Core.Extensibility;
-using Schuermann.Darts.GameCore.Service;
+using Schuermann.Dart.Core.Service;
 
 namespace Schuermann.Dart.Charts
 {

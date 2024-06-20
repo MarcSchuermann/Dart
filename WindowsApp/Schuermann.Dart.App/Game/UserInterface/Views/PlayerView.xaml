@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="Dart.Game.UserInterface.Views.PlayerView"
+﻿<UserControl x:Class="Schuermann.Dart.App.Game.UserInterface.Views.PlayerView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
 

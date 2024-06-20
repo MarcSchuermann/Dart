@@ -69,7 +69,7 @@ namespace Dart
         /// <param name="drawingContext">The drawing instructions for a specific element. This context is provided to the layout system.</param>
         protected override void OnRender(DrawingContext drawingContext)
         {
-            var renderBrush = new SolidColorBrush(Properties.Settings.Default.PrimaryAccentColor) { Opacity = 0.6 };
+            var renderBrush = new SolidColorBrush(Schuermann.Dart.App.Properties.Settings.Default.PrimaryAccentColor) { Opacity = 0.6 };
             var renderPen = new Pen(new SolidColorBrush(Colors.DarkGray), 2.0);
 
             var distance = Math.Sqrt(Math.Pow(mousePosition.X - Center.X, 2) + Math.Pow(mousePosition.Y - Center.Y, 2));

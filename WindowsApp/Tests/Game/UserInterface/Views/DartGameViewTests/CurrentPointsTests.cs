@@ -2,7 +2,7 @@
 //// <copyright>Marc Schürmann</copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
-using Dart.Game.UserInterface.Views;
+using Schuermann.Dart.App.Game.UserInterface.Views;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UnitTests.Game.UserInterface.Views.DartGameViewTests

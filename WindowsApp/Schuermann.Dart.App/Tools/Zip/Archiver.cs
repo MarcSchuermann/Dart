@@ -9,7 +9,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
 
-namespace Dart.Tools.Zip
+namespace Schuermann.Dart.App.Tools.Zip
 {
    internal class Archiver
    {

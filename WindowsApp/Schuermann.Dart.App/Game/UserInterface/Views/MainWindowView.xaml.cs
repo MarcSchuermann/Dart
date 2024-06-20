@@ -6,20 +6,22 @@
 
 using System;
 using System.ComponentModel;
-using System.ComponentModel.Composition.Hosting;
 using System.ComponentModel.Composition;
+using System.ComponentModel.Composition.Hosting;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Input;
-using System.Xml.Linq;
 using ControlzEx.Theming;
 using Dart.Common.UserInterface.PlugInsDialog;
 using Dart.Common.Utils;
 using Dart.Tools;
-using Dart.Tools.ExceptionHandling;
 using MahApps.Metro.Controls;
+using Schuermann.Dart.App.Game.Interfaces;
+using Schuermann.Dart.App.Game.UserInterface.ViewModels;
+using Schuermann.Dart.App.Settings.UserInterface.ViewModels;
+using Schuermann.Dart.App.Tools.ExceptionHandling;
 
-namespace Dart
+namespace Schuermann.Dart.App.Game.UserInterface.Views
 {
    /// <summary>The MainWindow.</summary>
    /// <seealso cref="System.Windows.Window" />
@@ -56,25 +58,6 @@ namespace Dart
          }
 
          //InitMef();
-      }
-
-      private void InitMef()
-      {
-         try
-         {
-            // An aggregate catalog that combines multiple catalogs.
-            var catalog = new AggregateCatalog();
-            // Adds all the parts found in the same assembly as the Program class.
-            catalog.Catalogs.Add(new AssemblyCatalog(typeof(MainWindowView).Assembly));
-
-            // Create the CompositionContainer with the parts in the catalog.
-            var _container = new CompositionContainer(catalog);
-            _container.ComposeParts(this);
-         }
-         catch (CompositionException compositionException)
-         {
-            Console.WriteLine(compositionException.ToString());
-         }
       }
 
       #endregion Public Constructors
@@ -146,6 +129,25 @@ namespace Dart
 
          if (!e.IsItemOptions && HamburgerMenuControl.IsPaneOpen)
             HamburgerMenuControl.SetCurrentValue(HamburgerMenu.IsPaneOpenProperty, false);
+      }
+
+      private void InitMef()
+      {
+         try
+         {
+            // An aggregate catalog that combines multiple catalogs.
+            var catalog = new AggregateCatalog();
+            // Adds all the parts found in the same assembly as the Program class.
+            catalog.Catalogs.Add(new AssemblyCatalog(typeof(MainWindowView).Assembly));
+
+            // Create the CompositionContainer with the parts in the catalog.
+            var _container = new CompositionContainer(catalog);
+            _container.ComposeParts(this);
+         }
+         catch (CompositionException compositionException)
+         {
+            Console.WriteLine(compositionException.ToString());
+         }
       }
 
       private void LoadUserSettings()

@@ -2,8 +2,8 @@
 //// <copyright>Marc Schürmann</copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
-using Dart;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Schuermann.Dart.App.Game.UserInterface.ViewModels;
 using System.Diagnostics.CodeAnalysis;
 
 namespace UnitTests.Game.UserInterface.ViewModels.DartGameViewModelTests

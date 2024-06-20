@@ -7,22 +7,22 @@
 using System.Diagnostics.CodeAnalysis;
 using System.Windows.Controls;
 
-namespace Dart.Game.UserInterface.Views
+namespace Schuermann.Dart.App.Game.UserInterface.Views
 {
-    /// <summary>The PlayerView.</summary>
-    /// <seealso cref="System.Windows.Controls.UserControl" />
-    /// <seealso cref="System.Windows.Markup.IComponentConnector" />
-    [ExcludeFromCodeCoverage]
-    public partial class PlayerView : UserControl
-    {
-        #region Public Constructors
+   /// <summary>The PlayerView.</summary>
+   /// <seealso cref="UserControl" />
+   /// <seealso cref="System.Windows.Markup.IComponentConnector" />
+   [ExcludeFromCodeCoverage]
+   public partial class PlayerView : UserControl
+   {
+      #region Public Constructors
 
-        /// <summary>Initializes a new instance of the <see cref="PlayerView" /> class.</summary>
-        public PlayerView()
-        {
-            InitializeComponent();
-        }
+      /// <summary>Initializes a new instance of the <see cref="PlayerView" /> class.</summary>
+      public PlayerView()
+      {
+         InitializeComponent();
+      }
 
-        #endregion Public Constructors
-    }
+      #endregion Public Constructors
+   }
 }

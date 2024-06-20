@@ -6,7 +6,7 @@
 
 using System;
 using Schuermann.Dart.Core.Thrown;
-using Schuermann.Darts.GameCore.UI;
+using Schuermann.Dart.Core.UI;
 
 namespace Dart.Tools.DartBoardData
 {

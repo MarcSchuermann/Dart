@@ -4,10 +4,9 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
-using Dart.Tools.Logging;
 using Microsoft.Extensions.Logging;
 
-namespace Dart.Common.Logger
+namespace Schuermann.Dart.App.Common.Logger
 {
    internal class LoggerUtils
    {

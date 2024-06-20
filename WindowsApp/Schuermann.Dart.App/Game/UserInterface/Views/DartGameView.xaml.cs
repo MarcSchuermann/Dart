@@ -9,11 +9,12 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
+using Dart;
 using Dart.Tools.DartBoardData;
 using Schuermann.Dart.Core.Thrown;
-using Schuermann.Darts.GameCore.UI;
+using Schuermann.Dart.Core.UI;
 
-namespace Dart.Game.UserInterface.Views
+namespace Schuermann.Dart.App.Game.UserInterface.Views
 {
    /// <summary>Interaction logic for DartGameView.</summary>
    public partial class DartGameView : UserControl

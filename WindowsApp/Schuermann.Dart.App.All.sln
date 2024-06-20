@@ -19,6 +19,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schuermann.Dart.App.Tests",
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schuermann.Dart.Charts", "..\Extensions\Charts\Schuermann.Dart.Charts\Schuermann.Dart.Charts.csproj", "{BF599E31-D09F-4982-9432-A53A22D31357}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{FB15EE53-E2FD-4650-BBC5-D438EF348914}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schuermann.Dart.Core.Tests", "..\Core\Schuermann.Dart.Core\Tests\Schuermann.Dart.Core.Tests.csproj", "{1D21A777-D730-4F89-8361-FBF17F4A930D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +60,12 @@ Global
 		{BF599E31-D09F-4982-9432-A53A22D31357}.Develop|Any CPU.Build.0 = Develop|Any CPU
 		{BF599E31-D09F-4982-9432-A53A22D31357}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF599E31-D09F-4982-9432-A53A22D31357}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1D21A777-D730-4F89-8361-FBF17F4A930D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D21A777-D730-4F89-8361-FBF17F4A930D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1D21A777-D730-4F89-8361-FBF17F4A930D}.Develop|Any CPU.ActiveCfg = Debug|Any CPU
+		{1D21A777-D730-4F89-8361-FBF17F4A930D}.Develop|Any CPU.Build.0 = Debug|Any CPU
+		{1D21A777-D730-4F89-8361-FBF17F4A930D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1D21A777-D730-4F89-8361-FBF17F4A930D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -65,6 +75,8 @@ Global
 		{9F4F12D5-7872-48A3-B6A1-974ACA739631} = {6DDE32A6-58F6-4531-9F1F-1064F9558048}
 		{9CCFAD02-9438-462D-BFD4-F70084E72D6A} = {016FD613-DCD2-4DA0-93CC-7BB921383710}
 		{BF599E31-D09F-4982-9432-A53A22D31357} = {6DDE32A6-58F6-4531-9F1F-1064F9558048}
+		{FB15EE53-E2FD-4650-BBC5-D438EF348914} = {D6D13105-C2DC-4F88-93D6-0B9C43F84A17}
+		{1D21A777-D730-4F89-8361-FBF17F4A930D} = {FB15EE53-E2FD-4650-BBC5-D438EF348914}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {10466D40-32D3-4094-9525-AA4FFD060779}

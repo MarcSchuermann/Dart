@@ -8,114 +8,114 @@ using System.Collections.Generic;
 using FluentAssertions;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Schuermann.Dart.Core.Game;
+using Schuermann.Dart.Core.Tests.Utils;
 using Schuermann.Dart.Core.Thrown;
-using Schuermann.Darts.GameCore.Tests.Utils;
 
-namespace Schuermann.Darts.GameCore.Tests.GameTests
+namespace Schuermann.Dart.Core.Tests.GameTests
 {
    [TestClass]
-    public class DoubleOutTests
-    {
-        #region Public Methods
+   public class DoubleOutTests
+   {
+      #region Public Methods
 
-        [TestMethod]
-        public void DoubleOutThrowToOnePoint()
-        {
-            var player = new Player("Hans", 10, false, true);
+      [TestMethod]
+      public void DoubleOutThrowToOnePoint()
+      {
+         var player = new Player("Hans", 10, false, true);
 
-            var game = GameUtils.SetupGame(new List<IPlayer>() { player });
+         var game = GameUtils.SetupGame(new List<IPlayer>() { player });
 
-            player.Validate(10, 0, 1, 0);
+         player.Validate(10, 0, 1, 0);
 
-            game.PlayerThrown(new DartThrow(DartBoardField.Nine, DartBoardQuantifier.Single));
+         game.PlayerThrown(new DartThrow(DartBoardField.Nine, DartBoardQuantifier.Single));
 
-            player.Validate(10, 1, 2, 0);
+         player.Validate(10, 1, 2, 0);
 
-            game.PlayerThrown(new DartThrow(DartBoardField.Ten, DartBoardQuantifier.Single));
+         game.PlayerThrown(new DartThrow(DartBoardField.Ten, DartBoardQuantifier.Single));
 
-            player.Validate(10, 2, 3, 0);
-        }
+         player.Validate(10, 2, 3, 0);
+      }
 
-        [TestMethod]
-        public void DoubleOutShouldWorkOnFirstTry()
-        {
-            var player = new Player("Hans", 10, false, true);
+      [TestMethod]
+      public void DoubleOutShouldWorkOnFirstTry()
+      {
+         var player = new Player("Hans", 10, false, true);
 
-            var game = GameUtils.SetupGame(new List<IPlayer>() { player });
+         var game = GameUtils.SetupGame(new List<IPlayer>() { player });
 
-            player.Validate(10, 0, 1, 0);
+         player.Validate(10, 0, 1, 0);
 
-            game.PlayerThrown(new DartThrow(DartBoardField.Five, DartBoardQuantifier.Double));
+         game.PlayerThrown(new DartThrow(DartBoardField.Five, DartBoardQuantifier.Double));
 
-            player.Validate(0, 1, 1, 1);
-        }
+         player.Validate(0, 1, 1, 1);
+      }
 
-        [TestMethod]
-        public void DoubleOutShouldWorkOnSecondTry()
-        {
-            var player = new Player("Hans", 10, false, true);
+      [TestMethod]
+      public void DoubleOutShouldWorkOnSecondTry()
+      {
+         var player = new Player("Hans", 10, false, true);
 
-            var game = GameUtils.SetupGame(new List<IPlayer>() { player });
+         var game = GameUtils.SetupGame(new List<IPlayer>() { player });
 
-            player.Validate(10, 0, 1, 0);
+         player.Validate(10, 0, 1, 0);
 
-            game.PlayerThrown(new DartThrow(DartBoardField.Ten, DartBoardQuantifier.Single));
+         game.PlayerThrown(new DartThrow(DartBoardField.Ten, DartBoardQuantifier.Single));
 
-            player.Validate(10, 1, 2, 0);
+         player.Validate(10, 1, 2, 0);
 
-            game.PlayerThrown(new DartThrow(DartBoardField.Five, DartBoardQuantifier.Double));
+         game.PlayerThrown(new DartThrow(DartBoardField.Five, DartBoardQuantifier.Double));
 
-            player.Validate(0, 2, 2, 1);
-        }
+         player.Validate(0, 2, 2, 1);
+      }
 
-        [TestMethod]
-        public void DoubleOutShouldWorkOnThirdTry()
-        {
-            var player = new Player("Hans", 10, false, true);
+      [TestMethod]
+      public void DoubleOutShouldWorkOnThirdTry()
+      {
+         var player = new Player("Hans", 10, false, true);
 
-            var game = GameUtils.SetupGame(new List<IPlayer>() { player });
+         var game = GameUtils.SetupGame(new List<IPlayer>() { player });
 
-            player.Validate(10, 0, 1, 0);
+         player.Validate(10, 0, 1, 0);
 
-            game.PlayerThrown(new DartThrow(DartBoardField.One, DartBoardQuantifier.Single));
+         game.PlayerThrown(new DartThrow(DartBoardField.One, DartBoardQuantifier.Single));
 
-            player.Validate(9, 1, 1, 1);
+         player.Validate(9, 1, 1, 1);
 
-            game.PlayerThrown(new DartThrow(DartBoardField.One, DartBoardQuantifier.Single));
+         game.PlayerThrown(new DartThrow(DartBoardField.One, DartBoardQuantifier.Single));
 
-            player.Validate(8, 2, 1, 2);
+         player.Validate(8, 2, 1, 2);
 
-            game.PlayerThrown(new DartThrow(DartBoardField.Four, DartBoardQuantifier.Double));
+         game.PlayerThrown(new DartThrow(DartBoardField.Four, DartBoardQuantifier.Double));
 
-            player.Validate(0, 3, 1, 3);
-        }
+         player.Validate(0, 3, 1, 3);
+      }
 
-        [TestMethod]
-        public void DoubleOutShouldWorkOnFourthTry()
-        {
-            var player = new Player("Hans", 10, false, true);
+      [TestMethod]
+      public void DoubleOutShouldWorkOnFourthTry()
+      {
+         var player = new Player("Hans", 10, false, true);
 
-            var game = GameUtils.SetupGame(new List<IPlayer>() { player });
+         var game = GameUtils.SetupGame(new List<IPlayer>() { player });
 
-            player.Validate(10, 0, 1, 0);
+         player.Validate(10, 0, 1, 0);
 
-            game.PlayerThrown(new DartThrow(DartBoardField.One, DartBoardQuantifier.Single));
+         game.PlayerThrown(new DartThrow(DartBoardField.One, DartBoardQuantifier.Single));
 
-            player.Validate(9, 1, 1, 1);
+         player.Validate(9, 1, 1, 1);
 
-            game.PlayerThrown(new DartThrow(DartBoardField.One, DartBoardQuantifier.Single));
+         game.PlayerThrown(new DartThrow(DartBoardField.One, DartBoardQuantifier.Single));
 
-            player.Validate(8, 2, 1, 2);
+         player.Validate(8, 2, 1, 2);
 
-            game.PlayerThrown(new DartThrow(DartBoardField.Two, DartBoardQuantifier.Single));
+         game.PlayerThrown(new DartThrow(DartBoardField.Two, DartBoardQuantifier.Single));
 
-            player.Validate(6, 3, 2, 0);
+         player.Validate(6, 3, 2, 0);
 
-            game.PlayerThrown(new DartThrow(DartBoardField.Three, DartBoardQuantifier.Double));
+         game.PlayerThrown(new DartThrow(DartBoardField.Three, DartBoardQuantifier.Double));
 
-            player.Validate(0, 4, 2, 1);
-        }
+         player.Validate(0, 4, 2, 1);
+      }
 
-        #endregion Public Methods
-    }
+      #endregion Public Methods
+   }
 }
