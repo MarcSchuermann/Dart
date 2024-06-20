@@ -6,8 +6,8 @@ using System.Diagnostics.CodeAnalysis;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
-using Dart;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Schuermann.Dart.App.Common.UserInterface.Helper;
 
 namespace UnitTests.Common.UserInterface.Helper.DartCirleAdornerTests
 {

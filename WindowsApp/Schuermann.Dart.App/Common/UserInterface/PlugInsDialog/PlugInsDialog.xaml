@@ -1,4 +1,4 @@
-﻿<mah:MetroWindow x:Class="Dart.Common.UserInterface.PlugInsDialog.PlugInsDialog"
+﻿<mah:MetroWindow x:Class="Schuermann.Dart.App.Common.UserInterface.PlugInsDialog.PlugInsDialog"
                  xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                  xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                  xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"

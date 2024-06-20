@@ -3,8 +3,8 @@
 //// --------------------------------------------------------------------------------------------------------------------
 
 using System.Globalization;
-using Dart.Settings;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using Schuermann.Dart.App.Settings;
 
 namespace UnitTests.Settings.ApplicationSettingsTests
 {

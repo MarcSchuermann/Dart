@@ -6,7 +6,7 @@
 
 using Microsoft.Extensions.Logging;
 
-namespace Dart.Tools.Logging
+namespace Schuermann.Dart.App.Tools.Logging
 {
    /// <summary>The logger provider</summary>
    public interface ILogProvider

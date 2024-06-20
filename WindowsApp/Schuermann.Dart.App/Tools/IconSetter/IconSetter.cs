@@ -7,13 +7,11 @@
 using System;
 using System.IO;
 using System.Reflection;
-using Dart.Common;
-using Dart.Tools.Logging;
 using Microsoft.Extensions.Logging;
 using Microsoft.Win32;
 using Schuermann.Dart.App.Common.Logger;
 
-namespace Dart.Tools
+namespace Schuermann.Dart.App.Tools.IconSetter
 {
    /// <summary>The icon setter class.</summary>
    public static class IconSetter

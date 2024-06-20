@@ -171,71 +171,6 @@
                A converted value. If the method returns null, the valid null value is used.
             </returns>
         </member>
-        <member name="P:Dart.Common.UserInterface.Helper.DartBoardVariables.InnerBullsEyeRadius">
-            <summary>Gets the inner bulls eye radius.</summary>
-            <value>The inner bulls eye radius.</value>
-        </member>
-        <member name="P:Dart.Common.UserInterface.Helper.DartBoardVariables.OuterBullsEyeRadius">
-            <summary>Gets the points to outer bull.</summary>
-            <value>The points to outer bull.</value>
-        </member>
-        <member name="P:Dart.Common.UserInterface.Helper.DartBoardVariables.PointsToInnerDouble">
-            <summary>Gets the points to inner double.</summary>
-            <value>The points to inner double.</value>
-        </member>
-        <member name="P:Dart.Common.UserInterface.Helper.DartBoardVariables.PointsToInnerTriple">
-            <summary>Gets the points to inner triple.</summary>
-            <value>The points to inner triple.</value>
-        </member>
-        <member name="P:Dart.Common.UserInterface.Helper.DartBoardVariables.PointsToOuterDouble">
-            <summary>Gets the points to outer double.</summary>
-            <value>The points to outer double.</value>
-        </member>
-        <member name="P:Dart.Common.UserInterface.Helper.DartBoardVariables.PointsToOuterTriple">
-            <summary>Gets the points to outer triple.</summary>
-            <value>The points to outer triple.</value>
-        </member>
-        <member name="T:Dart.Common.UserInterface.Helper.NotifyPropertyChanged">
-            <summary>The NotifyPropertyChanged.</summary>
-            <seealso cref="T:System.ComponentModel.INotifyPropertyChanged" />
-        </member>
-        <member name="E:Dart.Common.UserInterface.Helper.NotifyPropertyChanged.PropertyChanged">
-            <summary>Occurs when [property changed].</summary>
-        </member>
-        <member name="M:Dart.Common.UserInterface.Helper.NotifyPropertyChanged.RaisePropertyChanged(System.String)">
-            <summary>Raises the property changed.</summary>
-            <param name="propertyName">Name of the property.</param>
-        </member>
-        <member name="T:Dart.Common.UserInterface.PlugInsDialog.PlugInsDialog">
-            <summary>Interaction logic for PlugInsDialog.xaml</summary>
-            <summary>
-            PlugInsDialog
-            </summary>
-        </member>
-        <member name="M:Dart.Common.UserInterface.PlugInsDialog.PlugInsDialog.#ctor(System.Collections.Generic.IEnumerable{Schuermann.Dart.Core.Extensibility.IPlugIn})">
-            <summary>Initializes a new instance of the <see cref="T:Dart.Common.UserInterface.PlugInsDialog.PlugInsDialog" /> class.</summary>
-            <param name="plugIns">The plug ins.</param>
-        </member>
-        <member name="M:Dart.Common.UserInterface.PlugInsDialog.PlugInsDialog.InitializeComponent">
-            <summary>
-            InitializeComponent
-            </summary>
-        </member>
-        <member name="M:Dart.Common.Utils.KeyboardUtils.IsCtrlPressed">
-            <summary>Determines whether [is control pressed].</summary>
-            <returns><c>true</c> if [is control pressed]; otherwise, <c>false</c>.</returns>
-        </member>
-        <member name="M:Dart.Common.Utils.KeyboardUtils.IsNumberPressed(System.Int32)">
-            <summary>Determines whether [is number pressed] [the specified number].</summary>
-            <param name="number">The number.</param>
-            <returns>
-               <c>true</c> if [is number pressed] [the specified number]; otherwise, <c>false</c>.
-            </returns>
-        </member>
-        <member name="M:Dart.Common.Utils.KeyboardUtils.IsShiftPressed">
-            <summary>Determines whether [is shift pressed].</summary>
-            <returns><c>true</c> if [is shift pressed]; otherwise, <c>false</c>.</returns>
-        </member>
         <member name="T:Dart.DartBoardConstants">
             <summary>The Store.</summary>
         </member>
@@ -319,152 +254,6 @@
             <summary>Gets the angle between 9 and 12.</summary>
             <value>The angle between 9 and 12.</value>
         </member>
-        <member name="T:Dart.DartCircleAdorner">
-            <summary>The DartCircleAdorner.</summary>
-            <seealso cref="T:System.Windows.Documents.Adorner"/>
-        </member>
-        <member name="M:Dart.DartCircleAdorner.#ctor(System.Windows.UIElement,System.Windows.Point,System.Int32)">
-            <summary>Initializes a new instance of the <see cref="T:Dart.DartCircleAdorner"/> class.</summary>
-            <param name="adornedElement">The adorned element.</param>
-            <param name="actuallyMousePosition">The actually mouse position.</param>
-            <param name="actuallyPoints">The actually points.</param>
-        </member>
-        <member name="P:Dart.DartCircleAdorner.Center">
-            <summary>Gets or sets the center.</summary>
-            <value>The center.</value>
-        </member>
-        <member name="M:Dart.DartCircleAdorner.OnRender(System.Windows.Media.DrawingContext)">
-            <summary>
-            When overridden in a derived class, participates in rendering operations that are directed by the layout system. The rendering
-            instructions for this element are not used directly when this method is invoked, and are instead preserved for later asynchronous use by
-            layout and drawing.
-            </summary>
-            <param name="drawingContext">The drawing instructions for a specific element. This context is provided to the layout system.</param>
-        </member>
-        <member name="M:Dart.DartCircleAdorner.GetDoubleGeometry(System.Windows.Point,System.Windows.Media.Geometry)">
-            <summary>Gets the double geometry.</summary>
-            <param name="center">The render center.</param>
-            <param name="doubleCircle">The double circle.</param>
-            <returns>The geometry of the double ring.</returns>
-        </member>
-        <member name="M:Dart.DartCircleAdorner.GetOuterBullGeometry(System.Windows.Media.Geometry,System.Windows.Media.Geometry)">
-            <summary>Gets the outer bull geometry.</summary>
-            <param name="circle">The circle.</param>
-            <param name="circleToSubtract">The circle to subtract.</param>
-            <returns>The geometry of the outer ring.</returns>
-        </member>
-        <member name="M:Dart.DartCircleAdorner.GetSingleGeometry(System.Windows.Point,System.Windows.Media.Geometry,System.Windows.Media.Geometry,System.Windows.Media.Geometry,System.Windows.Media.Geometry)">
-            <summary>Gets the single geometry.</summary>
-            <param name="center">The render center.</param>
-            <param name="boardCircle">The board circle.</param>
-            <param name="bullCircle">The bull circle.</param>
-            <param name="tripleCircle">The triple circle.</param>
-            <param name="doubleCircle">The double circle.</param>
-            <returns>The geometry of the single shape.</returns>
-        </member>
-        <member name="M:Dart.DartCircleAdorner.GetTripleGeometry(System.Windows.Point,System.Windows.Media.Geometry)">
-            <summary>Gets the triple geometry.</summary>
-            <param name="center">The render center.</param>
-            <param name="tripleCircle">The triple circle.</param>
-            <returns>The geometry of the triple circle.</returns>
-        </member>
-        <member name="T:Dart.ThrowInfo">
-            <summary>The throw info.</summary>
-            <seealso cref="T:Dart.Common.UserInterface.Helper.NotifyPropertyChanged" />
-        </member>
-        <member name="M:Dart.ThrowInfo.#ctor(System.Windows.UIElement)">
-            <summary>Initializes a new instance of the <see cref="T:Dart.ThrowInfo" /> class.</summary>
-            <param name="dartBoardElement">The dart board.</param>
-        </member>
-        <member name="P:Dart.ThrowInfo.DartBoard">
-            <summary>Gets the dart board.</summary>
-            <value>The dart board.</value>
-        </member>
-        <member name="P:Dart.ThrowInfo.GetCurrentAngle">
-            <summary>Gets the current angle.</summary>
-            <returns>The angle.</returns>
-        </member>
-        <member name="P:Dart.ThrowInfo.GetCurrentDistanceBetweenMouseAndCenter">
-            <summary>Gets the current distance between mouse and center.</summary>
-            <returns>The current distance between mouse and center.</returns>
-        </member>
-        <member name="P:Dart.ThrowInfo.GetCurrentMousePosition">
-            <summary>Gets the current mouse position.</summary>
-            <returns>The current mouse position.</returns>
-        </member>
-        <member name="P:Dart.ThrowInfo.GetDartBoardCenter">
-            <summary>Gets the dart board center.</summary>
-            <returns>The dart board center.</returns>
-        </member>
-        <member name="P:Dart.ThrowInfo.GetPointsAtMousePosition">
-            <summary>Gets the get points at mouse position.</summary>
-            <value>The get points at mouse position.</value>
-        </member>
-        <member name="P:Dart.ThrowInfo.IsDouble">
-            <summary>Gets a value indicating whether this instance is double.</summary>
-            <value><c>true</c> if this instance is double; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="P:Dart.ThrowInfo.IsSingle">
-            <summary>Gets a value indicating whether this instance is single.</summary>
-            <value><c>true</c> if this instance is single; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="P:Dart.ThrowInfo.IsTriple">
-            <summary>Gets a value indicating whether this instance is triple.</summary>
-            <value><c>true</c> if this instance is triple; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="M:Dart.ThrowInfo.CalculatePoints(System.Double,System.Double)">
-            <summary>Calculates the points.</summary>
-            <param name="angle">The angle.</param>
-            <param name="distance">The distance.</param>
-            <returns>The points.</returns>
-        </member>
-        <member name="M:Dart.ThrowInfo.CalculateWithMultiplier(System.Int32,System.Double)">
-            <summary>Calculates the with multiplier.</summary>
-            <param name="segmentPoints">The segment points.</param>
-            <param name="distance">The distance.</param>
-            <returns>The points with multiplier.</returns>
-        </member>
-        <member name="T:Dart.Settings.ApplicationSettings">
-            <summary>The ApplicationSettings.</summary>
-        </member>
-        <member name="P:Dart.Settings.ApplicationSettings.CurrentTheme">
-            <summary>Gets or sets the current theme.</summary>
-            <value>The current theme.</value>
-        </member>
-        <member name="P:Dart.Settings.ApplicationSettings.SelectedCultureInfo">
-            <summary>Gets or sets the selected culture information.</summary>
-            <value>The selected culture information.</value>
-        </member>
-        <member name="P:Dart.Settings.ApplicationSettings.ShowUserInterfaceDartBoardData">
-            <summary>Gets or sets a value indicating whether [show user interface dart board data].</summary>
-            <value><c>true</c> if [show user interface dart board data]; otherwise, <c>false</c>.</value>
-        </member>
-        <member name="M:Dart.Settings.ApplicationSettings.op_Inequality(Dart.Settings.ApplicationSettings,Schuermann.Dart.App.Settings.Interfaces.IApplicationSettings)">
-            <summary>Implements the operator !=.</summary>
-            <param name="appSettings1">The application settings1.</param>
-            <param name="appSettings2">The application settings2.</param>
-            <returns>The result of the operator.</returns>
-        </member>
-        <member name="M:Dart.Settings.ApplicationSettings.op_Equality(Dart.Settings.ApplicationSettings,Schuermann.Dart.App.Settings.Interfaces.IApplicationSettings)">
-            <summary>Implements the operator ==.</summary>
-            <param name="appSettings1">The application settings1.</param>
-            <param name="appSettings2">The application settings2.</param>
-            <returns>The result of the operator.</returns>
-        </member>
-        <member name="M:Dart.Settings.ApplicationSettings.Equals(System.Object)">
-            <summary>Determines whether the specified <see cref="T:System.Object"/>, is equal to this instance.</summary>
-            <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
-            <returns><c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.</returns>
-        </member>
-        <member name="M:Dart.Settings.ApplicationSettings.Equals(Schuermann.Dart.App.Settings.Interfaces.IApplicationSettings)">
-            <summary>Equals the specified to compare.</summary>
-            <param name="settingsToCompare">To compare.</param>
-            <returns>True if equal.</returns>
-        </member>
-        <member name="M:Dart.Settings.ApplicationSettings.GetHashCode">
-            <summary>Returns a hash code for this instance.</summary>
-            <returns>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</returns>
-        </member>
         <member name="E:Dart.Tools.DartBoardData.DartBoard.ValuesChanged">
             <summary>Occurs when [values changed].</summary>
         </member>
@@ -508,36 +297,13 @@
             <summary>Gets the width.</summary>
             <value>The width.</value>
         </member>
-        <member name="M:Dart.Tools.DartBoardData.DartBoard.Update(Dart.ThrowInfo)">
+        <member name="M:Dart.Tools.DartBoardData.DartBoard.Update(Schuermann.Dart.App.Common.UserInterface.Helper.ThrowInfo)">
             <summary>Updates the specified throw information.</summary>
             <param name="throwInfo">The throw information.</param>
         </member>
-        <member name="T:Dart.Tools.IconSetter">
-            <summary>The icon setter class.</summary>
-        </member>
-        <member name="M:Dart.Tools.IconSetter.SetProgramsIcon">
-            <summary>Sets the programs icon.</summary>
-        </member>
-        <member name="T:Dart.Tools.Logging.ILogProvider">
-            <summary>The logger provider</summary>
-        </member>
-        <member name="P:Dart.Tools.Logging.ILogProvider.LogFile">
-            <summary>Gets the log file.</summary>
-            <value>The log file.</value>
-        </member>
-        <member name="M:Dart.Tools.Logging.ILogProvider.GetLogger``1">
-            <summary>Gets the logger.</summary>
-            <typeparam name="T"></typeparam>
-            <returns></returns>
-        </member>
-        <member name="M:Dart.Tools.Logging.ILogProvider.GetLogger(System.String)">
-            <summary>Gets the logger.</summary>
-            <param name="category">The category.</param>
-            <returns></returns>
-        </member>
         <member name="T:Dart.Tools.Logging.LogProvider">
             <summary>The logger provider.</summary>
-            <seealso cref="T:Dart.Tools.Logging.ILogProvider" />
+            <seealso cref="T:Schuermann.Dart.App.Tools.Logging.ILogProvider" />
         </member>
         <member name="M:Dart.Tools.Logging.LogProvider.#ctor">
             <summary>Initializes a new instance of the <see cref="T:Dart.Tools.Logging.LogProvider" /> class.</summary>
@@ -836,6 +602,79 @@
                A converted value. If the method returns null, the valid null value is used.
             </returns>
         </member>
+        <member name="P:Schuermann.Dart.App.Common.UserInterface.Helper.DartBoardVariables.InnerBullsEyeRadius">
+            <summary>Gets the inner bulls eye radius.</summary>
+            <value>The inner bulls eye radius.</value>
+        </member>
+        <member name="P:Schuermann.Dart.App.Common.UserInterface.Helper.DartBoardVariables.OuterBullsEyeRadius">
+            <summary>Gets the points to outer bull.</summary>
+            <value>The points to outer bull.</value>
+        </member>
+        <member name="P:Schuermann.Dart.App.Common.UserInterface.Helper.DartBoardVariables.PointsToInnerDouble">
+            <summary>Gets the points to inner double.</summary>
+            <value>The points to inner double.</value>
+        </member>
+        <member name="P:Schuermann.Dart.App.Common.UserInterface.Helper.DartBoardVariables.PointsToInnerTriple">
+            <summary>Gets the points to inner triple.</summary>
+            <value>The points to inner triple.</value>
+        </member>
+        <member name="P:Schuermann.Dart.App.Common.UserInterface.Helper.DartBoardVariables.PointsToOuterDouble">
+            <summary>Gets the points to outer double.</summary>
+            <value>The points to outer double.</value>
+        </member>
+        <member name="P:Schuermann.Dart.App.Common.UserInterface.Helper.DartBoardVariables.PointsToOuterTriple">
+            <summary>Gets the points to outer triple.</summary>
+            <value>The points to outer triple.</value>
+        </member>
+        <member name="T:Schuermann.Dart.App.Common.UserInterface.Helper.DartCircleAdorner">
+            <summary>The DartCircleAdorner.</summary>
+            <seealso cref="T:System.Windows.Documents.Adorner"/>
+        </member>
+        <member name="M:Schuermann.Dart.App.Common.UserInterface.Helper.DartCircleAdorner.#ctor(System.Windows.UIElement,System.Windows.Point,System.Int32)">
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Dart.App.Common.UserInterface.Helper.DartCircleAdorner"/> class.</summary>
+            <param name="adornedElement">The adorned element.</param>
+            <param name="actuallyMousePosition">The actually mouse position.</param>
+            <param name="actuallyPoints">The actually points.</param>
+        </member>
+        <member name="P:Schuermann.Dart.App.Common.UserInterface.Helper.DartCircleAdorner.Center">
+            <summary>Gets or sets the center.</summary>
+            <value>The center.</value>
+        </member>
+        <member name="M:Schuermann.Dart.App.Common.UserInterface.Helper.DartCircleAdorner.OnRender(System.Windows.Media.DrawingContext)">
+            <summary>
+            When overridden in a derived class, participates in rendering operations that are directed by the layout system. The rendering
+            instructions for this element are not used directly when this method is invoked, and are instead preserved for later asynchronous use by
+            layout and drawing.
+            </summary>
+            <param name="drawingContext">The drawing instructions for a specific element. This context is provided to the layout system.</param>
+        </member>
+        <member name="M:Schuermann.Dart.App.Common.UserInterface.Helper.DartCircleAdorner.GetDoubleGeometry(System.Windows.Point,System.Windows.Media.Geometry)">
+            <summary>Gets the double geometry.</summary>
+            <param name="center">The render center.</param>
+            <param name="doubleCircle">The double circle.</param>
+            <returns>The geometry of the double ring.</returns>
+        </member>
+        <member name="M:Schuermann.Dart.App.Common.UserInterface.Helper.DartCircleAdorner.GetOuterBullGeometry(System.Windows.Media.Geometry,System.Windows.Media.Geometry)">
+            <summary>Gets the outer bull geometry.</summary>
+            <param name="circle">The circle.</param>
+            <param name="circleToSubtract">The circle to subtract.</param>
+            <returns>The geometry of the outer ring.</returns>
+        </member>
+        <member name="M:Schuermann.Dart.App.Common.UserInterface.Helper.DartCircleAdorner.GetSingleGeometry(System.Windows.Point,System.Windows.Media.Geometry,System.Windows.Media.Geometry,System.Windows.Media.Geometry,System.Windows.Media.Geometry)">
+            <summary>Gets the single geometry.</summary>
+            <param name="center">The render center.</param>
+            <param name="boardCircle">The board circle.</param>
+            <param name="bullCircle">The bull circle.</param>
+            <param name="tripleCircle">The triple circle.</param>
+            <param name="doubleCircle">The double circle.</param>
+            <returns>The geometry of the single shape.</returns>
+        </member>
+        <member name="M:Schuermann.Dart.App.Common.UserInterface.Helper.DartCircleAdorner.GetTripleGeometry(System.Windows.Point,System.Windows.Media.Geometry)">
+            <summary>Gets the triple geometry.</summary>
+            <param name="center">The render center.</param>
+            <param name="tripleCircle">The triple circle.</param>
+            <returns>The geometry of the triple circle.</returns>
+        </member>
         <member name="T:Schuermann.Dart.App.Common.UserInterface.Helper.ItemsChangeObservableCollection`1">
             <summary>The ItemsChangeObservableCollection.</summary>
             <typeparam name="T">The T.</typeparam>
@@ -866,6 +705,72 @@
             <summary>Use the register property changed.</summary>
             <param name="items">The items.</param>
         </member>
+        <member name="T:Schuermann.Dart.App.Common.UserInterface.Helper.NotifyPropertyChanged">
+            <summary>The NotifyPropertyChanged.</summary>
+            <seealso cref="T:System.ComponentModel.INotifyPropertyChanged" />
+        </member>
+        <member name="E:Schuermann.Dart.App.Common.UserInterface.Helper.NotifyPropertyChanged.PropertyChanged">
+            <summary>Occurs when [property changed].</summary>
+        </member>
+        <member name="M:Schuermann.Dart.App.Common.UserInterface.Helper.NotifyPropertyChanged.RaisePropertyChanged(System.String)">
+            <summary>Raises the property changed.</summary>
+            <param name="propertyName">Name of the property.</param>
+        </member>
+        <member name="T:Schuermann.Dart.App.Common.UserInterface.Helper.ThrowInfo">
+            <summary>The throw info.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.App.Common.UserInterface.Helper.ThrowInfo.#ctor(System.Windows.UIElement)">
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Dart.App.Common.UserInterface.Helper.ThrowInfo" /> class.</summary>
+            <param name="dartBoardElement">The dart board.</param>
+        </member>
+        <member name="P:Schuermann.Dart.App.Common.UserInterface.Helper.ThrowInfo.DartBoard">
+            <summary>Gets the dart board.</summary>
+            <value>The dart board.</value>
+        </member>
+        <member name="P:Schuermann.Dart.App.Common.UserInterface.Helper.ThrowInfo.GetCurrentAngle">
+            <summary>Gets the current angle.</summary>
+            <returns>The angle.</returns>
+        </member>
+        <member name="P:Schuermann.Dart.App.Common.UserInterface.Helper.ThrowInfo.GetCurrentDistanceBetweenMouseAndCenter">
+            <summary>Gets the current distance between mouse and center.</summary>
+            <returns>The current distance between mouse and center.</returns>
+        </member>
+        <member name="P:Schuermann.Dart.App.Common.UserInterface.Helper.ThrowInfo.GetCurrentMousePosition">
+            <summary>Gets the current mouse position.</summary>
+            <returns>The current mouse position.</returns>
+        </member>
+        <member name="P:Schuermann.Dart.App.Common.UserInterface.Helper.ThrowInfo.GetDartBoardCenter">
+            <summary>Gets the dart board center.</summary>
+            <returns>The dart board center.</returns>
+        </member>
+        <member name="P:Schuermann.Dart.App.Common.UserInterface.Helper.ThrowInfo.GetPointsAtMousePosition">
+            <summary>Gets the get points at mouse position.</summary>
+            <value>The get points at mouse position.</value>
+        </member>
+        <member name="P:Schuermann.Dart.App.Common.UserInterface.Helper.ThrowInfo.IsDouble">
+            <summary>Gets a value indicating whether this instance is double.</summary>
+            <value><c>true</c> if this instance is double; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Schuermann.Dart.App.Common.UserInterface.Helper.ThrowInfo.IsSingle">
+            <summary>Gets a value indicating whether this instance is single.</summary>
+            <value><c>true</c> if this instance is single; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Schuermann.Dart.App.Common.UserInterface.Helper.ThrowInfo.IsTriple">
+            <summary>Gets a value indicating whether this instance is triple.</summary>
+            <value><c>true</c> if this instance is triple; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:Schuermann.Dart.App.Common.UserInterface.Helper.ThrowInfo.CalculatePoints(System.Double,System.Double)">
+            <summary>Calculates the points.</summary>
+            <param name="angle">The angle.</param>
+            <param name="distance">The distance.</param>
+            <returns>The points.</returns>
+        </member>
+        <member name="M:Schuermann.Dart.App.Common.UserInterface.Helper.ThrowInfo.CalculateWithMultiplier(System.Int32,System.Double)">
+            <summary>Calculates the with multiplier.</summary>
+            <param name="segmentPoints">The segment points.</param>
+            <param name="distance">The distance.</param>
+            <returns>The points with multiplier.</returns>
+        </member>
         <member name="T:Schuermann.Dart.App.Common.UserInterface.Interfaces.IViewModelBase">
             <summary>The IViewModelBase.</summary>
             <seealso cref="T:System.ComponentModel.INotifyPropertyChanged" />
@@ -878,6 +783,21 @@
             <summary>Raises the property changed.</summary>
             <param name="propertyName">Name of the property.</param>
         </member>
+        <member name="T:Schuermann.Dart.App.Common.UserInterface.PlugInsDialog.PlugInsDialog">
+            <summary>Interaction logic for PlugInsDialog.xaml</summary>
+            <summary>
+            PlugInsDialog
+            </summary>
+        </member>
+        <member name="M:Schuermann.Dart.App.Common.UserInterface.PlugInsDialog.PlugInsDialog.#ctor(System.Collections.Generic.IEnumerable{Schuermann.Dart.Core.Extensibility.IPlugIn})">
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Dart.App.Common.UserInterface.PlugInsDialog.PlugInsDialog" /> class.</summary>
+            <param name="plugIns">The plug ins.</param>
+        </member>
+        <member name="M:Schuermann.Dart.App.Common.UserInterface.PlugInsDialog.PlugInsDialog.InitializeComponent">
+            <summary>
+            InitializeComponent
+            </summary>
+        </member>
         <member name="T:Schuermann.Dart.App.Common.UserInterface.ViewModels.ViewModelBase">
             <summary>The NotifyPropertyChanged.</summary>
             <seealso cref="T:System.ComponentModel.INotifyPropertyChanged" />
@@ -885,6 +805,21 @@
         <member name="P:Schuermann.Dart.App.Common.UserInterface.ViewModels.ViewModelBase.AvailableLanguages">
             <summary>Gets the available languages.</summary>
             <value>The available languages.</value>
+        </member>
+        <member name="M:Schuermann.Dart.App.Common.Utils.KeyboardUtils.IsCtrlPressed">
+            <summary>Determines whether [is control pressed].</summary>
+            <returns><c>true</c> if [is control pressed]; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Schuermann.Dart.App.Common.Utils.KeyboardUtils.IsNumberPressed(System.Int32)">
+            <summary>Determines whether [is number pressed] [the specified number].</summary>
+            <param name="number">The number.</param>
+            <returns>
+               <c>true</c> if [is number pressed] [the specified number]; otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Schuermann.Dart.App.Common.Utils.KeyboardUtils.IsShiftPressed">
+            <summary>Determines whether [is shift pressed].</summary>
+            <returns><c>true</c> if [is shift pressed]; otherwise, <c>false</c>.</returns>
         </member>
         <member name="T:Schuermann.Dart.App.Game.Interfaces.IApplicationSettingsViewModel">
             <summary>The application settings view model interface.</summary>
@@ -1526,6 +1461,47 @@
               Looks up a localized string similar to View.
             </summary>
         </member>
+        <member name="T:Schuermann.Dart.App.Settings.ApplicationSettings">
+            <summary>The ApplicationSettings.</summary>
+        </member>
+        <member name="P:Schuermann.Dart.App.Settings.ApplicationSettings.CurrentTheme">
+            <summary>Gets or sets the current theme.</summary>
+            <value>The current theme.</value>
+        </member>
+        <member name="P:Schuermann.Dart.App.Settings.ApplicationSettings.SelectedCultureInfo">
+            <summary>Gets or sets the selected culture information.</summary>
+            <value>The selected culture information.</value>
+        </member>
+        <member name="P:Schuermann.Dart.App.Settings.ApplicationSettings.ShowUserInterfaceDartBoardData">
+            <summary>Gets or sets a value indicating whether [show user interface dart board data].</summary>
+            <value><c>true</c> if [show user interface dart board data]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="M:Schuermann.Dart.App.Settings.ApplicationSettings.op_Inequality(Schuermann.Dart.App.Settings.ApplicationSettings,Schuermann.Dart.App.Settings.Interfaces.IApplicationSettings)">
+            <summary>Implements the operator !=.</summary>
+            <param name="appSettings1">The application settings1.</param>
+            <param name="appSettings2">The application settings2.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Schuermann.Dart.App.Settings.ApplicationSettings.op_Equality(Schuermann.Dart.App.Settings.ApplicationSettings,Schuermann.Dart.App.Settings.Interfaces.IApplicationSettings)">
+            <summary>Implements the operator ==.</summary>
+            <param name="appSettings1">The application settings1.</param>
+            <param name="appSettings2">The application settings2.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Schuermann.Dart.App.Settings.ApplicationSettings.Equals(System.Object)">
+            <summary>Determines whether the specified <see cref="T:System.Object"/>, is equal to this instance.</summary>
+            <param name="obj">The <see cref="T:System.Object"/> to compare with this instance.</param>
+            <returns><c>true</c> if the specified <see cref="T:System.Object"/> is equal to this instance; otherwise, <c>false</c>.</returns>
+        </member>
+        <member name="M:Schuermann.Dart.App.Settings.ApplicationSettings.Equals(Schuermann.Dart.App.Settings.Interfaces.IApplicationSettings)">
+            <summary>Equals the specified to compare.</summary>
+            <param name="settingsToCompare">To compare.</param>
+            <returns>True if equal.</returns>
+        </member>
+        <member name="M:Schuermann.Dart.App.Settings.ApplicationSettings.GetHashCode">
+            <summary>Returns a hash code for this instance.</summary>
+            <returns>A hash code for this instance, suitable for use in hashing algorithms and data structures like a hash table.</returns>
+        </member>
         <member name="T:Schuermann.Dart.App.Settings.Interfaces.IApplicationSettings">
             <summary>The application settings interface.</summary>
         </member>
@@ -1650,6 +1626,29 @@
             <summary>
             InitializeComponent
             </summary>
+        </member>
+        <member name="T:Schuermann.Dart.App.Tools.IconSetter.IconSetter">
+            <summary>The icon setter class.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.App.Tools.IconSetter.IconSetter.SetProgramsIcon">
+            <summary>Sets the programs icon.</summary>
+        </member>
+        <member name="T:Schuermann.Dart.App.Tools.Logging.ILogProvider">
+            <summary>The logger provider</summary>
+        </member>
+        <member name="P:Schuermann.Dart.App.Tools.Logging.ILogProvider.LogFile">
+            <summary>Gets the log file.</summary>
+            <value>The log file.</value>
+        </member>
+        <member name="M:Schuermann.Dart.App.Tools.Logging.ILogProvider.GetLogger``1">
+            <summary>Gets the logger.</summary>
+            <typeparam name="T"></typeparam>
+            <returns></returns>
+        </member>
+        <member name="M:Schuermann.Dart.App.Tools.Logging.ILogProvider.GetLogger(System.String)">
+            <summary>Gets the logger.</summary>
+            <param name="category">The category.</param>
+            <returns></returns>
         </member>
         <member name="T:Game.App">
             <summary>

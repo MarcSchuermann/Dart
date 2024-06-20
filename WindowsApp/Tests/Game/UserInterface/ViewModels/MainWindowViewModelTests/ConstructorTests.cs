@@ -6,7 +6,6 @@ using System.Collections.Generic;
 using System.Diagnostics.CodeAnalysis;
 using System.Globalization;
 using System.Linq;
-using Dart;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Schuermann.Dart.App.Game.UserInterface.ViewModels;
 using Schuermann.Dart.App.Settings.UserInterface.ViewModels;

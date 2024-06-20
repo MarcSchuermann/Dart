@@ -10,7 +10,7 @@ using System.Windows;
 using MahApps.Metro.Controls;
 using Schuermann.Dart.Core.Extensibility;
 
-namespace Dart.Common.UserInterface.PlugInsDialog
+namespace Schuermann.Dart.App.Common.UserInterface.PlugInsDialog
 {
    /// <summary>Interaction logic for PlugInsDialog.xaml</summary>
    public partial class PlugInsDialog : MetroWindow

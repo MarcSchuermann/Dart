@@ -6,28 +6,28 @@
 
 using System.ComponentModel;
 
-namespace Dart.Common.UserInterface.Helper
+namespace Schuermann.Dart.App.Common.UserInterface.Helper
 {
-    /// <summary>The NotifyPropertyChanged.</summary>
-    /// <seealso cref="INotifyPropertyChanged" />
-    public class NotifyPropertyChanged : INotifyPropertyChanged
-    {
-        #region Public Events
+   /// <summary>The NotifyPropertyChanged.</summary>
+   /// <seealso cref="INotifyPropertyChanged" />
+   public class NotifyPropertyChanged : INotifyPropertyChanged
+   {
+      #region Public Events
 
-        /// <summary>Occurs when [property changed].</summary>
-        public event PropertyChangedEventHandler PropertyChanged;
+      /// <summary>Occurs when [property changed].</summary>
+      public event PropertyChangedEventHandler PropertyChanged;
 
-        #endregion Public Events
+      #endregion Public Events
 
-        #region Public Methods
+      #region Public Methods
 
-        /// <summary>Raises the property changed.</summary>
-        /// <param name="propertyName">Name of the property.</param>
-        public void RaisePropertyChanged(string propertyName)
-        {
-            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
-        }
+      /// <summary>Raises the property changed.</summary>
+      /// <param name="propertyName">Name of the property.</param>
+      public void RaisePropertyChanged(string propertyName)
+      {
+         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+      }
 
-        #endregion Public Methods
-    }
+      #endregion Public Methods
+   }
 }

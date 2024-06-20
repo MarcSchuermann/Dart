@@ -6,7 +6,7 @@
 
 using System.Windows.Input;
 
-namespace Dart.Common.Utils
+namespace Schuermann.Dart.App.Common.Utils
 {
    internal class KeyboardUtils
    {
@@ -16,7 +16,7 @@ namespace Dart.Common.Utils
       /// <returns><c>true</c> if [is control pressed]; otherwise, <c>false</c>.</returns>
       public static bool IsCtrlPressed()
       {
-         return (Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl));
+         return Keyboard.IsKeyDown(Key.LeftCtrl) || Keyboard.IsKeyDown(Key.RightCtrl);
       }
 
       public static bool IsNumberPressed()

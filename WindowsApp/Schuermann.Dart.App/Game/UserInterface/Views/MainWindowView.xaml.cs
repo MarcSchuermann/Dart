@@ -12,14 +12,14 @@ using System.Globalization;
 using System.Linq;
 using System.Windows.Input;
 using ControlzEx.Theming;
-using Dart.Common.UserInterface.PlugInsDialog;
-using Dart.Common.Utils;
-using Dart.Tools;
 using MahApps.Metro.Controls;
+using Schuermann.Dart.App.Common.UserInterface.PlugInsDialog;
+using Schuermann.Dart.App.Common.Utils;
 using Schuermann.Dart.App.Game.Interfaces;
 using Schuermann.Dart.App.Game.UserInterface.ViewModels;
 using Schuermann.Dart.App.Settings.UserInterface.ViewModels;
 using Schuermann.Dart.App.Tools.ExceptionHandling;
+using Schuermann.Dart.App.Tools.IconSetter;
 
 namespace Schuermann.Dart.App.Game.UserInterface.Views
 {

@@ -7,6 +7,7 @@
 using System;
 using System.Collections.Generic;
 using System.IO;
+using Schuermann.Dart.App.Tools.Logging;
 using Serilog;
 using Serilog.Exceptions;
 using Serilog.Extensions.Logging;
@@ -15,7 +16,7 @@ using ILogger = Microsoft.Extensions.Logging.ILogger;
 namespace Dart.Tools.Logging
 {
    /// <summary>The logger provider.</summary>
-   /// <seealso cref="Dart.Tools.Logging.ILogProvider" />
+   /// <seealso cref="Schuermann.Dart.App.Tools.Logging.ILogProvider" />
    public class LogProvider : ILogProvider
    {
       #region Private Fields

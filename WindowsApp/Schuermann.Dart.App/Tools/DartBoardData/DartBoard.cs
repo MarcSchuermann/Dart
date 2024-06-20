@@ -5,6 +5,7 @@
 // -----------------------------------------------------------------------
 
 using System;
+using Schuermann.Dart.App.Common.UserInterface.Helper;
 using Schuermann.Dart.Core.Thrown;
 using Schuermann.Dart.Core.UI;
 

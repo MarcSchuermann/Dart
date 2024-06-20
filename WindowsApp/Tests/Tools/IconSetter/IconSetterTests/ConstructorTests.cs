@@ -7,8 +7,8 @@ using System.Diagnostics.CodeAnalysis;
 
 namespace UnitTests.Tools.IconSetter.IconSetterTests
 {
-    /// <summary>The constructor test.</summary>
-    [TestClass]
+   /// <summary>The constructor test.</summary>
+   [TestClass]
     [ExcludeFromCodeCoverage]
     public class ConstructorTests
     {
@@ -18,7 +18,7 @@ namespace UnitTests.Tools.IconSetter.IconSetterTests
         [TestMethod]
         public void InitializedWithNoError()
         {
-            Dart.Tools.IconSetter.SetProgramsIcon();
+         Schuermann.Dart.App.Tools.IconSetter.IconSetter.SetProgramsIcon();
         }
 
         /////// <summary>Initializeds the complete with no error.</summary>

@@ -9,8 +9,8 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
-using Dart;
 using Dart.Tools.DartBoardData;
+using Schuermann.Dart.App.Common.UserInterface.Helper;
 using Schuermann.Dart.Core.Thrown;
 using Schuermann.Dart.Core.UI;
 

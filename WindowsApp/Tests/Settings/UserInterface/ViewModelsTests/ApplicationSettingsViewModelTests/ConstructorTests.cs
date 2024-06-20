@@ -2,7 +2,6 @@
 //// <copyright>Marc Schürmann</copyright>
 //// --------------------------------------------------------------------------------------------------------------------
 
-using Dart;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using Moq;
 using Schuermann.Dart.App.Settings.UserInterface.ViewModels;

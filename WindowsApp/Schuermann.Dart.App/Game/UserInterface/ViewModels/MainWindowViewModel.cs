@@ -13,7 +13,6 @@ using System.Threading;
 using System.Windows;
 using System.Windows.Input;
 using ControlzEx.Theming;
-using Dart.Settings;
 using Microsoft.Win32;
 using Schuermann.Dart.Core.Game;
 using Schuermann.Dart.Core.EnvironmentProps;
@@ -27,6 +26,7 @@ using Schuermann.Dart.App.Settings.Interfaces;
 using Schuermann.Dart.App.Common.Theme;
 using Schuermann.Dart.App.Common.PlugIns;
 using Schuermann.Dart.App.Common.Commands;
+using Schuermann.Dart.App.Settings;
 
 namespace Schuermann.Dart.App.Game.UserInterface.ViewModels
 {

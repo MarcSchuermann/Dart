@@ -6,7 +6,7 @@
 
 using System.Collections.Generic;
 using System.Globalization;
-using Dart.Common.UserInterface.Helper;
+using Schuermann.Dart.App.Common.UserInterface.Helper;
 using Schuermann.Dart.App.Common.UserInterface.Interfaces;
 
 namespace Schuermann.Dart.App.Common.UserInterface.ViewModels

@@ -7,13 +7,12 @@
 using System;
 using System.Windows;
 using System.Windows.Input;
-using Dart.Common.UserInterface.Helper;
+using Dart;
 using Schuermann.Dart.Core.Thrown;
 
-namespace Dart
+namespace Schuermann.Dart.App.Common.UserInterface.Helper
 {
    /// <summary>The throw info.</summary>
-   /// <seealso cref="Common.UserInterface.Helper.NotifyPropertyChanged" />
    public class ThrowInfo : NotifyPropertyChanged
    {
       #region Public Constructors
