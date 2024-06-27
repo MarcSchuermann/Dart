@@ -1,4 +1,4 @@
-﻿// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
 // <copyright file="MainWindowViewModel.cs" company="Marc Schürmann">
 //     Copyright (c) Marc Schürmann. All Rights Reserved.
 // </copyright>
@@ -27,6 +27,7 @@ using Schuermann.Dart.App.Common.Theme;
 using Schuermann.Dart.App.Common.PlugIns;
 using Schuermann.Dart.App.Common.Commands;
 using Schuermann.Dart.App.Settings;
+using Schuermann.Dart.Core.Service;
 
 namespace Schuermann.Dart.App.Game.UserInterface.ViewModels
 {
@@ -86,7 +87,7 @@ namespace Schuermann.Dart.App.Game.UserInterface.ViewModels
          CurrentProperties = new Core.EnvironmentProps.Properties(SettingsViewModel.CurrentApplicationSettings.CurrentTheme.OriginalTheme.Name, SettingsViewModel.CurrentApplicationSettings.SelectedCultureInfo);
 
          var plugInLoader = new PlugInLoader(path);
-         PlugIns = plugInLoader.LoadPlugIns(null, ConfiguredGameOptions, CurrentProperties);
+         PlugIns = plugInLoader.LoadPlugIns();
       }
 
       #endregion Public Constructors
@@ -275,13 +276,16 @@ namespace Schuermann.Dart.App.Game.UserInterface.ViewModels
       {
          ConfiguredGameOptions = CreateCurrentGameOptions();
 
+         var throwGameService = ServiceProvider.Instance.Get<IThrowGameService>() as IThrowGameService;
+         throwGameService.StartGame(ConfiguredGameOptions);
+
          CurrentContent = new DartGameViewModel(this);
 
          CurrentProperties = new Core.EnvironmentProps.Properties(SettingsViewModel.CurrentApplicationSettings.CurrentTheme.OriginalTheme.Name, SettingsViewModel.CurrentApplicationSettings.SelectedCultureInfo);
 
-         var plugInLoader = new PlugInLoader(path);
-         var dartGameViewModel = CurrentContent as DartGameViewModel;
-         PlugIns = plugInLoader.LoadPlugIns(dartGameViewModel.Game.Instance, dartGameViewModel.Game.Instance.GameOptions, CurrentProperties);
+         //var plugInLoader = new PlugInLoader(path);
+         //var dartGameViewModel = CurrentContent as DartGameViewModel;
+         //PlugIns = plugInLoader.LoadPlugIns();
 
          GameStarted?.Invoke(this, EventArgs.Empty);
       }

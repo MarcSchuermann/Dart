@@ -1,4 +1,4 @@
-﻿// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
 // <copyright file="PlugInLoader.cs" company="Marc Schürmann">
 //     Copyright (c) Marc Schürmann. All Rights Reserved.
 // </copyright>
@@ -16,6 +16,7 @@ using Schuermann.Dart.Core.EnvironmentProps;
 using Schuermann.Dart.Core.Service;
 using Schuermann.Dart.App.Game.UserInterface.ViewModels;
 using Schuermann.Dart.App.Common.Logger;
+using IServiceProvider = Schuermann.Dart.Core.Service.IServiceProvider;
 
 namespace Schuermann.Dart.App.Common.PlugIns
 {
@@ -24,6 +25,7 @@ namespace Schuermann.Dart.App.Common.PlugIns
       #region Private Fields
 
       private readonly string plugInDirectory;
+
 
       #endregion Private Fields
 
@@ -38,31 +40,28 @@ namespace Schuermann.Dart.App.Common.PlugIns
 
       #region Public Properties
 
-      [Export(typeof(IThrowGameService))]
-      public IThrowGameService DartService { get; set; }
-
       /// <summary>Gets or sets the plug ins.</summary>
       /// <value>The plug ins.</value>
       [ImportMany(AllowRecomposition = true)]
       public IEnumerable<IPlugIn> PlugIns { get; set; }
 
+      [Export(typeof(IServiceProvider))]
+      public IServiceProvider ServiceProvider => Schuermann.Dart.Core.Service.ServiceProvider.Instance;
+
       #endregion Public Properties
 
       #region Public Methods
 
-      public IEnumerable<IPlugIn> LoadPlugIns(IGameInstance gameInstance, IGameOptions gameOptions, IProperties properties)
+      public IEnumerable<IPlugIn> LoadPlugIns()
       {
          try
          {
             var catalog = new AggregateCatalog();
 
-            DartService = new ThrowGameService(gameInstance, gameOptions, properties);
-
             var dirCatalog = new DirectoryCatalog(plugInDirectory);
             catalog.Catalogs.Add(dirCatalog);
 
             var container = new CompositionContainer(catalog);
-
             container.ComposeParts(this);
 
             var plugins = container.GetExports<IPlugIn>();

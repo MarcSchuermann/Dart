@@ -45,7 +45,6 @@ namespace Schuermann.Dart.App.Game.UserInterface.Views
 
       /// <summary>Gets the dart board.</summary>
       /// <value>The dart board.</value>
-      [Export(typeof(IDartBoard))]
       public IDartBoard DartBoard { get; }
 
       #endregion Public Properties

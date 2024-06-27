@@ -1,4 +1,4 @@
-﻿// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
 // <copyright file="DartGameViewModel.cs" company="Marc Schürmann">
 //     Copyright (c) Marc Schürmann. All Rights Reserved.
 // </copyright>
@@ -14,13 +14,14 @@ using Schuermann.Dart.App.Common.UserInterface.Interfaces;
 using Schuermann.Dart.App.Common.UserInterface.ViewModels;
 using Schuermann.Dart.App.Game.Interfaces;
 using Schuermann.Dart.Core.Game;
+using Schuermann.Dart.Core.Service;
 using Schuermann.Dart.Core.Thrown;
 
 namespace Schuermann.Dart.App.Game.UserInterface.ViewModels
 {
    /// <summary>The DartGameViewModel.</summary>
    /// <seealso cref="ViewModelBase" />
-   public class DartGameViewModel : ViewModelBase, IGameProvider
+   public class DartGameViewModel : ViewModelBase
    {
       #region Public Constructors
 
@@ -36,8 +37,6 @@ namespace Schuermann.Dart.App.Game.UserInterface.ViewModels
       public DartGameViewModel(IViewModelBase owner)
       {
          MainWindowViewModel = owner as IMainWindowViewModel;
-
-         Game = new GameProcedure(MainWindowViewModel.ConfiguredGameOptions);
 
          SetPlayers();
       }
@@ -58,11 +57,6 @@ namespace Schuermann.Dart.App.Game.UserInterface.ViewModels
       /// <value>The dart thrown.</value>
       public ICommand DartThrown => new RelayCommand(x => Thrown());
 
-      /// <summary>Gets the game.</summary>
-      /// <value>The game.</value>
-      [Export(typeof(IGameProcedure))]
-      public IGameProcedure Game { get; }
-
       /// <summary>Gets or sets the main window view model.</summary>
       /// <value>The main window view model.</value>
       public IMainWindowViewModel MainWindowViewModel { get; set; }
@@ -80,7 +74,8 @@ namespace Schuermann.Dart.App.Game.UserInterface.ViewModels
       {
          //LoggerUtils.GetLogger<DartGameViewModel>().LogInformation($"{Game.Instance.CurrentPlayer.Name} throws {CurrentPointsUnderMouse}");
 
-         Game.PlayerThrown(CurrentPointsUnderMouse);
+         var throwGameService = ServiceProvider.Instance.Get<IThrowGameService>() as IThrowGameService;
+         throwGameService.GetGameProcedure().PlayerThrown(CurrentPointsUnderMouse);
 
          UpdatePlayers();
       }
@@ -88,9 +83,10 @@ namespace Schuermann.Dart.App.Game.UserInterface.ViewModels
       /// <summary>Updates this instance.</summary>
       public void UpdatePlayers()
       {
+         var throwGameService = ServiceProvider.Instance.Get<IThrowGameService>() as IThrowGameService;
          foreach (var player in Players)
          {
-            var org = Game.Instance.GameOptions.PlayerList.First(x => x.Name.Equals(player.Name));
+            var org = throwGameService.GetGameProcedure().Instance.GameOptions.PlayerList.First(x => x.Name.Equals(player.Name));
             if (org.CurrentScore != player.CurrentScore)
                player.CurrentScore = org.CurrentScore;
          }
@@ -103,8 +99,10 @@ namespace Schuermann.Dart.App.Game.UserInterface.ViewModels
       /// <summary>Sets the players.</summary>
       private void SetPlayers()
       {
+         var throwGameService = ServiceProvider.Instance.Get<IThrowGameService>() as IThrowGameService;
+
          var players = new ObservableCollection<IPlayerViewModel>();
-         foreach (var player in Game.Instance.GameOptions.PlayerList)
+         foreach (var player in throwGameService.GetGameProcedure().Instance.GameOptions.PlayerList)
          {
             players.Add(new PlayerViewModel(player));
          }

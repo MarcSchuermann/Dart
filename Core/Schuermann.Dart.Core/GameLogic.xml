@@ -180,21 +180,31 @@
             <summary>Undoes this instance.</summary>
         </member>
         <member name="T:Schuermann.Dart.Core.Game.IGameInstance">
-            <summary>The instance of a game.</summary>
+            <summary>
+            The instance of a game.
+            </summary>
         </member>
         <member name="E:Schuermann.Dart.Core.Game.IGameInstance.StandingsChanged">
-            <summary>Occurs when [standings changed].</summary>
+            <summary>
+            Occurs when [standings changed].
+            </summary>
         </member>
         <member name="P:Schuermann.Dart.Core.Game.IGameInstance.CurrentPlayer">
-            <summary>Gets the current player.</summary>
+            <summary>
+            Gets the current player.
+            </summary>
             <returns>The current player.</returns>
         </member>
         <member name="P:Schuermann.Dart.Core.Game.IGameInstance.GameOptions">
-            <summary>Gets the game options.</summary>
+            <summary>
+            Gets the game options.
+            </summary>
             <value>The game options.</value>
         </member>
         <member name="M:Schuermann.Dart.Core.Game.IGameInstance.InvokeStandingsChanged(Schuermann.Dart.Core.Game.IGameProcedure)">
-            <summary>Invokes the standings changed.</summary>
+            <summary>
+            Invokes the standings changed.
+            </summary>
         </member>
         <member name="T:Schuermann.Dart.Core.Game.IGameOptions">
             <summary>The game option interface.</summary>
@@ -229,13 +239,6 @@
                True if the remaining points are zero. False if the remaining points are more than zero
                or rather were below zero.
             </returns>
-        </member>
-        <member name="T:Schuermann.Dart.Core.Game.IGameProvider">
-            <summary>The game instance provider.</summary>
-        </member>
-        <member name="P:Schuermann.Dart.Core.Game.IGameProvider.Game">
-            <summary>Gets the game.</summary>
-            <value>The game.</value>
         </member>
         <member name="T:Schuermann.Dart.Core.Game.IPlayer">
             <summary>The player interface.</summary>
@@ -460,41 +463,108 @@
             <summary>Gets or sets the throw history.</summary>
             <value>The throw history.</value>
         </member>
-        <member name="T:Schuermann.Dart.Core.Service.DartService">
-            <summary>The dart service.</summary>
-            <seealso cref="T:Schuermann.Dart.Core.Service.IThrowGameService" />
+        <member name="T:Schuermann.Dart.Core.Service.IEnvironmentService">
+            <summary>The environment service.</summary>
+            <seealso cref="T:Schuermann.Dart.Core.Service.IService" />
         </member>
-        <member name="M:Schuermann.Dart.Core.Service.DartService.#ctor(Schuermann.Dart.Core.Game.IGameInstance,Schuermann.Dart.Core.Game.IGameOptions,Schuermann.Dart.Core.EnvironmentProps.IProperties)">
-            <summary>Initializes a new instance of the <see cref="T:Schuermann.Dart.Core.Service.DartService" /> class.</summary>
-            <param name="gameInstance">The game instance.</param>
-            <param name="gameOptions">The game options.</param>
-            <param name="properties">The properties.</param>
-        </member>
-        <member name="M:Schuermann.Dart.Core.Service.DartService.GetGameInstance">
-            <summary>Gets the game instance.</summary>
-            <returns></returns>
-        </member>
-        <member name="M:Schuermann.Dart.Core.Service.DartService.GetGameOptions">
-            <summary>Gets the game options.</summary>
-            <returns></returns>
-        </member>
-        <member name="M:Schuermann.Dart.Core.Service.DartService.GetProperties">
+        <member name="M:Schuermann.Dart.Core.Service.IEnvironmentService.GetProperties">
             <summary>Gets the properties.</summary>
+            <returns></returns>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Service.IService">
+            <summary>The service.</summary>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Service.IService.Name">
+            <summary>Gets the name.</summary>
+            <value>The name.</value>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Service.IServiceProvider">
+            <summary>The service provider.</summary>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Service.IServiceProvider.Instance">
+            <summary>Gets the instance.</summary>
+            <value>The instance.</value>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.IServiceProvider.Get``1">
+            <summary>Gets this instance.</summary>
+            <typeparam name="T">The type of the service.</typeparam>
             <returns></returns>
         </member>
         <member name="T:Schuermann.Dart.Core.Service.IThrowGameService">
-            <summary>The dart serivce.</summary>
+            <summary>
+            The dart service.
+            </summary>
         </member>
-        <member name="M:Schuermann.Dart.Core.Service.IThrowGameService.GetGameInstance">
-            <summary>Gets the game instance.</summary>
+        <member name="M:Schuermann.Dart.Core.Service.IThrowGameService.GetGameProcedure">
+            <summary>
+            Gets the game instance.
+            </summary>
             <returns></returns>
         </member>
         <member name="M:Schuermann.Dart.Core.Service.IThrowGameService.GetGameOptions">
-            <summary>Gets the game options.</summary>
+            <summary>
+            Gets the game options.
+            </summary>
             <returns></returns>
         </member>
-        <member name="M:Schuermann.Dart.Core.Service.IThrowGameService.GetProperties">
-            <summary>Gets the properties.</summary>
+        <member name="M:Schuermann.Dart.Core.Service.IThrowGameService.StartGame(Schuermann.Dart.Core.Game.IGameOptions)">
+            <summary>
+            Start game
+            </summary>
+            <param name="gameOptions"></param>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.IThrowGameService.RestartGame">
+            <summary>
+            Restarts the game.
+            </summary>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Service.ServiceProvider">
+            <summary>
+            The service provider.
+            </summary>
+            <seealso cref="T:Schuermann.Dart.Core.Service.IServiceProvider"/>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Service.ServiceProvider.Instance">
+            <summary>
+            Gets the instance.
+            </summary>
+            <value>The instance.</value>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.ServiceProvider.Add(Schuermann.Dart.Core.Service.IService)">
+            <summary>
+            Adds the specified service.
+            </summary>
+            <param name="service">The service.</param>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.ServiceProvider.Get``1">
+            <summary>
+            Gets this instance.
+            </summary>
+            <typeparam name="T">The type of the service.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Service.ThrowGameService">
+            <summary>
+            The dart service.
+            </summary>
+            <seealso cref="T:Schuermann.Dart.Core.Service.IThrowGameService"/>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Service.ThrowGameService.Name">
+            <summary>
+            Gets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.ThrowGameService.GetGameProcedure">
+            <summary>
+            Gets the game instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.ThrowGameService.GetGameOptions">
+            <summary>
+            Gets the game options.
+            </summary>
             <returns></returns>
         </member>
         <member name="T:Schuermann.Dart.Core.Themes.BaseTheme">

@@ -1,4 +1,4 @@
-﻿// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
 // <copyright file="IUndoRedoAction.cs" company="Marc Schürmann">
 //     Copyright (c) Marc Schürmann. All Rights Reserved.
 // </copyright>
@@ -12,10 +12,10 @@ namespace Schuermann.Dart.Core.UndoRedo.Interfaces
       #region Public Methods
 
       /// <summary>Redoes this instance.</summary>
-      void Redo();
+      public void Redo();
 
       /// <summary>Undoes this instance.</summary>
-      void Undo();
+      public void Undo();
 
       #endregion Public Methods
    }

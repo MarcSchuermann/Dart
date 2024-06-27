@@ -1,74 +1,67 @@
-﻿// -----------------------------------------------------------------------
-// <copyright file="DartService.cs" company="Marc Schürmann">
-//     Copyright (c) Marc Schürmann. All Rights Reserved.
+//-----------------------------------------------------------------------
+// <copyright file="ThrowGameService.cs" company="Marc Schürmann">
+//     Copyright (c) Marc Schürmann. All rights reserved.
 // </copyright>
-// -----------------------------------------------------------------------
+//-----------------------------------------------------------------------
 
-using Schuermann.Dart.Core.EnvironmentProps;
 using Schuermann.Dart.Core.Game;
 
 namespace Schuermann.Dart.Core.Service
 {
-   /// <summary>The dart service.</summary>
-   /// <seealso cref="IThrowGameService" />
+   /// <summary>
+   /// The dart service.
+   /// </summary>
+   /// <seealso cref="IThrowGameService"/>
    public class ThrowGameService : IThrowGameService
    {
-      #region Private Fields
+      #region Fields
 
-      private readonly IGameInstance gameInstance;
+      private IGameProcedure gameProcedure;
+
       private readonly IGameOptions gameOptions;
-      private readonly IProperties properties;
 
-      #endregion Private Fields
+      #endregion
 
-      #region Public Constructors
+      #region Public properties
 
       /// <summary>
-      ///    Initializes a new instance of the <see cref="ThrowGameService" /> class.
+      /// Gets the name.
       /// </summary>
-      /// <param name="gameInstance">The game instance.</param>
-      /// <param name="gameOptions">The game options.</param>
-      /// <param name="properties">The properties.</param>
-      public ThrowGameService(IGameInstance gameInstance, IGameOptions gameOptions, IProperties properties)
-      {
-         this.gameInstance = gameInstance;
-         this.gameOptions = gameOptions;
-         this.properties = properties;
-      }
-
-      #endregion Public Constructors
-
-      #region Public Properties
-
-      /// <summary>Gets the name.</summary>
       /// <value>The name.</value>
       public string Name => nameof(ThrowGameService);
 
-      #endregion Public Properties
+      #endregion
 
-      #region Public Methods
+      #region Public methods
 
-      /// <summary>Gets the game instance.</summary>
+      /// <summary>
+      /// Gets the game instance.
+      /// </summary>
       /// <returns></returns>
-      public IGameInstance GetGameInstance()
+      public IGameProcedure GetGameProcedure()
       {
-         return gameInstance;
+         return gameProcedure;
       }
 
-      /// <summary>Gets the game options.</summary>
+      /// <summary>
+      /// Gets the game options.
+      /// </summary>
       /// <returns></returns>
       public IGameOptions GetGameOptions()
       {
          return gameOptions;
       }
 
-      /// <summary>Gets the properties.</summary>
-      /// <returns></returns>
-      public IProperties GetProperties()
+      public void RestartGame()
       {
-         return properties;
+         throw new System.NotImplementedException();
       }
 
-      #endregion Public Methods
+      public void StartGame(IGameOptions gameOptions)
+      {
+         gameProcedure = new GameProcedure(gameOptions);
+      }
+
+      #endregion
    }
 }

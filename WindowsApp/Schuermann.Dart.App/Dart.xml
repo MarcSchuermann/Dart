@@ -906,10 +906,6 @@
             <summary>Gets the dart thrown.</summary>
             <value>The dart thrown.</value>
         </member>
-        <member name="P:Schuermann.Dart.App.Game.UserInterface.ViewModels.DartGameViewModel.Game">
-            <summary>Gets the game.</summary>
-            <value>The game.</value>
-        </member>
         <member name="P:Schuermann.Dart.App.Game.UserInterface.ViewModels.DartGameViewModel.MainWindowViewModel">
             <summary>Gets or sets the main window view model.</summary>
             <value>The main window view model.</value>

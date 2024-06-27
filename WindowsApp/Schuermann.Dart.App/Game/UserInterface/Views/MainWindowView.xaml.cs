@@ -1,4 +1,4 @@
-﻿// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
 // <copyright file="MainWindowView.xaml.cs" company="Marc Schürmann">
 //     Copyright (c) Marc Schürmann. All Rights Reserved.
 // </copyright>
@@ -20,6 +20,7 @@ using Schuermann.Dart.App.Game.UserInterface.ViewModels;
 using Schuermann.Dart.App.Settings.UserInterface.ViewModels;
 using Schuermann.Dart.App.Tools.ExceptionHandling;
 using Schuermann.Dart.App.Tools.IconSetter;
+using Schuermann.Dart.Core.Service;
 
 namespace Schuermann.Dart.App.Game.UserInterface.Views
 {
@@ -40,12 +41,11 @@ namespace Schuermann.Dart.App.Game.UserInterface.Views
          Common.Splashscreen.SplashScreen.ShowSplashScreen();
 
          InitializeComponent();
+         InitServices();
          IconSetter.SetProgramsIcon();
          LoadUserSettings();
 
          SubscribeToSettingsChangedEvent();
-
-         //Thread.Sleep(1500);
 
          Common.Splashscreen.SplashScreen.HideSplashScreen();
 
@@ -58,6 +58,13 @@ namespace Schuermann.Dart.App.Game.UserInterface.Views
          }
 
          //InitMef();
+      }
+
+      private void InitServices()
+      {
+         ServiceProvider.Instance.Add(new ThrowGameService());
+         if (DataContext is MainWindowViewModel mainWindowViewModel)
+            ServiceProvider.Instance.Add(new EnvironmentService(mainWindowViewModel.CurrentProperties));
       }
 
       #endregion Public Constructors
@@ -192,7 +199,8 @@ namespace Schuermann.Dart.App.Game.UserInterface.Views
          {
             if (mainWindowViewModel.CurrentContent is DartGameViewModel dartGameViewModel)
             {
-               dartGameViewModel.Game.Undo();
+               var throwGameService = ServiceProvider.Instance.Get<IThrowGameService>() as IThrowGameService;
+               throwGameService.GetGameProcedure().Undo();
                dartGameViewModel.UpdatePlayers();
             }
 
@@ -204,7 +212,8 @@ namespace Schuermann.Dart.App.Game.UserInterface.Views
          {
             if (mainWindowViewModel.CurrentContent is DartGameViewModel dartGameViewModel)
             {
-               dartGameViewModel.Game.Redo();
+               var throwGameService = ServiceProvider.Instance.Get<IThrowGameService>() as IThrowGameService;
+               throwGameService.GetGameProcedure().Redo();
                dartGameViewModel.UpdatePlayers();
             }
 
