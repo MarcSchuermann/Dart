@@ -103,7 +103,6 @@ namespace Schuermann.Dart.App.Game.UserInterface.ViewModels
 
       /// <summary>Gets or sets the configured game options.</summary>
       /// <value>The configured game options.</value>
-      //[Export(typeof(IGameOptions))]
       public IGameOptions ConfiguredGameOptions { get; set; }
 
       /// <summary>Gets or sets the content of the current.</summary>
@@ -258,7 +257,7 @@ namespace Schuermann.Dart.App.Game.UserInterface.ViewModels
       /// <returns>The current applications settings.</returns>
       private IApplicationSettings GetSettings()
       {
-         IApplicationSettings applicationSettings = new ApplicationSettings(); ;//ServiceContainer.GetContainer().Resolve<IApplicationSettings>();
+         IApplicationSettings applicationSettings = new ApplicationSettings();
          applicationSettings.ShowUserInterfaceDartBoardData = Properties.Settings.Default.ShowUserInterfaceDartBoardData;
          applicationSettings.SelectedCultureInfo = Properties.Settings.Default.CurrentCulture;
          applicationSettings.CurrentTheme = GetCurrentTheme();

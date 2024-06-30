@@ -1,54 +1,37 @@
-// -----------------------------------------------------------------------
+//-----------------------------------------------------------------------
 // <copyright file="PlugInLoader.cs" company="Marc Schürmann">
-//     Copyright (c) Marc Schürmann. All Rights Reserved.
+//     Copyright (c) Marc Schürmann. All rights reserved.
 // </copyright>
-// -----------------------------------------------------------------------
+//-----------------------------------------------------------------------
 
 using System;
-using System.ComponentModel.Composition;
-using System.ComponentModel.Composition.Hosting;
-using Schuermann.Dart.Core.Game;
-
-using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
-using Schuermann.Dart.Core.Extensibility;
-using Schuermann.Dart.Core.EnvironmentProps;
-using Schuermann.Dart.Core.Service;
-using Schuermann.Dart.App.Game.UserInterface.ViewModels;
+using System.ComponentModel.Composition;
+
+using System.ComponentModel.Composition.Hosting;
+using Microsoft.Extensions.Logging;
 using Schuermann.Dart.App.Common.Logger;
+using Schuermann.Dart.App.Game.UserInterface.ViewModels;
+using Schuermann.Dart.Core.Extensibility;
 using IServiceProvider = Schuermann.Dart.Core.Service.IServiceProvider;
 
 namespace Schuermann.Dart.App.Common.PlugIns
 {
-   internal class PlugInLoader
+   public class PlugInLoader
    {
-      #region Private Fields
+      #region Fields
 
       private readonly string plugInDirectory;
 
+      #endregion
 
-      #endregion Private Fields
+      #region Constructors
 
-      #region Public Constructors
+      public PlugInLoader(string plugInDirectory) => this.plugInDirectory = plugInDirectory;
 
-      public PlugInLoader(string plugInDirectory)
-      {
-         this.plugInDirectory = plugInDirectory;
-      }
+      #endregion
 
-      #endregion Public Constructors
-
-      #region Public Properties
-
-      /// <summary>Gets or sets the plug ins.</summary>
-      /// <value>The plug ins.</value>
-      [ImportMany(AllowRecomposition = true)]
-      public IEnumerable<IPlugIn> PlugIns { get; set; }
-
-      [Export(typeof(IServiceProvider))]
-      public IServiceProvider ServiceProvider => Schuermann.Dart.Core.Service.ServiceProvider.Instance;
-
-      #endregion Public Properties
+      #region Public methods
 
       #region Public Methods
 
@@ -75,6 +58,23 @@ namespace Schuermann.Dart.App.Common.PlugIns
          }
       }
 
+      #endregion
+
       #endregion Public Methods
+
+
+      #region Public Properties
+
+      /// <summary>
+      /// Gets or sets the plug ins.
+      /// </summary>
+      /// <value>The plug ins.</value>
+      [ImportMany(AllowRecomposition = true)]
+      public IEnumerable<IPlugIn> PlugIns { get; set; }
+
+      [Export(typeof(IServiceProvider))]
+      public IServiceProvider ServiceProvider => Core.Service.ServiceProvider.Instance;
+
+      #endregion Public Properties
    }
 }
