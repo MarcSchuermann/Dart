@@ -415,7 +415,9 @@
             <summary>Raises the can execute changed.</summary>
         </member>
         <member name="P:Schuermann.Dart.App.Common.PlugIns.PlugInLoader.PlugIns">
-            <summary>Gets or sets the plug ins.</summary>
+            <summary>
+            Gets or sets the plug ins.
+            </summary>
             <value>The plug ins.</value>
         </member>
         <member name="T:Schuermann.Dart.App.Common.Splashscreen.SplashScreen">
@@ -1160,23 +1162,25 @@
             </summary>
         </member>
         <member name="T:Schuermann.Dart.App.Game.UserInterface.Views.MainWindowView">
-            <summary>The MainWindow.</summary>
-            <seealso cref="T:System.Windows.Window" />
-            <seealso cref="T:System.Windows.Markup.IComponentConnector" />
+            <summary>
+            The MainWindow.
+            </summary>
+            <seealso cref="T:System.Windows.Window"/>
+            <seealso cref="T:System.Windows.Markup.IComponentConnector"/>
             <summary>
             MainWindowView
             </summary>
         </member>
         <member name="M:Schuermann.Dart.App.Game.UserInterface.Views.MainWindowView.#ctor">
             <summary>
-               Initializes a new instance of the <see cref="T:Schuermann.Dart.App.Game.UserInterface.Views.MainWindowView" /> class.
+            Initializes a new instance of the <see cref="T:Schuermann.Dart.App.Game.UserInterface.Views.MainWindowView"/> class.
             </summary>
         </member>
         <member name="M:Schuermann.Dart.App.Game.UserInterface.Views.MainWindowView.OnClosing(System.ComponentModel.CancelEventArgs)">
-            <summary>Raises the <see cref="E:System.Windows.Window.Closing" /> event.</summary>
-            <param name="e">
-               A <see cref="T:System.ComponentModel.CancelEventArgs" /> that contains the event data.
-            </param>
+            <summary>
+            Raises the <see cref="E:Closing"/> event.
+            </summary>
+            <param name="e">The <see cref="T:System.ComponentModel.CancelEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Schuermann.Dart.App.Game.UserInterface.Views.MainWindowView.InitializeComponent">
             <summary>

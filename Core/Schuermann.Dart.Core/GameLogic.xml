@@ -463,6 +463,30 @@
             <summary>Gets or sets the throw history.</summary>
             <value>The throw history.</value>
         </member>
+        <member name="T:Schuermann.Dart.Core.Service.EnvironmentService">
+            <summary>
+            The environment service.
+            </summary>
+            <seealso cref="T:Schuermann.Dart.Core.Service.IEnvironmentService"/>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.EnvironmentService.#ctor(Schuermann.Dart.Core.EnvironmentProps.IProperties)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Schuermann.Dart.Core.Service.EnvironmentService"/> class.
+            </summary>
+            <param name="properties">The properties.</param>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Service.EnvironmentService.Name">
+            <summary>
+            Gets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.EnvironmentService.GetProperties">
+            <summary>
+            Gets the properties.
+            </summary>
+            <returns></returns>
+        </member>
         <member name="T:Schuermann.Dart.Core.Service.IEnvironmentService">
             <summary>The environment service.</summary>
             <seealso cref="T:Schuermann.Dart.Core.Service.IService" />

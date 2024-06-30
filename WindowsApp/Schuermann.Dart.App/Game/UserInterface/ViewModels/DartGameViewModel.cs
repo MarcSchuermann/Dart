@@ -4,6 +4,7 @@
 // </copyright>
 // -----------------------------------------------------------------------
 
+using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel.Composition;
@@ -86,7 +87,7 @@ namespace Schuermann.Dart.App.Game.UserInterface.ViewModels
          var throwGameService = ServiceProvider.Instance.Get<IThrowGameService>() as IThrowGameService;
          foreach (var player in Players)
          {
-            var org = throwGameService.GetGameProcedure().Instance.GameOptions.PlayerList.First(x => x.Name.Equals(player.Name));
+            var org = throwGameService.GetGameProcedure().Instance.GameOptions.PlayerList.First(x => x.Name.Equals(player.Name, StringComparison.OrdinalIgnoreCase));
             if (org.CurrentScore != player.CurrentScore)
                player.CurrentScore = org.CurrentScore;
          }

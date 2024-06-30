@@ -1,18 +1,17 @@
-// -----------------------------------------------------------------------
+//-----------------------------------------------------------------------
 // <copyright file="MainWindowView.xaml.cs" company="Marc Schürmann">
-//     Copyright (c) Marc Schürmann. All Rights Reserved.
+//     Copyright (c) Marc Schürmann. All rights reserved.
 // </copyright>
-// -----------------------------------------------------------------------
+//-----------------------------------------------------------------------
 
 using System;
 using System.ComponentModel;
-using System.ComponentModel.Composition;
-using System.ComponentModel.Composition.Hosting;
 using System.Globalization;
 using System.Linq;
 using System.Windows.Input;
 using ControlzEx.Theming;
 using MahApps.Metro.Controls;
+using Schuermann.Dart.App.Common.Splashscreen;
 using Schuermann.Dart.App.Common.UserInterface.PlugInsDialog;
 using Schuermann.Dart.App.Common.Utils;
 using Schuermann.Dart.App.Game.Interfaces;
@@ -24,21 +23,23 @@ using Schuermann.Dart.Core.Service;
 
 namespace Schuermann.Dart.App.Game.UserInterface.Views
 {
-   /// <summary>The MainWindow.</summary>
-   /// <seealso cref="System.Windows.Window" />
-   /// <seealso cref="System.Windows.Markup.IComponentConnector" />
+   /// <summary>
+   /// The MainWindow.
+   /// </summary>
+   /// <seealso cref="System.Windows.Window"/>
+   /// <seealso cref="System.Windows.Markup.IComponentConnector"/>
    public partial class MainWindowView : MetroWindow
    {
-      #region Public Constructors
+      #region Constructors
 
       /// <summary>
-      ///    Initializes a new instance of the <see cref="MainWindowView" /> class.
+      /// Initializes a new instance of the <see cref="MainWindowView"/> class.
       /// </summary>
       public MainWindowView()
       {
          AttachToCatchUnhaendledExceptions();
 
-         Common.Splashscreen.SplashScreen.ShowSplashScreen();
+         SplashScreen.ShowSplashScreen();
 
          InitializeComponent();
          InitServices();
@@ -47,7 +48,7 @@ namespace Schuermann.Dart.App.Game.UserInterface.Views
 
          SubscribeToSettingsChangedEvent();
 
-         Common.Splashscreen.SplashScreen.HideSplashScreen();
+         SplashScreen.HideSplashScreen();
 
          if (DataContext is MainWindowViewModel mainWindowViewModel)
          {
@@ -56,25 +57,17 @@ namespace Schuermann.Dart.App.Game.UserInterface.Views
 
             KeyDown += MainWindowView_KeyDown;
          }
-
-         //InitMef();
       }
 
-      private void InitServices()
-      {
-         ServiceProvider.Instance.Add(new ThrowGameService());
-         if (DataContext is MainWindowViewModel mainWindowViewModel)
-            ServiceProvider.Instance.Add(new EnvironmentService(mainWindowViewModel.CurrentProperties));
-      }
+      #endregion
 
-      #endregion Public Constructors
 
       #region Protected Methods
 
-      /// <summary>Raises the <see cref="E:System.Windows.Window.Closing" /> event.</summary>
-      /// <param name="e">
-      ///    A <see cref="T:System.ComponentModel.CancelEventArgs" /> that contains the event data.
-      /// </param>
+      /// <summary>
+      /// Raises the <see cref="E:Closing"/> event.
+      /// </summary>
+      /// <param name="e">The <see cref="CancelEventArgs"/> instance containing the event data.</param>
       protected override void OnClosing(CancelEventArgs e)
       {
          base.OnClosing(e);
@@ -89,6 +82,18 @@ namespace Schuermann.Dart.App.Game.UserInterface.Views
 
       #endregion Protected Methods
 
+      #region Private methods
+
+      private void InitServices()
+      {
+         ServiceProvider.Instance.Add(new ThrowGameService());
+         if (DataContext is MainWindowViewModel mainWindowViewModel)
+            ServiceProvider.Instance.Add(new EnvironmentService(mainWindowViewModel.CurrentProperties));
+      }
+
+      #endregion
+
+
       #region Private Methods
 
       private void AppDomain_UnhandledException(object sender, UnhandledExceptionEventArgs e)
@@ -99,8 +104,7 @@ namespace Schuermann.Dart.App.Game.UserInterface.Views
 
       private void AttachToCatchUnhaendledExceptions()
       {
-         AppDomain currentDomain = AppDomain.CurrentDomain;
-         currentDomain.UnhandledException += AppDomain_UnhandledException;
+         AppDomain.CurrentDomain.UnhandledException += AppDomain_UnhandledException;
       }
 
       private void HamburgerMenuControl_OnItemInvoked(object sender, HamburgerMenuItemInvokedEventArgs e)
@@ -138,25 +142,6 @@ namespace Schuermann.Dart.App.Game.UserInterface.Views
             HamburgerMenuControl.SetCurrentValue(HamburgerMenu.IsPaneOpenProperty, false);
       }
 
-      private void InitMef()
-      {
-         try
-         {
-            // An aggregate catalog that combines multiple catalogs.
-            var catalog = new AggregateCatalog();
-            // Adds all the parts found in the same assembly as the Program class.
-            catalog.Catalogs.Add(new AssemblyCatalog(typeof(MainWindowView).Assembly));
-
-            // Create the CompositionContainer with the parts in the catalog.
-            var _container = new CompositionContainer(catalog);
-            _container.ComposeParts(this);
-         }
-         catch (CompositionException compositionException)
-         {
-            Console.WriteLine(compositionException.ToString());
-         }
-      }
-
       private void LoadUserSettings()
       {
          Height = Properties.Settings.Default.WindowHeight;
@@ -168,7 +153,8 @@ namespace Schuermann.Dart.App.Game.UserInterface.Views
          CultureInfo.CurrentCulture = Properties.Settings.Default.CurrentCulture;
          CultureInfo.CurrentUICulture = Properties.Settings.Default.CurrentCulture;
 
-         ThemeManager.Current.ChangeTheme(this, $"{Properties.Settings.Default.BaseColorScheme}.{Properties.Settings.Default.ColorScheme}");
+         ThemeManager.Current
+            .ChangeTheme(this, $"{Properties.Settings.Default.BaseColorScheme}.{Properties.Settings.Default.ColorScheme}");
       }
 
       private void MainWindowView_KeyDown(object sender, KeyEventArgs e)
@@ -223,8 +209,7 @@ namespace Schuermann.Dart.App.Game.UserInterface.Views
          // Open PlugIn Window
          if (KeyboardUtils.IsCtrlPressed() && Keyboard.IsKeyDown(Key.E) && Keyboard.IsKeyDown(Key.A))
          {
-            DartGameViewModel dartGameViewModel = new DartGameViewModel(mainWindowViewModel);
-            //mainWindowViewModel.LoadPlugIns();
+            var dartGameViewModel = new DartGameViewModel(mainWindowViewModel);
 
             var plugInsDialog = new PlugInsDialog(mainWindowViewModel.PlugIns);
             plugInsDialog.ShowDialog();
