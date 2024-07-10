@@ -1,4 +1,4 @@
-﻿// -----------------------------------------------------------------------
+// -----------------------------------------------------------------------
 // <copyright file="ThrowInfo.cs" company="Marc Schürmann">
 //     Copyright (c) Marc Schürmann. All Rights Reserved.
 // </copyright>
@@ -93,11 +93,11 @@ namespace Schuermann.Dart.App.Common.UserInterface.Helper
          get
          {
             // The outer double ring.
-            if (GetCurrentDistanceBetweenMouseAndCenter > DartBoardVariables.PointsToInnerDouble && GetCurrentDistanceBetweenMouseAndCenter < DartBoardVariables.PointsToOuterDouble)
+            if (GetCurrentDistanceBetweenMouseAndCenter > DartBoardUtils.GetPointsToInnerDouble(DartBoard.RenderSize.Width) && GetCurrentDistanceBetweenMouseAndCenter < DartBoardUtils.GetPointsToOuterDouble(DartBoard.RenderSize.Width))
                return true;
 
             // The double bullseye.
-            if (GetCurrentDistanceBetweenMouseAndCenter > DartBoardVariables.InnerBullsEyeRadius && GetCurrentDistanceBetweenMouseAndCenter < DartBoardVariables.OuterBullsEyeRadius)
+            if (GetCurrentDistanceBetweenMouseAndCenter > DartBoardUtils.GetInnerBullsEyeRadius(DartBoard.RenderSize.Width) && GetCurrentDistanceBetweenMouseAndCenter < DartBoardUtils.GetOuterBullsEyeRadius(DartBoard.RenderSize.Width))
                return true;
 
             return false;
@@ -111,15 +111,15 @@ namespace Schuermann.Dart.App.Common.UserInterface.Helper
          get
          {
             // The single bullseye.
-            if (GetCurrentDistanceBetweenMouseAndCenter < DartBoardVariables.InnerBullsEyeRadius)
+            if (GetCurrentDistanceBetweenMouseAndCenter < DartBoardUtils.GetInnerBullsEyeRadius(DartBoard.RenderSize.Width))
                return true;
 
             // The inner single ring.
-            if (GetCurrentDistanceBetweenMouseAndCenter > DartBoardVariables.OuterBullsEyeRadius && GetCurrentDistanceBetweenMouseAndCenter < DartBoardVariables.PointsToInnerTriple)
+            if (GetCurrentDistanceBetweenMouseAndCenter > DartBoardUtils.GetOuterBullsEyeRadius(DartBoard.RenderSize.Width) && GetCurrentDistanceBetweenMouseAndCenter < DartBoardUtils.GetPointsToInnerTriple(DartBoard.RenderSize.Width))
                return true;
 
             // The outer singel ring.
-            if (GetCurrentDistanceBetweenMouseAndCenter > DartBoardVariables.PointsToOuterTriple && GetCurrentDistanceBetweenMouseAndCenter < DartBoardVariables.PointsToInnerDouble)
+            if (GetCurrentDistanceBetweenMouseAndCenter > DartBoardUtils.GetPointsToOuterTriple(DartBoard.RenderSize.Width) && GetCurrentDistanceBetweenMouseAndCenter < DartBoardUtils.GetPointsToInnerDouble(DartBoard.RenderSize.Width))
                return true;
 
             return false;
@@ -132,7 +132,7 @@ namespace Schuermann.Dart.App.Common.UserInterface.Helper
       {
          get
          {
-            return GetCurrentDistanceBetweenMouseAndCenter > DartBoardVariables.PointsToInnerTriple && GetCurrentDistanceBetweenMouseAndCenter < DartBoardVariables.PointsToOuterTriple;
+            return GetCurrentDistanceBetweenMouseAndCenter > DartBoardUtils.GetPointsToInnerTriple(DartBoard.RenderSize.Width) && GetCurrentDistanceBetweenMouseAndCenter < DartBoardUtils.GetPointsToOuterTriple(DartBoard.RenderSize.Width);
          }
       }
 
@@ -146,10 +146,10 @@ namespace Schuermann.Dart.App.Common.UserInterface.Helper
       /// <returns>The points.</returns>
       private IDartThrow CalculatePoints(double angle, double distance)
       {
-         if (distance < DartBoardVariables.InnerBullsEyeRadius)
+         if (distance < DartBoardUtils.GetInnerBullsEyeRadius(DartBoard.RenderSize.Width))
             return new DartThrow(DartBoardField.Bullseye, DartBoardQuantifier.Double);
 
-         if (distance < DartBoardVariables.OuterBullsEyeRadius)
+         if (distance < DartBoardUtils.GetOuterBullsEyeRadius(DartBoard.RenderSize.Width))
             return new DartThrow(DartBoardField.Bullseye, DartBoardQuantifier.Single);
 
          if (angle > DartBoardConstants.AngleBetween13And6 - 9 && angle < DartBoardConstants.AngleBetween6And10)

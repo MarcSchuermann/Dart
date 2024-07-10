@@ -604,66 +604,90 @@
                A converted value. If the method returns null, the valid null value is used.
             </returns>
         </member>
-        <member name="P:Schuermann.Dart.App.Common.UserInterface.Helper.DartBoardVariables.InnerBullsEyeRadius">
-            <summary>Gets the inner bulls eye radius.</summary>
+        <member name="M:Schuermann.Dart.App.Common.UserInterface.Helper.DartBoardUtils.GetInnerBullsEyeRadius(System.Double)">
+            <summary>
+            Gets the inner bulls eye radius.
+            </summary>
             <value>The inner bulls eye radius.</value>
         </member>
-        <member name="P:Schuermann.Dart.App.Common.UserInterface.Helper.DartBoardVariables.OuterBullsEyeRadius">
-            <summary>Gets the points to outer bull.</summary>
+        <member name="M:Schuermann.Dart.App.Common.UserInterface.Helper.DartBoardUtils.GetOuterBullsEyeRadius(System.Double)">
+            <summary>
+            Gets the points to outer bull.
+            </summary>
             <value>The points to outer bull.</value>
         </member>
-        <member name="P:Schuermann.Dart.App.Common.UserInterface.Helper.DartBoardVariables.PointsToInnerDouble">
-            <summary>Gets the points to inner double.</summary>
+        <member name="M:Schuermann.Dart.App.Common.UserInterface.Helper.DartBoardUtils.GetPointsToInnerDouble(System.Double)">
+            <summary>
+            Gets the points to inner double.
+            </summary>
             <value>The points to inner double.</value>
         </member>
-        <member name="P:Schuermann.Dart.App.Common.UserInterface.Helper.DartBoardVariables.PointsToInnerTriple">
-            <summary>Gets the points to inner triple.</summary>
+        <member name="M:Schuermann.Dart.App.Common.UserInterface.Helper.DartBoardUtils.GetPointsToInnerTriple(System.Double)">
+            <summary>
+            Gets the points to inner triple.
+            </summary>
             <value>The points to inner triple.</value>
         </member>
-        <member name="P:Schuermann.Dart.App.Common.UserInterface.Helper.DartBoardVariables.PointsToOuterDouble">
-            <summary>Gets the points to outer double.</summary>
+        <member name="M:Schuermann.Dart.App.Common.UserInterface.Helper.DartBoardUtils.GetPointsToOuterDouble(System.Double)">
+            <summary>
+            Gets the points to outer double.
+            </summary>
             <value>The points to outer double.</value>
         </member>
-        <member name="P:Schuermann.Dart.App.Common.UserInterface.Helper.DartBoardVariables.PointsToOuterTriple">
-            <summary>Gets the points to outer triple.</summary>
+        <member name="M:Schuermann.Dart.App.Common.UserInterface.Helper.DartBoardUtils.GetPointsToOuterTriple(System.Double)">
+            <summary>
+            Gets the points to outer triple.
+            </summary>
             <value>The points to outer triple.</value>
         </member>
         <member name="T:Schuermann.Dart.App.Common.UserInterface.Helper.DartCircleAdorner">
-            <summary>The DartCircleAdorner.</summary>
+            <summary>
+            The DartCircleAdorner.
+            </summary>
             <seealso cref="T:System.Windows.Documents.Adorner"/>
         </member>
         <member name="M:Schuermann.Dart.App.Common.UserInterface.Helper.DartCircleAdorner.#ctor(System.Windows.UIElement,System.Windows.Point,System.Int32)">
-            <summary>Initializes a new instance of the <see cref="T:Schuermann.Dart.App.Common.UserInterface.Helper.DartCircleAdorner"/> class.</summary>
+            <summary>
+            Initializes a new instance of the <see cref="T:Schuermann.Dart.App.Common.UserInterface.Helper.DartCircleAdorner"/> class.
+            </summary>
             <param name="adornedElement">The adorned element.</param>
             <param name="actuallyMousePosition">The actually mouse position.</param>
             <param name="actuallyPoints">The actually points.</param>
         </member>
         <member name="P:Schuermann.Dart.App.Common.UserInterface.Helper.DartCircleAdorner.Center">
-            <summary>Gets or sets the center.</summary>
+            <summary>
+            Gets or sets the center.
+            </summary>
             <value>The center.</value>
         </member>
         <member name="M:Schuermann.Dart.App.Common.UserInterface.Helper.DartCircleAdorner.OnRender(System.Windows.Media.DrawingContext)">
             <summary>
-            When overridden in a derived class, participates in rendering operations that are directed by the layout system. The rendering
-            instructions for this element are not used directly when this method is invoked, and are instead preserved for later asynchronous use by
-            layout and drawing.
+            When overridden in a derived class, participates in rendering operations that are directed by the layout
+            system. The rendering instructions for this element are not used directly when this method is invoked, and are
+            instead preserved for later asynchronous use by layout and drawing.
             </summary>
             <param name="drawingContext">The drawing instructions for a specific element. This context is provided to the layout system.</param>
         </member>
         <member name="M:Schuermann.Dart.App.Common.UserInterface.Helper.DartCircleAdorner.GetDoubleGeometry(System.Windows.Point,System.Windows.Media.Geometry)">
-            <summary>Gets the double geometry.</summary>
+            <summary>
+            Gets the double geometry.
+            </summary>
             <param name="center">The render center.</param>
             <param name="doubleCircle">The double circle.</param>
             <returns>The geometry of the double ring.</returns>
         </member>
         <member name="M:Schuermann.Dart.App.Common.UserInterface.Helper.DartCircleAdorner.GetOuterBullGeometry(System.Windows.Media.Geometry,System.Windows.Media.Geometry)">
-            <summary>Gets the outer bull geometry.</summary>
+            <summary>
+            Gets the outer bull geometry.
+            </summary>
             <param name="circle">The circle.</param>
             <param name="circleToSubtract">The circle to subtract.</param>
             <returns>The geometry of the outer ring.</returns>
         </member>
         <member name="M:Schuermann.Dart.App.Common.UserInterface.Helper.DartCircleAdorner.GetSingleGeometry(System.Windows.Point,System.Windows.Media.Geometry,System.Windows.Media.Geometry,System.Windows.Media.Geometry,System.Windows.Media.Geometry)">
-            <summary>Gets the single geometry.</summary>
+            <summary>
+            Gets the single geometry.
+            </summary>
             <param name="center">The render center.</param>
             <param name="boardCircle">The board circle.</param>
             <param name="bullCircle">The bull circle.</param>
@@ -672,7 +696,9 @@
             <returns>The geometry of the single shape.</returns>
         </member>
         <member name="M:Schuermann.Dart.App.Common.UserInterface.Helper.DartCircleAdorner.GetTripleGeometry(System.Windows.Point,System.Windows.Media.Geometry)">
-            <summary>Gets the triple geometry.</summary>
+            <summary>
+            Gets the triple geometry.
+            </summary>
             <param name="center">The render center.</param>
             <param name="tripleCircle">The triple circle.</param>
             <returns>The geometry of the triple circle.</returns>

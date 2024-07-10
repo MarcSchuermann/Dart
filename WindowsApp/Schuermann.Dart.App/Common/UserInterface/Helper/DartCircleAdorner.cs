@@ -1,40 +1,48 @@
-﻿// -----------------------------------------------------------------------
+//-----------------------------------------------------------------------
 // <copyright file="DartCircleAdorner.cs" company="Marc Schürmann">
-//     Copyright (c) Marc Schürmann. All Rights Reserved.
+//     Copyright (c) Marc Schürmann. All rights reserved.
 // </copyright>
-// -----------------------------------------------------------------------
+//-----------------------------------------------------------------------
 
 using System;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Media;
 
 namespace Schuermann.Dart.App.Common.UserInterface.Helper
 {
-   /// <summary>The DartCircleAdorner.</summary>
+   /// <summary>
+   /// The DartCircleAdorner.
+   /// </summary>
    /// <seealso cref="Adorner"/>
    public class DartCircleAdorner : Adorner
    {
-      #region Private Fields
+      #region Fields
+
+      private Point mousePosition;
+
+      private readonly int points;
+
+      #endregion
+
+      #region Constants
 
       private const int HorizontalCenterAdjustment = 0;
 
       private const int VerticalCenterAdjustment = 0;
 
-      private readonly int points;
+      #endregion
 
-      private Point mousePosition;
+      #region Constructors
 
-      #endregion Private Fields
-
-      #region Public Constructors
-
-      /// <summary>Initializes a new instance of the <see cref="DartCircleAdorner"/> class.</summary>
+      /// <summary>
+      /// Initializes a new instance of the <see cref="DartCircleAdorner"/> class.
+      /// </summary>
       /// <param name="adornedElement">The adorned element.</param>
       /// <param name="actuallyMousePosition">The actually mouse position.</param>
       /// <param name="actuallyPoints">The actually points.</param>
-      public DartCircleAdorner(UIElement adornedElement, Point actuallyMousePosition, int actuallyPoints)
-          : base(adornedElement)
+      public DartCircleAdorner(UIElement adornedElement, Point actuallyMousePosition, int actuallyPoints) : base(adornedElement)
       {
          var centerPoint = new Point
          {
@@ -48,22 +56,28 @@ namespace Schuermann.Dart.App.Common.UserInterface.Helper
          points = actuallyPoints;
       }
 
-      #endregion Public Constructors
+      #endregion
+
+      #region Public properties
 
       #region Public Properties
 
-      /// <summary>Gets or sets the center.</summary>
+      /// <summary>
+      /// Gets or sets the center.
+      /// </summary>
       /// <value>The center.</value>
       public Point Center { get; set; }
+
+      #endregion
 
       #endregion Public Properties
 
       #region Protected Methods
 
       /// <summary>
-      /// When overridden in a derived class, participates in rendering operations that are directed by the layout system. The rendering
-      /// instructions for this element are not used directly when this method is invoked, and are instead preserved for later asynchronous use by
-      /// layout and drawing.
+      /// When overridden in a derived class, participates in rendering operations that are directed by the layout
+      /// system. The rendering instructions for this element are not used directly when this method is invoked, and are
+      /// instead preserved for later asynchronous use by layout and drawing.
       /// </summary>
       /// <param name="drawingContext">The drawing instructions for a specific element. This context is provided to the layout system.</param>
       protected override void OnRender(DrawingContext drawingContext)
@@ -73,33 +87,33 @@ namespace Schuermann.Dart.App.Common.UserInterface.Helper
 
          var distance = Math.Sqrt(Math.Pow(mousePosition.X - Center.X, 2) + Math.Pow(mousePosition.Y - Center.Y, 2));
 
-         var outerBullCircle = new EllipseGeometry(Center, DartBoardVariables.OuterBullsEyeRadius, DartBoardVariables.OuterBullsEyeRadius);
-         var innerBullCircle = new EllipseGeometry(Center, DartBoardVariables.InnerBullsEyeRadius, DartBoardVariables.InnerBullsEyeRadius);
-         var boardCircle = new EllipseGeometry(Center, DartBoardVariables.PointsToOuterDouble, DartBoardVariables.PointsToOuterDouble);
+         var outerBullCircle = new EllipseGeometry(Center, DartBoardUtils.GetOuterBullsEyeRadius(AdornedElement.RenderSize.Width), DartBoardUtils.GetOuterBullsEyeRadius(AdornedElement.RenderSize.Width));
+         var innerBullCircle = new EllipseGeometry(Center, DartBoardUtils.GetInnerBullsEyeRadius(AdornedElement.RenderSize.Width), DartBoardUtils.GetInnerBullsEyeRadius(AdornedElement.RenderSize.Width));
+         var boardCircle = new EllipseGeometry(Center, DartBoardUtils.GetPointsToOuterDouble(AdornedElement.RenderSize.Width), DartBoardUtils.GetPointsToOuterDouble(AdornedElement.RenderSize.Width));
 
-         var outerTripleCircle = new EllipseGeometry(Center, DartBoardVariables.PointsToOuterTriple, DartBoardVariables.PointsToOuterTriple);
-         var innerTripleCirle = new EllipseGeometry(Center, DartBoardVariables.PointsToInnerTriple, DartBoardVariables.PointsToInnerTriple);
+         var outerTripleCircle = new EllipseGeometry(Center, DartBoardUtils.GetPointsToOuterTriple(AdornedElement.RenderSize.Width), DartBoardUtils.GetPointsToOuterTriple(AdornedElement.RenderSize.Width));
+         var innerTripleCirle = new EllipseGeometry(Center, DartBoardUtils.GetPointsToInnerTriple(AdornedElement.RenderSize.Width), DartBoardUtils.GetPointsToInnerTriple(AdornedElement.RenderSize.Width));
          var tripleCirle = new CombinedGeometry(GeometryCombineMode.Exclude, outerTripleCircle, innerTripleCirle);
 
-         var outerDoubleCircle = new EllipseGeometry(Center, DartBoardVariables.PointsToOuterDouble + 1, DartBoardVariables.PointsToOuterDouble + 1);
-         var innerDoubleCirle = new EllipseGeometry(Center, DartBoardVariables.PointsToInnerDouble, DartBoardVariables.PointsToInnerDouble);
+         var outerDoubleCircle = new EllipseGeometry(Center, DartBoardUtils.GetPointsToOuterDouble(AdornedElement.RenderSize.Width) + 1, DartBoardUtils.GetPointsToOuterDouble(AdornedElement.RenderSize.Width) + 1);
+         var innerDoubleCirle = new EllipseGeometry(Center, DartBoardUtils.GetPointsToInnerDouble(AdornedElement.RenderSize.Width), DartBoardUtils.GetPointsToInnerDouble(AdornedElement.RenderSize.Width));
          var doubleCirle = new CombinedGeometry(GeometryCombineMode.Exclude, outerDoubleCircle, innerDoubleCirle);
 
-         if (distance <= DartBoardVariables.InnerBullsEyeRadius)
+         if (distance <= DartBoardUtils.GetInnerBullsEyeRadius(AdornedElement.RenderSize.Width))
          {
             // Draw Inner Bull
-            drawingContext.DrawEllipse(renderBrush, renderPen, Center, DartBoardVariables.InnerBullsEyeRadius, DartBoardVariables.InnerBullsEyeRadius);
+            drawingContext.DrawEllipse(renderBrush, renderPen, Center, DartBoardUtils.GetInnerBullsEyeRadius(AdornedElement.RenderSize.Width), DartBoardUtils.GetInnerBullsEyeRadius(AdornedElement.RenderSize.Width));
             return;
          }
-         else if (distance <= DartBoardVariables.OuterBullsEyeRadius && distance >= DartBoardVariables.InnerBullsEyeRadius)
+         else if (distance <= DartBoardUtils.GetOuterBullsEyeRadius(AdornedElement.RenderSize.Width) && distance >= DartBoardUtils.GetInnerBullsEyeRadius(AdornedElement.RenderSize.Width))
          {
             // Draw Outer Bull
             drawingContext.DrawGeometry(renderBrush, renderPen, GetOuterBullGeometry(outerBullCircle, innerBullCircle));
             return;
          }
-         else if (distance <= DartBoardVariables.PointsToOuterDouble)
+         else if (distance <= DartBoardUtils.GetPointsToOuterDouble(AdornedElement.RenderSize.Width))
          {
-            if (distance >= DartBoardVariables.PointsToInnerDouble && distance <= DartBoardVariables.PointsToOuterDouble)
+            if (distance >= DartBoardUtils.GetPointsToInnerDouble(AdornedElement.RenderSize.Width) && distance <= DartBoardUtils.GetPointsToOuterDouble(AdornedElement.RenderSize.Width))
             {
                // Draw Double
                var doubleGeometry = GetDoubleGeometry(Center, doubleCirle);
@@ -109,7 +123,7 @@ namespace Schuermann.Dart.App.Common.UserInterface.Helper
 
                return;
             }
-            else if (distance >= DartBoardVariables.PointsToInnerTriple && distance <= DartBoardVariables.PointsToOuterTriple)
+            else if (distance >= DartBoardUtils.GetPointsToInnerTriple(AdornedElement.RenderSize.Width) && distance <= DartBoardUtils.GetPointsToOuterTriple(AdornedElement.RenderSize.Width))
             {
                // Draw Triple
                var tripleGeometry = GetTripleGeometry(Center, tripleCirle);
@@ -135,17 +149,45 @@ namespace Schuermann.Dart.App.Common.UserInterface.Helper
             // Draw Zero
             if (points == 0)
             {
-               Geometry wholeImage = new RectangleGeometry(new Rect(new Point(Center.X - 250, Center.Y - 250), new Point(Center.X + 250, Center.Y + 250)));
+               var parentButton = GetParentButton();
+               if (parentButton == null)
+                  return;
+
+               var x1 = Center.X - (parentButton.ActualWidth / 2);
+               var y1 = Center.Y - (parentButton.ActualHeight / 2);
+
+               var x2 = Center.X + (parentButton.ActualWidth / 2);
+               var y2 = Center.Y + (parentButton.ActualHeight / 2);
+
+               var wholeImage = new RectangleGeometry(new Rect(new Point(x1, y1), new Point(x2, y2)));
                drawingContext.DrawGeometry(renderBrush, renderPen, new CombinedGeometry(GeometryCombineMode.Exclude, wholeImage, boardCircle));
             }
          }
+      }
+
+      private Button GetParentButton()
+      {
+         if (AdornedElement is Image image)
+         {
+            if (image.Parent is Grid grid)
+            {
+               if (grid.Parent is Button button)
+               {
+                  return button;
+               }
+            }
+         }
+
+         return null;
       }
 
       #endregion Protected Methods
 
       #region Private Methods
 
-      /// <summary>Gets the double geometry.</summary>
+      /// <summary>
+      /// Gets the double geometry.
+      /// </summary>
       /// <param name="center">The render center.</param>
       /// <param name="doubleCircle">The double circle.</param>
       /// <returns>The geometry of the double ring.</returns>
@@ -306,7 +348,9 @@ namespace Schuermann.Dart.App.Common.UserInterface.Helper
          return null;
       }
 
-      /// <summary>Gets the outer bull geometry.</summary>
+      /// <summary>
+      /// Gets the outer bull geometry.
+      /// </summary>
       /// <param name="circle">The circle.</param>
       /// <param name="circleToSubtract">The circle to subtract.</param>
       /// <returns>The geometry of the outer ring.</returns>
@@ -315,7 +359,9 @@ namespace Schuermann.Dart.App.Common.UserInterface.Helper
          return new CombinedGeometry(GeometryCombineMode.Exclude, circle, circleToSubtract);
       }
 
-      /// <summary>Gets the single geometry.</summary>
+      /// <summary>
+      /// Gets the single geometry.
+      /// </summary>
       /// <param name="center">The render center.</param>
       /// <param name="boardCircle">The board circle.</param>
       /// <param name="bullCircle">The bull circle.</param>
@@ -483,7 +529,9 @@ namespace Schuermann.Dart.App.Common.UserInterface.Helper
          return null;
       }
 
-      /// <summary>Gets the triple geometry.</summary>
+      /// <summary>
+      /// Gets the triple geometry.
+      /// </summary>
       /// <param name="center">The render center.</param>
       /// <param name="tripleCircle">The triple circle.</param>
       /// <returns>The geometry of the triple circle.</returns>
