@@ -926,24 +926,46 @@
             <summary>Sets the players.</summary>
         </member>
         <member name="T:Schuermann.Dart.App.Game.UserInterface.ViewModels.GameOptionsViewModel">
-            <summary>The GameOptionsViewModel.</summary>
+            <summary>
+            The GameOptionsViewModel.
+            </summary>
         </member>
         <member name="M:Schuermann.Dart.App.Game.UserInterface.ViewModels.GameOptionsViewModel.#ctor">
             <summary>
-               Initializes a new instance of the <see cref="T:Schuermann.Dart.App.Game.UserInterface.ViewModels.GameOptionsViewModel" /> class.
+            Initializes a new instance of the <see cref="T:Schuermann.Dart.App.Game.UserInterface.ViewModels.GameOptionsViewModel"/> class.
             </summary>
         </member>
+        <member name="P:Schuermann.Dart.App.Game.UserInterface.ViewModels.GameOptionsViewModel.Playerlist">
+            <summary>
+            Gets or sets the player list.
+            </summary>
+            <value>The player list.</value>
+        </member>
+        <member name="M:Schuermann.Dart.App.Game.UserInterface.ViewModels.GameOptionsViewModel.GameSettingsViewModel_PropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
+            <summary>
+            Handles the PropertyChanged event of the GameSettingsViewModel control.
+            </summary>
+            <param name="sender">The source of the event.</param>
+            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data.</param>
+        </member>
+        <member name="M:Schuermann.Dart.App.Game.UserInterface.ViewModels.GameOptionsViewModel.SetupPlayerlist(System.Int32)">
+            <summary>
+            Creates the player list.
+            </summary>
+            <param name="playerCount">The player count.</param>
+            <returns>The Player list.</returns>
+        </member>
         <member name="P:Schuermann.Dart.App.Game.UserInterface.ViewModels.GameOptionsViewModel.GameSettings">
-            <summary>Gets or sets the game settings.</summary>
+            <summary>
+            Gets or sets the game settings.
+            </summary>
             <value>The game settings.</value>
         </member>
         <member name="P:Schuermann.Dart.App.Game.UserInterface.ViewModels.GameOptionsViewModel.Label">
-            <summary>Gets the label.</summary>
+            <summary>
+            Gets the label.
+            </summary>
             <value>The label.</value>
-        </member>
-        <member name="P:Schuermann.Dart.App.Game.UserInterface.ViewModels.GameOptionsViewModel.PlayerlistViewModel">
-            <summary>Gets or sets the player list view model.</summary>
-            <value>The player list view model.</value>
         </member>
         <member name="T:Schuermann.Dart.App.Game.UserInterface.ViewModels.GameSettingsViewModel">
             <summary>The GameSettingsViewModel.</summary>
@@ -1034,27 +1056,6 @@
         </member>
         <member name="M:Schuermann.Dart.App.Game.UserInterface.ViewModels.MainWindowViewModel.StartDartGame">
             <summary>Starts the dart game.</summary>
-        </member>
-        <member name="T:Schuermann.Dart.App.Game.UserInterface.ViewModels.PlayerlistViewModel">
-            <summary>The Player list ViewModel.</summary>
-        </member>
-        <member name="M:Schuermann.Dart.App.Game.UserInterface.ViewModels.PlayerlistViewModel.#ctor(Schuermann.Dart.App.Game.UserInterface.ViewModels.GameSettingsViewModel)">
-            <summary>Initializes a new instance of the <see cref="T:Schuermann.Dart.App.Game.UserInterface.ViewModels.PlayerlistViewModel"/> class.</summary>
-            <param name="gameSettingsViewModel">The game settings view model.</param>
-        </member>
-        <member name="P:Schuermann.Dart.App.Game.UserInterface.ViewModels.PlayerlistViewModel.Playerlist">
-            <summary>Gets or sets the player list.</summary>
-            <value>The player list.</value>
-        </member>
-        <member name="M:Schuermann.Dart.App.Game.UserInterface.ViewModels.PlayerlistViewModel.GameSettingsViewModel_PropertyChanged(System.Object,System.ComponentModel.PropertyChangedEventArgs)">
-            <summary>Handles the PropertyChanged event of the GameSettingsViewModel control.</summary>
-            <param name="sender">The source of the event.</param>
-            <param name="e">The <see cref="T:System.ComponentModel.PropertyChangedEventArgs"/> instance containing the event data.</param>
-        </member>
-        <member name="M:Schuermann.Dart.App.Game.UserInterface.ViewModels.PlayerlistViewModel.SetupPlayerlist(System.Int32)">
-            <summary>Creates the player list.</summary>
-            <param name="playerCount">The player count.</param>
-            <returns>The Player list.</returns>
         </member>
         <member name="T:Schuermann.Dart.App.Game.UserInterface.ViewModels.PlayerViewModel">
             <summary>The PlayerViewModel.</summary>
@@ -1183,24 +1184,6 @@
             <param name="e">The <see cref="T:System.ComponentModel.CancelEventArgs"/> instance containing the event data.</param>
         </member>
         <member name="M:Schuermann.Dart.App.Game.UserInterface.Views.MainWindowView.InitializeComponent">
-            <summary>
-            InitializeComponent
-            </summary>
-        </member>
-        <member name="T:Schuermann.Dart.App.Game.UserInterface.Views.PlayerlistView">
-            <summary>The Player list view.</summary>
-            <seealso cref="T:System.Windows.Controls.UserControl" />
-            <seealso cref="T:System.Windows.Markup.IComponentConnector" />
-            <summary>
-            PlayerlistView
-            </summary>
-        </member>
-        <member name="M:Schuermann.Dart.App.Game.UserInterface.Views.PlayerlistView.#ctor">
-            <summary>
-               Initializes a new instance of the <see cref="T:Schuermann.Dart.App.Game.UserInterface.Views.PlayerlistView" /> class.
-            </summary>
-        </member>
-        <member name="M:Schuermann.Dart.App.Game.UserInterface.Views.PlayerlistView.InitializeComponent">
             <summary>
             InitializeComponent
             </summary>
@@ -1663,36 +1646,6 @@
         <member name="M:Game.App.Main">
             <summary>
             Application Entry Point.
-            </summary>
-        </member>
-        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
-            <summary>
-            GeneratedInternalTypeHelper
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
-            <summary>
-            CreateInstance
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            GetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
-            <summary>
-            SetPropertyValue
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
-            <summary>
-            CreateDelegate
-            </summary>
-        </member>
-        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
-            <summary>
-            AddEventHandler
             </summary>
         </member>
     </members>

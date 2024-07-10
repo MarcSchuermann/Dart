@@ -1,46 +1,102 @@
-﻿// -----------------------------------------------------------------------
+//-----------------------------------------------------------------------
 // <copyright file="GameOptionsViewModel.cs" company="Marc Schürmann">
-//     Copyright (c) Marc Schürmann. All Rights Reserved.
+//     Copyright (c) Marc Schürmann. All rights reserved.
 // </copyright>
-// -----------------------------------------------------------------------
+//-----------------------------------------------------------------------
+
+using System;
+using System.ComponentModel;
+using System.Drawing.Printing;
+using Schuermann.Dart.App.Common.UserInterface.Helper;
 using Schuermann.Dart.App.Common.UserInterface.ViewModels;
+using Schuermann.Dart.App.Properties;
 
 namespace Schuermann.Dart.App.Game.UserInterface.ViewModels
 {
-   /// <summary>The GameOptionsViewModel.</summary>
+   /// <summary>
+   /// The GameOptionsViewModel.
+   /// </summary>
    public class GameOptionsViewModel : ViewModelBase
    {
-      #region Private Fields
+      #region Fields
 
       private GameSettingsViewModel gameSettings;
 
-      private PlayerlistViewModel playerlistViewModel;
+      #endregion
 
-      #endregion Private Fields
-
-      #region Public Constructors
+      #region Constructors
 
       /// <summary>
-      ///    Initializes a new instance of the <see cref="GameOptionsViewModel" /> class.
+      /// Initializes a new instance of the <see cref="GameOptionsViewModel"/> class.
       /// </summary>
       public GameOptionsViewModel()
       {
          GameSettings = new GameSettingsViewModel();
-         PlayerlistViewModel = new PlayerlistViewModel(GameSettings);
+
+         GameSettings.PropertyChanged += GameSettingsViewModel_PropertyChanged;
+
+         SetupPlayerlist(Convert.ToInt32(GameSettings.SelectedPlayerCount));
       }
 
-      #endregion Public Constructors
+      #endregion
+
+      #region Public properties
+
+      /// <summary>
+      /// Gets or sets the player list.
+      /// </summary>
+      /// <value>The player list.</value>
+      public ItemsChangeObservableCollection<PlayerViewModel> Playerlist { get; set; }
+
+      #endregion
+
+      #region Private methods
+
+      /// <summary>
+      /// Handles the PropertyChanged event of the GameSettingsViewModel control.
+      /// </summary>
+      /// <param name="sender">The source of the event.</param>
+      /// <param name="e">The <see cref="PropertyChangedEventArgs"/> instance containing the event data.</param>
+      private void GameSettingsViewModel_PropertyChanged(object sender, PropertyChangedEventArgs e)
+      {
+         if (sender is GameSettingsViewModel gameSettingsViewModel)
+         {
+            var playerCount = Convert.ToInt32(gameSettingsViewModel.SelectedPlayerCount);
+            SetupPlayerlist(playerCount);
+         }
+
+         RaisePropertyChanged(nameof(Playerlist));
+      }
+
+      /// <summary>
+      /// Creates the player list.
+      /// </summary>
+      /// <param name="playerCount">The player count.</param>
+      /// <returns>The Player list.</returns>
+      private ItemsChangeObservableCollection<PlayerViewModel> SetupPlayerlist(int playerCount)
+      {
+         Playerlist ??= new ItemsChangeObservableCollection<PlayerViewModel>();
+
+         while (Playerlist.Count < playerCount)
+            Playerlist.Add(new PlayerViewModel($"Player {Playerlist.Count + 1}"));
+
+         while (Playerlist.Count > playerCount)
+            Playerlist.RemoveAt(playerCount);
+
+         return Playerlist;
+      }
+
+      #endregion
 
       #region Public Properties
 
-      /// <summary>Gets or sets the game settings.</summary>
+      /// <summary>
+      /// Gets or sets the game settings.
+      /// </summary>
       /// <value>The game settings.</value>
       public GameSettingsViewModel GameSettings
       {
-         get
-         {
-            return gameSettings;
-         }
+         get => gameSettings;
 
          set
          {
@@ -52,27 +108,11 @@ namespace Schuermann.Dart.App.Game.UserInterface.ViewModels
          }
       }
 
-      /// <summary>Gets the label.</summary>
+      /// <summary>
+      /// Gets the label.
+      /// </summary>
       /// <value>The label.</value>
-      public string Label => Properties.Resources.Throwgame;
-
-      /// <summary>Gets or sets the player list view model.</summary>
-      /// <value>The player list view model.</value>
-      public PlayerlistViewModel PlayerlistViewModel
-      {
-         get
-         {
-            return playerlistViewModel;
-         }
-         set
-         {
-            if (playerlistViewModel == value)
-               return;
-
-            playerlistViewModel = value;
-            RaisePropertyChanged(nameof(PlayerlistViewModel));
-         }
-      }
+      public string Label => Resources.Throwgame;
 
       #endregion Public Properties
    }

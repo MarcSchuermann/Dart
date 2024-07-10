@@ -47,7 +47,7 @@ namespace Schuermann.Dart.App.Game.UserInterface.ViewModels
 
       private readonly Predicate<object> canStart = (currentContent) =>
                                                                {
-                                                                  if (currentContent is not GameOptionsViewModel currentGameOptions || currentGameOptions.GameSettings == null || currentGameOptions.PlayerlistViewModel == null)
+                                                                  if (currentContent is not GameOptionsViewModel currentGameOptions || currentGameOptions.GameSettings == null)
                                                                      return false;
 
                                                                   if (string.IsNullOrWhiteSpace(currentGameOptions.GameSettings.SelectedPlayerCount))
@@ -56,7 +56,7 @@ namespace Schuermann.Dart.App.Game.UserInterface.ViewModels
                                                                   if (string.IsNullOrWhiteSpace(currentGameOptions.GameSettings.SelectedStartPoints))
                                                                      return false;
 
-                                                                  foreach (var player in currentGameOptions.PlayerlistViewModel.Playerlist)
+                                                                  foreach (var player in currentGameOptions.Playerlist)
                                                                   {
                                                                      if (player.Name == null || player.Name.Length < 3)
                                                                         return false;
@@ -238,7 +238,7 @@ namespace Schuermann.Dart.App.Game.UserInterface.ViewModels
             var doubleIn = currentGameOptionsViewModel.GameSettings.DoubleIn;
             var doubleOut = currentGameOptionsViewModel.GameSettings.DoubleIn;
 
-            foreach (var player in currentGameOptionsViewModel.PlayerlistViewModel.Playerlist)
+            foreach (var player in currentGameOptionsViewModel.Playerlist)
             {
                players.Add(new Player(player.Name, startPoints, doubleIn, doubleOut));
             }
