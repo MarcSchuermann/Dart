@@ -2,7 +2,7 @@
   <PropertyGroup>
     <RootNamespace>UnitTests</RootNamespace>
     <AssemblyName>UnitTestsDart</AssemblyName>
-    <TargetFramework>net6.0-windows</TargetFramework>
+    <TargetFramework>net10.0-windows7.0</TargetFramework>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <ItemGroup>
