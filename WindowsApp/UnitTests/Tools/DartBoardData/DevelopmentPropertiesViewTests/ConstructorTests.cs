@@ -21,7 +21,7 @@ namespace UnitTests.Tools.DartBoardData.DevelopmentPropertiesViewTests
         {
             ViewTestExecuter.Instance.Run(() =>
             {
-                var developmentPropertiesView = new DevelopmentPropertiesView();
+                var developmentPropertiesView = new DevelopmentPropertiesView(null);
             });
         }
 

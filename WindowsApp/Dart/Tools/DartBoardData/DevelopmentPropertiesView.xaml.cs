@@ -5,6 +5,7 @@
 // -----------------------------------------------------------------------
 //// <copyright>Marc Schürmann</copyright>
 
+using Dart.Common.UserInterface.Helper;
 using System.Runtime.InteropServices;
 using System.Windows;
 
@@ -14,15 +15,32 @@ namespace Dart.Tools
     [ComVisible(false)]
     public partial class DevelopmentPropertiesView : Window
     {
-        #region Public Constructors
+      private readonly IThrowInfo throwInfo;
+      #region Public Constructors
 
-        /// <summary>
-        /// Initializes a new instance of the <see cref="DevelopmentPropertiesView"/> class.
-        /// </summary>
-        public DevelopmentPropertiesView()
+      /// <summary>
+      /// Initializes a new instance of the <see cref="DevelopmentPropertiesView"/> class.
+      /// </summary>
+      public DevelopmentPropertiesView(IThrowInfo throwInfo)
         {
             InitializeComponent();
-        }
+         this.throwInfo = throwInfo;
+
+         FillData();
+      }
+
+      public void FillData()
+      {
+         list.Items.Clear();
+
+         if (throwInfo == null)
+            return;
+
+         foreach (var prop in throwInfo.GetType().GetProperties())
+         {
+            list.Items.Add(new { Name = prop.Name, Value = prop.GetValue(throwInfo)?.ToString() ?? "null" });
+         }
+      }
 
         #endregion Public Constructors
     }

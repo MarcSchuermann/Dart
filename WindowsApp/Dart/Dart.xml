@@ -1489,7 +1489,7 @@
             DevelopmentPropertiesView
             </summary>
         </member>
-        <member name="M:Dart.Tools.DevelopmentPropertiesView.#ctor">
+        <member name="M:Dart.Tools.DevelopmentPropertiesView.#ctor(Dart.Common.UserInterface.Helper.IThrowInfo)">
             <summary>
             Initializes a new instance of the <see cref="T:Dart.Tools.DevelopmentPropertiesView"/> class.
             </summary>

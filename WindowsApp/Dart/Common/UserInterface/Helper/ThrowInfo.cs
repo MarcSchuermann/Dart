@@ -14,8 +14,8 @@ namespace Dart
 {
     /// <summary>The throw info.</summary>
     /// <seealso cref="Common.UserInterface.Helper.NotifyPropertyChanged" />
-    public class ThrowInfo : NotifyPropertyChanged
-    {
+    public class ThrowInfo : NotifyPropertyChanged, IThrowInfo
+   {
         #region Private Fields
 
         private UIElement dartBoard;

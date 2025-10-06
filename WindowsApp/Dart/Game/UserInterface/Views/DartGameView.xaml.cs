@@ -106,11 +106,9 @@ namespace Dart.Game.UserInterface.Views
 
             if (developmentPropertiesView == null)
             {
-                developmentPropertiesView = new DevelopmentPropertiesView();
+                developmentPropertiesView = new DevelopmentPropertiesView(new ThrowInfo(DartBoardImage));
                 developmentPropertiesView.Show();
             }
-
-            developmentPropertiesView.propertyView.SelectedObject = new ThrowInfo(DartBoardImage);
         }
 
         #endregion Private Methods
