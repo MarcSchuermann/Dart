@@ -8,6 +8,7 @@ using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Documents;
 using System.Windows.Input;
+using Dart.Common.UserInterface.Helper;
 using Dart.Tools;
 using Schuermann.Darts.GameCore.Thrown;
 
@@ -32,8 +33,6 @@ namespace Dart.Game.UserInterface.Views
         public DartGameView()
         {
             InitializeComponent();
-
-            ShowDevUiData();
         }
 
         #endregion Public Constructors
@@ -66,13 +65,14 @@ namespace Dart.Game.UserInterface.Views
         /// </param>
         private void DartBoardMouseMove(object sender, MouseEventArgs e)
         {
-            CurrentPoints = new ThrowInfo(DartBoardImage).GetPointsAtMousePosition;
+         var dartBoardImage = new ThrowInfo(DartBoardImage);
+            CurrentPoints = dartBoardImage.GetPointsAtMousePosition;
 
             PointsUnderMousePlaceholder.Content = CurrentPoints;
 
             RenderPointsAdorner(sender, GetCurrentMousePosition(), CurrentPoints.Points);
 
-            ShowDevUiData();
+            ShowDevUiData(dartBoardImage);
         }
 
         /// <summary>Gets the current mouse position.</summary>
@@ -99,17 +99,18 @@ namespace Dart.Game.UserInterface.Views
         }
 
         /// <summary>Shows the development UI data.</summary>
-        private void ShowDevUiData()
+        private void ShowDevUiData(IThrowInfo throwInfo)
         {
-            if (!Properties.Settings.Default.ShowUserInterfaceDartBoardData)
-                return;
+         //if (!Properties.Settings.Default.ShowUserInterfaceDartBoardData)
+         //    return;
 
-            if (developmentPropertiesView == null)
-            {
-                developmentPropertiesView = new DevelopmentPropertiesView(new ThrowInfo(DartBoardImage));
+         if (developmentPropertiesView == null)
+         {
+            developmentPropertiesView = new DevelopmentPropertiesView();
                 developmentPropertiesView.Show();
-            }
-        }
+         }
+               developmentPropertiesView.FillData(throwInfo);
+      }
 
         #endregion Private Methods
     }

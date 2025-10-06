@@ -21,15 +21,12 @@ namespace Dart.Tools
       /// <summary>
       /// Initializes a new instance of the <see cref="DevelopmentPropertiesView"/> class.
       /// </summary>
-      public DevelopmentPropertiesView(IThrowInfo throwInfo)
+      public DevelopmentPropertiesView()
         {
             InitializeComponent();
-         this.throwInfo = throwInfo;
-
-         FillData();
       }
 
-      public void FillData()
+      public void FillData(IThrowInfo throwInfo)
       {
          list.Items.Clear();
 
@@ -38,7 +35,7 @@ namespace Dart.Tools
 
          foreach (var prop in throwInfo.GetType().GetProperties())
          {
-            list.Items.Add(new { Name = prop.Name, Value = prop.GetValue(throwInfo)?.ToString() ?? "null" });
+            list.Items.Add( $"{prop.Name}: {prop.GetValue(throwInfo)?.ToString() ?? "null"}");
          }
       }
 

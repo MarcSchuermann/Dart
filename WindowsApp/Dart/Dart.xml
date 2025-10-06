@@ -797,7 +797,7 @@
             <param name="actuallyMousePosition">The actually mouse position.</param>
             <param name="actuallyPoints">The actually points.</param>
         </member>
-        <member name="M:Dart.Game.UserInterface.Views.DartGameView.ShowDevUiData">
+        <member name="M:Dart.Game.UserInterface.Views.DartGameView.ShowDevUiData(Dart.Common.UserInterface.Helper.IThrowInfo)">
             <summary>Shows the development UI data.</summary>
         </member>
         <member name="M:Dart.Game.UserInterface.Views.DartGameView.InitializeComponent">
@@ -1489,7 +1489,7 @@
             DevelopmentPropertiesView
             </summary>
         </member>
-        <member name="M:Dart.Tools.DevelopmentPropertiesView.#ctor(Dart.Common.UserInterface.Helper.IThrowInfo)">
+        <member name="M:Dart.Tools.DevelopmentPropertiesView.#ctor">
             <summary>
             Initializes a new instance of the <see cref="T:Dart.Tools.DevelopmentPropertiesView"/> class.
             </summary>
@@ -1518,6 +1518,36 @@
         <member name="M:Game.App.Main">
             <summary>
             Application Entry Point.
+            </summary>
+        </member>
+        <member name="T:XamlGeneratedNamespace.GeneratedInternalTypeHelper">
+            <summary>
+            GeneratedInternalTypeHelper
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateInstance(System.Type,System.Globalization.CultureInfo)">
+            <summary>
+            CreateInstance
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.GetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            GetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.SetPropertyValue(System.Reflection.PropertyInfo,System.Object,System.Object,System.Globalization.CultureInfo)">
+            <summary>
+            SetPropertyValue
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.CreateDelegate(System.Type,System.Object,System.String)">
+            <summary>
+            CreateDelegate
+            </summary>
+        </member>
+        <member name="M:XamlGeneratedNamespace.GeneratedInternalTypeHelper.AddEventHandler(System.Reflection.EventInfo,System.Object,System.Delegate)">
+            <summary>
+            AddEventHandler
             </summary>
         </member>
     </members>
