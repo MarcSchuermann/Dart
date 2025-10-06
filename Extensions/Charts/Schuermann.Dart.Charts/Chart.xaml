@@ -1,0 +1,39 @@
+﻿<UserControl x:Class="Schuermann.Dart.Charts.Chart"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:lvc="clr-namespace:LiveChartsCore.SkiaSharpView.WPF;assembly=LiveChartsCore.SkiaSharpView.WPF"
+             xmlns:charts="clr-namespace:Schuermann.Dart.Charts"
+             mc:Ignorable="d" >
+
+   <Grid>
+      <TabControl>
+
+         <TabItem Header="{x:Static charts:Resource.ThrowHistory}">
+            <lvc:CartesianChart Series="{Binding ThrowHistorySeriesCollection}" XAxes="{Binding XAxisThrowHistory}" YAxes="{Binding YAxisThrowHistory}" />
+         </TabItem>
+
+         <TabItem Header="{x:Static charts:Resource.PointsHistory}">
+            <lvc:CartesianChart Series="{Binding PointHistorySeriesCollection}" LegendPosition="Right" XAxes="{Binding XAxisPointHistory}" YAxes="{Binding YAxisPointHistory}" LegendTextPaint="{Binding LegendTextPaint}"/>
+         </TabItem>
+
+         <TabItem Header="{x:Static charts:Resource.ThrownFields}">
+            <Grid>
+               <Grid.ColumnDefinitions>
+                  <ColumnDefinition />
+                  <ColumnDefinition Width="120" />
+               </Grid.ColumnDefinitions>
+               <Grid.RowDefinitions>
+                  <RowDefinition Height="35" />
+                  <RowDefinition />
+               </Grid.RowDefinitions>
+
+               <lvc:PieChart Grid.Column="0" Grid.RowSpan="2" Series="{Binding SingleFieldSeriesCollection}" LegendPosition="Right" LegendTextPaint="{Binding LegendTextPaint}"/>
+
+               <ComboBox Grid.Column="1" Grid.Row="0" ItemsSource="{Binding GameInstance.GameOptions.PlayerList}" SelectedItem="{Binding Player, Mode=TwoWay}" IsSynchronizedWithCurrentItem="True" Margin="2,2,2,2" />
+            </Grid>
+         </TabItem>
+      </TabControl>
+   </Grid>
+</UserControl>

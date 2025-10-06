@@ -1,0 +1,974 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Schuermann.Dart.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Schuermann.Dart.Core.EnvironmentProps.IProperties">
+            <summary>The properties.</summary>
+        </member>
+        <member name="P:Schuermann.Dart.Core.EnvironmentProps.IProperties.Culture">
+            <summary>Gets the culture.</summary>
+            <value>The culture.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.EnvironmentProps.IProperties.Theme">
+            <summary>Gets the theme.</summary>
+            <value>The theme.</value>
+        </member>
+        <member name="T:Schuermann.Dart.Core.EnvironmentProps.Properties">
+            <summary>The properties of the environment like the culture or the theme.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.EnvironmentProps.Properties.#ctor(System.String,System.Globalization.CultureInfo)">
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Dart.Core.EnvironmentProps.Properties" /> class.</summary>
+            <param name="theme">The theme.</param>
+            <param name="culture">The culture.</param>
+        </member>
+        <member name="P:Schuermann.Dart.Core.EnvironmentProps.Properties.Culture">
+            <summary>Gets the culture.</summary>
+            <value>The culture.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.EnvironmentProps.Properties.Theme">
+            <summary>Gets the theme.</summary>
+            <value>The theme.</value>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Extensibility.IPlugIn">
+            <summary>The plug in interface.</summary>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Extensibility.IPlugIn.Name">
+            <summary>Gets the name.</summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Extensibility.IPlugIn.PlugInCommand">
+            <summary>Gets the plug in command.</summary>
+            <value>The plug in command.</value>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Extensibility.IPlugInCommand">
+            <summary>The plug in command.</summary>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Extensibility.IPlugInCommand.DisplayText">
+            <summary>Gets the display text.</summary>
+            <value>The display text.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Extensibility.IPlugInCommand.EnabledInGame">
+            <summary>Gets a value indicating whether [enabled in game].</summary>
+            <value><c>true</c> if [enabled in game]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Extensibility.IPlugInCommand.EnabledInMainMenu">
+            <summary>Gets a value indicating whether [enabled in main menu].</summary>
+            <value><c>true</c> if [enabled in main menu]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Extensibility.IPlugInCommand.OnExecute">
+            <summary>Gets the on execute.</summary>
+            <value>The on execute.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Extensibility.IPlugInCommand.PlugIn">
+            <summary>Gets the plug in.</summary>
+            <value>The plug in.</value>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Extensibility.PlugInCommand">
+            <summary>The simpliest implementation of the IPlugInCommand.</summary>
+            <seealso cref="T:Schuermann.Dart.Core.Extensibility.IPlugInCommand" />
+        </member>
+        <member name="M:Schuermann.Dart.Core.Extensibility.PlugInCommand.#ctor(Schuermann.Dart.Core.Extensibility.IPlugIn,System.Action,System.Boolean,System.Boolean)">
+            <summary>
+               Initializes a new instance of the <see cref="T:Schuermann.Dart.Core.Extensibility.PlugInCommand" /> class.
+            </summary>
+            <param name="plugIn">The plug in.</param>
+            <param name="onExecute">The on execute.</param>
+            <param name="enabledInMainMenu">if set to <c>true</c> [enabled in main menu].</param>
+            <param name="enabledInGame">if set to <c>true</c> [enabled in game].</param>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Extensibility.PlugInCommand.DisplayText">
+            <inheritdoc />
+        </member>
+        <member name="P:Schuermann.Dart.Core.Extensibility.PlugInCommand.EnabledInGame">
+            <inheritdoc />
+        </member>
+        <member name="P:Schuermann.Dart.Core.Extensibility.PlugInCommand.EnabledInMainMenu">
+            <inheritdoc />
+        </member>
+        <member name="P:Schuermann.Dart.Core.Extensibility.PlugInCommand.OnExecute">
+            <inheritdoc />
+        </member>
+        <member name="P:Schuermann.Dart.Core.Extensibility.PlugInCommand.PlugIn">
+            <inheritdoc />
+        </member>
+        <member name="T:Schuermann.Dart.Core.Game.GameInstance">
+            <summary>The instance.</summary>
+            <seealso cref="T:Schuermann.Dart.Core.Game.IGameInstance" />
+        </member>
+        <member name="M:Schuermann.Dart.Core.Game.GameInstance.#ctor(Schuermann.Dart.Core.Game.IGameOptions)">
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Dart.Core.Game.GameInstance" /> class.</summary>
+            <param name="gameOptions">The game options.</param>
+        </member>
+        <member name="E:Schuermann.Dart.Core.Game.GameInstance.StandingsChanged">
+            <summary>Occurs when [player thrown].</summary>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.GameInstance.CurrentPlayer">
+            <summary>Gets the current player.</summary>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.GameInstance.GameOptions">
+            <summary>Gets the game options.</summary>
+            <value>The game options.</value>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Game.GameInstance.Dispose">
+            <summary>
+               Performs application-defined tasks associated with freeing, releasing, or resetting
+               unmanaged resources.
+            </summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Game.GameInstance.InvokeStandingsChanged(Schuermann.Dart.Core.Game.IGameProcedure)">
+            <summary>Invokes the standings changed.</summary>
+            <param name="gameProcedure">The game procedure.</param>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Game.GameInstance.Dispose(System.Boolean)">
+            <summary>Releases unmanaged and - optionally - managed resources.</summary>
+            <param name="disposing">
+               <c>true</c> to release both managed and unmanaged resources; <c>false</c> to release
+               only unmanaged resources.
+            </param>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Game.GameOptions">
+            <summary>The options for a dart game.</summary>
+            <seealso cref="T:Schuermann.Dart.Core.Game.IGameOptions" />
+        </member>
+        <member name="M:Schuermann.Dart.Core.Game.GameOptions.#ctor(System.Collections.Generic.IEnumerable{Schuermann.Dart.Core.Game.IPlayer})">
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Dart.Core.Game.GameOptions" /> class.</summary>
+            <param name="playerList">The player list.</param>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.GameOptions.DoubleIn">
+            <summary>Gets or sets a value indicating whether [double in].</summary>
+            <value><c>true</c> if [double in]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.GameOptions.DoubleOut">
+            <summary>Gets or sets a value indicating whether [double out].</summary>
+            <value><c>true</c> if [double out]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.GameOptions.PlayerList">
+            <summary>Gets or sets the player list.</summary>
+            <value>The player list.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.GameOptions.StartPoints">
+            <summary>Gets or sets the start points.</summary>
+            <value>The start points.</value>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Game.GameProcedure">
+            <summary>The game instance.</summary>
+            <seealso cref="T:Schuermann.Dart.Core.Game.IGameProcedure" />
+            <seealso cref="T:System.ComponentModel.INotifyPropertyChanged" />
+        </member>
+        <member name="M:Schuermann.Dart.Core.Game.GameProcedure.#ctor(Schuermann.Dart.Core.Game.IGameOptions)">
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Dart.Core.Game.GameProcedure" /> class.</summary>
+            <param name="gameOptions">The game options.</param>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.GameProcedure.Instance">
+            <summary>Gets the instance.</summary>
+            <value>The instance.</value>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Game.GameProcedure.PlayerThrown(Schuermann.Dart.Core.Thrown.IDartThrow)">
+            <summary>Players the thrown.</summary>
+            <param name="pointsThrown">The points thrown from the current player.</param>
+            <returns>
+               True if the remaining points are zero. False if the remaining points are more than zero
+               or rather where below zero.
+            </returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Game.GameProcedure.Redo">
+            <summary>Redoes this instance.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Game.GameProcedure.Undo">
+            <summary>Undoes this instance.</summary>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Game.IGameInstance">
+            <summary>
+            The instance of a game.
+            </summary>
+        </member>
+        <member name="E:Schuermann.Dart.Core.Game.IGameInstance.StandingsChanged">
+            <summary>
+            Occurs when [standings changed].
+            </summary>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.IGameInstance.CurrentPlayer">
+            <summary>
+            Gets the current player.
+            </summary>
+            <returns>The current player.</returns>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.IGameInstance.GameOptions">
+            <summary>
+            Gets the game options.
+            </summary>
+            <value>The game options.</value>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Game.IGameInstance.InvokeStandingsChanged(Schuermann.Dart.Core.Game.IGameProcedure)">
+            <summary>
+            Invokes the standings changed.
+            </summary>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Game.IGameOptions">
+            <summary>The game option interface.</summary>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.IGameOptions.DoubleIn">
+            <summary>Gets or sets a value indicating whether [double in].</summary>
+            <value><c>true</c> if [double in]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.IGameOptions.DoubleOut">
+            <summary>Gets or sets a value indicating whether [double out].</summary>
+            <value><c>true</c> if [double out]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.IGameOptions.PlayerList">
+            <summary>Gets or sets the player list.</summary>
+            <value>The player list.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.IGameOptions.StartPoints">
+            <summary>Gets or sets the start points.</summary>
+            <value>The start points.</value>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Game.IGameProcedure">
+            <summary>The logic for a game.</summary>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.IGameProcedure.Instance">
+            <summary>Gets the instance.</summary>
+            <value>The instance.</value>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Game.IGameProcedure.PlayerThrown(Schuermann.Dart.Core.Thrown.IDartThrow)">
+            <summary>Players the thrown.</summary>
+            <param name="pointsThrown">The points thrown from the current player.</param>
+            <returns>
+               True if the remaining points are zero. False if the remaining points are more than zero
+               or rather were below zero.
+            </returns>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Game.IPlayer">
+            <summary>The player interface.</summary>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.IPlayer.CurrentScore">
+            <summary>Gets or sets the current score.</summary>
+            <value>The current score.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.IPlayer.DartCountThisRound">
+            <summary>Gets or sets the dart count per round.</summary>
+            <value>The dart count per round.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.IPlayer.Id">
+            <summary>Gets the identifier.</summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.IPlayer.Name">
+            <summary>Gets or sets the name.</summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.IPlayer.PointsThisRound">
+            <summary>Gets or sets the points this round.</summary>
+            <value>The points this round.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.IPlayer.Round">
+            <summary>Gets or sets the round.</summary>
+            <value>The round.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.IPlayer.StartPoints">
+            <summary>Gets the start points.</summary>
+            <value>The start points.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.IPlayer.ThrowHistory">
+            <summary>Gets or sets the throw history.</summary>
+            <value>The throw history.</value>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Game.IPlayer.Thrown(Schuermann.Dart.Core.Thrown.IDartThrow)">
+            <summary>Throws the specified dart throw.</summary>
+            <param name="dartThrow">The dart throw.</param>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Game.Player">
+            <summary>The Player.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Game.Player.#ctor(System.String,System.UInt32)">
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Dart.Core.Game.Player" /> class.</summary>
+            <param name="name">The name.</param>
+            <param name="startPoints"></param>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Game.Player.#ctor(System.String,System.UInt32,System.Boolean,System.Boolean)">
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Dart.Core.Game.Player" /> class.</summary>
+            <param name="name">The name.</param>
+            <param name="startPoints">The start points.</param>
+            <param name="doubleIn">if set to <c>true</c> [double in].</param>
+            <param name="doubleOut">if set to <c>true</c> [double out].</param>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Game.Player.#ctor(System.String,System.UInt32,System.Collections.Generic.IList{Schuermann.Dart.Core.Thrown.IDartThrow})">
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Dart.Core.Game.Player" /> class.</summary>
+            <param name="name">The name.</param>
+            <param name="startPoints">The start points.</param>
+            <param name="throwHistory">The throw history.</param>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.Player.CurrentScore">
+            <summary>Gets or sets the current score.</summary>
+            <value>The current score.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.Player.DartCountThisRound">
+            <summary>Gets or sets the dart count per round.</summary>
+            <value>The dart count per round.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.Player.Id">
+            <summary>Gets the identifier.</summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.Player.Name">
+            <summary>Gets or sets the name.</summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.Player.PointsThisRound">
+            <summary>Gets or sets the points this round.</summary>
+            <value>The points this round.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.Player.Round">
+            <summary>Gets or sets the round.</summary>
+            <value>The round.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.Player.StartPoints">
+            <summary>Gets the start points.</summary>
+            <value>The start points.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.Player.ThrowHistory">
+            <summary>Gets or sets the throw history.</summary>
+            <value>The throw history.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.Player.RedoStack">
+            <summary>Gets the redo stack.</summary>
+            <value>The redo stack.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Game.Player.UndoStack">
+            <summary>Gets the undo stack.</summary>
+            <value>The undo stack.</value>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Game.Player.Clone">
+            <summary>Creates a new object that is a copy of the current instance.</summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Game.Player.Equals(Schuermann.Dart.Core.Game.IPlayer)">
+            <summary>
+               Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>
+               <see langword="true" /> if the current object is equal to the <paramref name="other"
+               /> parameter; otherwise, <see langword="false" />.
+            </returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Game.Player.Equals(System.Object)">
+            <summary>
+               Determines whether the specified <see cref="T:System.Object" />, is equal to this
+               instance.
+            </summary>
+            <param name="obj">
+               The <see cref="T:System.Object" /> to compare with this instance.
+            </param>
+            <returns>
+               <c>true</c> if the specified <see cref="T:System.Object" /> is equal to this instance;
+               otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Game.Player.GetHashCode">
+            <summary>Returns a hash code for this instance.</summary>
+            <returns>
+               A hash code for this instance, suitable for use in hashing algorithms and data
+               structures like a hash table.
+            </returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Game.Player.Redo">
+            <summary>Redoes this instance.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Game.Player.Thrown(Schuermann.Dart.Core.Thrown.IDartThrow)">
+            <summary>Throws the specified dart throw.</summary>
+            <param name="dartThrow">The dart throw.</param>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Game.Player.ToString">
+            <summary>Returns a <see cref="T:System.String" /> that represents this instance.</summary>
+            <returns>A <see cref="T:System.String" /> that represents this instance.</returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Game.Player.Undo">
+            <summary>Undoes this instance.</summary>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Save.IPersist">
+            <summary>Saves or loads the game.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Save.IPersist.Load(System.IO.Stream)">
+            <summary>Loads the specified stream.</summary>
+            <param name="stream">The stream.</param>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Save.IPersist.Save(Schuermann.Dart.Core.Game.IGameInstance)">
+            <summary>Saves the specified instance.</summary>
+            <param name="instance">The instance.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Save.Persister">
+            <summary>Persist the current came instance.</summary>
+            <seealso cref="T:Schuermann.Dart.Core.Save.IPersist" />
+        </member>
+        <member name="M:Schuermann.Dart.Core.Save.Persister.Load(System.IO.Stream)">
+            <summary>Loads the specified stream.</summary>
+            <param name="stream">The stream.</param>
+            <returns></returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Save.Persister.Save(Schuermann.Dart.Core.Game.IGameInstance)">
+            <summary>Saves the specified instance.</summary>
+            <param name="instance">The instance.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Save.PersistObjects.GameInstancePersister">
+            <summary>Persists the game instance.</summary>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Save.PersistObjects.GameInstancePersister.CurrentPlayer">
+            <summary>Gets or sets the player.</summary>
+            <value>The player.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Save.PersistObjects.GameInstancePersister.GameOption">
+            <summary>Gets or sets the game option.</summary>
+            <value>The game option.</value>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Save.PersistObjects.GameOptionPersister">
+            <summary>Persist the game option.</summary>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Save.PersistObjects.GameOptionPersister.DoubleIn">
+            <summary>Gets or sets a value indicating whether [double in].</summary>
+            <value><c>true</c> if [double in]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Save.PersistObjects.GameOptionPersister.DoubleOut">
+            <summary>Gets or sets a value indicating whether [double out].</summary>
+            <value><c>true</c> if [double out]; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Save.PersistObjects.GameOptionPersister.PlayerList">
+            <summary>Gets or sets the player list.</summary>
+            <value>The player list.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Save.PersistObjects.GameOptionPersister.StartPoints">
+            <summary>Gets or sets the start points.</summary>
+            <value>The start points.</value>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Save.PersistObjects.PlayerPersister">
+            <summary>Persist the plyer istance.</summary>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Save.PersistObjects.PlayerPersister.Id">
+            <summary>Gets or sets the identifier.</summary>
+            <value>The identifier.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Save.PersistObjects.PlayerPersister.Name">
+            <summary>Gets or sets the name.</summary>
+            <value>The name.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Save.PersistObjects.PlayerPersister.StartPoints">
+            <summary>Gets or sets the start points.</summary>
+            <value>The start points.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Save.PersistObjects.PlayerPersister.ThrowHistory">
+            <summary>Gets or sets the throw history.</summary>
+            <value>The throw history.</value>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Service.EnvironmentService">
+            <summary>
+            The environment service.
+            </summary>
+            <seealso cref="T:Schuermann.Dart.Core.Service.IEnvironmentService"/>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.EnvironmentService.#ctor(Schuermann.Dart.Core.EnvironmentProps.IProperties)">
+            <summary>
+            Initializes a new instance of the <see cref="T:Schuermann.Dart.Core.Service.EnvironmentService"/> class.
+            </summary>
+            <param name="properties">The properties.</param>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Service.EnvironmentService.Name">
+            <summary>
+            Gets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.EnvironmentService.GetProperties">
+            <summary>
+            Gets the properties.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Service.IEnvironmentService">
+            <summary>The environment service.</summary>
+            <seealso cref="T:Schuermann.Dart.Core.Service.IService" />
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.IEnvironmentService.GetProperties">
+            <summary>Gets the properties.</summary>
+            <returns></returns>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Service.IService">
+            <summary>The service.</summary>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Service.IService.Name">
+            <summary>Gets the name.</summary>
+            <value>The name.</value>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Service.IServiceProvider">
+            <summary>The service provider.</summary>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Service.IServiceProvider.Instance">
+            <summary>Gets the instance.</summary>
+            <value>The instance.</value>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.IServiceProvider.Get``1">
+            <summary>Gets this instance.</summary>
+            <typeparam name="T">The type of the service.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Service.IThrowGameService">
+            <summary>
+            The dart service.
+            </summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.IThrowGameService.GetGameProcedure">
+            <summary>
+            Gets the game instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.IThrowGameService.GetGameOptions">
+            <summary>
+            Gets the game options.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.IThrowGameService.StartGame(Schuermann.Dart.Core.Game.IGameOptions)">
+            <summary>
+            Start game
+            </summary>
+            <param name="gameOptions"></param>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.IThrowGameService.RestartGame">
+            <summary>
+            Restarts the game.
+            </summary>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Service.ServiceProvider">
+            <summary>
+            The service provider.
+            </summary>
+            <seealso cref="T:Schuermann.Dart.Core.Service.IServiceProvider"/>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Service.ServiceProvider.Instance">
+            <summary>
+            Gets the instance.
+            </summary>
+            <value>The instance.</value>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.ServiceProvider.Add(Schuermann.Dart.Core.Service.IService)">
+            <summary>
+            Adds the specified service.
+            </summary>
+            <param name="service">The service.</param>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.ServiceProvider.Get``1">
+            <summary>
+            Gets this instance.
+            </summary>
+            <typeparam name="T">The type of the service.</typeparam>
+            <returns></returns>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Service.ThrowGameService">
+            <summary>
+            The dart service.
+            </summary>
+            <seealso cref="T:Schuermann.Dart.Core.Service.IThrowGameService"/>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Service.ThrowGameService.Name">
+            <summary>
+            Gets the name.
+            </summary>
+            <value>The name.</value>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.ThrowGameService.GetGameProcedure">
+            <summary>
+            Gets the game instance.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Service.ThrowGameService.GetGameOptions">
+            <summary>
+            Gets the game options.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Themes.BaseTheme">
+            <summary>The base theme. Light or dark.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.BaseTheme.dark">
+            <summary>The dark.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.BaseTheme.light">
+            <summary>The light.</summary>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Themes.ColorSchema">
+            <summary>The color.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.ColorSchema.red">
+            <summary>The red.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.ColorSchema.green">
+            <summary>The green.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.ColorSchema.blue">
+            <summary>The blue.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.ColorSchema.purple">
+            <summary>The purple.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.ColorSchema.orange">
+            <summary>The orange.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.ColorSchema.lime">
+            <summary>The lime.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.ColorSchema.emerald">
+            <summary>The emerald.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.ColorSchema.teal">
+            <summary>The teal.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.ColorSchema.cyan">
+            <summary>The cyan.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.ColorSchema.cobalt">
+            <summary>The cobalt.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.ColorSchema.indigo">
+            <summary>The indigo.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.ColorSchema.violet">
+            <summary>The violet.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.ColorSchema.pink">
+            <summary>The pink.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.ColorSchema.magenta">
+            <summary>The magenta.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.ColorSchema.crimson">
+            <summary>The crimson.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.ColorSchema.amber">
+            <summary>The amber.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.ColorSchema.yellow">
+            <summary>The yellow.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.ColorSchema.brown">
+            <summary>The brown.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.ColorSchema.olive">
+            <summary>The olive.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.ColorSchema.steel">
+            <summary>The steel.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.ColorSchema.mauve">
+            <summary>The mauve.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.ColorSchema.taupe">
+            <summary>The taupe.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Themes.ColorSchema.sienna">
+            <summary>The sienna.</summary>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Themes.ITheme">
+            <summary>The Theme.</summary>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Themes.ITheme.BaseTheme">
+            <summary>Gets the base theme.</summary>
+            <value>The base theme.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Themes.ITheme.ColorSchema">
+            <summary>Gets the color schema.</summary>
+            <value>The color schema.</value>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Themes.Theme">
+            <summary>The theme.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Themes.Theme.#ctor">
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Dart.Core.Themes.Theme" /> class.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Themes.Theme.#ctor(Schuermann.Dart.Core.Themes.BaseTheme,Schuermann.Dart.Core.Themes.ColorSchema)">
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Dart.Core.Themes.Theme" /> class.</summary>
+            <param name="baseTheme">The base theme.</param>
+            <param name="colorSchema">The color schema.</param>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Themes.Theme.BaseTheme">
+            <summary>Gets the base theme.</summary>
+            <value>The base theme.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Themes.Theme.ColorSchema">
+            <summary>Gets the color schema.</summary>
+            <value>The color schema.</value>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Themes.ThemeConverter">
+            <summary>The theme converter.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Themes.ThemeConverter.Convert(System.String)">
+            <summary>Converts the specified theme.</summary>
+            <param name="theme">The theme.</param>
+            <returns>The converted theme.</returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Themes.ThemeConverter.Convert(System.String,System.String)">
+            <summary>Converts the specified base theme.</summary>
+            <param name="baseTheme">The base theme.</param>
+            <param name="colorSchema">The color schema.</param>
+            <returns>The converted theme.</returns>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Thrown.DartBoardField">
+            <summary>The dart board fields.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardField.Zero">
+            <summary>The zero.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardField.One">
+            <summary>The one.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardField.Two">
+            <summary>The two.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardField.Three">
+            <summary>The three.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardField.Four">
+            <summary>The four.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardField.Five">
+            <summary>The five.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardField.Six">
+            <summary>The six.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardField.Seven">
+            <summary>The seven.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardField.Eight">
+            <summary>The eight.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardField.Nine">
+            <summary>The nine.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardField.Ten">
+            <summary>The ten.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardField.Eleven">
+            <summary>The eleven.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardField.Twelve">
+            <summary>The twelve.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardField.Thirteen">
+            <summary>The thirteen.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardField.Fourteen">
+            <summary>The fourteen.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardField.Fiveteen">
+            <summary>The fiveteen.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardField.Sixteen">
+            <summary>The sixteen.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardField.Seventeen">
+            <summary>The seventeen.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardField.Eighteen">
+            <summary>The eighteen.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardField.Nineteen">
+            <summary>The nineteen.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardField.Twenty">
+            <summary>The twenty.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardField.Bullseye">
+            <summary>The bullseye.</summary>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Thrown.DartBoardQuantifier">
+            <summary>The quantifier for dart board field.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardQuantifier.Single">
+            <summary>The single.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardQuantifier.Double">
+            <summary>The double.</summary>
+        </member>
+        <member name="F:Schuermann.Dart.Core.Thrown.DartBoardQuantifier.Triple">
+            <summary>The triple.</summary>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Thrown.DartThrow">
+            <summary>A thrown dart.</summary>
+            <seealso cref="T:Schuermann.Dart.Core.Thrown.IDartThrow" />
+        </member>
+        <member name="M:Schuermann.Dart.Core.Thrown.DartThrow.#ctor(Schuermann.Dart.Core.Thrown.DartBoardField,Schuermann.Dart.Core.Thrown.DartBoardQuantifier)">
+            <summary>Initializes a new instance of the <see cref="T:Schuermann.Dart.Core.Thrown.DartThrow" /> class.</summary>
+            <param name="dartBoardField">The dart board field.</param>
+            <param name="dartBoardQuantifier">The dart board quantifier.</param>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Thrown.DartThrow.DartBoardField">
+            <summary>Gets the dart board field.</summary>
+            <value>The dart board field.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Thrown.DartThrow.DartBoardQuantifier">
+            <summary>Gets the dart board quantifier.</summary>
+            <value>The dart board quantifier.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Thrown.DartThrow.Points">
+            <summary>Gets the points.</summary>
+            <value>The points.</value>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Thrown.DartThrow.op_Inequality(Schuermann.Dart.Core.Thrown.DartThrow,Schuermann.Dart.Core.Thrown.DartThrow)">
+            <summary>Implements the operator !=.</summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Thrown.DartThrow.op_LessThan(Schuermann.Dart.Core.Thrown.DartThrow,Schuermann.Dart.Core.Thrown.DartThrow)">
+            <summary>Implements the operator &lt;.</summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Thrown.DartThrow.op_LessThanOrEqual(Schuermann.Dart.Core.Thrown.DartThrow,Schuermann.Dart.Core.Thrown.DartThrow)">
+            <summary>Implements the operator &lt;=.</summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Thrown.DartThrow.op_Equality(Schuermann.Dart.Core.Thrown.DartThrow,Schuermann.Dart.Core.Thrown.DartThrow)">
+            <summary>Implements the operator ==.</summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Thrown.DartThrow.op_GreaterThan(Schuermann.Dart.Core.Thrown.DartThrow,Schuermann.Dart.Core.Thrown.DartThrow)">
+            <summary>Implements the operator &gt;.</summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Thrown.DartThrow.op_GreaterThanOrEqual(Schuermann.Dart.Core.Thrown.DartThrow,Schuermann.Dart.Core.Thrown.DartThrow)">
+            <summary>Implements the operator &gt;=.</summary>
+            <param name="left">The left.</param>
+            <param name="right">The right.</param>
+            <returns>The result of the operator.</returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Thrown.DartThrow.Clone">
+            <summary>Creates a new object that is a copy of the current instance.</summary>
+            <returns>A new object that is a copy of this instance.</returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Thrown.DartThrow.CompareTo(Schuermann.Dart.Core.Thrown.IDartThrow)">
+            <summary>Compares to.</summary>
+            <param name="other">The other.</param>
+            <returns>The compare value.</returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Thrown.DartThrow.Equals(Schuermann.Dart.Core.Thrown.IDartThrow)">
+            <summary>
+               Indicates whether the current object is equal to another object of the same type.
+            </summary>
+            <param name="other">An object to compare with this object.</param>
+            <returns>
+               true if the current object is equal to the <paramref name="other">other</paramref>
+               parameter; otherwise, false.
+            </returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Thrown.DartThrow.Equals(System.Object)">
+            <summary>
+               Determines whether the specified <see cref="T:System.Object" />, is equal to this instance.
+            </summary>
+            <param name="obj">The <see cref="T:System.Object" /> to compare with this instance.</param>
+            <returns>
+               <c>true</c> if the specified <see cref="T:System.Object" /> is equal to this instance;
+               otherwise, <c>false</c>.
+            </returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Thrown.DartThrow.GetHashCode">
+            <summary>Returns a hash code for this instance.</summary>
+            <returns>
+               A hash code for this instance, suitable for use in hashing algorithms and data
+               structures like a hash table.
+            </returns>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Thrown.DartThrow.ToString">
+            <summary>Converts to string.</summary>
+            <returns>A <see cref="T:System.String" /> that represents this instance.</returns>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Thrown.IDartThrow">
+            <summary>The dart throw.</summary>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Thrown.IDartThrow.DartBoardField">
+            <summary>Gets the dart board field.</summary>
+            <value>The dart board field.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Thrown.IDartThrow.DartBoardQuantifier">
+            <summary>Gets the dart board quantifier.</summary>
+            <value>The dart board quantifier.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.Thrown.IDartThrow.Points">
+            <summary>Gets the points.</summary>
+            <value>The points.</value>
+        </member>
+        <member name="T:Schuermann.Dart.Core.UI.IDartBoard">
+            <summary>Geometrie and current values of the dard board.</summary>
+        </member>
+        <member name="E:Schuermann.Dart.Core.UI.IDartBoard.ValuesChanged">
+            <summary>Occurs when [values changed].</summary>
+        </member>
+        <member name="P:Schuermann.Dart.Core.UI.IDartBoard.CurrentAngle">
+            <summary>Gets the current angle.</summary>
+            <value>The current angle.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.UI.IDartBoard.CurrentDistanceBetweenMouseAndCenter">
+            <summary>Gets the current distance between mouse and center.</summary>
+            <value>The current distance between mouse and center.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.UI.IDartBoard.CurrentMousePosition">
+            <summary>Gets the current mouse position.</summary>
+            <value>The current mouse position.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.UI.IDartBoard.DartBoardCenter">
+            <summary>Gets the dart board center.</summary>
+            <value>The dart board center.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.UI.IDartBoard.Height">
+            <summary>Gets the height.</summary>
+            <value>The height.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.UI.IDartBoard.IsDouble">
+            <summary>Gets a value indicating whether this instance is double.</summary>
+            <value><c>true</c> if this instance is double; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.UI.IDartBoard.IsSingle">
+            <summary>Gets a value indicating whether this instance is single.</summary>
+            <value><c>true</c> if this instance is single; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.UI.IDartBoard.IsTriple">
+            <summary>Gets a value indicating whether this instance is triple.</summary>
+            <value><c>true</c> if this instance is triple; otherwise, <c>false</c>.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.UI.IDartBoard.PointsAtMousePosition">
+            <summary>Gets the points at mouse position.</summary>
+            <value>The points at mouse position.</value>
+        </member>
+        <member name="P:Schuermann.Dart.Core.UI.IDartBoard.Width">
+            <summary>Gets the width.</summary>
+            <value>The width.</value>
+        </member>
+        <member name="T:Schuermann.Dart.Core.UndoRedo.Interfaces.IUndoRedo">
+            <summary>The undo and redo action.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.UndoRedo.Interfaces.IUndoRedo.Redo">
+            <summary>Redoes this instance.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.UndoRedo.Interfaces.IUndoRedo.Undo">
+            <summary>Undoes this instance.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Util.PlayerlistUtils.GetPriviousPlayer(System.Collections.Generic.IEnumerable{Schuermann.Dart.Core.Game.IPlayer},Schuermann.Dart.Core.Game.IPlayer)">
+            <summary>Gets the privious player.</summary>
+            <param name="players">The players.</param>
+            <param name="player">The player.</param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

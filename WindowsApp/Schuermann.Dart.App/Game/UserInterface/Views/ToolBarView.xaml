@@ -1,0 +1,22 @@
+﻿<UserControl x:Class="Schuermann.Dart.App.Game.UserInterface.Views.ToolBarView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid Height="24">
+        <ToolBarTray VerticalAlignment="Center">
+            <ToolBar>
+                <Button Height="20" Width="20" Command="{Binding OpenSettings}">
+                    <Image Source="../Images/Settings.png" />
+                </Button>
+                <Button Height="20" Width="20" Command="{Binding ResetGame}">
+                    <Image Source="../Images/Reset.png" />
+                </Button>
+            </ToolBar>
+            <ToolBar>
+                <Button Height="20" Width="20" Command="">
+                    <Image Source="../Images/Help.png" />
+                </Button>
+            </ToolBar>
+        </ToolBarTray>
+    </Grid>
+</UserControl>

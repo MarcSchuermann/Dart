@@ -1,0 +1,14 @@
+<UserControl x:Class="Schuermann.Dart.App.Game.UserInterface.Views.PlayerView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <Grid x:Name="Playerview" Height="40">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Column="0" Text="Name:" FontSize="14" VerticalAlignment="Center" />
+        <TextBox x:Name="PlayerviewTextBox" Grid.Column="1" MinWidth="100" Margin="5,5,5,5" Text="{Binding Name, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Center" GotFocus="PlayerviewTextBox_GotFocus"  />
+    </Grid>
+</UserControl>
