@@ -1,4 +1,10 @@
-﻿using Schuermann.Darts.GameCore.Thrown;
+// -----------------------------------------------------------------------
+// <copyright file="IThrowInfo.cs" company="Marc Schürmann">
+//     Copyright (c) Marc Schürmann. All Rights Reserved.
+// </copyright>
+// -----------------------------------------------------------------------
+
+using Schuermann.Dart.Core.Thrown;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -28,6 +34,5 @@ namespace Dart.Common.UserInterface.Helper
       {
          get;
       }
-
    }
 }
