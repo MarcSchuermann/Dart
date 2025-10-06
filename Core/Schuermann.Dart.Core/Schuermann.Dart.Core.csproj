@@ -2,7 +2,7 @@
 	<Import Project="../../Dart.Build.targets" />
 
   <PropertyGroup>
-    <TargetFrameworks>net6.0</TargetFrameworks>
+    <TargetFrameworks>net10.0</TargetFrameworks>
     <DocumentationFile>GameLogic.xml</DocumentationFile>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
 	<Description>Contains the core data for a dart game.</Description>
