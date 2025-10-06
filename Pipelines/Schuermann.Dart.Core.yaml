@@ -1,0 +1,157 @@
+pool:
+  vmImage: 'windows-latest'
+
+variables:
+- name: BuildPlatform
+  value: Any CPU
+- name: BuildConfiguration
+  value: release
+- name: Solution
+  value: Core/Schuermann.Dart.Core.sln
+
+parameters:
+- name: publishNuget
+  displayName: publish to VstsFeed
+  type: boolean
+  default: false
+- name: alpha
+  displayName: set alpha version
+  type: boolean
+  default: true
+
+steps:
+# --- Restore nuget packages ---
+- task: DotNetCoreCLI@2
+  displayName: 'DotNetCoreCLI NuGet restore'
+  inputs:
+    command: 'restore'
+    projects: $(Solution)
+    feedsToUse: 'select'
+    vstsFeed: 'c05ca382-95eb-43eb-af0a-00b109382f26'
+
+# --- Get Version from targets file ---
+- task: PowerShell@2
+  displayName: Update Version
+  inputs:
+    targetType: 'inline'
+    script: |
+      Get-ChildItem '$(Build.SourcesDirectory)' -Recurse
+      Get-Content $(Build.SourcesDirectory)/Dart.Build.targets
+
+      [xml]$targetsFile = Get-Content -Path $(Build.SourcesDirectory)/Dart.Build.targets
+      Get-ChildItem '$(Build.SourcesDirectory)' -Recurse
+      Get-Content $(Build.SourcesDirectory)/Dart.Build.targets
+
+      [xml]$targetsFile = Get-Content -Path $(Build.SourcesDirectory)/Dart.Build.targets
+      $version = $targetsFile.Project.PropertyGroup.Version
+      Write-Host "readVersion is $version"
+      if ($version -Match " ")
+      {
+        $version = $version.replace(' ','')
+        Write-Host "Cleand readVersion is $version"
+      }
+
+      if ( '${{ parameters.alpha }}' -eq 'true' )
+      {
+        $alphaVersion = $version+"-alpha.$(Build.BuildNumber)"
+        Write-Host "Full version is $alphaVersion"
+        Write-Host "##vso[task.setvariable variable=fullVersion]$alphaVersion"
+      }
+      else
+      {
+        Write-Host "Full version is $version"
+        Write-Host "##vso[task.setvariable variable=fullVersion]$version"
+      }
+
+# --- Run build ---
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet build'
+  inputs:
+    command: 'build'
+    projects: $(Solution)
+    arguments: '/p:OutDir=$(Build.BinariesDirectory) /p:OutputPath=$(Build.BinariesDirectory) /p:Configuration=$(BuildConfiguration) /p:Version=$(fullVersion)'
+
+# --- Run tests ---
+- task: DotNetCoreCLI@2
+  displayName: 'dotnet test'
+  inputs:
+    command: 'test'
+    projects: '$(Solution)'
+    arguments: '--configuration $(BuildConfiguration) --logger trx --collect "XPlat Code Coverage" -- DataCollectionRunSettings.DataCollectors.DataCollector.Configuration.Format=cobertura --no-build'
+    # publishTestResults has to be false due to https://stackoverflow.com/questions/74386402/coverlet-does-not-create-report-in-azure-devops
+    publishTestResults: false
+
+# --- Show SourcesDirectory and BinariesDirectory ---
+- task: PowerShell@2
+  displayName: Show SourcesDirectory and BinariesDirectory
+  inputs:
+    targetType: 'inline'
+    script: |
+      Get-ChildItem '$(Build.SourcesDirectory)' -Recurse
+      Write-Host "%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%"
+      Get-ChildItem '$(Build.BinariesDirectory)' -Recurse
+
+# --- Merge the multiple code coverage result files ---
+- task: reportgenerator@5
+  displayName: 'Merge code coverage reports'
+  inputs:
+    reports: '$(Build.SourcesDirectory)/**/coverage.cobertura.xml'
+    targetdir: '$(Pipeline.Workspace)/coverlet'
+    reporttypes: 'Cobertura'
+    verbosity: 'Verbose'
+
+# --- Publish code coverage results ---
+- task: PublishCodeCoverageResults@1
+  displayName: 'Publish Code Coverage Results'
+  inputs:
+    codeCoverageTool: 'Cobertura'
+    summaryFileLocation: '$(Pipeline.Workspace)/coverlet/Cobertura.xml'
+    failIfCoverageEmpty: true
+
+# --- Publish test results ---
+- task: PublishTestResults@2
+  inputs:
+    testResultsFormat: 'VSTest'
+    testResultsFiles: '$(Build.SourcesDirectory)/**/*.trx'
+    searchFolder: '$(Build.SourcesDirectory)'
+    mergeTestResults: true
+    failTaskOnFailedTests: true
+
+# --- Publish nuget packages ---
+- task: NuGetCommand@2
+  condition: and(succeeded(), eq('${{ parameters.publishNuget }}', 'true'))
+  displayName: 'NuGet push'
+  inputs:
+    command: push
+    packagesToPush: '$(Build.BinariesDirectory)/**/Schuermann.Dart.*.nupkg'
+    publishVstsFeed: 'c05ca382-95eb-43eb-af0a-00b109382f26'
+    allowPackageConflicts: true
+
+# --- Create docu for game logic ---
+- task: DocFxTask@0
+  displayName: 'Create DocFx Documentation Schuermann.Dart.Core'
+  inputs:
+    solution: '$(System.DefaultWorkingDirectory)/Core/Schuermann.Dart.Core/docfx.json'
+
+# --- Copy docu for game logic ---
+- task: CopyFiles@2
+  displayName: 'Copy Files to: $(build.artifactstagingdirectory)/docu/GameLogic/'
+  inputs:
+    SourceFolder: '$(System.DefaultWorkingDirectory)/Core/Schuermann.Dart.Core/_site'
+    TargetFolder: '$(build.artifactstagingdirectory)/docu/GameLogic/'
+
+# --- Copy all BinariesDirectory to staging directory ---
+- task: CopyFiles@2
+  displayName: 'Copy binaries to: $(build.artifactstagingdirectory)'
+  inputs:
+    SourceFolder: '$(Build.BinariesDirectory)'
+    Contents: '**'
+    TargetFolder: '$(build.artifactstagingdirectory)/binaries'
+  condition: succeededOrFailed()
+
+# --- Publish drop ---
+- task: PublishBuildArtifacts@1
+  displayName: 'Publish Artifact: drop'
+  inputs:
+    PathtoPublish: '$(build.artifactstagingdirectory)'
+  condition: succeededOrFailed()

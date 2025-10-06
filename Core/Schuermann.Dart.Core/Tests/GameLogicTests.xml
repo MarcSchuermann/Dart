@@ -1,0 +1,207 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Schuermann.Dart.Core.Tests</name>
+    </assembly>
+    <members>
+        <member name="T:GameLogicTests.DartThrowTests.CompareToTest">
+            <summary>Tests the method CompareTo.</summary>
+        </member>
+        <member name="M:GameLogicTests.DartThrowTests.CompareToTest.CompareToShouldReturnMinusOneWhenCompareToLowerMultiplier">
+            <summary>
+               Compares to should return minus one when compare to lower multiplier.
+            </summary>
+        </member>
+        <member name="M:GameLogicTests.DartThrowTests.CompareToTest.CompareToShouldReturnMinusOneWhenCompareToLowerPoints">
+            <summary>Compares to should return minus one when compare to lower points.</summary>
+        </member>
+        <member name="M:GameLogicTests.DartThrowTests.CompareToTest.CompareToShouldReturnOneWhenCompareToLowerMultiplier">
+            <summary>Compares to should return one when compare to lower multiplier.</summary>
+        </member>
+        <member name="M:GameLogicTests.DartThrowTests.CompareToTest.CompareToShouldReturnOneWhenCompareToLowerPoints">
+            <summary>Compares to should return one when compare to lower points.</summary>
+        </member>
+        <member name="M:GameLogicTests.DartThrowTests.CompareToTest.CompareToShouldReturnOneWhenCompareToNull">
+            <summary>Compares to should return one when compare to null.</summary>
+        </member>
+        <member name="M:GameLogicTests.DartThrowTests.CompareToTest.CompareToShouldReturnZeroWhenPointsAreEqual">
+            <summary>Compares to should return zero when points are equal.</summary>
+        </member>
+        <member name="M:GameLogicTests.DartThrowTests.CompareToTest.CompareToShouldReturnZeroWhenPointsAreSame">
+            <summary>Compares to should return zero when points are same.</summary>
+        </member>
+        <member name="T:GameLogicTests.DartThrowTests.EqualsTest">
+            <summary>The Equals Test.</summary>
+        </member>
+        <member name="M:GameLogicTests.DartThrowTests.EqualsTest.ReturnFalseWhenCheckEqualsWithNull">
+            <summary>Returns the false when check equals with null.</summary>
+        </member>
+        <member name="M:GameLogicTests.DartThrowTests.EqualsTest.ReturnFalseWhenCheckEqualsWithObject">
+            <summary>Returns the false when check equals with object.</summary>
+        </member>
+        <member name="M:GameLogicTests.DartThrowTests.EqualsTest.ReturnFalseWhenFieldIsUnequal">
+            <summary>Returns the false when field is unequal.</summary>
+        </member>
+        <member name="M:GameLogicTests.DartThrowTests.EqualsTest.ReturnFalseWhenQuantifierAndFieldIsUnequal">
+            <summary>Returns the false when quantifier and field is unequal.</summary>
+        </member>
+        <member name="M:GameLogicTests.DartThrowTests.EqualsTest.ReturnFalseWhenQuantifierIsUnequal">
+            <summary>Returns the false when quantifier is unequal.</summary>
+        </member>
+        <member name="M:GameLogicTests.DartThrowTests.EqualsTest.ReturnTrueWhenEqual">
+            <summary>Returns the true when equal.</summary>
+        </member>
+        <member name="T:GameLogicTests.DartThrowTests.GetHashCodeTest">
+            <summary>Tests the method GetHashCode.</summary>
+        </member>
+        <member name="M:GameLogicTests.DartThrowTests.GetHashCodeTest.GetHashCodeShouldReturnNotTheSameHasForOnlyEqualPoints">
+            <summary>
+               Gets the hash code should return not the same has for only equal points.
+            </summary>
+        </member>
+        <member name="M:GameLogicTests.DartThrowTests.GetHashCodeTest.GetHashCodeShouldReturnTenForTowInstances">
+            <summary>Gets the hash code should return.</summary>
+        </member>
+        <member name="T:GameLogicTests.DartThrowTests.ToStringTest">
+            <summary>Tests the ToString method.</summary>
+        </member>
+        <member name="M:GameLogicTests.DartThrowTests.ToStringTest.ToStringDoubleTwo">
+            <summary>Converts to stringdoubletwo.</summary>
+        </member>
+        <member name="M:GameLogicTests.DartThrowTests.ToStringTest.ToStringTripleBullseye">
+            <summary>Blas this instance.</summary>
+        </member>
+        <member name="T:GameLogicTests.GameOptionsTests.ConstructorTest">
+            <summary>Tests for the game options.</summary>
+        </member>
+        <member name="M:GameLogicTests.GameOptionsTests.ConstructorTest.InitializedCorrect">
+            <summary>Initializeds the correct.</summary>
+        </member>
+        <member name="M:GameLogicTests.GameOptionsTests.ConstructorTest.SetCorrect">
+            <summary>Sets the correct.</summary>
+        </member>
+        <member name="T:GameLogicTests.GameTests.ConstructorTest">
+            <summary>Tests the constructor.</summary>
+        </member>
+        <member name="M:GameLogicTests.GameTests.ConstructorTest.InitializedCorrect">
+            <summary>Initializeds the correct.</summary>
+        </member>
+        <member name="M:GameLogicTests.GameTests.ThrownTest.PlayerThrownBelowZeroGoToNextPlayer">
+            <summary>Players the thrown below zero go to next player.</summary>
+        </member>
+        <member name="T:GameLogicTests.PlayerTests.ConstructorTest">
+            <summary>Tests the constructor.</summary>
+        </member>
+        <member name="M:GameLogicTests.PlayerTests.ConstructorTest.InitializationIsCorrect">
+            <summary>Initializations the is correct.</summary>
+        </member>
+        <member name="T:GameLogicTests.PlayerTests.CurrentScoreTest">
+            <summary>Tests that the current score property changed event was raised.</summary>
+        </member>
+        <member name="T:GameLogicTests.PlayerTests.ToStringTest">
+            <summary>Tests the to string method.</summary>
+        </member>
+        <member name="M:GameLogicTests.PlayerTests.ToStringTest.ToStringReturnsName">
+            <summary>To the name of the string returns.</summary>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Tests.PersistTests.LoadSaveTest">
+            <summary>Save and load tests.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.PersistTests.LoadSaveTest.CreateSaveAndReloadGameCorrect">
+            <summary>Creates the save and reload game correct.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.PersistTests.LoadSaveTest.CreateSaveAndReloadSinglePlayerComplete">
+            <summary>Creates the save and reload single player complete.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.PersistTests.LoadSaveTest.SaveWithNull">
+            <summary>Saves the with null.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.PersistTests.LoadSaveTest.WriteToFile">
+            <summary>Writes to file.</summary>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Tests.PlugInCommandTests.ConstructorTests">
+            <summary>The constructor test.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.PlugInCommandTests.ConstructorTests.InitCorrect">
+            <summary>Initializes the correct.</summary>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Tests.PropertiesTests.ConstructorTest">
+            <summary>Constructor tests.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.PropertiesTests.ConstructorTest.InitCorrect">
+            <summary>Initializes the correct.</summary>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Tests.ThemesTests.ConstructorTest">
+            <summary>The constructor test.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.ThemesTests.ConstructorTest.InitCorrect">
+            <summary>Initializes the correct.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.ThemesTests.ConstructorTest.InitCorrectDefault">
+            <summary>Initializes the correct default.</summary>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Tests.ThemesTests.ThemeConverterTests">
+            <summary>The converter tests.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.ThemesTests.ThemeConverterTests.ConvertCorrectTest">
+            <summary>Converts the correct test.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.ThemesTests.ThemeConverterTests.ConvertFailedWithEmptyBaseTheme">
+            <summary>Converts the failed with empty base theme.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.ThemesTests.ThemeConverterTests.ConvertFailedWithEmptyBaseThemeAndColorSchema">
+            <summary>Converts the failed with empty base theme and color schema.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.ThemesTests.ThemeConverterTests.ConvertFailedWithEmptyBaseThemeButSetColorSchema">
+            <summary>Converts the failed with empty base theme but set color schema.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.ThemesTests.ThemeConverterTests.ConvertFailedWithEmptyColorSchema">
+            <summary>Converts the failed with empty color schema.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.ThemesTests.ThemeConverterTests.ConvertFailedWithEmptyColorSchemaButSetBaseTheme">
+            <summary>Converts the failed with empty color schema but set base theme.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.ThemesTests.ThemeConverterTests.ConvertFailedWithNotCorrectBaseTheme">
+            <summary>Converts the failed with not correct base theme.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.ThemesTests.ThemeConverterTests.ConvertFailedWithNotCorrectColorSchema">
+            <summary>Converts the failed with not correct color schema.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.ThemesTests.ThemeConverterTests.ConvertFailedWithNull">
+            <summary>Converts the failed with null.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.ThemesTests.ThemeConverterTests.ConvertFailedWithToMuchEntries">
+            <summary>Converts the failed with to much entries.</summary>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Tests.UndoRedo.UndoRedoTest">
+            <summary>The undo redo player test</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.UndoRedo.UndoRedoTest.UndoForPlayerCount1">
+            <summary>Undoes for player.</summary>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Tests.Utils.GameUtils">
+            <summary>Utils for the game.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.Utils.GameUtils.SetupGame(System.Collections.Generic.IList{Schuermann.Dart.Core.Game.IPlayer})">
+            <summary>Setups the game.</summary>
+            <param name="players">The players.</param>
+            <returns></returns>
+        </member>
+        <member name="T:Schuermann.Dart.Core.Tests.Utils.PlayerUtils">
+            <summary>Utils for the player.</summary>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.Utils.PlayerUtils.Validate(Schuermann.Dart.Core.Game.IPlayer,System.UInt32)">
+            <summary>Validates the specified expected score.</summary>
+            <param name="player">The player.</param>
+            <param name="expectedScore">The expected score.</param>
+        </member>
+        <member name="M:Schuermann.Dart.Core.Tests.Utils.PlayerUtils.Validate(Schuermann.Dart.Core.Game.IPlayer,System.UInt32,System.Int32,System.Int32,System.Int32)">
+            <summary>Validates the specified expected score.</summary>
+            <param name="player">The player.</param>
+            <param name="expectedScore">The expected score.</param>
+            <param name="expectedThrowHistoryCount">The expected throw history count.</param>
+            <param name="expectedRound">The expected round.</param>
+            <param name="expectedDartCountThisRound">The expected dart count this round.</param>
+        </member>
+    </members>
+</doc>

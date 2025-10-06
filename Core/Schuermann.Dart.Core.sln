@@ -1,0 +1,42 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31919.166
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{A2BF478F-AEEB-4BFD-82C8-5BEBD50292A5}"
+	ProjectSection(SolutionItems) = preProject
+		..\Dart.Build.targets = ..\Dart.Build.targets
+		..\Pipelines\Schuermann.Dart.Core.yaml = ..\Pipelines\Schuermann.Dart.Core.yaml
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{55B77803-29BE-4480-9F2D-61A5F2C3BCD6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schuermann.Dart.Core", "Schuermann.Dart.Core\Schuermann.Dart.Core.csproj", "{4D0FE13E-661E-4BE1-9B48-EA8225807FF3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Schuermann.Dart.Core.Tests", "Schuermann.Dart.Core\Tests\Schuermann.Dart.Core.Tests.csproj", "{D3822D8F-1CFF-4F21-8DD8-6BA987400070}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{4D0FE13E-661E-4BE1-9B48-EA8225807FF3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D0FE13E-661E-4BE1-9B48-EA8225807FF3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D0FE13E-661E-4BE1-9B48-EA8225807FF3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D0FE13E-661E-4BE1-9B48-EA8225807FF3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D3822D8F-1CFF-4F21-8DD8-6BA987400070}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D3822D8F-1CFF-4F21-8DD8-6BA987400070}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D3822D8F-1CFF-4F21-8DD8-6BA987400070}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D3822D8F-1CFF-4F21-8DD8-6BA987400070}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{D3822D8F-1CFF-4F21-8DD8-6BA987400070} = {55B77803-29BE-4480-9F2D-61A5F2C3BCD6}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5B3F438C-4C66-49BF-BADC-CBB0B51F0DB7}
+	EndGlobalSection
+EndGlobal
