@@ -7,7 +7,9 @@
 using System;
 using System.Windows;
 using System.Windows.Input;
+
 using Dart;
+
 using Schuermann.Dart.Core.Thrown;
 
 namespace Schuermann.Dart.App.Common.UserInterface.Helper
@@ -38,53 +40,29 @@ namespace Schuermann.Dart.App.Common.UserInterface.Helper
       {
          get
          {
-            double dx = GetCurrentMousePosition.X - GetDartBoardCenter.X;
-            double dy = GetCurrentMousePosition.Y - GetDartBoardCenter.Y;
+            var dx = GetCurrentMousePosition.X - GetDartBoardCenter.X;
+            var dy = GetCurrentMousePosition.Y - GetDartBoardCenter.Y;
 
-            double angle = 60 * Math.Atan2(dy, dx);
+            var angle = 60 * Math.Atan2(dy, dx);
             return Math.Round(angle, 2);
          }
       }
 
       /// <summary>Gets the current distance between mouse and center.</summary>
       /// <returns>The current distance between mouse and center.</returns>
-      public double GetCurrentDistanceBetweenMouseAndCenter
-      {
-         get
-         {
-            return Math.Round(Math.Sqrt(Math.Pow(GetCurrentMousePosition.X - GetDartBoardCenter.X, 2) + Math.Pow(GetCurrentMousePosition.Y - GetDartBoardCenter.Y, 2)), 2);
-         }
-      }
+      public double GetCurrentDistanceBetweenMouseAndCenter => Math.Round(Math.Sqrt(Math.Pow(GetCurrentMousePosition.X - GetDartBoardCenter.X, 2) + Math.Pow(GetCurrentMousePosition.Y - GetDartBoardCenter.Y, 2)), 2);
 
       /// <summary>Gets the current mouse position.</summary>
       /// <returns>The current mouse position.</returns>
-      public Point GetCurrentMousePosition
-      {
-         get
-         {
-            return Mouse.GetPosition(DartBoard);
-         }
-      }
+      public Point GetCurrentMousePosition => Mouse.GetPosition(DartBoard);
 
       /// <summary>Gets the dart board center.</summary>
       /// <returns>The dart board center.</returns>
-      public Point GetDartBoardCenter
-      {
-         get
-         {
-            return new Point(Math.Round(DartBoard.RenderSize.Width / 2, 0), Math.Round(DartBoard.RenderSize.Height / 2, 0));
-         }
-      }
+      public Point GetDartBoardCenter => new Point(Math.Round(DartBoard.RenderSize.Width / 2, 0), Math.Round(DartBoard.RenderSize.Height / 2, 0));
 
       /// <summary>Gets the get points at mouse position.</summary>
       /// <value>The get points at mouse position.</value>
-      public IDartThrow GetPointsAtMousePosition
-      {
-         get
-         {
-            return CalculatePoints(GetCurrentAngle, GetCurrentDistanceBetweenMouseAndCenter);
-         }
-      }
+      public IDartThrow GetPointsAtMousePosition => CalculatePoints(GetCurrentAngle, GetCurrentDistanceBetweenMouseAndCenter);
 
       /// <summary>Gets a value indicating whether this instance is double.</summary>
       /// <value><c>true</c> if this instance is double; otherwise, <c>false</c>.</value>
@@ -128,13 +106,7 @@ namespace Schuermann.Dart.App.Common.UserInterface.Helper
 
       /// <summary>Gets a value indicating whether this instance is triple.</summary>
       /// <value><c>true</c> if this instance is triple; otherwise, <c>false</c>.</value>
-      public bool IsTriple
-      {
-         get
-         {
-            return GetCurrentDistanceBetweenMouseAndCenter > DartBoardUtils.GetPointsToInnerTriple(DartBoard.RenderSize.Width) && GetCurrentDistanceBetweenMouseAndCenter < DartBoardUtils.GetPointsToOuterTriple(DartBoard.RenderSize.Width);
-         }
-      }
+      public bool IsTriple => GetCurrentDistanceBetweenMouseAndCenter > DartBoardUtils.GetPointsToInnerTriple(DartBoard.RenderSize.Width) && GetCurrentDistanceBetweenMouseAndCenter < DartBoardUtils.GetPointsToOuterTriple(DartBoard.RenderSize.Width);
 
       #endregion Public Properties
 

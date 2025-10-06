@@ -52,11 +52,20 @@ namespace Schuermann.Dart.Core.Service
          return gameOptions;
       }
 
+      /// <summary>
+      /// Restarts the current game, resetting all progress and returning to the initial state.
+      /// </summary>
+      /// <exception cref="System.NotImplementedException">Thrown if the method is not implemented.</exception>
       public void RestartGame()
       {
          throw new System.NotImplementedException();
       }
 
+
+      /// <summary>
+      /// Initializes and starts a new game session using the specified game options.
+      /// </summary>
+      /// <param name="gameOptions">The configuration settings to use for the new game session. Cannot be null.</param>
       public void StartGame(IGameOptions gameOptions)
       {
          gameProcedure = new GameProcedure(gameOptions);
